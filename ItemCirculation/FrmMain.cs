@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ItemCirculation.Service;
 using ItemCirculation.Views.Loan;
 using ItemCirculation.Views.Return;
 
@@ -21,7 +22,6 @@ namespace ItemCirculation
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-
         }
         /// <summary>
         /// 借书
@@ -29,7 +29,7 @@ namespace ItemCirculation
         private void button1_Click(object sender, EventArgs e)
         {
             var son = new FrmLoanBegin { Owner = this };
-            this.Hide();
+            Hide();
             son.Show();
         }
         /// <summary>

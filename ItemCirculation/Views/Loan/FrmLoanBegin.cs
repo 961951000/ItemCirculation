@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Data.Entity.ModelConfiguration.Configuration;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ItemCirculation.Models;
+using ItemCirculation.Service;
+using ItemCirculation.ViewModels;
 
 namespace ItemCirculation.Views.Loan
 {
     public partial class FrmLoanBegin : Form
     {
+        private LoginService _loginService = new LoginService();
+        public delegate void IdentityVerificationFinishHandler(StudentView entity);
         public FrmLoanBegin()
         {
             InitializeComponent();
@@ -23,7 +20,18 @@ namespace ItemCirculation.Views.Loan
         {
             Init();
         }
-
+        private void LoginService_IdentityVerification(StudentView entity)
+        {
+            if (entity == null)
+            {
+                MessageBox.Show(@"用户验证失败");
+                Close();
+            }
+            var son = new FrmLoanSubmit { Owner = this, StudentView = entity };
+            timer1.Stop();
+            Hide();
+            son.Show();
+        }
         private void Init()
         {
             var timeout = ConfigurationManager.AppSettings["Timeout"];
@@ -48,7 +56,7 @@ namespace ItemCirculation.Views.Loan
             label1.Text = timeout.ToString();
             if (timeout == 0)
             {
-                this.Close();
+                Close();
             }
         }
         /// <summary>
@@ -56,16 +64,13 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == Keys.Enter)
             {
-                var son = new FrmLoanSubmit { Owner = this };
-                this.timer1.Stop();
-                this.Hide();
-                son.Show();
+                _loginService.IdentityVerificationFinish += LoginService_IdentityVerification;
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);

@@ -59,6 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseContext\MySqlDbContext.cs" />
+    <Compile Include="Event\EventArgs\RetreatEventArgs.cs" />
+    <Compile Include="Event\EventArgs\SubmitPostBackEventArgs.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,7 +75,12 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\LoanService.cs" />
+    <Compile Include="Service\LoginService.cs" />
+    <Compile Include="Service\ReturnService.cs" />
     <Compile Include="Util\FormStyle.cs" />
+    <Compile Include="ViewModels\CirculationView.cs" />
+    <Compile Include="ViewModels\StudentView.cs" />
     <Compile Include="Views\Loan\FrmLoanBegin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,9 +162,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resouce\item_circulation_test.sql" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resouce\images\timg.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

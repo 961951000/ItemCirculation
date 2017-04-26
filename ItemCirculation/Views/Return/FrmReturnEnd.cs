@@ -1,25 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using ItemCirculation.Util;
 
-namespace ItemCirculation.Views.Loan
+namespace ItemCirculation.Views.Return
 {
-    public partial class FrmLoanEnd : Form
+    public partial class FrmReturnEnd : Form
     {
-        public FrmLoanEnd()
+        public FrmReturnEnd()
         {
             InitializeComponent();
         }
 
-        private void FrmLoanEnd_Load(object sender, EventArgs e)
+        private void FrmReturnEnd_Load(object sender, EventArgs e)
         {
             FormStyle.InitDataGridView(dataGridView1);
             int index = this.dataGridView1.Rows.Add("开一家自己的个性店", "陈兴良", "C2815A9F000104E0", "操作成功");

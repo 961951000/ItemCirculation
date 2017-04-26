@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ItemCirculation.Util;
 
 namespace ItemCirculation.Views.Loan
 {
@@ -20,51 +21,20 @@ namespace ItemCirculation.Views.Loan
 
         private void FrmLoanSubmit_Load(object sender, EventArgs e)
         {
-
-            InitDataGridView(dataGridView1);
-            for (int i = 0; i < 10; i++)
-            {
-                int index = this.dataGridView1.Rows.Add("笔记本电脑", "联想");
-                dataGridView1.Rows[index].Tag = i;
-            }
+            FormStyle.InitDataGridView(dataGridView1);
+            int index = this.dataGridView1.Rows.Add("开一家自己的个性店", "陈兴良", "C2815A9F000104E0");
+            dataGridView1.Rows[index].Tag = index;
+            index = this.dataGridView1.Rows.Add("诚信善待宽容", "吕来明", "20825A9F000104E0");
+            dataGridView1.Rows[index].Tag = index;
+            index = this.dataGridView1.Rows.Add("建设工程安全生产法律法规", "柴建国", "0D765A9F000104E0");
+            dataGridView1.Rows[index].Tag = index;
+            index = this.dataGridView1.Rows.Add("2016全国职称英语等级考试历年真题及全真模拟试卷", "郑少华", "61765A9F000104E0");
+            dataGridView1.Rows[index].Tag = index;
+            index = this.dataGridView1.Rows.Add("江泽民文选.第一卷", "孙国栋", "ZD2016022");
+            dataGridView1.Rows[index].Tag = index;
+            index = this.dataGridView1.Rows.Add("科学发展观学习纲要", "侯健", "ZD2016003");
+            dataGridView1.Rows[index].Tag = index;
             Init();
-        }
-        public void InitDataGridView(DataGridView dgv)
-        {
-            //只读属性设置 
-            dgv.ReadOnly = true;
-            //尾行自动追加 
-            dgv.AllowUserToAddRows = false;
-            dgv.AllowUserToDeleteRows = false;
-            //行幅自动变化               
-            dgv.AllowUserToResizeRows = true;
-            //高度设定               
-            dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            //标头设定                 
-            dgv.RowHeadersVisible = true;
-            //标题行高 
-            dgv.ColumnHeadersHeight = 25;
-            dgv.RowTemplate.Height = 23;
-            //行选择设定 
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //多行选择 
-            dgv.MultiSelect = false;
-            //选择状态解除 
-            dgv.ClearSelection();
-            //head文字居中       
-            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //选择状态的行的颜色 
-            dgv.DefaultCellStyle.SelectionBackColor = Color.LightSteelBlue;
-            dgv.DefaultCellStyle.SelectionForeColor = Color.Black;
-            //设定交替行颜色 
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.White;
-            dgv.RowsDefaultCellStyle.BackColor = Color.LightGray;
-            //行副填充时自动调整宽度 
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv.AutoGenerateColumns = false;
-            //可否手动调整行大小 
-            dgv.AllowUserToResizeRows = false;
-            dgv.AutoGenerateColumns = false;
         }
         private void Init()
         {
@@ -110,31 +80,10 @@ namespace ItemCirculation.Views.Loan
             this.Hide();
             son.Show();
         }
-        /// <summary>
-        /// 设置grid交替行颜色
-        /// </summary>
-        public static void SetGridAlternatingRows(DataGridView dg)
-        {
-            if (dg != null)
-            {
-                dg.RowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
-                dg.AlternatingRowsDefaultCellStyle.BackColor = Color.Wheat;
-            }
-        }
 
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            var grid = sender as DataGridView;
-            var rowIdx = (e.RowIndex + 1).ToString();
-            var centerFormat = new StringFormat()
-            {
-                // right alignment might actually make more sense for numbers  
-                Alignment = StringAlignment.Center,
-                LineAlignment = StringAlignment.Center
-            };
-            if (grid == null) return;
-            var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIdx, this.Font, SystemBrushes.ControlText, headerBounds, centerFormat);
+            FormStyle.DataGridViewShowLineNumber(sender, e, this.Font);
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ItemCirculation.Views.Loan;
+using ItemCirculation.Views.Return;
 
 namespace ItemCirculation
 {
@@ -36,7 +37,9 @@ namespace ItemCirculation
         /// </summary>
         private void button2_Click(object sender, EventArgs e)
         {
-
+            var son = new FrmReturnBegin { Owner = this };
+            this.Hide();
+            son.Show();
         }
     }
 }

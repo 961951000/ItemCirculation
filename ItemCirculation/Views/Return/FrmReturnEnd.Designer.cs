@@ -1,6 +1,6 @@
-﻿namespace ItemCirculation.Views.Loan
+﻿namespace ItemCirculation.Views.Return
 {
-    partial class FrmLoanEnd
+    partial class FrmReturnEnd
     {
         /// <summary>
         /// Required designer variable.
@@ -72,12 +72,12 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 14;
-            this.label6.Text = "已借：";
+            this.label6.Text = "已还：";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(370, 141);
+            this.label5.Location = new System.Drawing.Point(381, 141);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(119, 12);
             this.label5.TabIndex = 13;
@@ -95,7 +95,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(186, 141);
+            this.label3.Location = new System.Drawing.Point(176, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 11;
@@ -172,7 +172,7 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 150;
             // 
-            // FrmLoanEnd
+            // FrmReturnEnd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,11 +186,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FrmLoanEnd";
+            this.Name = "FrmReturnEnd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "自助借还平台 - 物品借出";
+            this.Text = "自助借还平台 - 物品归还";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmEnd_FormClosing);
-            this.Load += new System.EventHandler(this.FrmLoanEnd_Load);
+            this.Load += new System.EventHandler(this.FrmReturnEnd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

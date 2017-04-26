@@ -72,23 +72,42 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Loan\FrmLoanEnd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Loan\FrmLoanEnd.Designer.cs">
-      <DependentUpon>FrmLoanEnd.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Util\FormStyle.cs" />
     <Compile Include="Views\Loan\FrmLoanBegin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Loan\FrmLoanBegin.Designer.cs">
       <DependentUpon>FrmLoanBegin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Loan\FrmLoanEnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Loan\FrmLoanEnd.Designer.cs">
+      <DependentUpon>FrmLoanEnd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Loan\FrmLoanSubmit.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Loan\FrmLoanSubmit.Designer.cs">
       <DependentUpon>FrmLoanSubmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Return\FrmReturnEnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Return\FrmReturnEnd.Designer.cs">
+      <DependentUpon>FrmReturnEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Return\FrmReturnBegin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Return\FrmReturnBegin.Designer.cs">
+      <DependentUpon>FrmReturnBegin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Return\FrmReturnSubmit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Return\FrmReturnSubmit.Designer.cs">
+      <DependentUpon>FrmReturnSubmit.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
@@ -103,14 +122,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Views\Loan\FrmLoanEnd.resx">
-      <DependentUpon>FrmLoanEnd.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Loan\FrmLoanBegin.resx">
       <DependentUpon>FrmLoanBegin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Loan\FrmLoanEnd.resx">
+      <DependentUpon>FrmLoanEnd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Loan\FrmLoanSubmit.resx">
       <DependentUpon>FrmLoanSubmit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Return\FrmReturnEnd.resx">
+      <DependentUpon>FrmReturnEnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Return\FrmReturnBegin.resx">
+      <DependentUpon>FrmReturnBegin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Return\FrmReturnSubmit.resx">
+      <DependentUpon>FrmReturnSubmit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -126,9 +154,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Return\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resouce\images\timg.jpg" />
   </ItemGroup>

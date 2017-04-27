@@ -56,8 +56,8 @@ namespace ItemCirculation.Views.Return
             if (keyData == Keys.Enter)
             {
                 var son = new FrmReturnSubmit { Owner = this };
-                this.timer1.Stop();
-                this.Hide();
+                timer1.Stop();
+                Hide();
                 son.Show();
                 return true;
             }

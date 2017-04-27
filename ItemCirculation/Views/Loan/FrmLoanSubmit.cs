@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ItemCirculation.DatabaseContext;
 using ItemCirculation.Event.EventArgs;
+using ItemCirculation.Event.EventHandler;
 using ItemCirculation.Util;
 using ItemCirculation.ViewModels;
 
@@ -13,7 +14,8 @@ namespace ItemCirculation.Views.Loan
     {
 
         private FrmLoanEnd _son;
-        public event EventHandler<SubmitPostBackEventArgs> SubmitPostBack;
+
+        public SubmitPostBackEventHandler SubmitPostBack { get; set; }
         public StudentView StudentView { get; set; }
 
         public FrmLoanSubmit()
@@ -54,19 +56,7 @@ namespace ItemCirculation.Views.Loan
             FormClosing -= FrmReadItem_FormClosing;
             Owner.Close();
         }
-        /// <summary>
-        /// 计时器
-        /// </summary>
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            var timeout = Convert.ToInt32(label1.Text);
-            timeout--;
-            label1.Text = timeout.ToString();
-            if (timeout == 0)
-            {
-                Close();
-            }
-        }
+
         /// <summary>
         /// 计时开始
         /// </summary>
@@ -76,6 +66,7 @@ namespace ItemCirculation.Views.Loan
             label1.Text = timeout;
             timer1.Start();
         }
+
         /// <summary>
         /// 计时结束
         /// </summary>
@@ -84,6 +75,7 @@ namespace ItemCirculation.Views.Loan
             label1.Text = string.Empty;
             timer1.Stop();
         }
+
         /// <summary>
         /// 返回按钮
         /// </summary>
@@ -91,6 +83,7 @@ namespace ItemCirculation.Views.Loan
         {
             Close();
         }
+
         /// <summary>
         /// 确认按钮
         /// </summary>
@@ -99,8 +92,12 @@ namespace ItemCirculation.Views.Loan
             if (_son == null)
             {
                 TimingEnd();
-                _son = new FrmLoanEnd { Owner = this, StudentView = StudentView };
-                _son.LoanEndRetreat += Retreat;
+                _son = new FrmLoanEnd
+                {
+                    Owner = this,
+                    StudentView = StudentView,
+                };
+                _son.LoanEndRetreat += FrmLoanEnd_Retreat;
                 _son.Show();
                 Hide();
             }
@@ -123,16 +120,37 @@ namespace ItemCirculation.Views.Loan
             }
         }
 
+        #region 事件处理程序
+
+        /// <summary>
+        /// 超时处理
+        /// </summary>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var timeout = Convert.ToInt32(label1.Text);
+            timeout--;
+            label1.Text = timeout.ToString();
+            if (timeout == 0)
+            {
+                Close();
+            }
+        }
+
+        /// <summary>
+        /// 显示行号
+        /// </summary>
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
             FormStyle.DataGridViewShowLineNumber(sender, e, Font);
         }
+
         /// <summary>
-        /// 回退事件
+        /// 回退处理
         /// </summary>
-        public void Retreat(object sender, RetreatEventArgs e)
+        public void FrmLoanEnd_Retreat(object sender, RetreatEventArgs e)
         {
-            label7.Text = (Convert.ToInt32(label7.Text) + e.SuccessCount).ToString();
+            label7.Text = e.SuccessCount.ToString();
+            dataGridView1.Rows.Clear();
             using (var db = new MySqlDbContext())
             {
                 var list = db.Item.ToList();
@@ -143,10 +161,11 @@ namespace ItemCirculation.Views.Loan
                     dataGridView1.Rows[index].Tag = item.Id;
                 }
             }
-            if (_son == null) return;
-            _son.Hide();
             Show();
+            _son.Hide();
             TimingBegin();
         }
+
+        #endregion 事件处理程序
     }
 }

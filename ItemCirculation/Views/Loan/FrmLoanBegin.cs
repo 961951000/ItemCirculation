@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
-using ItemCirculation.Models;
 using ItemCirculation.Service;
 using ItemCirculation.ViewModels;
 
@@ -9,7 +8,7 @@ namespace ItemCirculation.Views.Loan
 {
     public partial class FrmLoanBegin : Form
     {
-        private LoginService _loginService = new LoginService();
+        private readonly LoginService _loginService = new LoginService();
         public delegate void IdentityVerificationFinishHandler(StudentView entity);
         public FrmLoanBegin()
         {
@@ -27,10 +26,17 @@ namespace ItemCirculation.Views.Loan
                 MessageBox.Show(@"用户验证失败");
                 Close();
             }
-            var son = new FrmLoanSubmit { Owner = this, StudentView = entity };
-            timer1.Stop();
-            Hide();
-            son.Show();
+            else
+            {
+                timer1.Stop();
+                var son = new FrmLoanSubmit
+                {
+                    Owner = this,
+                    StudentView = entity,
+                };
+                son.Show();
+                Hide();
+            }
         }
         private void Init()
         {
@@ -44,7 +50,7 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Owner.Show();
+            Owner.Show();
         }
         /// <summary>
         /// 计时器
@@ -71,6 +77,7 @@ namespace ItemCirculation.Views.Loan
             if (keyData == Keys.Enter)
             {
                 _loginService.IdentityVerificationFinish += LoginService_IdentityVerification;
+                _loginService.IdentityVerification("1619397716");
                 return true;
             }
             return base.ProcessCmdKey(ref msg, keyData);

@@ -62,6 +62,7 @@
     <Compile Include="DatabaseContext\MySqlDbContext.cs" />
     <Compile Include="Event\EventArgs\RetreatEventArgs.cs" />
     <Compile Include="Event\EventArgs\SubmitPostBackEventArgs.cs" />
+    <Compile Include="Event\EventHandler\SubmitPostBackEventHandler.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>

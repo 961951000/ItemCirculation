@@ -11,7 +11,7 @@ namespace ItemCirculation.Views.Loan
 {
     public partial class FrmLoanEnd : Form
     {
-        private long _successCount = 0;
+        private long _successCount;
         public event EventHandler<RetreatEventArgs> LoanEndRetreat;
         public StudentView StudentView { get; set; }
         public FrmLoanEnd()
@@ -102,14 +102,15 @@ namespace ItemCirculation.Views.Loan
             var parent = Owner as FrmLoanSubmit;
             if (parent != null)
             {
-                parent.SubmitPostBack += SubmitPostBack;
+                parent.SubmitPostBack = FrmLoanSubmit_SubmitPostBack;
             }
             LoanEndRetreat?.Invoke(sender, new RetreatEventArgs { SuccessCount = _successCount });
         }
-        public void SubmitPostBack(object sender, SubmitPostBackEventArgs e)
+        public void FrmLoanSubmit_SubmitPostBack(object sender, SubmitPostBackEventArgs e)
         {
             var list = e.View;
             label7.Text = (Convert.ToInt32(label7.Text) + list.Count(x => x.ExecuteResult)).ToString();
+            _successCount = Convert.ToInt32(label7.Text);
             foreach (var item in list)
             {
                 var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid, item.ExecuteResult ? "操作成功" : "操作失败");

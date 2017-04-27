@@ -15,7 +15,7 @@ namespace ItemCirculation.Models
 		/// 自动编号
 		/// </summary>
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("id", Order = 0)]
-		public string Id
+		public int? Id
 		{
 			set;
 			get;

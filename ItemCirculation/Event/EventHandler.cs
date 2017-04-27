@@ -1,11 +1,13 @@
-﻿namespace ItemCirculation.Event
+﻿using System;
+
+namespace ItemCirculation.Event
 {
     /// <summary>
-    /// 提交返回处理程序
+    /// 提交事件处理程序
     /// </summary>
-    public delegate void SubmitPostBackEventHandler(object sender, SubmitPostBackEventArgs e);
+    public delegate void SubmitPostBackEventHandler(object sender, EventArgs e);
     /// <summary>
-    /// 身份验证结束处理程序
+    /// 完成事件
     /// </summary>
-    public delegate void IdentityVerificationFinishHandler(object sender, IdentityVerificationFinishEventArgs e);
+    public delegate void FinishEventHandler(object sender, EventArgs e);
 }

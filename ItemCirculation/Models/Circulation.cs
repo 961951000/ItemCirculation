@@ -15,7 +15,7 @@ namespace ItemCirculation.Models
 		/// 自动编号
 		/// </summary>
 		[Key, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("id", Order = 0)]
-		public string Id
+		public int? Id
 		{
 			set;
 			get;
@@ -25,7 +25,7 @@ namespace ItemCirculation.Models
 		/// 物品编号
 		/// </summary>
 		[Column("item_id")]
-		public string ItemId
+		public int? ItemId
 		{
 			set;
 			get;
@@ -35,7 +35,7 @@ namespace ItemCirculation.Models
 		/// 借出人编号
 		/// </summary>
 		[Column("loan_student_id")]
-		public string LoanStudentId
+		public int? LoanStudentId
 		{
 			set;
 			get;
@@ -45,7 +45,7 @@ namespace ItemCirculation.Models
 		/// 归还人编号
 		/// </summary>
 		[Column("return_student_id")]
-		public string ReturnStudentId
+		public int? ReturnStudentId
 		{
 			set;
 			get;

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using ItemCirculation.Models;
 using ItemCirculation.ViewModels;
 
 namespace ItemCirculation.Event
 {
     public class IdentityVerificationFinishEventArgs : EventArgs
     {
-        public StudentView View { get; set; }
+        public Student Student { get; set; }
     }
 
     public class SubmitPostBackEventArgs : EventArgs
@@ -18,6 +19,6 @@ namespace ItemCirculation.Event
         /// <summary>
         /// 流通信息显示
         /// </summary>
-        public long SuccessCount;
+        public int SuccessCount;
     }
 }

@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
 using System.Windows.Forms;
-using ItemCirculation.DatabaseContext;
 using ItemCirculation.Event;
+using ItemCirculation.Models;
 using ItemCirculation.Util;
 using ItemCirculation.ViewModels;
 
@@ -12,7 +12,9 @@ namespace ItemCirculation.Views.Loan
     public partial class FrmLoanEnd : Form
     {
         public event EventHandler<EventArgs> LoanEndRetreat;
-        public StudentView StudentView { get; set; }
+        public Student Student { get; set; }
+        public List<CirculationView> GirdView { get; set; }
+        public int SuccessCount { get; set; }
         public FrmLoanEnd()
         {
             InitializeComponent();
@@ -22,16 +24,7 @@ namespace ItemCirculation.Views.Loan
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             FormStyle.InitDataGridView(dataGridView1);
-            using (var db = new MySqlDbContext())
-            {
-                var list = db.Item.ToList();
-                label7.Text = list.Count.ToString();
-                foreach (var item in list)
-                {
-                    var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid);
-                    dataGridView1.Rows[index].Tag = item.Id;
-                }
-            }
+
             Init();
         }
         /// <summary>
@@ -39,10 +32,13 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void Init()
         {
-            if (StudentView != null)
+            label3.Text = Student.StudentName;
+            label5.Text = Student.StudentCode;
+            label7.Text = SuccessCount.ToString();
+            foreach (var variable in GirdView)
             {
-                label3.Text = StudentView.StudentName;
-                label5.Text = StudentView.StudentCode;
+                var index = dataGridView1.Rows.Add(variable.ItemName, variable.ItemType, variable.Uid,variable.ExecuteResult?"操作成功":"操作失败");
+                dataGridView1.Rows[index].Tag = variable.ItemId;
             }
             TimingBegin();
         }
@@ -115,10 +111,12 @@ namespace ItemCirculation.Views.Loan
         /// <summary>
         /// 提交后处理程序
         /// </summary>
-        public void FrmLoanSubmit_SubmitPostBack(object sender, SubmitPostBackEventArgs e)
+        public void FrmLoanSubmit_SubmitPostBack(object sender, EventArgs e)
         {
-            var list = e.View;
-            label7.Text = e.SuccessCount.ToString();
+            if (!(e is SubmitPostBackEventArgs args)) { return; }
+            var list = args.View;
+            SuccessCount += args.SuccessCount;
+            label7.Text = SuccessCount.ToString();
             foreach (var item in list)
             {
                 var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid, item.ExecuteResult ? "操作成功" : "操作失败");

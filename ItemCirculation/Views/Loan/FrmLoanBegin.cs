@@ -76,9 +76,10 @@ namespace ItemCirculation.Views.Loan
         /// <summary>
         /// 身份验证结束处理
         /// </summary>
-        private void LoginService_IdentityVerification(object sender, IdentityVerificationFinishEventArgs e)
+        private void LoginService_IdentityVerification(object sender, EventArgs e)
         {
-            var entity = e.View;
+            if (!(e is IdentityVerificationFinishEventArgs args)){ return;}
+            var entity = args.Student;
             if (entity == null)
             {
                 MessageBox.Show(@"用户验证失败");
@@ -90,7 +91,7 @@ namespace ItemCirculation.Views.Loan
                 var son = new FrmLoanSubmit
                 {
                     Owner = this,
-                    StudentView = entity,
+                    Student = entity,
                 };
                 son.Show();
                 Hide();

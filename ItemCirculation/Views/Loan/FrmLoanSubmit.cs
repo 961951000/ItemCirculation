@@ -1,21 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 using ItemCirculation.DatabaseContext;
 using ItemCirculation.Event;
+using ItemCirculation.Models;
+using ItemCirculation.Service;
 using ItemCirculation.Util;
-using ItemCirculation.ViewModels;
 
 namespace ItemCirculation.Views.Loan
 {
     public partial class FrmLoanSubmit : Form
     {
-
         private FrmLoanEnd _son;
-
+        private readonly LoanService _loanService = new LoanService();
         public SubmitPostBackEventHandler SubmitPostBack { get; set; }
-        public StudentView StudentView { get; set; }
+        public Student Student { get; set; }
 
         public FrmLoanSubmit()
         {
@@ -43,10 +44,10 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void Init()
         {
-            if (StudentView != null)
+            if (Student != null)
             {
-                label3.Text = StudentView.StudentName;
-                label5.Text = StudentView.StudentCode;
+                label3.Text = Student.StudentName;
+                label5.Text = Student.StudentCode;
             }
             TimingBegin();
         }
@@ -92,36 +93,38 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void button2_Click(object sender, EventArgs e)
         {
+            var list = new List<Item>();
+            using (var db = new MySqlDbContext())
+            {
+                list.AddRange(dataGridView1.Rows.Cast<DataGridViewRow>()
+                    .Select(variable => Convert.ToInt32(variable.Tag))
+                    .Select(tag => db.Item.Single(x => x.Id == tag)));
+            }
+            var girdview = _loanService.Circulation(list, Student);
+            var successCount = girdview.Count(x => x.ExecuteResult);
             if (_son == null)
             {
                 TimingEnd();
                 _son = new FrmLoanEnd
                 {
                     Owner = this,
-                    StudentView = StudentView,
+                    Student = Student,
+                    GirdView = girdview,
+                    SuccessCount = successCount
                 };
                 _son.LoanEndRetreat += FrmLoanEnd_Retreat;
-                _son.Show();
-                Hide();
             }
             else
             {
-                using (var db = new MySqlDbContext())
+                SubmitPostBack?.Invoke(sender, new SubmitPostBackEventArgs
                 {
-                    var list = db.Item.Select(x => new CirculationView
-                    {
-                        Uid = x.Uid,
-                        ItemNumber = x.ItemNumber,
-                        ItemName = x.ItemName,
-                        ItemType = x.ItemType,
-                        ItemStateCode = x.ItemStateCode,
-                        ExecuteResult = true
-                    }).ToList();
-                    SubmitPostBack?.Invoke(sender, new SubmitPostBackEventArgs { View = list });
-                    _son.Show();
-                    Hide();
-                }
+                    View = girdview,
+                    SuccessCount = successCount
+                });
             }
+            label7.Text = (Convert.ToInt32(label7.Text) + successCount).ToString();
+            _son.Show();
+            Hide();
         }
 
         #region 事件处理程序
@@ -157,7 +160,7 @@ namespace ItemCirculation.Views.Loan
             using (var db = new MySqlDbContext())
             {
                 var list = db.Item.ToList();
-                label8.Text = $@"共{list.Count}本";
+                label8.Text = $@"共{list.Count}件";
                 foreach (var item in list)
                 {
                     var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid);

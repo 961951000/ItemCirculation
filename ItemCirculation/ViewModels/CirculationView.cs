@@ -12,7 +12,7 @@ namespace ItemCirculation.ViewModels
         /// <summary>
         /// 物品信息编号
         /// </summary>
-        public string ItemId
+        public int? ItemId
         {
             set;
             get;
@@ -53,7 +53,7 @@ namespace ItemCirculation.ViewModels
         /// <summary>
         /// 物品状态码
         /// </summary>
-        public string ItemStateCode
+        public int? ItemStateCode
         {
             set;
             get;

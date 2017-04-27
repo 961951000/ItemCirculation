@@ -1,6 +1,6 @@
 ﻿namespace ItemCirculation.Service
 {
-    public class LoanService
+    public class LoanService: CirculationService
     {
     }
 }

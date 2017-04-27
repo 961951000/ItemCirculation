@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ItemCirculation.Service
+namespace ItemCirculation.Enum
 {
-    public class ReturnService : CirculationService
+    public enum ItemStateCode
     {
+        在馆 = 1001,
+        外借 = 1002
     }
 }

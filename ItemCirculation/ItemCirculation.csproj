@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\MySqlDbContext.cs" />
+    <Compile Include="Enum\ItemStateCode.cs" />
     <Compile Include="Event\EventArgs.cs" />
     <Compile Include="Event\EventHandler.cs" />
     <Compile Include="FrmMain.cs">
@@ -75,10 +76,12 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CirculationService.cs" />
     <Compile Include="Service\LoanService.cs" />
     <Compile Include="Service\LoginService.cs" />
     <Compile Include="Service\ReturnService.cs" />
     <Compile Include="Util\FormStyle.cs" />
+    <Compile Include="Api\RfidApi.cs" />
     <Compile Include="ViewModels\CirculationView.cs" />
     <Compile Include="ViewModels\StudentView.cs" />
     <Compile Include="Views\Loan\FrmLoanBegin.cs">

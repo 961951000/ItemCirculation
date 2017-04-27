@@ -3,7 +3,6 @@ using System.Configuration;
 using System.Windows.Forms;
 using ItemCirculation.Event;
 using ItemCirculation.Service;
-using ItemCirculation.ViewModels;
 
 namespace ItemCirculation.Views.Loan
 {
@@ -20,7 +19,9 @@ namespace ItemCirculation.Views.Loan
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             Init();
         }
-
+        /// <summary>
+        /// 初始化
+        /// </summary>
         private void Init()
         {
             TimingBegin();

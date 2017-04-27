@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ItemCirculation.Service
 {
-    public class ReturnService : CirculationService
+    public class CirculationService
     {
     }
 }

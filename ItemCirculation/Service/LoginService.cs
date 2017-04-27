@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using ItemCirculation.DatabaseContext;
 using ItemCirculation.Event;
 using ItemCirculation.ViewModels;
-using ItemCirculation.Views.Loan;
-using System.Windows.Forms;
 
 namespace ItemCirculation.Service
 {

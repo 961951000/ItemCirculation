@@ -38,6 +38,9 @@ namespace ItemCirculation.Views.Loan
             }
             Init();
         }
+        /// <summary>
+        /// 初始化
+        /// </summary>
         private void Init()
         {
             if (StudentView != null)
@@ -111,6 +114,7 @@ namespace ItemCirculation.Views.Loan
                         ItemNumber = x.ItemNumber,
                         ItemName = x.ItemName,
                         ItemType = x.ItemType,
+                        ItemStateCode = x.ItemStateCode,
                         ExecuteResult = true
                     }).ToList();
                     SubmitPostBack?.Invoke(sender, new SubmitPostBackEventArgs { View = list });
@@ -137,7 +141,7 @@ namespace ItemCirculation.Views.Loan
         }
 
         /// <summary>
-        /// 显示行号
+        /// gird显示行号
         /// </summary>
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
@@ -147,9 +151,8 @@ namespace ItemCirculation.Views.Loan
         /// <summary>
         /// 回退处理
         /// </summary>
-        public void FrmLoanEnd_Retreat(object sender, RetreatEventArgs e)
+        public void FrmLoanEnd_Retreat(object sender, EventArgs e)
         {
-            label7.Text = e.SuccessCount.ToString();
             dataGridView1.Rows.Clear();
             using (var db = new MySqlDbContext())
             {

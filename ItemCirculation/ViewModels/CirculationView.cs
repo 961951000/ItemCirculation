@@ -51,6 +51,14 @@ namespace ItemCirculation.ViewModels
             get;
         }
         /// <summary>
+        /// 物品状态码
+        /// </summary>
+        public string ItemStateCode
+        {
+            set;
+            get;
+        }
+        /// <summary>
         /// 操作结果
         /// </summary>
         public bool ExecuteResult { get; set; }

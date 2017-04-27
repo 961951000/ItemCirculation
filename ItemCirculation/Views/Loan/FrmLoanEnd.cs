@@ -11,8 +11,7 @@ namespace ItemCirculation.Views.Loan
 {
     public partial class FrmLoanEnd : Form
     {
-        private long _successCount;
-        public event EventHandler<RetreatEventArgs> LoanEndRetreat;
+        public event EventHandler<EventArgs> LoanEndRetreat;
         public StudentView StudentView { get; set; }
         public FrmLoanEnd()
         {
@@ -35,7 +34,9 @@ namespace ItemCirculation.Views.Loan
             }
             Init();
         }
-
+        /// <summary>
+        /// 初始化
+        /// </summary>
         private void Init()
         {
             if (StudentView != null)
@@ -54,19 +55,6 @@ namespace ItemCirculation.Views.Loan
             Owner.Close();
         }
 
-        /// <summary>
-        /// 计时器
-        /// </summary>
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            var timeout = Convert.ToInt32(label1.Text);
-            timeout--;
-            label1.Text = timeout.ToString();
-            if (timeout == 0)
-            {
-                Close();
-            }
-        }
         /// <summary>
         /// 计时开始
         /// </summary>
@@ -92,32 +80,45 @@ namespace ItemCirculation.Views.Loan
             Close();
         }
 
-        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            FormStyle.DataGridViewShowLineNumber(sender, e, Font);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             TimingEnd();
-            var parent = Owner as FrmLoanSubmit;
-            if (parent != null)
+            if (Owner is FrmLoanSubmit parent)
             {
                 parent.SubmitPostBack = FrmLoanSubmit_SubmitPostBack;
             }
-            LoanEndRetreat?.Invoke(sender, new RetreatEventArgs { SuccessCount = _successCount });
+            LoanEndRetreat?.Invoke(sender, e);
         }
 
         #region 事件处理程序
 
-
-
-        #endregion 事件处理程序
+        /// <summary>
+        /// 超时处理
+        /// </summary>
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            var timeout = Convert.ToInt32(label1.Text);
+            timeout--;
+            label1.Text = timeout.ToString();
+            if (timeout == 0)
+            {
+                Close();
+            }
+        }
+        /// <summary>
+        /// gird显示行号
+        /// </summary>
+        private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            FormStyle.DataGridViewShowLineNumber(sender, e, Font);
+        }
+        /// <summary>
+        /// 提交后处理程序
+        /// </summary>
         public void FrmLoanSubmit_SubmitPostBack(object sender, SubmitPostBackEventArgs e)
         {
             var list = e.View;
-            label7.Text = (Convert.ToInt32(label7.Text) + list.Count(x => x.ExecuteResult)).ToString();
-            _successCount = Convert.ToInt32(label7.Text);
+            label7.Text = e.SuccessCount.ToString();
             foreach (var item in list)
             {
                 var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid, item.ExecuteResult ? "操作成功" : "操作失败");
@@ -125,5 +126,8 @@ namespace ItemCirculation.Views.Loan
             }
             TimingBegin();
         }
+
+        #endregion 事件处理程序
+
     }
 }

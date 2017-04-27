@@ -16,6 +16,7 @@ namespace ItemCirculation.Views.Return
 
         private void FrmReturnEnd_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             FormStyle.InitDataGridView(dataGridView1);
             using (var db = new MySqlDbContext())
             {

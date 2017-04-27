@@ -3,8 +3,7 @@ using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 using ItemCirculation.DatabaseContext;
-using ItemCirculation.Event.EventArgs;
-using ItemCirculation.Event.EventHandler;
+using ItemCirculation.Event;
 using ItemCirculation.Util;
 using ItemCirculation.ViewModels;
 
@@ -25,6 +24,7 @@ namespace ItemCirculation.Views.Loan
 
         private void FrmLoanSubmit_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             FormStyle.InitDataGridView(dataGridView1);
             using (var db = new MySqlDbContext())
             {

@@ -14,6 +14,7 @@ namespace ItemCirculation.Views.Return
 
         private void FrmReturnBegin_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             Init();
         }
 

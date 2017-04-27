@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Linq;
 using ItemCirculation.DatabaseContext;
+using ItemCirculation.Event;
 using ItemCirculation.ViewModels;
 using ItemCirculation.Views.Loan;
+using System.Windows.Forms;
 
 namespace ItemCirculation.Service
 {
     public class LoginService
     {
-        public event FrmLoanBegin.IdentityVerificationFinishHandler IdentityVerificationFinish;
+        public event IdentityVerificationFinishHandler IdentityVerificationFinish;
         /// <summary>
         /// 身份验证
         /// </summary>
@@ -35,7 +37,7 @@ namespace ItemCirculation.Service
                 {
                     entity = query.First();
                 }
-                IdentityVerificationFinish?.Invoke(entity);
+                IdentityVerificationFinish?.Invoke(this, new IdentityVerificationFinishEventArgs { View=entity });
             }
         }
     }

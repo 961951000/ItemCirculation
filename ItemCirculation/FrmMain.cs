@@ -17,11 +17,12 @@ namespace ItemCirculation
     {
         public FrmMain()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
         }
         /// <summary>
         /// 借书
@@ -38,7 +39,7 @@ namespace ItemCirculation
         private void button2_Click(object sender, EventArgs e)
         {
             var son = new FrmReturnBegin { Owner = this };
-            this.Hide();
+            Hide();
             son.Show();
         }
     }

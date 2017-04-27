@@ -3,7 +3,7 @@ using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 using ItemCirculation.DatabaseContext;
-using ItemCirculation.Event.EventArgs;
+using ItemCirculation.Event;
 using ItemCirculation.Util;
 using ItemCirculation.ViewModels;
 
@@ -21,6 +21,7 @@ namespace ItemCirculation.Views.Loan
 
         private void FrmLoanEnd_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             FormStyle.InitDataGridView(dataGridView1);
             using (var db = new MySqlDbContext())
             {
@@ -106,6 +107,12 @@ namespace ItemCirculation.Views.Loan
             }
             LoanEndRetreat?.Invoke(sender, new RetreatEventArgs { SuccessCount = _successCount });
         }
+
+        #region 事件处理程序
+
+
+
+        #endregion 事件处理程序
         public void FrmLoanSubmit_SubmitPostBack(object sender, SubmitPostBackEventArgs e)
         {
             var list = e.View;

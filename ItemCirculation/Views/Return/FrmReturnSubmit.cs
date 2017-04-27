@@ -17,6 +17,7 @@ namespace ItemCirculation.Views.Return
 
         private void FrmReturnSubmit_Load(object sender, EventArgs e)
         {
+            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             FormStyle.InitDataGridView(dataGridView1);
             using (var db = new MySqlDbContext())
             {
@@ -75,9 +76,14 @@ namespace ItemCirculation.Views.Return
             son.Show();
         }
 
+        #region MyRegion
+
+        
+
+        #endregion
         private void dataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            FormStyle.DataGridViewShowLineNumber(sender, e, this.Font);
+            FormStyle.DataGridViewShowLineNumber(sender, e, Font);
         }
     }
 }

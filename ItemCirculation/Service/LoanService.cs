@@ -18,8 +18,8 @@ namespace ItemCirculation.Service
         /// <returns>操作结果</returns>
         public List<CirculationView> Circulation(List<Item> items, Student student)
         {
-            var listen = new ListenEvent();
-            listen.RfidRun();
+            //var listen = new ListenEvent();
+            //listen.RfidRun();
             return Circulation(items, student, true);
         }
     }

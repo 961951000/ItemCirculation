@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ReaderA;
 
-namespace ConsoleTest.Api
+namespace FormsTest.Api
 {
     public class YingXinRr9
     {
@@ -15,9 +16,9 @@ namespace ConsoleTest.Api
         /// <param name="hid">14443A卡监听事件处理程序</param>
         public delegate void HidListenEventHandler(string hid);
         /// <summary>
-        /// 14443A卡监听任务
+        /// 14443A卡监听线程
         /// </summary>
-        private Task _hidListen;
+        private Thread _hidListen;
         /// <summary>
         /// 14443A卡监听任务是否正在执行
         /// </summary>
@@ -29,9 +30,9 @@ namespace ConsoleTest.Api
         /// <param name="uidList">RFID电子标签监听事件处理程序</param>
         public delegate void UidListenEventHandler(List<string> uidList);
         /// <summary>
-        /// FID电子标签监听任务
+        /// FID电子标签监听线程
         /// </summary>
-        private Task _uidListen;
+        private Thread _uidListen;
         /// <summary>
         /// FID电子标签监听任务是否正在执行
         /// </summary>
@@ -87,6 +88,20 @@ namespace ConsoleTest.Api
             }
         }
 
+        public bool CloseComPort()
+        {
+            int ret = 0x30;
+            ret = StaticClassReaderA.CloseSpecComPort(_portIndex);
+            if (ret == 0)
+            {
+                return true;
+            }
+            else
+            {
+                Console.WriteLine(ret);
+                return false;
+            }
+        }
         /// <summary>
         /// 设置读写器为ISO15693模式。
         /// </summary>
@@ -193,7 +208,7 @@ namespace ConsoleTest.Api
         {
             if (_hidListenIsRun) return;
             _hidListenIsRun = true;
-            _hidListen = Task.Factory.StartNew(() =>
+            _hidListen = new Thread(() =>
             {
                 while (_hidListenIsRun)
                 {
@@ -211,6 +226,7 @@ namespace ConsoleTest.Api
                 }
                 _hidListenIsRun = false;
             });
+            _hidListen.Start();
         }
 
         /// <summary>
@@ -220,10 +236,7 @@ namespace ConsoleTest.Api
         {
             if (!_hidListenIsRun) return;
             _hidListenIsRun = false;
-            if (_hidListen != null)
-            {
-                Task.WaitAll(_hidListen);
-            }
+            _hidListen?.Join();
         }
 
         /// <summary>
@@ -234,7 +247,7 @@ namespace ConsoleTest.Api
         {
             if (_uidListenIsRun) return;
             _uidListenIsRun = true;
-            _uidListen = Task.Factory.StartNew(() =>
+            _uidListen = new Thread(() =>
             {
                 while (_uidListenIsRun)
                 {
@@ -272,20 +285,17 @@ namespace ConsoleTest.Api
                 }
                 _uidListenIsRun = false;
             });
+            _uidListen.Start();
         }
 
         /// <summary>
         /// 结束RFID电子标签监听。
         /// </summary>
-        /// <param name="uidList">符合协议的电子标签序列号集合</param>
-        public void StopUidListen(ref List<string> uidList)
+        public void StopUidListen()
         {
             if (!_uidListenIsRun) return;
             _uidListenIsRun = false;
-            if (_uidListen != null)
-            {
-                Task.WaitAll(_uidListen);
-            }
+            //_uidListen?.Join();
         }
 
         /// <summary>

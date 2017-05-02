@@ -234,9 +234,14 @@ namespace FormsTest.Api
         /// </summary>       
         public void StopHidListen()
         {
-            if (!_hidListenIsRun) return;
             _hidListenIsRun = false;
-            _hidListen?.Join();
+            if (_hidListen != null)
+            {
+                while (_hidListen.ThreadState == ThreadState.Running)
+                {
+
+                }
+            }
         }
 
         /// <summary>
@@ -293,9 +298,14 @@ namespace FormsTest.Api
         /// </summary>
         public void StopUidListen()
         {
-            if (!_uidListenIsRun) return;
             _uidListenIsRun = false;
-            //_uidListen?.Join();
+            if (_uidListen != null)
+            {
+                while (_uidListen.ThreadState == ThreadState.Running)
+                {
+
+                }
+            }
         }
 
         /// <summary>

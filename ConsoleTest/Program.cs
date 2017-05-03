@@ -17,8 +17,9 @@ namespace ConsoleTest
             //rr9.OpenComPort();
             //rr9.Change15693();
             //rr9.StartUidListen(aaa);
-            byte a = 65;
-            Console.WriteLine(Convert.ToString(a,10));
+            int ts = 1092447868;
+            int a = ts % (256 * 256) + (int)ts / (256 * 256) % 256 * 100000;
+            Console.WriteLine(ts.ToString("X2"));
             Console.WriteLine("END");
             Console.ReadLine();
         }

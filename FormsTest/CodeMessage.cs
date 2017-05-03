@@ -1,4 +1,4 @@
-﻿namespace FormsTest.Code4Message
+﻿namespace FormsTest
 {
     public class ReturnCode
     {

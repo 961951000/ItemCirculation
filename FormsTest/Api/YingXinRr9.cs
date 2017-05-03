@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
 using System.Threading;
-using FormsTest.Code4Message;
 using ReaderA;
 
 namespace FormsTest.Api

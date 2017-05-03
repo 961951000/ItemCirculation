@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using FormsTest.Code4Message;
 using ReaderA;
 
 namespace FormsTest.Api
@@ -77,30 +77,37 @@ namespace FormsTest.Api
 
                 }
             }
+            if (ret == 0x30 || ret == 0x35)//端口已经打开
+            {
+                CloseComPort();
+                ret = 0x30;
+                if (_autoOpenComPort)
+                {
+                    ret = StaticClassReaderA.AutoOpenComPort(ref _comPort, ref _readerAddr, fbaud, ref _portIndex); //自动连接串口
+                }
+                else
+                {
+                    for (int i = 0; i <= 3; i++)
+                    {
+                        fbaud = Convert.ToByte(i);
+                        ret = StaticClassReaderA.OpenComPort(_comPort, ref _readerAddr, fbaud, ref _portIndex);
+                    }
+                }
+            }
             if (ret == 0)
             {
                 return true;
             }
             else
             {
-                Console.WriteLine(ret);
+                Console.WriteLine(GetReturnCodeMessage(ret));
                 return false;
             }
         }
 
-        public bool CloseComPort()
+        public void CloseComPort()
         {
-            int ret = 0x30;
-            ret = StaticClassReaderA.CloseSpecComPort(_portIndex);
-            if (ret == 0)
-            {
-                return true;
-            }
-            else
-            {
-                Console.WriteLine(ret);
-                return false;
-            }
+            StaticClassReaderA.CloseSpecComPort(_portIndex);
         }
         /// <summary>
         /// 设置读写器为ISO15693模式。
@@ -115,7 +122,7 @@ namespace FormsTest.Api
             }
             else
             {
-                Console.WriteLine(ret);
+                Console.WriteLine(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -133,7 +140,7 @@ namespace FormsTest.Api
             }
             else
             {
-                Console.WriteLine(ret);
+                Console.WriteLine(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -155,7 +162,7 @@ namespace FormsTest.Api
             }
             else
             {
-                Console.WriteLine(ret);
+                Console.WriteLine(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -192,7 +199,7 @@ namespace FormsTest.Api
                     break;
                 default:
                     {
-                        Console.WriteLine(ret);
+                        Console.WriteLine(GetReturnCodeMessage(ret));
                     }
                     break;
             }
@@ -221,7 +228,7 @@ namespace FormsTest.Api
                     }
                     else
                     {
-                        Console.WriteLine(ret);
+                        Console.WriteLine(GetReturnCodeMessage(ret));
                     }
                 }
                 _hidListenIsRun = false;
@@ -282,7 +289,7 @@ namespace FormsTest.Api
                             break;
                         default:
                             {
-                                Console.WriteLine(ret);
+                                Console.WriteLine(GetReturnCodeMessage(ret));
                             }
                             break;
                     }
@@ -313,7 +320,7 @@ namespace FormsTest.Api
         /// </summary>
         /// <param name="data">字节数组</param>
         /// <returns>十六进制字符串</returns>
-        private static string ByteArrayToHexString(params byte[] data)
+        private string ByteArrayToHexString(params byte[] data)
 
         {
             StringBuilder sb = new StringBuilder(data.Length * 3);
@@ -322,6 +329,80 @@ namespace FormsTest.Api
                 sb.Append(Convert.ToString(item, 16).PadLeft(2, '0'));
             }
             return sb.ToString().ToUpper();
+        }
+        private static string GetReturnCodeMessage(int cmdRet)
+        {
+            switch (cmdRet)
+            {
+                case ReturnCode.Success:
+                    return "操作成功";
+                case ReturnCode.LengthError:
+                    return "命令操作数长度错误";
+                case ReturnCode.OperationNotSupport:
+                    return "操作命令不支持";
+                case ReturnCode.DataRangError:
+                    return "操作数范围不符";
+                case ReturnCode.CmdNotOperation:
+                    return "操作命令当前无法执行";
+                case ReturnCode.RfClosed:
+                    return "感应场处于关闭状态";
+                case ReturnCode.Eeprom:
+                    return "EEPROM操作出错";
+                case ReturnCode.TimeOut:
+                    return "指定的Inventory-Scan-Time溢出";
+                case ReturnCode.MoreUid:
+                    return "在Inventory-Scan-Time时间内无得到所有电子标签的UID";
+                case ReturnCode.IsoError:
+                    return "ISO 错误";
+                case ReturnCode.NoElectronicTag:
+                    return "无电子标签可操作";
+                case ReturnCode.OperationError:
+                    return "操作出错";
+                case ReturnCode.CommunicationErr:
+                    return "通讯错误";
+                case ReturnCode.RetCrcErr:
+                    return "CRC校验错误";
+                case ReturnCode.CommunicationBusy:
+                    return "通讯繁忙，设备正在执行其他指令";
+                case ReturnCode.ComPortOpened:
+                    return "端口已打开";
+                case ReturnCode.ComPortClose:
+                    return "端口已关闭";
+                case ReturnCode.InvalidHandle:
+                    return "无效的句柄";
+                case ReturnCode.InvalidPort:
+                    return "无效的端口";
+
+                default:
+                    return cmdRet.ToString();
+            }
+        }
+
+        private static string GetErrorCodeMessage(byte errorCode)
+        {
+            switch (errorCode)
+            {
+                case ReturnCode.CmdNotSupport:
+                    return "命令不被支持";
+                case ReturnCode.CmdNotIdentify:
+                    return "命令不被识别";
+                case ReturnCode.ErrOperationNotSupport:
+                    return "该操作不被支持";
+                case ReturnCode.UnknownError:
+                    return "未知的错误类型";
+                case ReturnCode.BlockError:
+                    return "所指定的操作块不能被使用或不存在";
+                case ReturnCode.BlockLockedCntLock:
+                    return "所指定的操作块已经被锁定，不能再次被锁定";
+                case ReturnCode.BlockLockedCntWrite:
+                    return "所指定的操作块已经被锁定，不能对其内容进行改写";
+                case ReturnCode.BlockCntOperate:
+                    return "所指定的操作块不能被正常操作";
+                case ReturnCode.BlockCntLock:
+                    return "所指定的操作块不能被正常锁定";
+                default:
+                    return errorCode.ToString();
+            }
         }
     }
 }

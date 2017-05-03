@@ -22,7 +22,6 @@ namespace FormsTest.Api
         /// 14443A卡监听任务是否正在执行
         /// </summary>
         private bool _hidListenIsRun;
-
         /// <summary>
         /// 轮训委托
         /// </summary>
@@ -40,7 +39,6 @@ namespace FormsTest.Api
         /// 是否自动打开串口
         /// </summary>
         private bool _autoOpenComPort;
-
         /// <summary>
         /// COM1—COM12与读写器连接的串口号。
         /// </summary>
@@ -53,7 +51,6 @@ namespace FormsTest.Api
         /// 与读写器连接端口对应的句柄，应用程序通过该句柄可以操作连接在相应端口的读写器。如果打开不成功，返回的句柄值为－1。
         /// </summary>
         private int _portIndex = -1;
-
         /// <summary>
         /// 打开串口
         /// </summary>
@@ -103,7 +100,6 @@ namespace FormsTest.Api
                 return false;
             }
         }
-
         public void CloseComPort()
         {
             StaticClassReaderA.CloseSpecComPort(_portIndex);
@@ -125,7 +121,6 @@ namespace FormsTest.Api
                 return false;
             }
         }
-
         /// <summary>
         /// 设置读写器为ISO14443A模式。
         /// </summary>
@@ -143,7 +138,6 @@ namespace FormsTest.Api
                 return false;
             }
         }
-
         /// <summary>
         /// 读取有效范围内14443A卡的序列号。
         /// </summary>
@@ -156,7 +150,7 @@ namespace FormsTest.Api
             ret = StaticClassReaderA.GetUIDofHID(ref _readerAddr, sn, _portIndex);
             if (ret == 0)
             {
-                hid = ByteArrayToHexString(sn);
+                hid = ByteArrayToString(sn);
                 return true;
             }
             else
@@ -165,7 +159,6 @@ namespace FormsTest.Api
                 return false;
             }
         }
-
         /// <summary>
         /// 检查有效范围内是否有符合协议的电子标签存在。
         /// </summary>
@@ -204,7 +197,6 @@ namespace FormsTest.Api
             }
             return false;
         }
-
         /// <summary>
         /// 开始14443A卡监听
         /// </summary>
@@ -223,7 +215,7 @@ namespace FormsTest.Api
                     ret = StaticClassReaderA.GetUIDofHID(ref _readerAddr, sn, _portIndex);
                     if (ret == 0)
                     {
-                        handler(ByteArrayToHexString(sn));
+                        handler(ByteArrayToString(sn));
                     }
                     else
                     {
@@ -233,7 +225,6 @@ namespace FormsTest.Api
             });
             _hidListen.Start();
         }
-
         /// <summary>
         /// 结束14443A卡监听
         /// </summary>       
@@ -249,7 +240,6 @@ namespace FormsTest.Api
                 }
             }
         }
-
         /// <summary>
         /// 开始RFID电子标签监听
         /// </summary>
@@ -297,7 +287,6 @@ namespace FormsTest.Api
             });
             _uidListen.Start();
         }
-
         /// <summary>
         /// 结束RFID电子标签监听。
         /// </summary>
@@ -313,14 +302,12 @@ namespace FormsTest.Api
                 }
             }
         }
-
         /// <summary>
         /// 字节数组转十六进制字符串
         /// </summary>
         /// <param name="data">字节数组</param>
         /// <returns>十六进制字符串</returns>
-        private string ByteArrayToHexString(params byte[] data)
-
+        private static string ByteArrayToHexString(byte[] data)
         {
             StringBuilder sb = new StringBuilder(data.Length * 3);
             foreach (byte item in data)
@@ -328,6 +315,31 @@ namespace FormsTest.Api
                 sb.Append(Convert.ToString(item, 16).PadLeft(2, '0'));
             }
             return sb.ToString().ToUpper();
+        }
+        /// <summary>
+        /// ID卡前10位
+        /// </summary>
+        /// <param name="data">字节数组</param>
+        /// <returns>十进制字符串</returns>
+        private static string ByteArrayToString(byte[] data)
+        {
+            return BitConverter.ToUInt32(data, 0).ToString();
+        }
+        /// <summary>  
+        /// 把int32类型的数据转存到4个字节的byte数组中  
+        /// </summary>  
+        /// <param name="data">int32类型的数据</param>  
+        /// <returns>4个字节大小的byte数组</returns>  
+        private static byte[] StringToByteArray(string data)
+        {
+            uint m = Convert.ToUInt32(data);
+            byte[] array = {
+                (byte)(m & 0xFF),
+                (byte)((m & 0xFF00) >> 8),
+                (byte)((m & 0xFF0000) >> 16),
+                (byte)((m >> 24) & 0xFF)
+            };
+            return array;
         }
         private static string GetReturnCodeMessage(int cmdRet)
         {
@@ -376,7 +388,6 @@ namespace FormsTest.Api
                     return cmdRet.ToString();
             }
         }
-
         private static string GetErrorCodeMessage(byte errorCode)
         {
             switch (errorCode)

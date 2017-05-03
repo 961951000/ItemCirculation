@@ -27,7 +27,8 @@ namespace FormsTest
 
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(rr9.CloseComPort() ? "操作成功！" : "操作失败！");
+            rr9.CloseComPort();
+            MessageBox.Show("操作成功！");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -75,14 +76,13 @@ namespace FormsTest
                 textBox1.Clear();
                 textBox1.Text = $"{str}:{DateTime.Now}";
             }));
-           
+
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
         {
             rr9.StopHidListen();
         }
-
         private void button9_Click(object sender, EventArgs e)
         {
             rr9.StartUidListen(Uid);
@@ -97,7 +97,7 @@ namespace FormsTest
                     textBox1.Text += $"{item}:{DateTime.Now}{Environment.NewLine}";
                 }
             }));
-            
+
         }
 
         private void button10_Click(object sender, EventArgs e)

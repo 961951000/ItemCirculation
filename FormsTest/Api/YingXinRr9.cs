@@ -231,7 +231,6 @@ namespace FormsTest.Api
                         Console.WriteLine(GetReturnCodeMessage(ret));
                     }
                 }
-                _hidListenIsRun = false;
             });
             _hidListen.Start();
         }
@@ -244,9 +243,10 @@ namespace FormsTest.Api
             _hidListenIsRun = false;
             if (_hidListen != null)
             {
-                while (_hidListen.ThreadState == ThreadState.Running)
+                _hidListen.Join(1000);
+                if (_hidListen.ThreadState == ThreadState.Running)
                 {
-
+                    _hidListen.Abort();
                 }
             }
         }
@@ -295,7 +295,6 @@ namespace FormsTest.Api
                     }
                     handler(list);
                 }
-                _uidListenIsRun = false;
             });
             _uidListen.Start();
         }
@@ -308,9 +307,10 @@ namespace FormsTest.Api
             _uidListenIsRun = false;
             if (_uidListen != null)
             {
-                while (_uidListen.ThreadState == ThreadState.Running)
+                _uidListen.Join(1000);
+                if (_uidListen.ThreadState == ThreadState.Running)
                 {
-
+                    _uidListen.Abort();
                 }
             }
         }

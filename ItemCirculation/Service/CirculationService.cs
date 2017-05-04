@@ -50,13 +50,14 @@ namespace ItemCirculation.Service
                             ItemStateCode = item.ItemStateCode,
                             ExecuteResult = false
                         };
-                        if (item.ItemStateCode == 1001)
+                        var item1 = db.Item.Single(x => x.Id == item.Id);
+                        if (item1.ItemStateCode == 1001)
                         {
-                            db.Item.Attach(item);
-                            item.ItemStateCode = 1002;
+                            item1.ItemStateCode = 1002;
+                            //db.Item.Attach(item);
                             var circulation = new Circulation
                             {
-                                ItemId = item.Id,
+                                ItemId = item1.Id,
                                 LoanStudentId = student.Id,
                                 LoanTime = DateTime.Now,
                                 IsReturn = 0
@@ -81,16 +82,21 @@ namespace ItemCirculation.Service
                             ItemStateCode = item.ItemStateCode,
                             ExecuteResult = false
                         };
-                        if (item.ItemStateCode != 1002)
+                        var item1 = db.Item.Single(x => x.Id == item.Id);
+                        if (item1.ItemStateCode == 1002)
                         {
-                            db.Item.Attach(item);
-                            item.ItemStateCode = 1001;
-                            var circulation = db.Circulation.Single(x => x.ItemId == item.Id);
-                            circulation.ReturnStudentId = student.Id;
-                            circulation.ReturnTime = DateTime.Now;
-                            circulation.IsReturn = 1;
-                            db.SaveChanges();
-                            entity.ExecuteResult = true;
+                            item1.ItemStateCode = 1001;
+                            var query1 = db.Circulation.Where(x => x.ItemId == item1.Id);
+                            if (query1.Any())
+                            {
+                                var circulation = query1.First();
+                                circulation.ReturnStudentId = student.Id;
+                                circulation.ReturnTime = DateTime.Now;
+                                circulation.IsReturn = 1;
+                                db.SaveChanges();
+                                entity.ExecuteResult = true;
+                            }
+
                         }
                         list.Add(entity);
                     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Windows.Forms;
+using ItemCirculation.Api;
 using ItemCirculation.Event;
 using ItemCirculation.Service;
 
@@ -9,6 +10,7 @@ namespace ItemCirculation.Views.Loan
     public partial class FrmLoanBegin : Form
     {
         private readonly LoginService _loginService = new LoginService();
+        private readonly YingXinRr9 _rr9 = new YingXinRr9();
         public FrmLoanBegin()
         {
             InitializeComponent();
@@ -24,14 +26,43 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void Init()
         {
+            _rr9.OpenComPort();
+            _rr9.Change14443();
+            _rr9.StartHidListen(YingXinRr9_HidListen);
             TimingBegin();
         }
 
+        private void YingXinRr9_HidListen(string hid)
+        {
+            _rr9.StopHidListen();
+            TimingEnd();
+            var student = _loginService.IdentityVerification(hid);
+            if (student == null)
+            {
+                MessageBox.Show(@"用户验证失败");
+                Invoke(new MethodInvoker(Close));
+            }
+            else
+            {
+                Invoke(new MethodInvoker(() =>
+                {
+                    var son = new FrmLoanSubmit(student, _rr9)
+                    {
+                        Owner = this
+                    };
+                    son.Show();
+                    Hide();
+                }));
+            }
+        }
         /// <summary>
         /// 窗体关闭事件
         /// </summary>
         private void FrmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
+            _rr9.CloseHidListen();
+            _rr9.CloseUidListen();
+            _rr9.CloseComPort();
             Owner.Show();
         }
         /// <summary>
@@ -40,16 +71,22 @@ namespace ItemCirculation.Views.Loan
         private void TimingBegin()
         {
             var timeout = ConfigurationManager.AppSettings["Timeout"];
-            label1.Text = timeout;
-            timer1.Start();
+            Invoke(new MethodInvoker(() =>
+            {
+                label1.Text = timeout;
+                timer1.Start();
+            }));
         }
         /// <summary>
         /// 计时结束
         /// </summary>
         private void TimingEnd()
         {
-            label1.Text = string.Empty;
-            timer1.Stop();
+            Invoke(new MethodInvoker(() =>
+            {
+                label1.Text = string.Empty;
+                timer1.Stop();
+            }));
         }
         /// <summary>
         /// 返回按钮
@@ -72,40 +109,6 @@ namespace ItemCirculation.Views.Loan
             {
                 Close();
             }
-        }
-        /// <summary>
-        /// 身份验证结束处理
-        /// </summary>
-        private void LoginService_IdentityVerification(object sender, EventArgs e)
-        {
-            if (!(e is IdentityVerificationFinishEventArgs args)){ return;}
-            var entity = args.Student;
-            if (entity == null)
-            {
-                MessageBox.Show(@"用户验证失败");
-                Close();
-            }
-            else
-            {
-                TimingEnd();
-                var son = new FrmLoanSubmit
-                {
-                    Owner = this,
-                    Student = entity,
-                };
-                son.Show();
-                Hide();
-            }
-        }
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == Keys.Enter)
-            {
-                _loginService.IdentityVerificationFinish += LoginService_IdentityVerification;
-                _loginService.IdentityVerification("1619397716");
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         #endregion 事件处理程序

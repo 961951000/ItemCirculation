@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
+using ItemCirculation.Api;
 using ItemCirculation.DatabaseContext;
 using ItemCirculation.Event;
 using ItemCirculation.Models;
 using ItemCirculation.Service;
 using ItemCirculation.Util;
+using System.Threading;
 
 namespace ItemCirculation.Views.Loan
 {
@@ -15,28 +18,24 @@ namespace ItemCirculation.Views.Loan
     {
         private FrmLoanEnd _son;
         private readonly LoanService _loanService = new LoanService();
+        private readonly Student _student;
+        private readonly YingXinRr9 _rr9;
         public SubmitPostBackEventHandler SubmitPostBack { get; set; }
-        public Student Student { get; set; }
-
         public FrmLoanSubmit()
         {
             InitializeComponent();
+            DoubleBufferedDataGirdView(dataGridView1, true);
         }
-
+        public FrmLoanSubmit(Student student, YingXinRr9 rr9)
+        {
+            _student = student;
+            _rr9 = rr9;
+            InitializeComponent();
+        }
         private void FrmLoanSubmit_Load(object sender, EventArgs e)
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             FormStyle.InitDataGridView(dataGridView1);
-            using (var db = new MySqlDbContext())
-            {
-                var list = db.Item.ToList();
-                label8.Text = $@"共{list.Count}本";
-                foreach (var item in list)
-                {
-                    var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid);
-                    dataGridView1.Rows[index].Tag = item.Id;
-                }
-            }
             Init();
         }
         /// <summary>
@@ -44,14 +43,63 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void Init()
         {
-            if (Student != null)
+            if (_student != null)
             {
-                label3.Text = Student.StudentName;
-                label5.Text = Student.StudentCode;
+                label3.Text = _student.StudentName;
+                label5.Text = _student.StudentCode;
             }
+            _rr9.Change15693();
+            _rr9.StartUidListen(YingXinRr9_UidListen);
             TimingBegin();
         }
 
+        private void YingXinRr9_UidListen(List<string> uidList)
+        {
+            var list = new List<Item>();
+            using (var db = new MySqlDbContext())
+            {
+                foreach (var uid in uidList)
+                {
+                    var query = db.Item.Where(x => x.Uid == uid);
+                    if (query.Any())
+                    {
+                        list.Add(query.First());
+                    }
+                }
+                list = list.OrderBy(x => x.Uid).ToList();
+                try
+                {
+                    Invoke(new MethodInvoker(() =>
+                    {
+                        label8.Text = $@"共{list.Count}本";
+                        if (dataGridView1.Rows.Count == list.Count)
+                        {
+                            for (int i = 0; i < list.Count; i++)
+                            {
+                                var item = list[i];
+                                dataGridView1.Rows[i].Cells[0].Value = item.ItemName;
+                                dataGridView1.Rows[i].Cells[1].Value = item.ItemType;
+                                dataGridView1.Rows[i].Cells[2].Value = item.Uid;
+                                dataGridView1.Rows[i].Tag = item.Id;
+                            }
+                        }
+                        else
+                        {
+                            dataGridView1.Rows.Clear();
+                            foreach (var item in list)
+                            {
+                                var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid);
+                                dataGridView1.Rows[index].Tag = item.Id;
+                            }
+                        }
+                    }));
+                }
+                catch (ObjectDisposedException)
+                {
+                    throw;  
+                }
+            }
+        }
         /// <summary>
         /// 窗体关闭事件
         /// </summary>
@@ -67,17 +115,22 @@ namespace ItemCirculation.Views.Loan
         private void TimingBegin()
         {
             var timeout = ConfigurationManager.AppSettings["Timeout"];
-            label1.Text = timeout;
-            timer1.Start();
+            Invoke(new MethodInvoker(() =>
+            {
+                label1.Text = timeout;
+                timer1.Start();
+            }));
         }
-
         /// <summary>
         /// 计时结束
         /// </summary>
         private void TimingEnd()
         {
-            label1.Text = string.Empty;
-            timer1.Stop();
+            Invoke(new MethodInvoker(() =>
+            {
+                label1.Text = string.Empty;
+                timer1.Stop();
+            }));
         }
 
         /// <summary>
@@ -85,6 +138,8 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
+            _rr9.CloseUidListen();
+            Thread.Sleep(1000);
             Close();
         }
 
@@ -93,6 +148,7 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void button2_Click(object sender, EventArgs e)
         {
+            _rr9.StopUidListen();
             var list = new List<Item>();
             using (var db = new MySqlDbContext())
             {
@@ -100,7 +156,7 @@ namespace ItemCirculation.Views.Loan
                     .Select(variable => Convert.ToInt32(variable.Tag))
                     .Select(tag => db.Item.Single(x => x.Id == tag)));
             }
-            var girdview = _loanService.Circulation(list, Student);
+            var girdview = _loanService.Circulation(list, _student);
             var successCount = girdview.Count(x => x.ExecuteResult);
             if (_son == null)
             {
@@ -108,7 +164,7 @@ namespace ItemCirculation.Views.Loan
                 _son = new FrmLoanEnd
                 {
                     Owner = this,
-                    Student = Student,
+                    Student = _student,
                     GirdView = girdview,
                     SuccessCount = successCount
                 };
@@ -157,21 +213,24 @@ namespace ItemCirculation.Views.Loan
         public void FrmLoanEnd_Retreat(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
-            using (var db = new MySqlDbContext())
-            {
-                var list = db.Item.ToList();
-                label8.Text = $@"共{list.Count}件";
-                foreach (var item in list)
-                {
-                    var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid);
-                    dataGridView1.Rows[index].Tag = item.Id;
-                }
-            }
+            _rr9.Change15693();
+            _rr9.StartUidListen(YingXinRr9_UidListen);
             Show();
             _son.Hide();
             TimingBegin();
         }
 
         #endregion 事件处理程序
+        /// <summary>  
+        /// 双缓冲，解决闪烁问题  
+        /// </summary>  
+        /// <param name="dgv"></param>  
+        /// <param name="flag"></param>  
+        public static void DoubleBufferedDataGirdView(DataGridView dgv, bool flag)
+        {
+            Type dgvType = dgv.GetType();
+            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (pi != null) { pi.SetValue(dgv, flag, null); }
+        }
     }
 }

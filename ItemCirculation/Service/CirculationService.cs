@@ -46,7 +46,8 @@ namespace ItemCirculation.Service
                             {
                                 ItemId = item.Id,
                                 LoanStudentId = student.Id,
-                                LoanTime = DateTime.Now
+                                LoanTime = DateTime.Now,
+                                IsReturn = 0
                             };
                             db.Circulation.Add(circulation);
                             db.SaveChanges();

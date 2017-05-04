@@ -17,14 +17,14 @@ namespace ItemCirculation.Views.Loan
     public partial class FrmLoanSubmit : Form
     {
         private FrmLoanEnd _son;
-        private readonly LoanService _loanService = new LoanService();
+        private readonly ItemService _itemService = new ItemService();
+        private readonly CirculationService _circulationService = new CirculationService();
         private readonly Student _student;
         private readonly YingXinRr9 _rr9;
         public SubmitPostBackEventHandler SubmitPostBack { get; set; }
         public FrmLoanSubmit()
         {
             InitializeComponent();
-            DoubleBufferedDataGirdView(dataGridView1, true);
         }
         public FrmLoanSubmit(Student student, YingXinRr9 rr9)
         {
@@ -55,50 +55,31 @@ namespace ItemCirculation.Views.Loan
 
         private void YingXinRr9_UidListen(List<string> uidList)
         {
-            var list = new List<Item>();
-            using (var db = new MySqlDbContext())
+            var list = _itemService.QueryList(uidList);
+            BeginInvoke(new MethodInvoker(() =>
             {
-                foreach (var uid in uidList)
+                label8.Text = $@"共{list.Count}本";
+                if (dataGridView1.Rows.Count == list.Count)
                 {
-                    var query = db.Item.Where(x => x.Uid == uid);
-                    if (query.Any())
+                    for (int i = 0; i < list.Count; i++)
                     {
-                        list.Add(query.First());
+                        var item = list[i];
+                        dataGridView1.Rows[i].Cells[0].Value = item.ItemName;
+                        dataGridView1.Rows[i].Cells[1].Value = item.ItemType;
+                        dataGridView1.Rows[i].Cells[2].Value = item.Uid;
+                        dataGridView1.Rows[i].Tag = item.Id;
                     }
                 }
-                list = list.OrderBy(x => x.Uid).ToList();
-                try
+                else
                 {
-                    Invoke(new MethodInvoker(() =>
+                    dataGridView1.Rows.Clear();
+                    foreach (var item in list)
                     {
-                        label8.Text = $@"共{list.Count}本";
-                        if (dataGridView1.Rows.Count == list.Count)
-                        {
-                            for (int i = 0; i < list.Count; i++)
-                            {
-                                var item = list[i];
-                                dataGridView1.Rows[i].Cells[0].Value = item.ItemName;
-                                dataGridView1.Rows[i].Cells[1].Value = item.ItemType;
-                                dataGridView1.Rows[i].Cells[2].Value = item.Uid;
-                                dataGridView1.Rows[i].Tag = item.Id;
-                            }
-                        }
-                        else
-                        {
-                            dataGridView1.Rows.Clear();
-                            foreach (var item in list)
-                            {
-                                var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid);
-                                dataGridView1.Rows[index].Tag = item.Id;
-                            }
-                        }
-                    }));
+                        var index = dataGridView1.Rows.Add(item.ItemName, item.ItemType, item.Uid);
+                        dataGridView1.Rows[index].Tag = item.Id;
+                    }
                 }
-                catch (ObjectDisposedException)
-                {
-                    throw;  
-                }
-            }
+            }));
         }
         /// <summary>
         /// 窗体关闭事件
@@ -115,7 +96,7 @@ namespace ItemCirculation.Views.Loan
         private void TimingBegin()
         {
             var timeout = ConfigurationManager.AppSettings["Timeout"];
-            Invoke(new MethodInvoker(() =>
+            BeginInvoke(new MethodInvoker(() =>
             {
                 label1.Text = timeout;
                 timer1.Start();
@@ -126,7 +107,7 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void TimingEnd()
         {
-            Invoke(new MethodInvoker(() =>
+            BeginInvoke(new MethodInvoker(() =>
             {
                 label1.Text = string.Empty;
                 timer1.Stop();
@@ -138,8 +119,6 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
-            _rr9.CloseUidListen();
-            Thread.Sleep(1000);
             Close();
         }
 
@@ -149,14 +128,14 @@ namespace ItemCirculation.Views.Loan
         private void button2_Click(object sender, EventArgs e)
         {
             _rr9.StopUidListen();
-            var list = new List<Item>();
-            using (var db = new MySqlDbContext())
-            {
-                list.AddRange(dataGridView1.Rows.Cast<DataGridViewRow>()
-                    .Select(variable => Convert.ToInt32(variable.Tag))
-                    .Select(tag => db.Item.Single(x => x.Id == tag)));
-            }
-            var girdview = _loanService.Circulation(list, _student);
+            var list = (from DataGridViewRow row in dataGridView1.Rows select new Item
+                {
+                    Id = Convert.ToInt32(row.Tag),
+                    ItemName = Convert.ToString(row.Cells[0].Value),
+                    ItemType = Convert.ToString(row.Cells[1].Value),
+                    Uid = Convert.ToString(row.Cells[2].Value),
+                }).ToList();
+            var girdview = _circulationService.LoanItem(list, _student);
             var successCount = girdview.Count(x => x.ExecuteResult);
             if (_son == null)
             {
@@ -221,16 +200,5 @@ namespace ItemCirculation.Views.Loan
         }
 
         #endregion 事件处理程序
-        /// <summary>  
-        /// 双缓冲，解决闪烁问题  
-        /// </summary>  
-        /// <param name="dgv"></param>  
-        /// <param name="flag"></param>  
-        public static void DoubleBufferedDataGirdView(DataGridView dgv, bool flag)
-        {
-            Type dgvType = dgv.GetType();
-            PropertyInfo pi = dgvType.GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic);
-            if (pi != null) { pi.SetValue(dgv, flag, null); }
-        }
     }
 }

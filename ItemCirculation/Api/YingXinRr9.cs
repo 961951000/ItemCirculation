@@ -215,7 +215,6 @@ namespace ItemCirculation.Api
                 while (_hidListenIsRun)
                 {
                     string hid = string.Empty;
-                    GetHid(ref hid);
                     if (GetHid(ref hid))
                     {
                         handler(hid);

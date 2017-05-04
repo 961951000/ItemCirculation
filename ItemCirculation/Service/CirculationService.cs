@@ -10,6 +10,18 @@ namespace ItemCirculation.Service
     public class CirculationService
     {
         /// <summary>
+        ///物品领用
+        /// </summary>
+        /// <param name="items">物品列表</param>
+        /// <param name="student">用户</param>
+        /// <returns>操作结果</returns>
+        public List<CirculationView> LoanItem(List<Item> items, Student student)
+        {
+            //var listen = new ListenEvent();
+            //listen.RfidRun();
+            return Circulation(items, student, true);
+        }
+        /// <summary>
         /// 流通业务
         /// </summary>
         /// <param name="items">物品列表</param>
@@ -20,7 +32,7 @@ namespace ItemCirculation.Service
         /// false/归还
         /// </param>
         /// <returns>操作结果</returns>
-        public List<CirculationView> Circulation(List<Item> items, Student student, bool circulationTtype)
+        public static List<CirculationView> Circulation(List<Item> items, Student student, bool circulationTtype)
         {
             var list = new List<CirculationView>();
             using (var db = new MySqlDbContext())

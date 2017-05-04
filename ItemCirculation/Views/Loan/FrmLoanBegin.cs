@@ -9,7 +9,7 @@ namespace ItemCirculation.Views.Loan
 {
     public partial class FrmLoanBegin : Form
     {
-        private readonly LoginService _loginService = new LoginService();
+        private readonly StudentService _loginService = new StudentService();
         private readonly YingXinRr9 _rr9 = new YingXinRr9();
         public FrmLoanBegin()
         {
@@ -34,17 +34,21 @@ namespace ItemCirculation.Views.Loan
 
         private void YingXinRr9_HidListen(string hid)
         {
+            BeginInvoke(new MethodInvoker(() =>
+            {
+                label2.Text = @"系统正在处理，请稍后...";
+            }));
             _rr9.StopHidListen();
             TimingEnd();
             var student = _loginService.IdentityVerification(hid);
             if (student == null)
             {
-                MessageBox.Show(@"用户验证失败");
-                Invoke(new MethodInvoker(Close));
+                MessageBox.Show(@"用户验证失败！");
+                BeginInvoke(new MethodInvoker(Close));
             }
             else
             {
-                Invoke(new MethodInvoker(() =>
+                BeginInvoke(new MethodInvoker(() =>
                 {
                     var son = new FrmLoanSubmit(student, _rr9)
                     {
@@ -71,7 +75,7 @@ namespace ItemCirculation.Views.Loan
         private void TimingBegin()
         {
             var timeout = ConfigurationManager.AppSettings["Timeout"];
-            Invoke(new MethodInvoker(() =>
+            BeginInvoke(new MethodInvoker(() =>
             {
                 label1.Text = timeout;
                 timer1.Start();
@@ -82,7 +86,7 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void TimingEnd()
         {
-            Invoke(new MethodInvoker(() =>
+            BeginInvoke(new MethodInvoker(() =>
             {
                 label1.Text = string.Empty;
                 timer1.Stop();

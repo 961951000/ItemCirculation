@@ -162,7 +162,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 12);
             this.label8.TabIndex = 19;
-            this.label8.Text = "共0件";
+            this.label8.Text = "共0个";
             // 
             // label7
             // 
@@ -180,7 +180,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 20;
-            this.label6.Text = "已借：";
+            this.label6.Text = "已还：";
             // 
             // FrmReturnSubmit
             // 

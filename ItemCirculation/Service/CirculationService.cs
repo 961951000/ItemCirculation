@@ -68,7 +68,7 @@ namespace ItemCirculation.Service
                                 ItemId = item1.Id,
                                 LoanStudentId = student.Id,
                                 LoanTime = DateTime.Now,
-                                IsReturn = 0
+                                IsReturn = false
                             };
                             db.Circulation.Add(circulation);
                             db.SaveChanges();
@@ -94,13 +94,13 @@ namespace ItemCirculation.Service
                         if (item1.ItemStateCode == 1002)
                         {
                             item1.ItemStateCode = 1001;
-                            var query1 = db.Circulation.Where(x => x.ItemId == item1.Id);
+                            var query1 = db.Circulation.Where(x => x.ItemId == item1.Id&&x.IsReturn==false);
                             if (query1.Any())
                             {
                                 var circulation = query1.First();
                                 circulation.ReturnStudentId = student.Id;
                                 circulation.ReturnTime = DateTime.Now;
-                                circulation.IsReturn = 1;
+                                circulation.IsReturn = true;
                                 db.SaveChanges();
                                 entity.ExecuteResult = true;
                             }

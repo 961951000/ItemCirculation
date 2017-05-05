@@ -162,7 +162,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 12);
             this.label8.TabIndex = 19;
-            this.label8.Text = "共0件";
+            this.label8.Text = "共0个";
             // 
             // label7
             // 

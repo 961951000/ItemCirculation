@@ -72,7 +72,7 @@ namespace ItemCirculation.Models
 		}
 
 		[Column("is_return")]
-		public byte? IsReturn
+		public bool? IsReturn
 		{
 			set;
 			get;

@@ -55,7 +55,8 @@ namespace ItemCirculation.Views.Return
             var list = _itemService.QueryList(uidList);
             BeginInvoke(new MethodInvoker(() =>
             {
-                label8.Text = $@"共{list.Count}本";
+                label8.Text = $@"共{list.Count}个";
+                button2.Enabled = list.Count != 0;
                 if (dataGridView1.Rows.Count == list.Count)
                 {
                     for (int i = 0; i < list.Count; i++)

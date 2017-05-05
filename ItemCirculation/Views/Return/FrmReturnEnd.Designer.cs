@@ -73,7 +73,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 12);
             this.label6.TabIndex = 14;
-            this.label6.Text = "已借：";
+            this.label6.Text = "已还：";
             // 
             // label5
             // 

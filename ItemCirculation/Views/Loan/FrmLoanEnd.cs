@@ -11,15 +11,20 @@ namespace ItemCirculation.Views.Loan
 {
     public partial class FrmLoanEnd : Form
     {
-        public event EventHandler<EventArgs> LoanEndRetreat;
-        public Student Student { get; set; }
-        public List<CirculationView> GirdView { get; set; }
+        public event EventHandler<EventArgs> Retreat;
+        private readonly Student _student;
+        private readonly List<CirculationView> _girdView;
         public int SuccessCount { get; set; }
         public FrmLoanEnd()
         {
             InitializeComponent();
         }
-
+        public FrmLoanEnd(Student student, List<CirculationView> girdView)
+        {
+            _student = student;
+            _girdView = girdView;
+            InitializeComponent();
+        }
         private void FrmLoanEnd_Load(object sender, EventArgs e)
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
@@ -32,10 +37,10 @@ namespace ItemCirculation.Views.Loan
         /// </summary>
         private void Init()
         {
-            label3.Text = Student.StudentName;
-            label5.Text = Student.StudentCode;
+            label3.Text = _student.StudentName;
+            label5.Text = _student.StudentCode;
             label7.Text = SuccessCount.ToString();
-            foreach (var variable in GirdView)
+            foreach (var variable in _girdView)
             {
                 var index = dataGridView1.Rows.Add(variable.ItemName, variable.ItemType, variable.Uid,variable.ExecuteResult?"操作成功":"操作失败");
                 dataGridView1.Rows[index].Tag = variable.ItemId;
@@ -81,9 +86,9 @@ namespace ItemCirculation.Views.Loan
             TimingEnd();
             if (Owner is FrmLoanSubmit parent)
             {
-                parent.SubmitPostBack = FrmLoanSubmit_SubmitPostBack;
+                parent.SubmitPostBack = SubmitPostBack;
             }
-            LoanEndRetreat?.Invoke(sender, e);
+            Retreat?.Invoke(sender, e);
         }
 
         #region 事件处理程序
@@ -111,7 +116,7 @@ namespace ItemCirculation.Views.Loan
         /// <summary>
         /// 提交后处理程序
         /// </summary>
-        public void FrmLoanSubmit_SubmitPostBack(object sender, EventArgs e)
+        public void SubmitPostBack(object sender, EventArgs e)
         {
             if (!(e is SubmitPostBackEventArgs args)) { return; }
             var list = args.View;

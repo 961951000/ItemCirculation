@@ -76,9 +76,8 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(201, 126);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.Size = new System.Drawing.Size(0, 12);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Doris Lok";
             // 
             // label4
             // 
@@ -94,9 +93,8 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(384, 126);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 12);
+            this.label5.Size = new System.Drawing.Size(0, 12);
             this.label5.TabIndex = 4;
-            this.label5.Text = "3101120020120130283";
             // 
             // button1
             // 

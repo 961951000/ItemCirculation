@@ -140,14 +140,12 @@ namespace ItemCirculation.Views.Loan
             if (_son == null)
             {
                 TimingEnd();
-                _son = new FrmLoanEnd
+                _son = new FrmLoanEnd(_student, girdview)
                 {
                     Owner = this,
-                    Student = _student,
-                    GirdView = girdview,
                     SuccessCount = successCount
                 };
-                _son.LoanEndRetreat += FrmLoanEnd_Retreat;
+                _son.Retreat += Retreat;
             }
             else
             {
@@ -189,7 +187,7 @@ namespace ItemCirculation.Views.Loan
         /// <summary>
         /// 回退处理
         /// </summary>
-        public void FrmLoanEnd_Retreat(object sender, EventArgs e)
+        public void Retreat(object sender, EventArgs e)
         {
             dataGridView1.Rows.Clear();
             _rr9.Change15693();

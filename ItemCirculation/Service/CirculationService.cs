@@ -17,9 +17,17 @@ namespace ItemCirculation.Service
         /// <returns>操作结果</returns>
         public List<CirculationView> LoanItem(List<Item> items, Student student)
         {
-            //var listen = new ListenEvent();
-            //listen.RfidRun();
             return Circulation(items, student, true);
+        }
+        /// <summary>
+        ///物品归还
+        /// </summary>
+        /// <param name="items">物品列表</param>
+        /// <param name="student">用户</param>
+        /// <returns>操作结果</returns>
+        public List<CirculationView> ReturnItem(List<Item> items, Student student)
+        {
+            return Circulation(items, student, false);
         }
         /// <summary>
         /// 流通业务

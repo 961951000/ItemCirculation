@@ -149,17 +149,17 @@
     <Compile Include="Views\Loan\FrmLoanSubmit.Designer.cs">
       <DependentUpon>FrmLoanSubmit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Return\FrmReturnEnd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Return\FrmReturnEnd.Designer.cs">
-      <DependentUpon>FrmReturnEnd.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Return\FrmReturnBegin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Return\FrmReturnBegin.Designer.cs">
       <DependentUpon>FrmReturnBegin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Return\FrmReturnEnd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Return\FrmReturnEnd.Designer.cs">
+      <DependentUpon>FrmReturnEnd.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Return\FrmReturnSubmit.cs">
       <SubType>Form</SubType>
@@ -189,11 +189,11 @@
     <EmbeddedResource Include="Views\Loan\FrmLoanSubmit.resx">
       <DependentUpon>FrmLoanSubmit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Return\FrmReturnEnd.resx">
-      <DependentUpon>FrmReturnEnd.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\Return\FrmReturnBegin.resx">
       <DependentUpon>FrmReturnBegin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Return\FrmReturnEnd.resx">
+      <DependentUpon>FrmReturnEnd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Return\FrmReturnSubmit.resx">
       <DependentUpon>FrmReturnSubmit.cs</DependentUpon>

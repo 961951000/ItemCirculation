@@ -1,37 +1,44 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
+using ItemCirculationManagementBackground.Util;
 using LibraryManagementBackground.Models;
 
-namespace ItemCirculationManagementBackground.Forms
+namespace ItemCirculationManagementBackground.Views.Item
 {
-    public partial class FrmUpdateInstrument : Form
+    public partial class FrmAddItem : Form
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
-        private readonly TBook _entity;
-        public FrmUpdateInstrument(TBook entity)
+        public FrmAddItem()
         {
             InitializeComponent();
-            _entity = entity;
-            txtTagCode.Text = entity.Tid;
-            txtName.Text = entity.Name;
-            txtType.Text = entity.Author;
+        }
+        private void FrmAddInstrument_Load(object sender, EventArgs e)
+        {
+            txtTagCode.Focus();
         }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             var message = LibraryManagementBackground.Models.Message.SuccecssMessage;
             try
             {
-                using (var db = new MsSqlDbContext())
+                var entity = new TBook
                 {
-                    var entity = db.Book.Single(x => x.Id == _entity.Id);
-                    entity.Tid = txtTagCode.Text;
-                    entity.Name = txtName.Text;
-                    entity.Author = txtType.Text;
-                    entity.Updatedate = DateTime.Now;
-                    //db.Entry(entity).State = System.Data.Entity.EntityState.Modified;//修改
+                    Tid = txtTagCode.Text,
+                    Name = txtName.Text,
+                    Author = txtType.Text,
+                    Createdate = DateTime.Now,
+                    Updatedate = DateTime.Now,
+                    Barcode = "默认",
+                    Callcode = "默认",
+                    Status = "默认",
+                    Createby = 0,
+                    Updateby = 0
+                };
+                using (var db = new MySqlDbContext())
+                {
+                    db.Book.Add(entity);
                     db.SaveChanges();
                 }
             }

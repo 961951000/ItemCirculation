@@ -1,4 +1,4 @@
-﻿namespace ItemCirculationManagementBackground.Forms
+﻿namespace ItemCirculationManagementBackground.Views.User
 {
     partial class FrmAddUser
     {

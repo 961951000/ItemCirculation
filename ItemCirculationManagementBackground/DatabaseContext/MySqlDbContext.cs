@@ -3,9 +3,9 @@ using LibraryManagementBackground.Models;
 
 namespace ItemCirculationManagementBackground.DatabaseContext
 {
-    public class MsSqlDbContext : DbContext
+    public class MySqlDbContext : DbContext
     {
-        public MsSqlDbContext() : base("name=MsSqlDbContext") { }
+        public MySqlDbContext() : base("name=DefaultConnection") { }
 
         public DbSet<TBook> Book { get; set; }
         public DbSet<LCirculation> Circulation { get; set; }

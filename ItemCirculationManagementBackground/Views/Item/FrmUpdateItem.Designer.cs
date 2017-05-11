@@ -1,6 +1,6 @@
-﻿namespace ItemCirculationManagementBackground.Forms
+﻿namespace ItemCirculationManagementBackground.Views.Item
 {
-    partial class FrmUpdateInstrument
+    partial class FrmUpdateItem
     {
         /// <summary>
         /// Required designer variable.

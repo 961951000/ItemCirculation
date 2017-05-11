@@ -70,29 +70,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseContext\ItemDetailBatch.cs" />
-    <Compile Include="DatabaseContext\MsSqlDbContext.cs" />
-    <Compile Include="Forms\FrmAddInstrument.cs">
+    <Compile Include="DatabaseContext\MySqlDbContext.cs" />
+    <Compile Include="Views\Item\FrmAddItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmAddInstrument.Designer.cs">
-      <DependentUpon>FrmAddInstrument.cs</DependentUpon>
+    <Compile Include="Views\Item\FrmAddItem.Designer.cs">
+      <DependentUpon>FrmAddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmAddUser.cs">
+    <Compile Include="Views\User\FrmAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmAddUser.Designer.cs">
+    <Compile Include="Views\User\FrmAddUser.Designer.cs">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmUpdateInstrument.cs">
+    <Compile Include="Views\Item\FrmUpdateItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmUpdateInstrument.Designer.cs">
-      <DependentUpon>FrmUpdateInstrument.cs</DependentUpon>
+    <Compile Include="Views\Item\FrmUpdateItem.Designer.cs">
+      <DependentUpon>FrmUpdateItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmUpdateUser.cs">
+    <Compile Include="Views\User\FrmUpdateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmUpdateUser.Designer.cs">
+    <Compile Include="Views\User\FrmUpdateUser.Designer.cs">
       <DependentUpon>FrmUpdateUser.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
@@ -141,16 +141,16 @@
     <Compile Include="Util\OrmTool.cs" />
     <Compile Include="Util\RegexTool.cs" />
     <Compile Include="ViewModels\CirculationView.cs" />
-    <EmbeddedResource Include="Forms\FrmAddInstrument.resx">
-      <DependentUpon>FrmAddInstrument.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Item\FrmAddItem.resx">
+      <DependentUpon>FrmAddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmAddUser.resx">
+    <EmbeddedResource Include="Views\User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmUpdateInstrument.resx">
-      <DependentUpon>FrmUpdateInstrument.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Item\FrmUpdateItem.resx">
+      <DependentUpon>FrmUpdateItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmUpdateUser.resx">
+    <EmbeddedResource Include="Views\User\FrmUpdateUser.resx">
       <DependentUpon>FrmUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -161,6 +161,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="log4net.config" />
     <None Include="packages.config" />

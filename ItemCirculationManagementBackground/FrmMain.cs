@@ -11,6 +11,8 @@ using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Forms;
 using ItemCirculationManagementBackground.Util;
 using ItemCirculationManagementBackground.ViewModels;
+using ItemCirculationManagementBackground.Views.Item;
+using ItemCirculationManagementBackground.Views.User;
 using LibraryManagementBackground.Models;
 
 namespace ItemCirculationManagementBackground
@@ -49,6 +51,7 @@ namespace ItemCirculationManagementBackground
             dtpLendTimeEnd.Value = DateTime.Now;
             try
             {
+                MessageBox.Show("bbb");
                 QueryCirculation();
             }
             catch (Exception ex)
@@ -132,7 +135,7 @@ namespace ItemCirculationManagementBackground
             lvwCirculation.Items.Clear();
             try
             {
-                using (var db = new MsSqlDbContext())
+                using (var db = new MySqlDbContext())
                 {
                     const string sql = "SELECT e.ID AS 'Id',MIN (e.BookBarcode) AS 'BookBarcode',MIN (e.PatronCode) AS 'LendPatronCode',MIN (e.CirculationDate) AS 'LendTime',MIN (e.Name) AS 'LendUserName',MIN (f.PatronCode) AS 'ReturnPatronCode',MIN (f.CirculationDate) AS 'ReturnTime',MIN (f.Name) AS 'ReturnUserName',MIN (g.Name) AS 'BookName',MIN (g.Author) AS 'Author' FROM(SELECT a.ID,a.BookBarcode,a.PatronCode,a.CirculationDate,b.Name FROM L_Circulation AS a LEFT JOIN T_User AS b ON a.PatronCode = b.PatronCode WHERE a.CirculationType = '1001') AS e LEFT JOIN (SELECT c.BookBarcode,c.PatronCode,c.CirculationDate,d.Name FROM L_Circulation AS c LEFT JOIN T_User AS d ON c.PatronCode = d.PatronCode WHERE c.CirculationType = '1002') AS f ON e.BookBarcode = f.BookBarcode AND e.CirculationDate < f.CirculationDate LEFT JOIN T_Book AS g ON e.BookBarcode = g.Barcode GROUP BY e.ID";
                     var query = db.Database.SqlQuery<CirculationView>(sql).Where(x => x.LendTime >= DateTime.Parse(dtpLendTimeStart.Value.ToString("yyyy-MM-dd 00:00:00")) && x.LendTime < DateTime.Parse(dtpLendTimeEnd.Value.AddDays(1).ToString("yyyy-MM-dd 00:00:00")));
@@ -251,7 +254,7 @@ namespace ItemCirculationManagementBackground
             lvwBook.Items.Clear();
             try
             {
-                using (var db = new MsSqlDbContext())
+                using (var db = new MySqlDbContext())
                 {
                     var instrumentName = txtInstrumentName.Text;
                     var instrumentType = txtInstrumentType.Text;
@@ -322,7 +325,7 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnLabelSwitchingAdd_Click(object sender, EventArgs e)
         {
-            var form = new FrmAddInstrument
+            var form = new FrmAddItem
             {
                 StartPosition = FormStartPosition.CenterParent,
             };
@@ -406,7 +409,7 @@ namespace ItemCirculationManagementBackground
             {
                 prog.Visible = true;
                 prog.Maximum = dt.Rows.Count;
-                using (var db = new MsSqlDbContext())
+                using (var db = new MySqlDbContext())
                 {
                     var tran = db.Database.BeginTransaction();
                     try
@@ -518,7 +521,7 @@ namespace ItemCirculationManagementBackground
                         Name = items[2].Text,
                         Author = items[3].Text
                     };
-                    var form = new FrmUpdateInstrument(entity)
+                    var form = new FrmUpdateItem(entity)
                     {
                         StartPosition = FormStartPosition.CenterParent,
                     };
@@ -549,7 +552,7 @@ namespace ItemCirculationManagementBackground
                 if (lvwBook.SelectedIndices.Count > 0)
                 {
                     var items = lvwBook.FocusedItem.SubItems;
-                    using (var db = new MsSqlDbContext())
+                    using (var db = new MySqlDbContext())
                     {
                         var id = Convert.ToInt32(items[0].Text);
                         var entity = db.Book.Single(x => x.Id == id);
@@ -663,7 +666,7 @@ namespace ItemCirculationManagementBackground
             {
                 prog.Visible = true;
                 prog.Maximum = dt.Rows.Count;
-                using (var db = new MsSqlDbContext())
+                using (var db = new MySqlDbContext())
                 {
                     var tran = db.Database.BeginTransaction();
                     try
@@ -803,7 +806,7 @@ namespace ItemCirculationManagementBackground
                 if (lvwUser.SelectedIndices.Count > 0)
                 {
                     var items = lvwUser.FocusedItem.SubItems;
-                    using (var db = new MsSqlDbContext())
+                    using (var db = new MySqlDbContext())
                     {
                         var id = Convert.ToInt32(items[0].Text);
                         var entity = db.User.Single(x => x.Id == id);
@@ -843,7 +846,7 @@ namespace ItemCirculationManagementBackground
             lvwUser.Items.Clear();
             try
             {
-                using (var db = new MsSqlDbContext())
+                using (var db = new MySqlDbContext())
                 {
                     var userName = txtUserName.Text;
                     var userCardCode = txtUserCardCode.Text;

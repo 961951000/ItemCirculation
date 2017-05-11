@@ -1,43 +1,38 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
+using ItemCirculationManagementBackground.Util;
 using LibraryManagementBackground.Models;
 
-namespace ItemCirculationManagementBackground.Forms
+namespace ItemCirculationManagementBackground.Views.Item
 {
-    public partial class FrmAddInstrument : Form
+    public partial class FrmUpdateItem : Form
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
-        public FrmAddInstrument()
+        private readonly TBook _entity;
+        public FrmUpdateItem(TBook entity)
         {
             InitializeComponent();
-        }
-        private void FrmAddInstrument_Load(object sender, EventArgs e)
-        {
-            txtTagCode.Focus();
+            _entity = entity;
+            txtTagCode.Text = entity.Tid;
+            txtName.Text = entity.Name;
+            txtType.Text = entity.Author;
         }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             var message = LibraryManagementBackground.Models.Message.SuccecssMessage;
             try
             {
-                var entity = new TBook
+                using (var db = new MySqlDbContext())
                 {
-                    Tid = txtTagCode.Text,
-                    Name = txtName.Text,
-                    Author = txtType.Text,
-                    Createdate = DateTime.Now,
-                    Updatedate = DateTime.Now,
-                    Barcode = "默认",
-                    Callcode = "默认",
-                    Status = "默认",
-                    Createby = 0,
-                    Updateby = 0
-                };
-                using (var db = new MsSqlDbContext())
-                {
-                    db.Book.Add(entity);
+                    var entity = db.Book.Single(x => x.Id == _entity.Id);
+                    entity.Tid = txtTagCode.Text;
+                    entity.Name = txtName.Text;
+                    entity.Author = txtType.Text;
+                    entity.Updatedate = DateTime.Now;
+                    //db.Entry(entity).State = System.Data.Entity.EntityState.Modified;//修改
                     db.SaveChanges();
                 }
             }

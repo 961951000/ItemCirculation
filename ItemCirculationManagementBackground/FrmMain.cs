@@ -9,6 +9,7 @@ using System.Net;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Forms;
+using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using ItemCirculationManagementBackground.ViewModels;
 using ItemCirculationManagementBackground.Views.Item;
@@ -51,7 +52,7 @@ namespace ItemCirculationManagementBackground
             dtpLendTimeEnd.Value = DateTime.Now;
             try
             {
-                MessageBox.Show("bbb");
+                MessageBox.Show(Resources.FrmMain_Init_FailMessage);
                 QueryCirculation();
             }
             catch (Exception ex)

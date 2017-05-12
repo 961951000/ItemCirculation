@@ -232,8 +232,8 @@ namespace ItemCirculationManagementBackground
                         item.SubItems.Add(entity.ReturnStudentCode);
                         item.SubItems.Add(entity.ItemName);
                         item.SubItems.Add(entity.ItemType);
-                        item.SubItems.Add(entity.LoanTime.ToString());
-                        item.SubItems.Add(entity.ReturnTime.ToString());
+                        item.SubItems.Add(entity.LoanTime is null ? string.Empty : Convert.ToDateTime(entity.LoanTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(entity.ReturnTime is null ? string.Empty : Convert.ToDateTime(entity.ReturnTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         lvwCirculation.Items.Add(item);
                     }
                 }

@@ -16,6 +16,7 @@ using ItemCirculationManagementBackground.ViewModels;
 using ItemCirculationManagementBackground.Views.Item;
 using ItemCirculationManagementBackground.Models;
 using ItemCirculationManagementBackground.Views.User;
+using MySql.Data.MySqlClient;
 
 namespace ItemCirculationManagementBackground
 {
@@ -52,7 +53,6 @@ namespace ItemCirculationManagementBackground
             dtpLendTimeStart.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
             dtpLendTimeEnd.Value = DateTime.Now;
             MakingCardInIt();
-
         }
         /// <summary>
         /// 开卡办证初始化
@@ -65,30 +65,51 @@ namespace ItemCirculationManagementBackground
             cmbClassName.Items.Clear();
             cmbClassName.Items.Add("ALL");
             cmbClassName.SelectedIndex = 0;
-            using (var db = new MySqlDbContext())
+            try
             {
-                var query = db.Student.GroupBy(x => x.GradeName).OrderBy(x => x.Key);
-                if (query.Any())
+                using (var db = new MySqlDbContext())
                 {
-                    foreach (var variable in query)
+                    var query = db.Student.GroupBy(x => x.GradeName).OrderBy(x => x.Key);
+                    if (query.Any())
                     {
-                        if (variable.Key != null)
+                        foreach (var variable in query)
                         {
-                            cmbGradeName.Items.Add(variable.Key);
+                            if (variable.Key != null)
+                            {
+                                cmbGradeName.Items.Add(variable.Key);
+                            }
+                        }
+                    }
+                    var query1 = db.Student.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
+                    if (query1.Any())
+                    {
+                        foreach (var variable in query1)
+                        {
+                            if (variable.Key != null)
+                            {
+                                cmbClassName.Items.Add(variable.Key);
+                            }
                         }
                     }
                 }
-                var query1 = db.Student.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
-                if (query1.Any())
-                {
-                    foreach (var variable in query1)
-                    {
-                        if (variable.Key != null)
-                        {
-                            cmbClassName.Items.Add(variable.Key);
-                        }
-                    }
-                }
+            }
+            catch (MySqlException mex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(mex);
+                MessageBox.Show(@"数据库连接异常！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(ex);
+                MessageBox.Show(@"设备异常！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
             }
         }
         private void Success(string address)

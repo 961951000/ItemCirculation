@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -93,7 +94,7 @@ namespace ItemCirculationManagementBackground
                         LabelSwitchingQuery();
                     }
                     break;
-                case "FrmUpdateItem1":
+                case "FrmUpdateItem":
                     {
                         LabelSwitchingQuery();
                     }
@@ -216,7 +217,7 @@ namespace ItemCirculationManagementBackground
                 throw;
 #else
                 Loger.Error(ex);
-                MessageBox.Show(Resources.FrmMain_Init_FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
         }
@@ -295,11 +296,11 @@ namespace ItemCirculationManagementBackground
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
-#else
+#else               
                 Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
         }
@@ -314,8 +315,8 @@ namespace ItemCirculationManagementBackground
             {
                 StartPosition = FormStartPosition.CenterParent,
             };
+            form.Success += Success;
             form.ShowDialog();
-            LabelSwitchingQuery();
         }
         /// <summary>
         /// 标签转换-表格导入
@@ -359,19 +360,19 @@ namespace ItemCirculationManagementBackground
             }
             catch (OleDbException odex) when (odex.Message == "外部表不是预期的格式。")
             {
-                MessageBox.Show($@"{Resources.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
-#else
+#else               
                 Loger.Error(odex);
+                MessageBox.Show($@"{Resources.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Loger.Error(ex);
 #endif
             }
@@ -403,13 +404,21 @@ namespace ItemCirculationManagementBackground
                         {
                             var entity = new Item
                             {
-                                Uid = Convert.ToString(dr[0]),
+                                Uid = BaseTool.ConvertUid(Convert.ToString(dr[0])),
                                 ItemName = Convert.ToString(dr[1]),
                                 ItemType = Convert.ToString(dr[2]),
                                 UpdateTime = DateTime.Now,
                             };
                             var item = ItemDetailBatch.BatchAdd(entity);
-                            db.Database.ExecuteSqlCommand(item.Key, item.Value.ToArray<object>());
+                            try
+                            {
+                                db.Database.ExecuteSqlCommand(item.Key, item.Value.ToArray<object>());
+                            }
+                            catch (Exception ex)
+                            {
+                                Loger.Debug($"标签转换-表格导入错误：Tid={dr[0]}\r\nConvertTid={entity.Uid}", ex);
+                                throw;
+                            }
                             prog.Value++;
                             var percent = Convert.ToSingle(prog.Value) / Convert.ToSingle(prog.Maximum) * 100;
                             label.Text = $@"导入进度{percent:F2}%";
@@ -468,12 +477,12 @@ namespace ItemCirculationManagementBackground
             }
             catch (Exception ex)
             {
-                var message = $"{Resources.FailMessage}执行回滚操作！";
-                MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
                 Loger.Error(ex);
+                var message = $"{Resources.FailMessage}执行回滚操作！";
+                MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
             finally
@@ -491,10 +500,10 @@ namespace ItemCirculationManagementBackground
             if (lvwBook.SelectedIndices.Count > 0)
             {
                 //var items = lvwBook.FocusedItem.SubItems;
-                var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
-                row.BackColor = Color.Gray;
                 try
                 {
+                    var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
+                    row.BackColor = Color.Gray;
                     var entity = new Item
                     {
                         Id = Convert.ToInt32(row.Tag),
@@ -506,26 +515,22 @@ namespace ItemCirculationManagementBackground
                     {
                         StartPosition = FormStartPosition.CenterParent,
                     };
+                    form.Success += Success;
                     form.ShowDialog();
-                    LabelSwitchingQuery();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                     throw;
 #else
-                Loger.Error(ex);
+                    Loger.Error(ex);
+                    MessageBox.Show(Resources.OtherErrorMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
-                }
-                finally
-                {
-                    row.BackColor = SystemColors.InactiveBorder;
                 }
             }
             else
             {
-                MessageBox.Show(@"未选中任何数据！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>
@@ -535,13 +540,13 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnLabelSwitchingDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(@"当前操作存在风险，是否继续？", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+
+            if (lvwBook.SelectedIndices.Count > 0)
             {
-                if (lvwBook.SelectedIndices.Count > 0)
+                var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
+                row.BackColor = Color.Gray;
+                if (MessageBox.Show(Resources.RiskOperationConfimMessage, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    var message = Resources.SuccecssMessage;
-                    var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
-                    row.BackColor = Color.Gray;
                     try
                     {
                         using (var db = new MySqlDbContext())
@@ -551,27 +556,27 @@ namespace ItemCirculationManagementBackground
                             db.Item.Remove(entity);
                             db.SaveChanges();
                         }
+                        MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LabelSwitchingQuery();
                     }
                     catch (Exception ex)
                     {
-                        message = Resources.FailMessage;
 #if DEBUG
                         throw;
 #else
-                Loger.Error(ex);
+                        Loger.Error(ex);
+                        MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
-                    }
-                    finally
-                    {
-                        MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        row.BackColor = SystemColors.InactiveBorder;
                     }
                 }
                 else
                 {
-                    MessageBox.Show(@"未选中任何数据！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    row.BackColor = SystemColors.InactiveBorder;
                 }
+            }
+            else
+            {
+                MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         #endregion 标签转换
@@ -632,19 +637,20 @@ namespace ItemCirculationManagementBackground
             }
             catch (OleDbException odex) when (odex.Message == "外部表不是预期的格式。")
             {
-                MessageBox.Show($@"{Resources.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
                 Loger.Error(odex);
+                MessageBox.Show($@"{Resources.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
             catch (Exception ex)
             {
-                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
 #if DEBUG
                 throw;
 #else
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Loger.Error(ex);
 #endif
             }
@@ -656,7 +662,7 @@ namespace ItemCirculationManagementBackground
             }
         }
         /// <summary>
-        /// 标签转换-表格导入
+        /// 开证办卡-表格导入
         /// </summary>
         /// <param name="dt">数据表</param>
         /// <param name="prog">用于显示的进度条</param>
@@ -676,13 +682,21 @@ namespace ItemCirculationManagementBackground
                         {
                             var entity = new Student
                             {
-                                CardMacCode = Convert.ToString(dr[0]),
+                                CardMacCode = BaseTool.ConvertTid(Convert.ToString(dr[0])),
                                 StudentCode = Convert.ToString(dr[1]),
                                 StudentName = Convert.ToString(dr[2]),
-                                CreateTime = DateTime.Now,
+                                CreateTime = DateTime.Now
                             };
                             var item = ItemDetailBatch.BatchAdd(entity);
-                            db.Database.ExecuteSqlCommand(item.Key, item.Value.ToArray<object>());
+                            try
+                            {
+                                db.Database.ExecuteSqlCommand(item.Key, item.Value.ToArray<object>());
+                            }
+                            catch (Exception ex)
+                            {
+                                Loger.Debug($"开证办卡-表格导入：Tid={Convert.ToString(dr[0])}\r\nConvertTid={entity.CardMacCode}", ex);
+                                throw;
+                            }
                             prog.Value++;
                             var percent = Convert.ToSingle(prog.Value) / Convert.ToSingle(prog.Maximum) * 100;
                             label.Text = $@"导入进度{percent:F2}%";
@@ -740,13 +754,13 @@ namespace ItemCirculationManagementBackground
                 }
             }
             catch (Exception ex)
-            {
-                var message = $"{Resources.FailMessage}执行回滚操作！";
-                MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {               
 #if DEBUG
                 throw;
 #else
                 Loger.Error(ex);
+                var message = $"{Resources.FailMessage}执行回滚操作！";
+                MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
             finally
@@ -783,11 +797,11 @@ namespace ItemCirculationManagementBackground
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                     throw;
 #else
-                Loger.Error(ex);
+                    Loger.Error(ex);
+                    MessageBox.Show(Resources.OtherErrorMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
                 }
                 finally
@@ -797,7 +811,7 @@ namespace ItemCirculationManagementBackground
             }
             else
             {
-                MessageBox.Show(@"未选中任何数据！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>
@@ -807,14 +821,14 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnUserDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(@"当前操作存在风险，是否继续？", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (MessageBox.Show(Resources.RiskOperationConfimMessage, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                var message = Resources.SuccecssMessage;
-                try
+
+                if (lvwUser.SelectedIndices.Count > 0)
                 {
-                    if (lvwUser.SelectedIndices.Count > 0)
+                    var items = lvwUser.FocusedItem.SubItems;
+                    try
                     {
-                        var items = lvwUser.FocusedItem.SubItems;
                         using (var db = new MySqlDbContext())
                         {
                             var id = Convert.ToInt32(items[0].Text);
@@ -822,20 +836,25 @@ namespace ItemCirculationManagementBackground
                             db.Student.Remove(entity);
                             db.SaveChanges();
                         }
+                        MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         MakingCardInIt();
-                        btnUserQuery_Click(null, null);
+                        StudentQuery();
+                    }
+                    catch (Exception ex)
+                    {
+#if DEBUG
+                        throw;
+#else
+                        Loger.Error(ex);
+                        MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    message = Resources.FailMessage;
-#if DEBUG
-                    throw;
-#else
-                Loger.Error(ex);
-#endif
+                    MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
         }
         /// <summary>
@@ -934,6 +953,8 @@ namespace ItemCirculationManagementBackground
                         item.SubItems.Add(entity.CardMacCode);
                         item.SubItems.Add(entity.StudentCode);
                         item.SubItems.Add(entity.StudentName);
+                        item.SubItems.Add(entity.GradeName);
+                        item.SubItems.Add(entity.ClassName);
                         item.SubItems.Add(entity.CreateTime is null ? string.Empty : Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         item.SubItems.Add(entity.UpdateTime is null ? string.Empty : Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         lvwUser.Items.Add(item);
@@ -941,12 +962,12 @@ namespace ItemCirculationManagementBackground
                 }
             }
             catch (Exception ex)
-            {
-                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {               
 #if DEBUG
                 throw;
 #else
                 Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
         }
@@ -1049,12 +1070,12 @@ namespace ItemCirculationManagementBackground
                 ExportExcel.OutToExcelFromDataListView(ConfigurationManager.AppSettings["ExcelImport"], lvwCirculation, true);
             }
             catch (Exception ex)
-            {
-                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            {               
 #if DEBUG
                 throw;
 #else
                 Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
         }

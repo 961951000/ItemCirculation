@@ -8,7 +8,7 @@ using ItemCirculation.Models;
 
 namespace ItemCirculation.Service
 {
-   public class StudentService
+    public class StudentService
     {
         /// <summary>
         /// 身份验证
@@ -19,18 +19,8 @@ namespace ItemCirculation.Service
         {
             using (var db = new MySqlDbContext())
             {
-                Student entity = null;
-                var schoolCardQueryable = db.SchoolCard.Where(x => x.CardMacCode == cardMacCode);
-                if (schoolCardQueryable.Any())
-                {
-                    var studentCode = schoolCardQueryable.First().StudentCode;
-                    var query = db.Student.Where(x => x.StudentCode == studentCode);
-                    if (query.Any())
-                    {
-                        entity = query.First();
-                    }
-                }
-                return entity;
+                var query = db.Student.Where(x => x.CardMacCode == cardMacCode);
+                return query.Any() ? query.First() : null;
             }
         }
     }

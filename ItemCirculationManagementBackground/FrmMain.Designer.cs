@@ -664,7 +664,7 @@
             // cnIndex
             // 
             this.cnIndex.Text = "序号";
-            this.cnIndex.Width = 50;
+            this.cnIndex.Width = 53;
             // 
             // cnTagCode
             // 
@@ -999,47 +999,49 @@
             // cnUserIndex
             // 
             this.cnUserIndex.Text = "序号";
-            this.cnUserIndex.Width = 50;
+            this.cnUserIndex.Width = 53;
             // 
             // cnUserCardCode
             // 
             this.cnUserCardCode.Text = "卡号";
             this.cnUserCardCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserCardCode.Width = 200;
+            this.cnUserCardCode.Width = 167;
             // 
             // cnUserStudentCode
             // 
             this.cnUserStudentCode.Text = "学籍号";
             this.cnUserStudentCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserStudentCode.Width = 200;
+            this.cnUserStudentCode.Width = 167;
             // 
             // cnUserName
             // 
             this.cnUserName.Text = "学生姓名";
             this.cnUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserName.Width = 200;
+            this.cnUserName.Width = 167;
             // 
             // colGradeName
             // 
             this.colGradeName.Text = "年级";
             this.colGradeName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colGradeName.Width = 167;
             // 
             // colClassName
             // 
             this.colClassName.Text = "班级";
             this.colClassName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.colClassName.Width = 167;
             // 
             // cnUserCreateTime
             // 
             this.cnUserCreateTime.Text = "创建时间";
             this.cnUserCreateTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserCreateTime.Width = 200;
+            this.cnUserCreateTime.Width = 167;
             // 
             // cnUserUpdateTime
             // 
             this.cnUserUpdateTime.Text = "修改时间";
             this.cnUserUpdateTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserUpdateTime.Width = 200;
+            this.cnUserUpdateTime.Width = 167;
             // 
             // FrmMain
             // 

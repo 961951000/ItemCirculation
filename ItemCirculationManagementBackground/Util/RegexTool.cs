@@ -74,6 +74,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^\d*$");
         }
+
         /// <summary>
         /// 只能输入数字
         /// </summary>

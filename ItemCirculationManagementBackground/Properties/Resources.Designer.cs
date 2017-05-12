@@ -70,6 +70,51 @@ namespace ItemCirculationManagementBackground.Properties {
         }
         
         /// <summary>
+        ///   查找类似 1 的本地化字符串。
+        /// </summary>
+        internal static string IsConvertTid {
+            get {
+                return ResourceManager.GetString("IsConvertTid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 1 的本地化字符串。
+        /// </summary>
+        internal static string IsConvertUid {
+            get {
+                return ResourceManager.GetString("IsConvertUid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 未选中任何数据！ 的本地化字符串。
+        /// </summary>
+        internal static string NoSelectedMessage {
+            get {
+                return ResourceManager.GetString("NoSelectedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 其它错误消息 的本地化字符串。
+        /// </summary>
+        internal static string OtherErrorMessage {
+            get {
+                return ResourceManager.GetString("OtherErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 当前操作存在风险，是否继续？ 的本地化字符串。
+        /// </summary>
+        internal static string RiskOperationConfimMessage {
+            get {
+                return ResourceManager.GetString("RiskOperationConfimMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 操作成功！ 的本地化字符串。
         /// </summary>
         internal static string SuccecssMessage {

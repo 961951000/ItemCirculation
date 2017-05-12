@@ -25,10 +25,18 @@ namespace ItemCirculation.Views.Return
         /// </summary>
         private void Init()
         {
-            _rr9.OpenComPort();
-            _rr9.Change14443();
-            _rr9.StartHidListen(YingXinRr9_HidListen);
-            TimingBegin();
+            if (_rr9.OpenComPort())
+            {
+                _rr9.Change14443();
+                _rr9.StartHidListen(YingXinRr9_HidListen);
+                TimingBegin();
+            }
+            else
+            {
+                MessageBox.Show(@"设备异常！");
+                _rr9.CloseComPort();
+                Close();
+            }
         }
 
         private void YingXinRr9_HidListen(string hid)

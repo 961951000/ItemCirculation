@@ -125,4 +125,27 @@
     <value>操作失败！</value>
     <comment>操作失败提示消息</comment>
   </data>
+  <data name="OtherErrorMessage" xml:space="preserve">
+    <value>其它错误消息</value>
+    <comment>其它错误消息提示信息</comment>
+  </data>
+  <data name="NoSelectedMessage" xml:space="preserve">
+    <value>未选中任何数据！</value>
+    <comment>未选中任何数据提示消息</comment>
+  </data>
+  <data name="RiskOperationConfimMessage" xml:space="preserve">
+    <value>当前操作存在风险，是否继续？</value>
+    <comment>风险操作确认提示信息</comment>
+  </data>
+  <data name="IsConvertUid" xml:space="preserve">
+    <value>1</value>
+    <comment>是否转换RFID标识识别号
+是：1/否：0
+</comment>
+  </data>
+  <data name="IsConvertTid" xml:space="preserve">
+    <value>1</value>
+    <comment>是否转换ID卡标识识别号
+是：1/否：0</comment>
+  </data>
 </root>

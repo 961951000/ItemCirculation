@@ -21,10 +21,22 @@ namespace ItemCirculation.Models
 			get;
 		}
 
-		/// <summary>
-		/// 学籍号
-		/// </summary>
-		[Column("student_code")]
+
+	    /// <summary>
+	    /// 物理卡号
+	    /// </summary>
+	    [Column("card_mac_code")]
+	    public string CardMacCode
+	    {
+	        set;
+	        get;
+	    }
+
+
+        /// <summary>
+        /// 学籍号
+        /// </summary>
+        [Column("student_code")]
 		public string StudentCode
 		{
 			set;

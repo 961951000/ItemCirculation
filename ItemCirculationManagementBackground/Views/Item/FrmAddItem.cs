@@ -8,6 +8,8 @@ namespace ItemCirculationManagementBackground.Views.Item
 {
     public partial class FrmAddItem : Form
     {
+        public delegate void SuccessHandler(string address);
+        public event SuccessHandler Success;
         public FrmAddItem()
         {
             InitializeComponent();
@@ -18,7 +20,6 @@ namespace ItemCirculationManagementBackground.Views.Item
         }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var message = Resources.SuccecssMessage;
             try
             {
                 var entity = new Models.Item
@@ -34,18 +35,20 @@ namespace ItemCirculationManagementBackground.Views.Item
                     db.Item.Add(entity);
                     db.SaveChanges();
                 }
+                MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Success?.Invoke(Name);
             }
             catch (Exception ex)
             {
 #if DEBUG
                 throw;
 #else
-                message = Resources.FailMessage;
                 Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
 #endif
             }
-            MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -54,6 +57,11 @@ namespace ItemCirculationManagementBackground.Views.Item
             {
                 Close();
             }
+        }
+
+        private void txtTagCode_TextChanged(object sender, EventArgs e)
+        {
+            txtTagCode1.Text = BaseTool.ConvertUid(txtTagCode.Text);
         }
     }
 }

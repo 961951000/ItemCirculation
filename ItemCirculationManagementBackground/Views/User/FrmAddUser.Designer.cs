@@ -32,7 +32,7 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtStudentCode = new System.Windows.Forms.TextBox();
-            this.txtCardCode = new System.Windows.Forms.TextBox();
+            this.txtCardCode10 = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblStudentCode = new System.Windows.Forms.Label();
             this.lblCardCode = new System.Windows.Forms.Label();
@@ -40,11 +40,12 @@
             this.cmbGradeName = new System.Windows.Forms.ComboBox();
             this.cmbClassName = new System.Windows.Forms.ComboBox();
             this.lblClassName = new System.Windows.Forms.Label();
+            this.txtCardCode16 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(171, 172);
+            this.btnCancel.Location = new System.Drawing.Point(171, 202);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 15;
@@ -54,7 +55,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(42, 173);
+            this.btnSubmit.Location = new System.Drawing.Point(42, 203);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 14;
@@ -64,29 +65,30 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(122, 76);
+            this.txtName.Location = new System.Drawing.Point(122, 106);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 21);
             this.txtName.TabIndex = 13;
             // 
             // txtStudentCode
             // 
-            this.txtStudentCode.Location = new System.Drawing.Point(122, 49);
+            this.txtStudentCode.Location = new System.Drawing.Point(122, 79);
             this.txtStudentCode.Name = "txtStudentCode";
             this.txtStudentCode.Size = new System.Drawing.Size(100, 21);
             this.txtStudentCode.TabIndex = 12;
             // 
-            // txtCardCode
+            // txtCardCode10
             // 
-            this.txtCardCode.Location = new System.Drawing.Point(122, 22);
-            this.txtCardCode.Name = "txtCardCode";
-            this.txtCardCode.Size = new System.Drawing.Size(100, 21);
-            this.txtCardCode.TabIndex = 11;
+            this.txtCardCode10.Location = new System.Drawing.Point(122, 25);
+            this.txtCardCode10.Name = "txtCardCode10";
+            this.txtCardCode10.Size = new System.Drawing.Size(100, 21);
+            this.txtCardCode10.TabIndex = 11;
+            this.txtCardCode10.TextChanged += new System.EventHandler(this.txtCardCode10_TextChanged);
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(57, 79);
+            this.lblName.Location = new System.Drawing.Point(57, 109);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(65, 12);
             this.lblName.TabIndex = 10;
@@ -95,7 +97,7 @@
             // lblStudentCode
             // 
             this.lblStudentCode.AutoSize = true;
-            this.lblStudentCode.Location = new System.Drawing.Point(57, 52);
+            this.lblStudentCode.Location = new System.Drawing.Point(57, 82);
             this.lblStudentCode.Name = "lblStudentCode";
             this.lblStudentCode.Size = new System.Drawing.Size(65, 12);
             this.lblStudentCode.TabIndex = 9;
@@ -113,7 +115,7 @@
             // lblGradeName
             // 
             this.lblGradeName.AutoSize = true;
-            this.lblGradeName.Location = new System.Drawing.Point(57, 104);
+            this.lblGradeName.Location = new System.Drawing.Point(57, 134);
             this.lblGradeName.Name = "lblGradeName";
             this.lblGradeName.Size = new System.Drawing.Size(65, 12);
             this.lblGradeName.TabIndex = 16;
@@ -123,7 +125,7 @@
             // 
             this.cmbGradeName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cmbGradeName.FormattingEnabled = true;
-            this.cmbGradeName.Location = new System.Drawing.Point(122, 101);
+            this.cmbGradeName.Location = new System.Drawing.Point(122, 131);
             this.cmbGradeName.Name = "cmbGradeName";
             this.cmbGradeName.Size = new System.Drawing.Size(121, 20);
             this.cmbGradeName.TabIndex = 17;
@@ -132,7 +134,7 @@
             // 
             this.cmbClassName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.cmbClassName.FormattingEnabled = true;
-            this.cmbClassName.Location = new System.Drawing.Point(122, 128);
+            this.cmbClassName.Location = new System.Drawing.Point(122, 158);
             this.cmbClassName.Name = "cmbClassName";
             this.cmbClassName.Size = new System.Drawing.Size(121, 20);
             this.cmbClassName.TabIndex = 18;
@@ -140,17 +142,26 @@
             // lblClassName
             // 
             this.lblClassName.AutoSize = true;
-            this.lblClassName.Location = new System.Drawing.Point(57, 131);
+            this.lblClassName.Location = new System.Drawing.Point(57, 161);
             this.lblClassName.Name = "lblClassName";
             this.lblClassName.Size = new System.Drawing.Size(65, 12);
             this.lblClassName.TabIndex = 19;
             this.lblClassName.Text = "班    级：";
+            // 
+            // txtCardCode16
+            // 
+            this.txtCardCode16.Location = new System.Drawing.Point(122, 49);
+            this.txtCardCode16.Name = "txtCardCode16";
+            this.txtCardCode16.ReadOnly = true;
+            this.txtCardCode16.Size = new System.Drawing.Size(100, 21);
+            this.txtCardCode16.TabIndex = 20;
             // 
             // FrmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.txtCardCode16);
             this.Controls.Add(this.lblClassName);
             this.Controls.Add(this.cmbClassName);
             this.Controls.Add(this.cmbGradeName);
@@ -159,7 +170,7 @@
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtStudentCode);
-            this.Controls.Add(this.txtCardCode);
+            this.Controls.Add(this.txtCardCode10);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblStudentCode);
             this.Controls.Add(this.lblCardCode);
@@ -177,7 +188,7 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtStudentCode;
-        private System.Windows.Forms.TextBox txtCardCode;
+        private System.Windows.Forms.TextBox txtCardCode10;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblStudentCode;
         private System.Windows.Forms.Label lblCardCode;
@@ -185,5 +196,6 @@
         private System.Windows.Forms.ComboBox cmbGradeName;
         private System.Windows.Forms.ComboBox cmbClassName;
         private System.Windows.Forms.Label lblClassName;
+        private System.Windows.Forms.TextBox txtCardCode16;
     }
 }

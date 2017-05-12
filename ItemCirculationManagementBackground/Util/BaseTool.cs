@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
@@ -6,7 +7,9 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Security.Principal;
+using System.Text;
 using System.Text.RegularExpressions;
+using ItemCirculationManagementBackground.Properties;
 
 namespace ItemCirculationManagementBackground.Util
 {
@@ -15,6 +18,35 @@ namespace ItemCirculationManagementBackground.Util
     /// </summary>
     public class BaseTool
     {
+        public static string ConvertTid(string str)
+        {
+            return Resources.IsConvertTid == "1" ? uint.TryParse(str, out uint result) ? BitConverter.ToString(BitConverter.GetBytes(result)).Replace("-", "") : string.Empty : str;
+        }
+        public static string ConvertUid(string str)
+        {
+            if (Resources.IsConvertUid == "1")
+            {
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < str.Length / 2; i++)
+                {
+                    sb.Insert(0, str.Substring(i * 2, 2));
+                }
+                return sb.ToString();
+            }
+            else
+            {
+                return str;
+            }
+        }
+        public static byte[] StringToByteArray(string str)
+        {
+            byte[] arr = new byte[str.Length / 2];
+            for (int i = 0; i < str.Length; i += 2)
+            {
+                arr[i / 2] = Convert.ToByte(str.Substring(i, 2), 16);
+            }
+            return arr;
+        }
         /// <summary>
         /// 从参数化查询获取完整SQL
         /// </summary>

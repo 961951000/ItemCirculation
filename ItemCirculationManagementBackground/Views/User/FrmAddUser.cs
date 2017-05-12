@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
+using ItemCirculationManagementBackground.Util;
 
 namespace ItemCirculationManagementBackground.Views.User
 {
@@ -16,12 +17,12 @@ namespace ItemCirculationManagementBackground.Views.User
         }
         private void FrmAddUser_Load(object sender, EventArgs e)
         {
-            txtCardCode.Focus();
+            txtCardCode10.Focus();
             try
             {
                 using (var db = new MySqlDbContext())
                 {
-                    var query = db.Student.GroupBy(x => x.GradeName).OrderBy(x=>x.Key);
+                    var query = db.Student.GroupBy(x => x.GradeName).OrderBy(x => x.Key);
                     if (query.Any())
                     {
                         foreach (var variable in query)
@@ -50,12 +51,11 @@ namespace ItemCirculationManagementBackground.Views.User
         }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var message = Resources.SuccecssMessage;
             try
             {
                 var entity = new Models.Student
                 {
-                    CardMacCode = txtCardCode.Text,
+                    CardMacCode = txtCardCode16.Text,
                     StudentCode = txtStudentCode.Text,
                     StudentName = txtName.Text,
                     GradeName = cmbGradeName.Text,
@@ -67,19 +67,20 @@ namespace ItemCirculationManagementBackground.Views.User
                     db.Student.Add(entity);
                     db.SaveChanges();
                 }
+                MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Success?.Invoke(Name);
             }
             catch (Exception ex)
             {
-                message = Resources.FailMessage;
 #if DEBUG
                 throw;
 #else
                 Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
 #endif
             }
-            Success?.Invoke(Name);
-            MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -88,6 +89,11 @@ namespace ItemCirculationManagementBackground.Views.User
             {
                 Close();
             }
+        }
+
+        private void txtCardCode10_TextChanged(object sender, EventArgs e)
+        {
+            txtCardCode16.Text = BaseTool.ConvertTid(txtCardCode10.Text);
         }
     }
 }

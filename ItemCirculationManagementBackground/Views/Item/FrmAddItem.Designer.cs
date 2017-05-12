@@ -36,12 +36,13 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.txtTagCode1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblTagCode
             // 
             this.lblTagCode.AutoSize = true;
-            this.lblTagCode.Location = new System.Drawing.Point(40, 57);
+            this.lblTagCode.Location = new System.Drawing.Point(40, 33);
             this.lblTagCode.Name = "lblTagCode";
             this.lblTagCode.Size = new System.Drawing.Size(65, 12);
             this.lblTagCode.TabIndex = 0;
@@ -67,10 +68,11 @@
             // 
             // txtTagCode
             // 
-            this.txtTagCode.Location = new System.Drawing.Point(105, 57);
+            this.txtTagCode.Location = new System.Drawing.Point(105, 30);
             this.txtTagCode.Name = "txtTagCode";
             this.txtTagCode.Size = new System.Drawing.Size(100, 21);
             this.txtTagCode.TabIndex = 3;
+            this.txtTagCode.TextChanged += new System.EventHandler(this.txtTagCode_TextChanged);
             // 
             // txtName
             // 
@@ -106,11 +108,20 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // FrmAddInstrument
+            // txtTagCode1
+            // 
+            this.txtTagCode1.Location = new System.Drawing.Point(105, 57);
+            this.txtTagCode1.Name = "txtTagCode1";
+            this.txtTagCode1.ReadOnly = true;
+            this.txtTagCode1.Size = new System.Drawing.Size(100, 21);
+            this.txtTagCode1.TabIndex = 8;
+            // 
+            // FrmAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.txtTagCode1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtType);
@@ -119,7 +130,7 @@
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblTagCode);
-            this.Name = "FrmAddInstrument";
+            this.Name = "FrmAddItem";
             this.Text = "仪器新增";
             this.Load += new System.EventHandler(this.FrmAddItem_Load);
             this.ResumeLayout(false);
@@ -137,5 +148,6 @@
         private System.Windows.Forms.TextBox txtType;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox txtTagCode1;
     }
 }

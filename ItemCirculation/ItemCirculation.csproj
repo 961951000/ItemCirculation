@@ -118,7 +118,6 @@
     <Compile Include="Models\Circulation.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemState.cs" />
-    <Compile Include="Models\SchoolCard.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

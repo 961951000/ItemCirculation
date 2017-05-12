@@ -85,10 +85,10 @@
     <Compile Include="Views\User\FrmAddUser.Designer.cs">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\User\FrmUpdateItem.cs">
+    <Compile Include="Views\Item\FrmUpdateItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\User\FrmUpdateItem.Designer.cs">
+    <Compile Include="Views\Item\FrmUpdateItem.Designer.cs">
       <DependentUpon>FrmUpdateItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\User\FrmUpdateUser.cs">
@@ -123,7 +123,7 @@
     <EmbeddedResource Include="Views\User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\User\FrmUpdateItem.resx">
+    <EmbeddedResource Include="Views\Item\FrmUpdateItem.resx">
       <DependentUpon>FrmUpdateItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\FrmUpdateUser.resx">

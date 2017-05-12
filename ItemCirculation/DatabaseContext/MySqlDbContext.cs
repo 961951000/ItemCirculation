@@ -24,10 +24,6 @@ namespace ItemCirculation.DatabaseContext
         /// </summary>
         public DbSet<ItemState> ItemState { get; set; }
         /// <summary>
-        /// 学籍卡信息表
-        /// </summary>
-        public DbSet<SchoolCard> SchoolCard { get; set; }
-        /// <summary>
         /// 学生信息表
         /// </summary>
         public DbSet<Student> Student { get; set; }

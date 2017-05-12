@@ -187,7 +187,7 @@ namespace ItemCirculation.Api
                         {
                             for (int i = 0; i < cardNumber; i++)
                             {
-                                uidList.Add(str.Substring(18 * i, 18).Substring(0, 16));
+                                uidList.Add(str.Substring(18 * i, 18).Substring(2, 16));
                             }
                             return true;
                         }
@@ -297,12 +297,12 @@ namespace ItemCirculation.Api
         /// <returns>十六进制字符串</returns>
         private static string ByteArrayToHexString(byte[] data)
         {
-            StringBuilder sb = new StringBuilder();
-            for (int i = data.Length; i > 0; i--)
+            /*StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
             {
-                sb.Append(Convert.ToString(data[i - 1], 16).PadLeft(2, '0'));
-            }
-            return sb.ToString().ToUpper();
+                sb.Append(Convert.ToString(i, 16).PadLeft(2, '0'));
+            }*/
+            return BitConverter.ToString(data).Replace("-", "");
         }
         /// <summary>
         /// ID卡前10位

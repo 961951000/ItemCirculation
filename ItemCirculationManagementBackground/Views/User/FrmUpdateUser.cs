@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
+using ItemCirculationManagementBackground.Util;
 
 namespace ItemCirculationManagementBackground.Views.User
 {
@@ -23,7 +24,15 @@ namespace ItemCirculationManagementBackground.Views.User
 
         private void FrmUpdateUser_Load(object sender, EventArgs e)
         {
-            txtCardCode.Text = _entity.CardMacCode;
+            try
+            {
+                txtCardCode10.Text = Resources.IsConvertTid == "1" ? BitConverter.ToUInt32(BaseTool.StringToByteArray(_entity.CardMacCode), 0).ToString() : _entity.CardMacCode;
+            }
+            catch (Exception)
+            {
+                txtCardCode10.Text = _entity.CardMacCode;
+            }
+            txtCardCode16.Text = _entity.CardMacCode;
             txtStudentCode.Text = _entity.StudentCode;
             txtName.Text = _entity.StudentName;
             try
@@ -72,13 +81,12 @@ namespace ItemCirculationManagementBackground.Views.User
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var message = Resources.SuccecssMessage;
             try
             {
                 using (var db = new MySqlDbContext())
                 {
                     var entity = db.Student.Single(x => x.Id == _entity.Id);
-                    entity.CardMacCode = txtCardCode.Text;
+                    entity.CardMacCode = txtCardCode16.Text;
                     entity.StudentCode = txtStudentCode.Text;
                     entity.StudentName = txtName.Text;
                     entity.GradeName = cmbGradeName.Text;
@@ -86,19 +94,20 @@ namespace ItemCirculationManagementBackground.Views.User
                     entity.UpdateTime = DateTime.Now;
                     db.SaveChanges();
                 }
+                MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
+                Success?.Invoke(Name);
             }
             catch (Exception ex)
             {
-                message = Resources.FailMessage;
 #if DEBUG
                 throw;
 #else
                 Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Close();
 #endif
             }
-            Success?.Invoke(Name);
-            MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -107,6 +116,11 @@ namespace ItemCirculationManagementBackground.Views.User
             {
                 Close();
             }
+        }
+
+        private void txtCardCode10_TextChanged(object sender, EventArgs e)
+        {
+            txtCardCode16.Text = BaseTool.ConvertTid(txtCardCode10.Text);
         }
     }
 }

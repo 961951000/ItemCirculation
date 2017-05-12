@@ -142,7 +142,7 @@
             this.tabMain.Location = new System.Drawing.Point(2, 1);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(1086, 615);
+            this.tabMain.Size = new System.Drawing.Size(1454, 779);
             this.tabMain.TabIndex = 0;
             // 
             // pageQueryStatistics
@@ -152,7 +152,7 @@
             this.pageQueryStatistics.Location = new System.Drawing.Point(4, 22);
             this.pageQueryStatistics.Name = "pageQueryStatistics";
             this.pageQueryStatistics.Padding = new System.Windows.Forms.Padding(3);
-            this.pageQueryStatistics.Size = new System.Drawing.Size(1078, 589);
+            this.pageQueryStatistics.Size = new System.Drawing.Size(1446, 753);
             this.pageQueryStatistics.TabIndex = 0;
             this.pageQueryStatistics.Text = "查询统计";
             this.pageQueryStatistics.UseVisualStyleBackColor = true;
@@ -177,9 +177,9 @@
             this.groupBox1.Controls.Add(this.dtpLendTimeStart);
             this.groupBox1.Controls.Add(this.txtLendUserStudentGet);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(25, 6);
+            this.groupBox1.Location = new System.Drawing.Point(92, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1013, 201);
+            this.groupBox1.Size = new System.Drawing.Size(1254, 201);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
@@ -360,9 +360,9 @@
             this.columnHeader9});
             this.lvwCirculation.FullRowSelect = true;
             this.lvwCirculation.GridLines = true;
-            this.lvwCirculation.Location = new System.Drawing.Point(25, 213);
+            this.lvwCirculation.Location = new System.Drawing.Point(92, 224);
             this.lvwCirculation.Name = "lvwCirculation";
-            this.lvwCirculation.Size = new System.Drawing.Size(1013, 369);
+            this.lvwCirculation.Size = new System.Drawing.Size(1254, 523);
             this.lvwCirculation.TabIndex = 14;
             this.lvwCirculation.UseCompatibleStateImageBehavior = false;
             this.lvwCirculation.View = System.Windows.Forms.View.Details;
@@ -370,58 +370,58 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "序号";
-            this.columnHeader1.Width = 53;
+            this.columnHeader1.Width = 50;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "借出人姓名";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 120;
+            this.columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "借出人学籍号";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 120;
+            this.columnHeader3.Width = 150;
             // 
             // columnHeader4
             // 
             this.columnHeader4.DisplayIndex = 4;
             this.columnHeader4.Text = "归还人姓名";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 120;
+            this.columnHeader4.Width = 150;
             // 
             // columnHeader5
             // 
             this.columnHeader5.DisplayIndex = 5;
             this.columnHeader5.Text = "归还人学籍号";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 120;
+            this.columnHeader5.Width = 150;
             // 
             // columnHeader6
             // 
             this.columnHeader6.DisplayIndex = 3;
             this.columnHeader6.Text = "仪器名称";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 120;
+            this.columnHeader6.Width = 150;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "仪器型号";
             this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 120;
+            this.columnHeader7.Width = 150;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "借出时间";
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader8.Width = 120;
+            this.columnHeader8.Width = 150;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "归还时间";
             this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader9.Width = 120;
+            this.columnHeader9.Width = 150;
             // 
             // pageLabelSwitching
             // 
@@ -435,7 +435,7 @@
             this.pageLabelSwitching.Location = new System.Drawing.Point(4, 22);
             this.pageLabelSwitching.Name = "pageLabelSwitching";
             this.pageLabelSwitching.Padding = new System.Windows.Forms.Padding(3);
-            this.pageLabelSwitching.Size = new System.Drawing.Size(1078, 589);
+            this.pageLabelSwitching.Size = new System.Drawing.Size(1446, 753);
             this.pageLabelSwitching.TabIndex = 1;
             this.pageLabelSwitching.Text = "标签转换";
             this.pageLabelSwitching.UseVisualStyleBackColor = true;
@@ -443,7 +443,7 @@
             // lblLabelSwitchingProgress1
             // 
             this.lblLabelSwitchingProgress1.AutoSize = true;
-            this.lblLabelSwitchingProgress1.Location = new System.Drawing.Point(500, 505);
+            this.lblLabelSwitchingProgress1.Location = new System.Drawing.Point(686, 604);
             this.lblLabelSwitchingProgress1.Name = "lblLabelSwitchingProgress1";
             this.lblLabelSwitchingProgress1.Size = new System.Drawing.Size(161, 12);
             this.lblLabelSwitchingProgress1.TabIndex = 6;
@@ -451,7 +451,7 @@
             // 
             // prgLabelSwitching1
             // 
-            this.prgLabelSwitching1.Location = new System.Drawing.Point(230, 500);
+            this.prgLabelSwitching1.Location = new System.Drawing.Point(416, 599);
             this.prgLabelSwitching1.Name = "prgLabelSwitching1";
             this.prgLabelSwitching1.Size = new System.Drawing.Size(600, 23);
             this.prgLabelSwitching1.TabIndex = 5;
@@ -460,7 +460,7 @@
             // lblLabelSwitchingProgress2
             // 
             this.lblLabelSwitchingProgress2.AutoSize = true;
-            this.lblLabelSwitchingProgress2.Location = new System.Drawing.Point(500, 551);
+            this.lblLabelSwitchingProgress2.Location = new System.Drawing.Point(686, 650);
             this.lblLabelSwitchingProgress2.Name = "lblLabelSwitchingProgress2";
             this.lblLabelSwitchingProgress2.Size = new System.Drawing.Size(161, 12);
             this.lblLabelSwitchingProgress2.TabIndex = 4;
@@ -468,7 +468,7 @@
             // 
             // prgLabelSwitching2
             // 
-            this.prgLabelSwitching2.Location = new System.Drawing.Point(230, 545);
+            this.prgLabelSwitching2.Location = new System.Drawing.Point(416, 644);
             this.prgLabelSwitching2.Name = "prgLabelSwitching2";
             this.prgLabelSwitching2.Size = new System.Drawing.Size(600, 23);
             this.prgLabelSwitching2.TabIndex = 3;
@@ -485,7 +485,7 @@
             this.grpLabelSwitchingGet.Controls.Add(this.txtInstrumentName);
             this.grpLabelSwitchingGet.Controls.Add(this.lblInstrumentType);
             this.grpLabelSwitchingGet.Controls.Add(this.lblInstrumentName);
-            this.grpLabelSwitchingGet.Location = new System.Drawing.Point(610, 26);
+            this.grpLabelSwitchingGet.Location = new System.Drawing.Point(803, 109);
             this.grpLabelSwitchingGet.Name = "grpLabelSwitchingGet";
             this.grpLabelSwitchingGet.Size = new System.Drawing.Size(450, 150);
             this.grpLabelSwitchingGet.TabIndex = 2;
@@ -585,7 +585,7 @@
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingUpdate);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingImport);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingAdd);
-            this.grpLabelSwitchingSet.Location = new System.Drawing.Point(6, 26);
+            this.grpLabelSwitchingSet.Location = new System.Drawing.Point(199, 109);
             this.grpLabelSwitchingSet.Name = "grpLabelSwitchingSet";
             this.grpLabelSwitchingSet.Size = new System.Drawing.Size(450, 150);
             this.grpLabelSwitchingSet.TabIndex = 1;
@@ -654,9 +654,9 @@
             this.cnUpdateDate});
             this.lvwBook.FullRowSelect = true;
             this.lvwBook.GridLines = true;
-            this.lvwBook.Location = new System.Drawing.Point(18, 193);
+            this.lvwBook.Location = new System.Drawing.Point(295, 284);
             this.lvwBook.Name = "lvwBook";
-            this.lvwBook.Size = new System.Drawing.Size(1054, 301);
+            this.lvwBook.Size = new System.Drawing.Size(804, 301);
             this.lvwBook.TabIndex = 0;
             this.lvwBook.UseCompatibleStateImageBehavior = false;
             this.lvwBook.View = System.Windows.Forms.View.Details;
@@ -664,37 +664,37 @@
             // cnIndex
             // 
             this.cnIndex.Text = "序号";
-            this.cnIndex.Width = 53;
+            this.cnIndex.Width = 50;
             // 
             // cnTagCode
             // 
             this.cnTagCode.Text = "电子标签";
             this.cnTagCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnTagCode.Width = 200;
+            this.cnTagCode.Width = 150;
             // 
             // chName
             // 
             this.chName.Text = "仪器名称";
             this.chName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chName.Width = 200;
+            this.chName.Width = 150;
             // 
             // chType
             // 
             this.chType.Text = "仪器型号";
             this.chType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.chType.Width = 200;
+            this.chType.Width = 150;
             // 
             // cnCreateDate
             // 
             this.cnCreateDate.Text = "入库时间";
             this.cnCreateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnCreateDate.Width = 200;
+            this.cnCreateDate.Width = 150;
             // 
             // cnUpdateDate
             // 
             this.cnUpdateDate.Text = "修改时间";
             this.cnUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUpdateDate.Width = 200;
+            this.cnUpdateDate.Width = 150;
             // 
             // pageMakingCard
             // 
@@ -708,7 +708,7 @@
             this.pageMakingCard.Location = new System.Drawing.Point(4, 22);
             this.pageMakingCard.Name = "pageMakingCard";
             this.pageMakingCard.Padding = new System.Windows.Forms.Padding(3);
-            this.pageMakingCard.Size = new System.Drawing.Size(1078, 589);
+            this.pageMakingCard.Size = new System.Drawing.Size(1446, 753);
             this.pageMakingCard.TabIndex = 2;
             this.pageMakingCard.Text = "开卡办证";
             this.pageMakingCard.UseVisualStyleBackColor = true;
@@ -716,7 +716,7 @@
             // lblUserProgress1
             // 
             this.lblUserProgress1.AutoSize = true;
-            this.lblUserProgress1.Location = new System.Drawing.Point(506, 502);
+            this.lblUserProgress1.Location = new System.Drawing.Point(657, 581);
             this.lblUserProgress1.Name = "lblUserProgress1";
             this.lblUserProgress1.Size = new System.Drawing.Size(101, 12);
             this.lblUserProgress1.TabIndex = 13;
@@ -724,7 +724,7 @@
             // 
             // prgUser1
             // 
-            this.prgUser1.Location = new System.Drawing.Point(236, 497);
+            this.prgUser1.Location = new System.Drawing.Point(387, 576);
             this.prgUser1.Name = "prgUser1";
             this.prgUser1.Size = new System.Drawing.Size(600, 23);
             this.prgUser1.TabIndex = 12;
@@ -733,7 +733,7 @@
             // lblUserProgress2
             // 
             this.lblUserProgress2.AutoSize = true;
-            this.lblUserProgress2.Location = new System.Drawing.Point(506, 548);
+            this.lblUserProgress2.Location = new System.Drawing.Point(657, 627);
             this.lblUserProgress2.Name = "lblUserProgress2";
             this.lblUserProgress2.Size = new System.Drawing.Size(101, 12);
             this.lblUserProgress2.TabIndex = 11;
@@ -741,7 +741,7 @@
             // 
             // prgUser2
             // 
-            this.prgUser2.Location = new System.Drawing.Point(236, 542);
+            this.prgUser2.Location = new System.Drawing.Point(387, 621);
             this.prgUser2.Name = "prgUser2";
             this.prgUser2.Size = new System.Drawing.Size(600, 23);
             this.prgUser2.TabIndex = 10;
@@ -764,7 +764,7 @@
             this.grpUserGet.Controls.Add(this.txtUserName);
             this.grpUserGet.Controls.Add(this.lblUserCardCode);
             this.grpUserGet.Controls.Add(this.lblUserName);
-            this.grpUserGet.Location = new System.Drawing.Point(616, 23);
+            this.grpUserGet.Location = new System.Drawing.Point(813, 94);
             this.grpUserGet.Name = "grpUserGet";
             this.grpUserGet.Size = new System.Drawing.Size(450, 150);
             this.grpUserGet.TabIndex = 9;
@@ -918,7 +918,7 @@
             this.grpUserSet.Controls.Add(this.btnUserUpdate);
             this.grpUserSet.Controls.Add(this.btnUserImport);
             this.grpUserSet.Controls.Add(this.btnUserAdd);
-            this.grpUserSet.Location = new System.Drawing.Point(12, 23);
+            this.grpUserSet.Location = new System.Drawing.Point(160, 94);
             this.grpUserSet.Name = "grpUserSet";
             this.grpUserSet.Size = new System.Drawing.Size(450, 150);
             this.grpUserSet.TabIndex = 8;
@@ -989,9 +989,9 @@
             this.cnUserUpdateTime});
             this.lvwUser.FullRowSelect = true;
             this.lvwUser.GridLines = true;
-            this.lvwUser.Location = new System.Drawing.Point(12, 190);
+            this.lvwUser.Location = new System.Drawing.Point(160, 261);
             this.lvwUser.Name = "lvwUser";
-            this.lvwUser.Size = new System.Drawing.Size(1054, 301);
+            this.lvwUser.Size = new System.Drawing.Size(1103, 301);
             this.lvwUser.TabIndex = 7;
             this.lvwUser.UseCompatibleStateImageBehavior = false;
             this.lvwUser.View = System.Windows.Forms.View.Details;
@@ -999,55 +999,55 @@
             // cnUserIndex
             // 
             this.cnUserIndex.Text = "序号";
-            this.cnUserIndex.Width = 53;
+            this.cnUserIndex.Width = 50;
             // 
             // cnUserCardCode
             // 
             this.cnUserCardCode.Text = "卡号";
             this.cnUserCardCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserCardCode.Width = 167;
+            this.cnUserCardCode.Width = 150;
             // 
             // cnUserStudentCode
             // 
             this.cnUserStudentCode.Text = "学籍号";
             this.cnUserStudentCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserStudentCode.Width = 167;
+            this.cnUserStudentCode.Width = 150;
             // 
             // cnUserName
             // 
             this.cnUserName.Text = "学生姓名";
             this.cnUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserName.Width = 167;
+            this.cnUserName.Width = 150;
             // 
             // colGradeName
             // 
             this.colGradeName.Text = "年级";
             this.colGradeName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colGradeName.Width = 167;
+            this.colGradeName.Width = 150;
             // 
             // colClassName
             // 
             this.colClassName.Text = "班级";
             this.colClassName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.colClassName.Width = 167;
+            this.colClassName.Width = 150;
             // 
             // cnUserCreateTime
             // 
             this.cnUserCreateTime.Text = "创建时间";
             this.cnUserCreateTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserCreateTime.Width = 167;
+            this.cnUserCreateTime.Width = 150;
             // 
             // cnUserUpdateTime
             // 
             this.cnUserUpdateTime.Text = "修改时间";
             this.cnUserUpdateTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUserUpdateTime.Width = 167;
+            this.cnUserUpdateTime.Width = 150;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 617);
+            this.ClientSize = new System.Drawing.Size(1475, 792);
             this.Controls.Add(this.tabMain);
             this.Name = "FrmMain";
             this.Text = "上海市实验学校仪器设备管理系统 - 管理后台";

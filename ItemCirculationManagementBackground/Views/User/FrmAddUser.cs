@@ -113,6 +113,7 @@ namespace ItemCirculationManagementBackground.Views.User
         private void cmbGradeName_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbClassName.Items.Clear();
+            cmbClassName.Text = string.Empty;
             using (var db = new MySqlDbContext())
             {
                 var query = db.Student.Where(x => x.GradeName == cmbGradeName.Text);
@@ -127,6 +128,10 @@ namespace ItemCirculationManagementBackground.Views.User
                         }
                     }
                 }
+            }
+            if (cmbClassName.Items.Count > 0)
+            {
+                cmbClassName.SelectedIndex = 0;
             }
         }
     }

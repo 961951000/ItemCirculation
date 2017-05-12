@@ -28,7 +28,10 @@ namespace ItemCirculationManagementBackground.Views.User
                     {
                         foreach (var variable in query)
                         {
-                            cmbGradeName.Items.Add(variable.Key);
+                            if (variable.Key != null)
+                            {
+                                cmbGradeName.Items.Add(variable.Key);
+                            }
                         }
                     }
                     var query1 = db.Student.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
@@ -36,7 +39,10 @@ namespace ItemCirculationManagementBackground.Views.User
                     {
                         foreach (var variable in query1)
                         {
-                            cmbClassName.Items.Add(variable.Key);
+                            if (variable.Key != null)
+                            {
+                                cmbClassName.Items.Add(variable.Key);
+                            }
                         }
                     }
                 }
@@ -115,7 +121,10 @@ namespace ItemCirculationManagementBackground.Views.User
                 {
                     foreach (var variable in groupQuery)
                     {
-                        cmbClassName.Items.Add(variable.Key);
+                        if (variable.Key != null)
+                        {
+                            cmbClassName.Items.Add(variable.Key);
+                        }
                     }
                 }
             }

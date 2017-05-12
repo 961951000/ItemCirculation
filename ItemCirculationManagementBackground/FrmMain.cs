@@ -72,7 +72,10 @@ namespace ItemCirculationManagementBackground
                 {
                     foreach (var variable in query)
                     {
-                        cmbGradeName.Items.Add(variable.Key);
+                        if (variable.Key != null)
+                        {
+                            cmbGradeName.Items.Add(variable.Key);
+                        }
                     }
                 }
                 var query1 = db.Student.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
@@ -80,7 +83,10 @@ namespace ItemCirculationManagementBackground
                 {
                     foreach (var variable in query1)
                     {
-                        cmbClassName.Items.Add(variable.Key);
+                        if (variable.Key != null)
+                        {
+                            cmbClassName.Items.Add(variable.Key);
+                        }
                     }
                 }
             }
@@ -407,6 +413,7 @@ namespace ItemCirculationManagementBackground
                                 Uid = BaseTool.ConvertUid(Convert.ToString(dr[0])),
                                 ItemName = Convert.ToString(dr[1]),
                                 ItemType = Convert.ToString(dr[2]),
+                                ItemStateCode = 1001,
                                 UpdateTime = DateTime.Now,
                             };
                             var item = ItemDetailBatch.BatchAdd(entity);
@@ -685,6 +692,8 @@ namespace ItemCirculationManagementBackground
                                 CardMacCode = BaseTool.ConvertTid(Convert.ToString(dr[0])),
                                 StudentCode = Convert.ToString(dr[1]),
                                 StudentName = Convert.ToString(dr[2]),
+                                GradeName = Convert.ToString(dr[3]),
+                                ClassName = Convert.ToString(dr[4]),
                                 CreateTime = DateTime.Now
                             };
                             var item = ItemDetailBatch.BatchAdd(entity);
@@ -1069,7 +1078,14 @@ namespace ItemCirculationManagementBackground
         {
             try
             {
-                ExportExcel.OutToExcelFromDataListView(ConfigurationManager.AppSettings["ExcelImport"], lvwCirculation, true);
+                if (lvwCirculation.Items.Count > 0)
+                {
+                    ExportExcel.OutToExcelFromDataListView(ConfigurationManager.AppSettings["ExcelImport"], lvwCirculation, true);
+                }
+                else
+                {
+                    MessageBox.Show(@"没有数据！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {
@@ -1100,7 +1116,10 @@ namespace ItemCirculationManagementBackground
                 {
                     foreach (var variable in groupQuery)
                     {
-                        cmbClassName.Items.Add(variable.Key);
+                        if (variable.Key != null)
+                        {
+                            cmbClassName.Items.Add(variable.Key);
+                        }
                     }
                 }
             }

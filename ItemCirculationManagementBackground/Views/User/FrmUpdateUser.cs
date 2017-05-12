@@ -46,10 +46,13 @@ namespace ItemCirculationManagementBackground.Views.User
                     {
                         foreach (var variable in query)
                         {
-                            var index = cmbGradeName.Items.Add(variable.Key);
-                            if (_entity.GradeName == variable.Key)
+                            if (variable.Key != null)
                             {
-                                selectedIndex = index;
+                                var index = cmbGradeName.Items.Add(variable.Key);
+                                if (_entity.GradeName == variable.Key)
+                                {
+                                    selectedIndex = index;
+                                }
                             }
                         }
                         cmbGradeName.SelectedIndex = selectedIndex;
@@ -60,10 +63,13 @@ namespace ItemCirculationManagementBackground.Views.User
                     {
                         foreach (var variable in query1)
                         {
-                            var index = cmbClassName.Items.Add(variable.Key);
-                            if (_entity.ClassName == variable.Key)
+                            if (variable.Key != null)
                             {
-                                selectedIndex = index;
+                                var index = cmbClassName.Items.Add(variable.Key);
+                                if (_entity.ClassName == variable.Key)
+                                {
+                                    selectedIndex = index;
+                                }
                             }
                         }
                         cmbClassName.SelectedIndex = selectedIndex;
@@ -142,7 +148,10 @@ namespace ItemCirculationManagementBackground.Views.User
                 {
                     foreach (var variable in groupQuery)
                     {
-                        cmbClassName.Items.Add(variable.Key);
+                        if (variable.Key != null)
+                        {
+                            cmbClassName.Items.Add(variable.Key);
+                        }
                     }
                 }
             }

@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using ItemCirculationManagementBackground.Models;
+using MySql.Data.MySqlClient;
 
 namespace ItemCirculationManagementBackground.DatabaseContext
 {
@@ -74,51 +75,51 @@ namespace ItemCirculationManagementBackground.DatabaseContext
             DbParameter param;
             if (dataType == typeof(long))
             {
-                param = new SqlParameter(dataName, SqlDbType.BigInt);
+                param = new MySqlParameter(dataName, MySqlDbType.Int64);
             }
             else if (dataType == typeof(byte))
             {
-                param = new SqlParameter(dataName, SqlDbType.Binary);
+                param = new MySqlParameter(dataName, MySqlDbType.Byte);
             }
             else if (dataType == typeof(bool))
             {
-                param = new SqlParameter(dataName, SqlDbType.Bit);
+                param = new MySqlParameter(dataName, MySqlDbType.Bit);
             }
             else if (dataType == typeof(DateTime))
             {
-                param = new SqlParameter(dataName, SqlDbType.DateTime);
+                param = new MySqlParameter(dataName, MySqlDbType.DateTime);
             }
             else if (dataType == typeof(decimal))
             {
-                param = new SqlParameter(dataName, SqlDbType.Decimal);
+                param = new MySqlParameter(dataName, MySqlDbType.Decimal);
             }
             else if (dataType == typeof(double))
             {
-                param = new SqlParameter(dataName, SqlDbType.Float);
+                param = new MySqlParameter(dataName, MySqlDbType.Double);
             }
             else if (dataType == typeof(int))
             {
-                param = new SqlParameter(dataName, SqlDbType.Int);
+                param = new MySqlParameter(dataName, MySqlDbType.Int32);
             }
             else if (dataType == typeof(float))
             {
-                param = new SqlParameter(dataName, SqlDbType.Real);
+                param = new MySqlParameter(dataName, MySqlDbType.Float);
             }
             else if (dataType == typeof(short))
             {
-                param = new SqlParameter(dataName, SqlDbType.SmallInt);
+                param = new MySqlParameter(dataName, MySqlDbType.Int16);
             }
             else if (dataType == typeof(TimeSpan))
             {
-                param = new SqlParameter(dataName, SqlDbType.Timestamp);
+                param = new MySqlParameter(dataName, MySqlDbType.Timestamp);
             }
             else if (dataType == typeof(Guid))
             {
-                param = new SqlParameter(dataName, SqlDbType.UniqueIdentifier);
+                param = new MySqlParameter(dataName, MySqlDbType.Guid);
             }
             else
             {
-                param = new SqlParameter(dataName, SqlDbType.VarChar, 255);
+                param = new MySqlParameter(dataName, MySqlDbType.VarChar, 255);
             }
             param.Value = dataValue;
             return param;

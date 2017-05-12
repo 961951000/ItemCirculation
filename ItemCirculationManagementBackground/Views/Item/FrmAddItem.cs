@@ -27,7 +27,7 @@ namespace ItemCirculationManagementBackground.Views.Item
                 {
                     var entity = new Models.Item
                     {
-                        Uid = txtTagCode.Text,
+                        Uid = txtTagCode1.Text,
                         ItemName = txtName.Text,
                         ItemType = txtType.Text,
                         CreateTime = DateTime.Now,

@@ -129,6 +129,7 @@
             this.cmbGradeName.Name = "cmbGradeName";
             this.cmbGradeName.Size = new System.Drawing.Size(121, 20);
             this.cmbGradeName.TabIndex = 17;
+            this.cmbGradeName.SelectedIndexChanged += new System.EventHandler(this.cmbGradeName_SelectedIndexChanged);
             // 
             // cmbClassName
             // 

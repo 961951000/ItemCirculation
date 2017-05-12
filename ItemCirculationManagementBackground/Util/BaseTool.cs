@@ -24,6 +24,7 @@ namespace ItemCirculationManagementBackground.Util
         }
         public static string ConvertUid(string str)
         {
+            str = str.ToUpper();
             if (Resources.IsConvertUid == "1")
             {
                 StringBuilder sb = new StringBuilder();
@@ -38,6 +39,11 @@ namespace ItemCirculationManagementBackground.Util
                 return str;
             }
         }
+        /// <summary>
+        /// 字符串转字节数组
+        /// </summary>
+        /// <param name="str">字符串</param>
+        /// <returns>字节数组</returns>
         public static byte[] StringToByteArray(string str)
         {
             byte[] arr = new byte[str.Length / 2];

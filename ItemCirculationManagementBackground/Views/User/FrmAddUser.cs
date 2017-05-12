@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
+using ItemCirculationManagementBackground.Models;
 
 namespace ItemCirculationManagementBackground.Views.User
 {
@@ -101,6 +102,23 @@ namespace ItemCirculationManagementBackground.Views.User
         private void txtCardCode10_TextChanged(object sender, EventArgs e)
         {
             txtCardCode16.Text = BaseTool.ConvertTid(txtCardCode10.Text);
+        }
+
+        private void cmbGradeName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbClassName.Items.Clear();
+            using (var db = new MySqlDbContext())
+            {
+                var query = db.Student.Where(x => x.GradeName == cmbGradeName.Text);
+                var groupQuery = query.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
+                if (groupQuery.Any())
+                {
+                    foreach (var variable in groupQuery)
+                    {
+                        cmbClassName.Items.Add(variable.Key);
+                    }
+                }
+            }
         }
     }
 }

@@ -77,6 +77,7 @@
             this.cmbGradeName.Name = "cmbGradeName";
             this.cmbGradeName.Size = new System.Drawing.Size(121, 20);
             this.cmbGradeName.TabIndex = 30;
+            this.cmbGradeName.SelectedIndexChanged += new System.EventHandler(this.cmbGradeName_SelectedIndexChanged);
             // 
             // lblGradeName
             // 
@@ -104,6 +105,7 @@
             this.btnSubmit.TabIndex = 27;
             this.btnSubmit.Text = "提交";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtName
             // 

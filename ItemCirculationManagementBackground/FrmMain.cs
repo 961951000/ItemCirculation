@@ -1084,7 +1084,6 @@ namespace ItemCirculationManagementBackground
 
         private void cmbGradeName_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             cmbClassName.Items.Clear();
             cmbClassName.Items.Add("ALL");
             cmbClassName.SelectedIndex = 0;

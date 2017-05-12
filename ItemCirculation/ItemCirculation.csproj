@@ -218,7 +218,9 @@
     <Content Include="Basic.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resouce\item_circulation_test.sql" />
+    <Content Include="Resouce\item_circulation_test.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resouce\images\timg.jpg" />

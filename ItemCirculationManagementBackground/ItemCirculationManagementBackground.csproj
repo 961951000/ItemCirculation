@@ -150,18 +150,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resource\Files\ExcelImport\学生信息导入表格.xlsx" />
-    <None Include="Resource\Files\ExcelImport\标签转换导入表格.xlsx" />
-    <None Include="Resource\Tool\软件安装说明.docx" />
-    <None Include="Resource\Tool\软件运行环境.docx" />
+    <None Include="Resource\Files\ExcelImport\学生信息导入表格.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Files\ExcelImport\标签转换导入表格.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Tool\软件安装说明.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resource\Tool\软件运行环境.docx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resource\Tool\AccessDatabaseEngine.exe" />
-    <Content Include="Resource\Tool\AccessDatabaseEngine_X64.exe" />
-    <Content Include="Resource\Tool\SmartLibrary.sql" />
+    <Content Include="Resource\Tool\AccessDatabaseEngine.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\Tool\AccessDatabaseEngine_X64.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\Tool\SmartLibrary.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

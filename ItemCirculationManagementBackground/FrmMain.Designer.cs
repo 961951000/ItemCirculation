@@ -142,7 +142,7 @@
             this.tabMain.Location = new System.Drawing.Point(2, 1);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(1454, 779);
+            this.tabMain.Size = new System.Drawing.Size(1392, 727);
             this.tabMain.TabIndex = 0;
             // 
             // pageQueryStatistics
@@ -152,7 +152,7 @@
             this.pageQueryStatistics.Location = new System.Drawing.Point(4, 22);
             this.pageQueryStatistics.Name = "pageQueryStatistics";
             this.pageQueryStatistics.Padding = new System.Windows.Forms.Padding(3);
-            this.pageQueryStatistics.Size = new System.Drawing.Size(1446, 753);
+            this.pageQueryStatistics.Size = new System.Drawing.Size(1384, 701);
             this.pageQueryStatistics.TabIndex = 0;
             this.pageQueryStatistics.Text = "查询统计";
             this.pageQueryStatistics.UseVisualStyleBackColor = true;
@@ -177,7 +177,7 @@
             this.groupBox1.Controls.Add(this.dtpLendTimeStart);
             this.groupBox1.Controls.Add(this.txtLendUserStudentGet);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(92, 17);
+            this.groupBox1.Location = new System.Drawing.Point(60, 50);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1254, 201);
             this.groupBox1.TabIndex = 43;
@@ -360,9 +360,9 @@
             this.columnHeader9});
             this.lvwCirculation.FullRowSelect = true;
             this.lvwCirculation.GridLines = true;
-            this.lvwCirculation.Location = new System.Drawing.Point(92, 224);
+            this.lvwCirculation.Location = new System.Drawing.Point(60, 257);
             this.lvwCirculation.Name = "lvwCirculation";
-            this.lvwCirculation.Size = new System.Drawing.Size(1254, 523);
+            this.lvwCirculation.Size = new System.Drawing.Size(1254, 374);
             this.lvwCirculation.TabIndex = 14;
             this.lvwCirculation.UseCompatibleStateImageBehavior = false;
             this.lvwCirculation.View = System.Windows.Forms.View.Details;
@@ -435,7 +435,7 @@
             this.pageLabelSwitching.Location = new System.Drawing.Point(4, 22);
             this.pageLabelSwitching.Name = "pageLabelSwitching";
             this.pageLabelSwitching.Padding = new System.Windows.Forms.Padding(3);
-            this.pageLabelSwitching.Size = new System.Drawing.Size(1446, 753);
+            this.pageLabelSwitching.Size = new System.Drawing.Size(1384, 701);
             this.pageLabelSwitching.TabIndex = 1;
             this.pageLabelSwitching.Text = "标签转换";
             this.pageLabelSwitching.UseVisualStyleBackColor = true;
@@ -443,7 +443,7 @@
             // lblLabelSwitchingProgress1
             // 
             this.lblLabelSwitchingProgress1.AutoSize = true;
-            this.lblLabelSwitchingProgress1.Location = new System.Drawing.Point(686, 604);
+            this.lblLabelSwitchingProgress1.Location = new System.Drawing.Point(638, 573);
             this.lblLabelSwitchingProgress1.Name = "lblLabelSwitchingProgress1";
             this.lblLabelSwitchingProgress1.Size = new System.Drawing.Size(161, 12);
             this.lblLabelSwitchingProgress1.TabIndex = 6;
@@ -451,7 +451,7 @@
             // 
             // prgLabelSwitching1
             // 
-            this.prgLabelSwitching1.Location = new System.Drawing.Point(416, 599);
+            this.prgLabelSwitching1.Location = new System.Drawing.Point(368, 568);
             this.prgLabelSwitching1.Name = "prgLabelSwitching1";
             this.prgLabelSwitching1.Size = new System.Drawing.Size(600, 23);
             this.prgLabelSwitching1.TabIndex = 5;
@@ -460,7 +460,7 @@
             // lblLabelSwitchingProgress2
             // 
             this.lblLabelSwitchingProgress2.AutoSize = true;
-            this.lblLabelSwitchingProgress2.Location = new System.Drawing.Point(686, 650);
+            this.lblLabelSwitchingProgress2.Location = new System.Drawing.Point(638, 619);
             this.lblLabelSwitchingProgress2.Name = "lblLabelSwitchingProgress2";
             this.lblLabelSwitchingProgress2.Size = new System.Drawing.Size(161, 12);
             this.lblLabelSwitchingProgress2.TabIndex = 4;
@@ -468,7 +468,7 @@
             // 
             // prgLabelSwitching2
             // 
-            this.prgLabelSwitching2.Location = new System.Drawing.Point(416, 644);
+            this.prgLabelSwitching2.Location = new System.Drawing.Point(368, 613);
             this.prgLabelSwitching2.Name = "prgLabelSwitching2";
             this.prgLabelSwitching2.Size = new System.Drawing.Size(600, 23);
             this.prgLabelSwitching2.TabIndex = 3;
@@ -485,7 +485,7 @@
             this.grpLabelSwitchingGet.Controls.Add(this.txtInstrumentName);
             this.grpLabelSwitchingGet.Controls.Add(this.lblInstrumentType);
             this.grpLabelSwitchingGet.Controls.Add(this.lblInstrumentName);
-            this.grpLabelSwitchingGet.Location = new System.Drawing.Point(803, 109);
+            this.grpLabelSwitchingGet.Location = new System.Drawing.Point(755, 78);
             this.grpLabelSwitchingGet.Name = "grpLabelSwitchingGet";
             this.grpLabelSwitchingGet.Size = new System.Drawing.Size(450, 150);
             this.grpLabelSwitchingGet.TabIndex = 2;
@@ -585,7 +585,7 @@
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingUpdate);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingImport);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingAdd);
-            this.grpLabelSwitchingSet.Location = new System.Drawing.Point(199, 109);
+            this.grpLabelSwitchingSet.Location = new System.Drawing.Point(151, 78);
             this.grpLabelSwitchingSet.Name = "grpLabelSwitchingSet";
             this.grpLabelSwitchingSet.Size = new System.Drawing.Size(450, 150);
             this.grpLabelSwitchingSet.TabIndex = 1;
@@ -654,7 +654,7 @@
             this.cnUpdateDate});
             this.lvwBook.FullRowSelect = true;
             this.lvwBook.GridLines = true;
-            this.lvwBook.Location = new System.Drawing.Point(295, 284);
+            this.lvwBook.Location = new System.Drawing.Point(247, 253);
             this.lvwBook.Name = "lvwBook";
             this.lvwBook.Size = new System.Drawing.Size(804, 301);
             this.lvwBook.TabIndex = 0;
@@ -708,7 +708,7 @@
             this.pageMakingCard.Location = new System.Drawing.Point(4, 22);
             this.pageMakingCard.Name = "pageMakingCard";
             this.pageMakingCard.Padding = new System.Windows.Forms.Padding(3);
-            this.pageMakingCard.Size = new System.Drawing.Size(1446, 753);
+            this.pageMakingCard.Size = new System.Drawing.Size(1384, 701);
             this.pageMakingCard.TabIndex = 2;
             this.pageMakingCard.Text = "开卡办证";
             this.pageMakingCard.UseVisualStyleBackColor = true;
@@ -716,7 +716,7 @@
             // lblUserProgress1
             // 
             this.lblUserProgress1.AutoSize = true;
-            this.lblUserProgress1.Location = new System.Drawing.Point(657, 581);
+            this.lblUserProgress1.Location = new System.Drawing.Point(653, 569);
             this.lblUserProgress1.Name = "lblUserProgress1";
             this.lblUserProgress1.Size = new System.Drawing.Size(101, 12);
             this.lblUserProgress1.TabIndex = 13;
@@ -724,7 +724,7 @@
             // 
             // prgUser1
             // 
-            this.prgUser1.Location = new System.Drawing.Point(387, 576);
+            this.prgUser1.Location = new System.Drawing.Point(383, 564);
             this.prgUser1.Name = "prgUser1";
             this.prgUser1.Size = new System.Drawing.Size(600, 23);
             this.prgUser1.TabIndex = 12;
@@ -733,7 +733,7 @@
             // lblUserProgress2
             // 
             this.lblUserProgress2.AutoSize = true;
-            this.lblUserProgress2.Location = new System.Drawing.Point(657, 627);
+            this.lblUserProgress2.Location = new System.Drawing.Point(653, 615);
             this.lblUserProgress2.Name = "lblUserProgress2";
             this.lblUserProgress2.Size = new System.Drawing.Size(101, 12);
             this.lblUserProgress2.TabIndex = 11;
@@ -741,7 +741,7 @@
             // 
             // prgUser2
             // 
-            this.prgUser2.Location = new System.Drawing.Point(387, 621);
+            this.prgUser2.Location = new System.Drawing.Point(383, 609);
             this.prgUser2.Name = "prgUser2";
             this.prgUser2.Size = new System.Drawing.Size(600, 23);
             this.prgUser2.TabIndex = 10;
@@ -764,7 +764,7 @@
             this.grpUserGet.Controls.Add(this.txtUserName);
             this.grpUserGet.Controls.Add(this.lblUserCardCode);
             this.grpUserGet.Controls.Add(this.lblUserName);
-            this.grpUserGet.Location = new System.Drawing.Point(813, 94);
+            this.grpUserGet.Location = new System.Drawing.Point(809, 82);
             this.grpUserGet.Name = "grpUserGet";
             this.grpUserGet.Size = new System.Drawing.Size(450, 150);
             this.grpUserGet.TabIndex = 9;
@@ -918,7 +918,7 @@
             this.grpUserSet.Controls.Add(this.btnUserUpdate);
             this.grpUserSet.Controls.Add(this.btnUserImport);
             this.grpUserSet.Controls.Add(this.btnUserAdd);
-            this.grpUserSet.Location = new System.Drawing.Point(160, 94);
+            this.grpUserSet.Location = new System.Drawing.Point(156, 82);
             this.grpUserSet.Name = "grpUserSet";
             this.grpUserSet.Size = new System.Drawing.Size(450, 150);
             this.grpUserSet.TabIndex = 8;
@@ -989,7 +989,7 @@
             this.cnUserUpdateTime});
             this.lvwUser.FullRowSelect = true;
             this.lvwUser.GridLines = true;
-            this.lvwUser.Location = new System.Drawing.Point(160, 261);
+            this.lvwUser.Location = new System.Drawing.Point(156, 249);
             this.lvwUser.Name = "lvwUser";
             this.lvwUser.Size = new System.Drawing.Size(1103, 301);
             this.lvwUser.TabIndex = 7;
@@ -1047,7 +1047,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1475, 792);
+            this.ClientSize = new System.Drawing.Size(1394, 726);
             this.Controls.Add(this.tabMain);
             this.Name = "FrmMain";
             this.Text = "上海市实验学校仪器设备管理系统 - 管理后台";

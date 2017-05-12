@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2017-05-12 20:00:57
+Date: 2017-05-12 21:21:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,7 +47,7 @@ CREATE TABLE `item` (
   `item_type` varchar(255) DEFAULT NULL COMMENT '物品型号',
   `item_state_code` int(11) DEFAULT NULL COMMENT '物品状态码',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uid` (`uid`) USING BTREE,
   UNIQUE KEY `uid_2` (`uid`)
@@ -84,7 +84,7 @@ CREATE TABLE `student` (
   `grade_name` varchar(255) DEFAULT NULL COMMENT '年级名称',
   `class_name` varchar(255) DEFAULT NULL COMMENT '班级名称',
   `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `student_code` (`student_code`),
   UNIQUE KEY `card_mac_code` (`card_mac_code`)

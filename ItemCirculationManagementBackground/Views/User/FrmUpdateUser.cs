@@ -5,6 +5,7 @@ using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Models;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
+using MySql.Data.MySqlClient;
 
 namespace ItemCirculationManagementBackground.Views.User
 {
@@ -141,24 +142,45 @@ namespace ItemCirculationManagementBackground.Views.User
         {
             cmbClassName.Items.Clear();
             cmbClassName.Text = string.Empty;
-            using (var db = new MySqlDbContext())
+            try
             {
-                var query = db.Student.Where(x => x.GradeName == cmbGradeName.Text);
-                var groupQuery = query.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
-                if (groupQuery.Any())
+                using (var db = new MySqlDbContext())
                 {
-                    foreach (var variable in groupQuery)
+                    var query = db.Student.Where(x => x.GradeName == cmbGradeName.Text);
+                    var groupQuery = query.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
+                    if (groupQuery.Any())
                     {
-                        if (variable.Key != null)
+                        foreach (var variable in groupQuery)
                         {
-                            cmbClassName.Items.Add(variable.Key);
+                            if (variable.Key != null)
+                            {
+                                cmbClassName.Items.Add(variable.Key);
+                            }
                         }
                     }
+                    if (cmbClassName.Items.Count > 0)
+                    {
+                        cmbClassName.SelectedIndex = 0;
+                    }
                 }
-                if (cmbClassName.Items.Count > 0)
-                {
-                    cmbClassName.SelectedIndex = 0;
-                }
+            }
+            catch (MySqlException mex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(mex);
+                MessageBox.Show(@"数据库连接异常！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(ex);
+                MessageBox.Show(@"设备异常！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
             }
         }
     }

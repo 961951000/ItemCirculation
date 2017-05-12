@@ -7,7 +7,7 @@
     <ProjectGuid>{58241F6B-CCCC-406F-827F-AE14C9C95424}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ItemCirculationManagementBackground</RootNamespace>
-    <AssemblyName>ItemCirculationManagementBackground</AssemblyName>
+    <AssemblyName>上海市实验学校仪器设备管理系统 - 管理后台</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -30,6 +30,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Title.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -178,6 +181,7 @@
     <Content Include="Resource\Tool\item_circulation.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Title.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

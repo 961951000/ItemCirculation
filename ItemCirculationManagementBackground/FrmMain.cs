@@ -1124,25 +1124,46 @@ namespace ItemCirculationManagementBackground
             cmbClassName.Items.Clear();
             cmbClassName.Items.Add("ALL");
             cmbClassName.SelectedIndex = 0;
-            using (var db = new MySqlDbContext())
+            try
             {
-                var gradeName = cmbGradeName.Text;
-                IQueryable<Student> query = db.Student;
-                if (gradeName != "ALL")
+                using (var db = new MySqlDbContext())
                 {
-                    query = db.Student.Where(x => x.GradeName == gradeName);
-                }
-                var groupQuery = query.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
-                if (groupQuery.Any())
-                {
-                    foreach (var variable in groupQuery)
+                    var gradeName = cmbGradeName.Text;
+                    IQueryable<Student> query = db.Student;
+                    if (gradeName != "ALL")
                     {
-                        if (variable.Key != null)
+                        query = db.Student.Where(x => x.GradeName == gradeName);
+                    }
+                    var groupQuery = query.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
+                    if (groupQuery.Any())
+                    {
+                        foreach (var variable in groupQuery)
                         {
-                            cmbClassName.Items.Add(variable.Key);
+                            if (variable.Key != null)
+                            {
+                                cmbClassName.Items.Add(variable.Key);
+                            }
                         }
                     }
                 }
+            }
+            catch (MySqlException mex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(mex);
+                MessageBox.Show(@"数据库连接异常！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(ex);
+                MessageBox.Show(@"设备异常！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
             }
         }
     }

@@ -1,14 +1,22 @@
 ﻿using System.Data.Entity;
-using LibraryManagementBackground.Models;
+using ItemCirculationManagementBackground.Models;
 
 namespace ItemCirculationManagementBackground.DatabaseContext
 {
     public class MySqlDbContext : DbContext
     {
         public MySqlDbContext() : base("name=DefaultConnection") { }
-
-        public DbSet<TBook> Book { get; set; }
-        public DbSet<LCirculation> Circulation { get; set; }
-        public DbSet<TUser> User { get; set; }
+        /// <summary>
+        /// 流通信息表
+        /// </summary>
+        public DbSet<Circulation> Circulation { get; set; }
+        /// <summary>
+        /// 物品信息表
+        /// </summary>
+        public DbSet<Item> Item { get; set; }
+        /// <summary>
+        /// 学生信息表
+        /// </summary>
+        public DbSet<Student> Student { get; set; }
     }
 }

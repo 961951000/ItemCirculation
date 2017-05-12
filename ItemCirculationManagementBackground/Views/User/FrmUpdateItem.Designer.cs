@@ -106,7 +106,7 @@
             this.lblTagCode.TabIndex = 8;
             this.lblTagCode.Text = "电子标签：";
             // 
-            // FrmUpdateInstrument
+            // FrmUpdateItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -119,8 +119,9 @@
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblTagCode);
-            this.Name = "FrmUpdateInstrument";
+            this.Name = "FrmUpdateItem";
             this.Text = "仪器修改";
+            this.Load += new System.EventHandler(this.FrmUpdateItem_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

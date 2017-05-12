@@ -2,50 +2,56 @@
 using System.Linq;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
+using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
-using LibraryManagementBackground.Models;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
     public partial class FrmUpdateItem : Form
     {
-        public delegate void SuccessHandler(string address);
-        public event SuccessHandler Success;
-        private readonly TBook _entity;
-        public FrmUpdateItem(TBook entity)
+        private readonly Models.Item _entity;
+        public FrmUpdateItem()
+        {
+            InitializeComponent();
+        }
+        public FrmUpdateItem(Models.Item entity)
         {
             InitializeComponent();
             _entity = entity;
-            txtTagCode.Text = entity.Tid;
-            txtName.Text = entity.Name;
-            txtType.Text = entity.Author;
         }
+
+        private void FrmUpdateItem_Load(object sender, EventArgs e)
+        {
+            txtTagCode.Text = _entity.Uid;
+            txtName.Text = _entity.ItemName;
+            txtType.Text = _entity.ItemType;
+        }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var message = LibraryManagementBackground.Models.Message.SuccecssMessage;
+            var message = Resources.SuccecssMessage;
             try
             {
                 using (var db = new MySqlDbContext())
                 {
-                    var entity = db.Book.Single(x => x.Id == _entity.Id);
-                    entity.Tid = txtTagCode.Text;
-                    entity.Name = txtName.Text;
-                    entity.Author = txtType.Text;
-                    entity.Updatedate = DateTime.Now;
-                    //db.Entry(entity).State = System.Data.Entity.EntityState.Modified;//修改
+                    var entity = db.Item.Single(x => x.Id == _entity.Id);
+                    entity.Uid = txtTagCode.Text;
+                    entity.ItemName = txtName.Text;
+                    entity.ItemType = txtType.Text;
+                    entity.UpdateTime = DateTime.Now;
                     db.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
-                message = LibraryManagementBackground.Models.Message.FailMessage;
+
 #if DEBUG
                 throw;
 #else
+                message = Resources.FailMessage;
                 Loger.Error(ex);
 #endif
             }
-            Success?.Invoke(Name);
             MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }

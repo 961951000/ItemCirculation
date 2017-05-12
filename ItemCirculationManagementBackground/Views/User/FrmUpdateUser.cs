@@ -2,44 +2,94 @@
 using System.Linq;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
-using ItemCirculationManagementBackground.Util;
-using LibraryManagementBackground.Models;
+using ItemCirculationManagementBackground.Properties;
 
-namespace ItemCirculationManagementBackground.Forms
+namespace ItemCirculationManagementBackground.Views.User
 {
     public partial class FrmUpdateUser : Form
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
-        private readonly TUser _entity;
-        public FrmUpdateUser(TUser entity)
+        private readonly Models.Student _entity;
+        public FrmUpdateUser()
+        {
+            InitializeComponent();
+        }
+        public FrmUpdateUser(Models.Student entity)
         {
             InitializeComponent();
             _entity = entity;
-            txtCardCode.Text = entity.Cardcode;
-            txtStudentCode.Text = entity.Patroncode;
-            txtName.Text = entity.Name;
         }
 
-        private void btnSubmit_Click(object sender, EventArgs e)
+        private void FrmUpdateUser_Load(object sender, EventArgs e)
         {
-            var message = LibraryManagementBackground.Models.Message.SuccecssMessage;
+            txtCardCode.Text = _entity.CardMacCode;
+            txtStudentCode.Text = _entity.StudentCode;
+            txtName.Text = _entity.StudentName;
             try
             {
                 using (var db = new MySqlDbContext())
                 {
-                    var entity = db.User.Single(x => x.Id == _entity.Id);
-                    entity.Cardcode = txtCardCode.Text;
-                    entity.Patroncode = txtStudentCode.Text;
-                    entity.Name = txtName.Text;
-                    entity.Updatedate = DateTime.Now;
-                    //db.Entry(entity).State = System.Data.Entity.EntityState.Modified;//修改
+                    var selectedIndex = -1;
+                    var query = db.Student.GroupBy(x => x.GradeName).OrderBy(x => x.Key);
+                    if (query.Any())
+                    {
+                        foreach (var variable in query)
+                        {
+                            var index = cmbGradeName.Items.Add(variable.Key);
+                            if (_entity.GradeName == variable.Key)
+                            {
+                                selectedIndex = index;
+                            }
+                        }
+                        cmbGradeName.SelectedIndex = selectedIndex;
+                        selectedIndex = -1;
+                    }
+                    var query1 = db.Student.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
+                    if (query1.Any())
+                    {
+                        foreach (var variable in query1)
+                        {
+                            var index = cmbClassName.Items.Add(variable.Key);
+                            if (_entity.ClassName == variable.Key)
+                            {
+                                selectedIndex = index;
+                            }
+                        }
+                        cmbClassName.SelectedIndex = selectedIndex;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else
+                Loger.Error(ex);
+#endif
+            }
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            var message = Resources.SuccecssMessage;
+            try
+            {
+                using (var db = new MySqlDbContext())
+                {
+                    var entity = db.Student.Single(x => x.Id == _entity.Id);
+                    entity.CardMacCode = txtCardCode.Text;
+                    entity.StudentCode = txtStudentCode.Text;
+                    entity.StudentName = txtName.Text;
+                    entity.GradeName = cmbGradeName.Text;
+                    entity.ClassName = cmbClassName.Text;
+                    entity.UpdateTime = DateTime.Now;
                     db.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
-                message = LibraryManagementBackground.Models.Message.FailMessage;
+                message = Resources.FailMessage;
 #if DEBUG
                 throw;
 #else

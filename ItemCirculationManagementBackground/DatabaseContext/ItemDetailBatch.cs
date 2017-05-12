@@ -6,13 +6,13 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using LibraryManagementBackground.Models;
+using ItemCirculationManagementBackground.Models;
 
 namespace ItemCirculationManagementBackground.DatabaseContext
 {
     public class ItemDetailBatch
     {
-        public static KeyValuePair<string, IEnumerable<DbParameter>> BatchAdd(ItemDetails entity)
+        public static KeyValuePair<string, IEnumerable<DbParameter>> BatchAdd(IItemDetails entity)
         {
             var type = entity.GetType();
             var finfos = type.GetProperties();

@@ -121,7 +121,7 @@
             this.Controls.Add(this.lblTagCode);
             this.Name = "FrmAddInstrument";
             this.Text = "仪器新增";
-            this.Load += new System.EventHandler(this.FrmAddInstrument_Load);
+            this.Load += new System.EventHandler(this.FrmAddItem_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

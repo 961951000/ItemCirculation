@@ -50,13 +50,15 @@
             this.txtLendUserStudentGet = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lvwCirculation = new System.Windows.Forms.ListView();
-            this.cnCirculationIndex = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageLabelSwitching = new System.Windows.Forms.TabPage();
             this.lblLabelSwitchingProgress1 = new System.Windows.Forms.Label();
             this.prgLabelSwitching1 = new System.Windows.Forms.ProgressBar();
@@ -91,6 +93,10 @@
             this.lblUserProgress2 = new System.Windows.Forms.Label();
             this.prgUser2 = new System.Windows.Forms.ProgressBar();
             this.grpUserGet = new System.Windows.Forms.GroupBox();
+            this.lblClassName = new System.Windows.Forms.Label();
+            this.cmbClassName = new System.Windows.Forms.ComboBox();
+            this.cmbGradeName = new System.Windows.Forms.ComboBox();
+            this.lblGradeName = new System.Windows.Forms.Label();
             this.txtUserStudentCode = new System.Windows.Forms.TextBox();
             this.lblUserStudentCode = new System.Windows.Forms.Label();
             this.rdoUserQueryOrderDesc = new System.Windows.Forms.RadioButton();
@@ -113,6 +119,8 @@
             this.cnUserCardCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnUserStudentCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnUserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colGradeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colClassName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnUserCreateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnUserUpdateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabMain.SuspendLayout();
@@ -136,7 +144,6 @@
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(1086, 615);
             this.tabMain.TabIndex = 0;
-            this.tabMain.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabMain_Selected);
             // 
             // pageQueryStatistics
             // 
@@ -342,13 +349,15 @@
             // 
             this.lvwCirculation.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.lvwCirculation.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.cnCirculationIndex,
-            this.columnHeader10,
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15});
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
             this.lvwCirculation.FullRowSelect = true;
             this.lvwCirculation.GridLines = true;
             this.lvwCirculation.Location = new System.Drawing.Point(25, 213);
@@ -358,47 +367,61 @@
             this.lvwCirculation.UseCompatibleStateImageBehavior = false;
             this.lvwCirculation.View = System.Windows.Forms.View.Details;
             // 
-            // cnCirculationIndex
+            // columnHeader1
             // 
-            this.cnCirculationIndex.Text = "序号";
-            this.cnCirculationIndex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnCirculationIndex.Width = 50;
+            this.columnHeader1.Text = "序号";
+            this.columnHeader1.Width = 53;
             // 
-            // columnHeader10
+            // columnHeader2
             // 
-            this.columnHeader10.Text = "借出人姓名";
-            this.columnHeader10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader10.Width = 160;
+            this.columnHeader2.Text = "借出人姓名";
+            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader2.Width = 120;
             // 
-            // columnHeader11
+            // columnHeader3
             // 
-            this.columnHeader11.Text = "借出人学籍号";
-            this.columnHeader11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader11.Width = 160;
+            this.columnHeader3.Text = "借出人学籍号";
+            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader3.Width = 120;
             // 
-            // columnHeader12
+            // columnHeader4
             // 
-            this.columnHeader12.Text = "仪器名称";
-            this.columnHeader12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader12.Width = 160;
+            this.columnHeader4.DisplayIndex = 4;
+            this.columnHeader4.Text = "归还人姓名";
+            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader4.Width = 120;
             // 
-            // columnHeader13
+            // columnHeader5
             // 
-            this.columnHeader13.Text = "仪器型号";
-            this.columnHeader13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader13.Width = 160;
+            this.columnHeader5.DisplayIndex = 5;
+            this.columnHeader5.Text = "归还人学籍号";
+            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader5.Width = 120;
             // 
-            // columnHeader14
+            // columnHeader6
             // 
-            this.columnHeader14.Text = "借出时间";
-            this.columnHeader14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader14.Width = 160;
+            this.columnHeader6.DisplayIndex = 3;
+            this.columnHeader6.Text = "仪器名称";
+            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader6.Width = 120;
             // 
-            // columnHeader15
+            // columnHeader7
             // 
-            this.columnHeader15.Text = "归还时间";
-            this.columnHeader15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader15.Width = 160;
+            this.columnHeader7.Text = "仪器型号";
+            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader7.Width = 120;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "借出时间";
+            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader8.Width = 120;
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "归还时间";
+            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.columnHeader9.Width = 120;
             // 
             // pageLabelSwitching
             // 
@@ -631,7 +654,7 @@
             this.cnUpdateDate});
             this.lvwBook.FullRowSelect = true;
             this.lvwBook.GridLines = true;
-            this.lvwBook.Location = new System.Drawing.Point(6, 193);
+            this.lvwBook.Location = new System.Drawing.Point(18, 193);
             this.lvwBook.Name = "lvwBook";
             this.lvwBook.Size = new System.Drawing.Size(1054, 301);
             this.lvwBook.TabIndex = 0;
@@ -646,26 +669,31 @@
             // cnTagCode
             // 
             this.cnTagCode.Text = "电子标签";
+            this.cnTagCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnTagCode.Width = 200;
             // 
             // chName
             // 
             this.chName.Text = "仪器名称";
+            this.chName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chName.Width = 200;
             // 
             // chType
             // 
             this.chType.Text = "仪器型号";
+            this.chType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chType.Width = 200;
             // 
             // cnCreateDate
             // 
             this.cnCreateDate.Text = "入库时间";
+            this.cnCreateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnCreateDate.Width = 200;
             // 
             // cnUpdateDate
             // 
             this.cnUpdateDate.Text = "修改时间";
+            this.cnUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnUpdateDate.Width = 200;
             // 
             // pageMakingCard
@@ -721,6 +749,10 @@
             // 
             // grpUserGet
             // 
+            this.grpUserGet.Controls.Add(this.lblClassName);
+            this.grpUserGet.Controls.Add(this.cmbClassName);
+            this.grpUserGet.Controls.Add(this.cmbGradeName);
+            this.grpUserGet.Controls.Add(this.lblGradeName);
             this.grpUserGet.Controls.Add(this.txtUserStudentCode);
             this.grpUserGet.Controls.Add(this.lblUserStudentCode);
             this.grpUserGet.Controls.Add(this.rdoUserQueryOrderDesc);
@@ -738,6 +770,41 @@
             this.grpUserGet.TabIndex = 9;
             this.grpUserGet.TabStop = false;
             this.grpUserGet.Text = "查询";
+            // 
+            // lblClassName
+            // 
+            this.lblClassName.AutoSize = true;
+            this.lblClassName.Location = new System.Drawing.Point(245, 47);
+            this.lblClassName.Name = "lblClassName";
+            this.lblClassName.Size = new System.Drawing.Size(65, 12);
+            this.lblClassName.TabIndex = 23;
+            this.lblClassName.Text = "班    级：";
+            // 
+            // cmbClassName
+            // 
+            this.cmbClassName.FormattingEnabled = true;
+            this.cmbClassName.Location = new System.Drawing.Point(310, 44);
+            this.cmbClassName.Name = "cmbClassName";
+            this.cmbClassName.Size = new System.Drawing.Size(121, 20);
+            this.cmbClassName.TabIndex = 22;
+            // 
+            // cmbGradeName
+            // 
+            this.cmbGradeName.FormattingEnabled = true;
+            this.cmbGradeName.Location = new System.Drawing.Point(310, 17);
+            this.cmbGradeName.Name = "cmbGradeName";
+            this.cmbGradeName.Size = new System.Drawing.Size(121, 20);
+            this.cmbGradeName.TabIndex = 21;
+            this.cmbGradeName.SelectedIndexChanged += new System.EventHandler(this.cmbGradeName_SelectedIndexChanged);
+            // 
+            // lblGradeName
+            // 
+            this.lblGradeName.AutoSize = true;
+            this.lblGradeName.Location = new System.Drawing.Point(245, 20);
+            this.lblGradeName.Name = "lblGradeName";
+            this.lblGradeName.Size = new System.Drawing.Size(65, 12);
+            this.lblGradeName.TabIndex = 20;
+            this.lblGradeName.Text = "年    级：";
             // 
             // txtUserStudentCode
             // 
@@ -793,6 +860,8 @@
             "学生姓名",
             "卡    号",
             "学 籍 号",
+            "年    级",
+            "班    级",
             "创建时间",
             "修改时间"});
             this.cboUserQueryOrder.Location = new System.Drawing.Point(132, 103);
@@ -914,6 +983,8 @@
             this.cnUserCardCode,
             this.cnUserStudentCode,
             this.cnUserName,
+            this.colGradeName,
+            this.colClassName,
             this.cnUserCreateTime,
             this.cnUserUpdateTime});
             this.lvwUser.FullRowSelect = true;
@@ -933,26 +1004,41 @@
             // cnUserCardCode
             // 
             this.cnUserCardCode.Text = "卡号";
+            this.cnUserCardCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnUserCardCode.Width = 200;
             // 
             // cnUserStudentCode
             // 
             this.cnUserStudentCode.Text = "学籍号";
+            this.cnUserStudentCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnUserStudentCode.Width = 200;
             // 
             // cnUserName
             // 
             this.cnUserName.Text = "学生姓名";
+            this.cnUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnUserName.Width = 200;
+            // 
+            // colGradeName
+            // 
+            this.colGradeName.Text = "年级";
+            this.colGradeName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // colClassName
+            // 
+            this.colClassName.Text = "班级";
+            this.colClassName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cnUserCreateTime
             // 
             this.cnUserCreateTime.Text = "创建时间";
+            this.cnUserCreateTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnUserCreateTime.Width = 200;
             // 
             // cnUserUpdateTime
             // 
             this.cnUserUpdateTime.Text = "修改时间";
+            this.cnUserUpdateTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnUserUpdateTime.Width = 200;
             // 
             // FrmMain
@@ -1036,12 +1122,11 @@
         private System.Windows.Forms.ColumnHeader cnUserCreateTime;
         private System.Windows.Forms.ColumnHeader cnUserUpdateTime;
         private System.Windows.Forms.ListView lvwCirculation;
-        private System.Windows.Forms.ColumnHeader cnCirculationIndex;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.ColumnHeader columnHeader13;
-        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ComboBox cboLabelSwitchingQueryOrder;
         private System.Windows.Forms.TextBox txtUserStudentCode;
         private System.Windows.Forms.Label lblUserStudentCode;
@@ -1069,8 +1154,17 @@
         private System.Windows.Forms.Button btnLabelSwitchingImport;
         private System.Windows.Forms.Button btnLabelSwitchingAdd;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ColumnHeader columnHeader15;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Button btnImportCirculation;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader colGradeName;
+        private System.Windows.Forms.ColumnHeader colClassName;
+        private System.Windows.Forms.Label lblClassName;
+        private System.Windows.Forms.ComboBox cmbClassName;
+        private System.Windows.Forms.ComboBox cmbGradeName;
+        private System.Windows.Forms.Label lblGradeName;
     }
 }
 

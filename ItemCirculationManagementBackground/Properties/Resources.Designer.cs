@@ -61,20 +61,20 @@ namespace ItemCirculationManagementBackground.Properties {
         }
         
         /// <summary>
-        ///   查找类似 FailMessage 的本地化字符串。
+        ///   查找类似 操作失败！ 的本地化字符串。
         /// </summary>
-        internal static string FrmMain_Init_FailMessage {
+        internal static string FailMessage {
             get {
-                return ResourceManager.GetString("FrmMain_Init_FailMessage", resourceCulture);
+                return ResourceManager.GetString("FailMessage", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 SuccecssMessage 的本地化字符串。
+        ///   查找类似 操作成功！ 的本地化字符串。
         /// </summary>
-        internal static string FrmMain_Init_SuccecssMessage {
+        internal static string SuccecssMessage {
             get {
-                return ResourceManager.GetString("FrmMain_Init_SuccecssMessage", resourceCulture);
+                return ResourceManager.GetString("SuccecssMessage", resourceCulture);
             }
         }
     }

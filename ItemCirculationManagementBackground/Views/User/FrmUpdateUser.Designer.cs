@@ -1,4 +1,4 @@
-﻿namespace ItemCirculationManagementBackground.Forms
+﻿namespace ItemCirculationManagementBackground.Views.User
 {
     partial class FrmUpdateUser
     {
@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblClassName = new System.Windows.Forms.Label();
+            this.cmbClassName = new System.Windows.Forms.ComboBox();
+            this.cmbGradeName = new System.Windows.Forms.ComboBox();
+            this.lblGradeName = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -38,72 +42,108 @@
             this.lblCardCode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // lblClassName
+            // 
+            this.lblClassName.AutoSize = true;
+            this.lblClassName.Location = new System.Drawing.Point(55, 152);
+            this.lblClassName.Name = "lblClassName";
+            this.lblClassName.Size = new System.Drawing.Size(65, 12);
+            this.lblClassName.TabIndex = 31;
+            this.lblClassName.Text = "班    级：";
+            // 
+            // cmbClassName
+            // 
+            this.cmbClassName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cmbClassName.FormattingEnabled = true;
+            this.cmbClassName.Location = new System.Drawing.Point(120, 149);
+            this.cmbClassName.Name = "cmbClassName";
+            this.cmbClassName.Size = new System.Drawing.Size(121, 20);
+            this.cmbClassName.TabIndex = 30;
+            // 
+            // cmbGradeName
+            // 
+            this.cmbGradeName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cmbGradeName.FormattingEnabled = true;
+            this.cmbGradeName.Location = new System.Drawing.Point(120, 122);
+            this.cmbGradeName.Name = "cmbGradeName";
+            this.cmbGradeName.Size = new System.Drawing.Size(121, 20);
+            this.cmbGradeName.TabIndex = 29;
+            // 
+            // lblGradeName
+            // 
+            this.lblGradeName.AutoSize = true;
+            this.lblGradeName.Location = new System.Drawing.Point(55, 125);
+            this.lblGradeName.Name = "lblGradeName";
+            this.lblGradeName.Size = new System.Drawing.Size(65, 12);
+            this.lblGradeName.TabIndex = 28;
+            this.lblGradeName.Text = "年    级：";
+            // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(171, 172);
+            this.btnCancel.Location = new System.Drawing.Point(169, 193);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 23;
+            this.btnCancel.TabIndex = 27;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(42, 173);
+            this.btnSubmit.Location = new System.Drawing.Point(40, 194);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
-            this.btnSubmit.TabIndex = 22;
+            this.btnSubmit.TabIndex = 26;
             this.btnSubmit.Text = "提交";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(105, 119);
+            this.txtName.Location = new System.Drawing.Point(120, 97);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 21);
-            this.txtName.TabIndex = 21;
+            this.txtName.TabIndex = 25;
             // 
             // txtStudentCode
             // 
-            this.txtStudentCode.Location = new System.Drawing.Point(105, 92);
+            this.txtStudentCode.Location = new System.Drawing.Point(120, 70);
             this.txtStudentCode.Name = "txtStudentCode";
             this.txtStudentCode.Size = new System.Drawing.Size(100, 21);
-            this.txtStudentCode.TabIndex = 20;
+            this.txtStudentCode.TabIndex = 24;
             // 
             // txtCardCode
             // 
-            this.txtCardCode.Location = new System.Drawing.Point(105, 65);
+            this.txtCardCode.Location = new System.Drawing.Point(120, 43);
             this.txtCardCode.Name = "txtCardCode";
             this.txtCardCode.Size = new System.Drawing.Size(100, 21);
-            this.txtCardCode.TabIndex = 19;
+            this.txtCardCode.TabIndex = 23;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(40, 128);
+            this.lblName.Location = new System.Drawing.Point(55, 100);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(65, 12);
-            this.lblName.TabIndex = 18;
+            this.lblName.TabIndex = 22;
             this.lblName.Text = "学生姓名：";
             // 
             // lblStudentCode
             // 
             this.lblStudentCode.AutoSize = true;
-            this.lblStudentCode.Location = new System.Drawing.Point(39, 95);
+            this.lblStudentCode.Location = new System.Drawing.Point(55, 73);
             this.lblStudentCode.Name = "lblStudentCode";
             this.lblStudentCode.Size = new System.Drawing.Size(65, 12);
-            this.lblStudentCode.TabIndex = 17;
+            this.lblStudentCode.TabIndex = 21;
             this.lblStudentCode.Text = "学 籍 号：";
             // 
             // lblCardCode
             // 
             this.lblCardCode.AutoSize = true;
-            this.lblCardCode.Location = new System.Drawing.Point(40, 65);
+            this.lblCardCode.Location = new System.Drawing.Point(55, 46);
             this.lblCardCode.Name = "lblCardCode";
             this.lblCardCode.Size = new System.Drawing.Size(65, 12);
-            this.lblCardCode.TabIndex = 16;
+            this.lblCardCode.TabIndex = 20;
             this.lblCardCode.Text = "卡    号：";
             // 
             // FrmUpdateUser
@@ -111,6 +151,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.lblClassName);
+            this.Controls.Add(this.cmbClassName);
+            this.Controls.Add(this.cmbGradeName);
+            this.Controls.Add(this.lblGradeName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtName);
@@ -121,6 +165,7 @@
             this.Controls.Add(this.lblCardCode);
             this.Name = "FrmUpdateUser";
             this.Text = "用户修改";
+            this.Load += new System.EventHandler(this.FrmUpdateUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,6 +173,10 @@
 
         #endregion
 
+        private System.Windows.Forms.Label lblClassName;
+        private System.Windows.Forms.ComboBox cmbClassName;
+        private System.Windows.Forms.ComboBox cmbGradeName;
+        private System.Windows.Forms.Label lblGradeName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtName;

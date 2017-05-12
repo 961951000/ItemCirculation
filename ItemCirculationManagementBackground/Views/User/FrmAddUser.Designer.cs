@@ -36,6 +36,10 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblStudentCode = new System.Windows.Forms.Label();
             this.lblCardCode = new System.Windows.Forms.Label();
+            this.lblGradeName = new System.Windows.Forms.Label();
+            this.cmbGradeName = new System.Windows.Forms.ComboBox();
+            this.cmbClassName = new System.Windows.Forms.ComboBox();
+            this.lblClassName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -60,21 +64,21 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(105, 119);
+            this.txtName.Location = new System.Drawing.Point(122, 76);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 21);
             this.txtName.TabIndex = 13;
             // 
             // txtStudentCode
             // 
-            this.txtStudentCode.Location = new System.Drawing.Point(105, 92);
+            this.txtStudentCode.Location = new System.Drawing.Point(122, 49);
             this.txtStudentCode.Name = "txtStudentCode";
             this.txtStudentCode.Size = new System.Drawing.Size(100, 21);
             this.txtStudentCode.TabIndex = 12;
             // 
             // txtCardCode
             // 
-            this.txtCardCode.Location = new System.Drawing.Point(105, 65);
+            this.txtCardCode.Location = new System.Drawing.Point(122, 22);
             this.txtCardCode.Name = "txtCardCode";
             this.txtCardCode.Size = new System.Drawing.Size(100, 21);
             this.txtCardCode.TabIndex = 11;
@@ -82,7 +86,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(40, 128);
+            this.lblName.Location = new System.Drawing.Point(57, 79);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(65, 12);
             this.lblName.TabIndex = 10;
@@ -91,7 +95,7 @@
             // lblStudentCode
             // 
             this.lblStudentCode.AutoSize = true;
-            this.lblStudentCode.Location = new System.Drawing.Point(39, 95);
+            this.lblStudentCode.Location = new System.Drawing.Point(57, 52);
             this.lblStudentCode.Name = "lblStudentCode";
             this.lblStudentCode.Size = new System.Drawing.Size(65, 12);
             this.lblStudentCode.TabIndex = 9;
@@ -100,17 +104,57 @@
             // lblCardCode
             // 
             this.lblCardCode.AutoSize = true;
-            this.lblCardCode.Location = new System.Drawing.Point(40, 65);
+            this.lblCardCode.Location = new System.Drawing.Point(57, 25);
             this.lblCardCode.Name = "lblCardCode";
             this.lblCardCode.Size = new System.Drawing.Size(65, 12);
             this.lblCardCode.TabIndex = 8;
             this.lblCardCode.Text = "卡    号：";
+            // 
+            // lblGradeName
+            // 
+            this.lblGradeName.AutoSize = true;
+            this.lblGradeName.Location = new System.Drawing.Point(57, 104);
+            this.lblGradeName.Name = "lblGradeName";
+            this.lblGradeName.Size = new System.Drawing.Size(65, 12);
+            this.lblGradeName.TabIndex = 16;
+            this.lblGradeName.Text = "年    级：";
+            // 
+            // cmbGradeName
+            // 
+            this.cmbGradeName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cmbGradeName.FormattingEnabled = true;
+            this.cmbGradeName.Location = new System.Drawing.Point(122, 101);
+            this.cmbGradeName.Name = "cmbGradeName";
+            this.cmbGradeName.Size = new System.Drawing.Size(121, 20);
+            this.cmbGradeName.TabIndex = 17;
+            // 
+            // cmbClassName
+            // 
+            this.cmbClassName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cmbClassName.FormattingEnabled = true;
+            this.cmbClassName.Location = new System.Drawing.Point(122, 128);
+            this.cmbClassName.Name = "cmbClassName";
+            this.cmbClassName.Size = new System.Drawing.Size(121, 20);
+            this.cmbClassName.TabIndex = 18;
+            // 
+            // lblClassName
+            // 
+            this.lblClassName.AutoSize = true;
+            this.lblClassName.Location = new System.Drawing.Point(57, 131);
+            this.lblClassName.Name = "lblClassName";
+            this.lblClassName.Size = new System.Drawing.Size(65, 12);
+            this.lblClassName.TabIndex = 19;
+            this.lblClassName.Text = "班    级：";
             // 
             // FrmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.lblClassName);
+            this.Controls.Add(this.cmbClassName);
+            this.Controls.Add(this.cmbGradeName);
+            this.Controls.Add(this.lblGradeName);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtName);
@@ -137,5 +181,9 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblStudentCode;
         private System.Windows.Forms.Label lblCardCode;
+        private System.Windows.Forms.Label lblGradeName;
+        private System.Windows.Forms.ComboBox cmbGradeName;
+        private System.Windows.Forms.ComboBox cmbClassName;
+        private System.Windows.Forms.Label lblClassName;
     }
 }

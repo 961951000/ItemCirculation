@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="DatabaseContext\ItemDetailBatch.cs" />
     <Compile Include="DatabaseContext\MySqlDbContext.cs" />
+    <Compile Include="DatabaseContext\IItemDetails.cs" />
+    <Compile Include="ViewModels\CirculationView.cs" />
     <Compile Include="Views\Item\FrmAddItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,10 +85,10 @@
     <Compile Include="Views\User\FrmAddUser.Designer.cs">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Item\FrmUpdateItem.cs">
+    <Compile Include="Views\User\FrmUpdateItem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Item\FrmUpdateItem.Designer.cs">
+    <Compile Include="Views\User\FrmUpdateItem.Designer.cs">
       <DependentUpon>FrmUpdateItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\User\FrmUpdateUser.cs">
@@ -103,35 +105,7 @@
     </Compile>
     <Compile Include="Models\Circulation.cs" />
     <Compile Include="Models\Item.cs" />
-    <Compile Include="Models\ItemDetails.cs" />
-    <Compile Include="Models\ItemState.cs" />
-    <Compile Include="Models\LCirculation.cs" />
-    <Compile Include="Models\LTaginit.cs" />
-    <Compile Include="Models\Message.cs" />
-    <Compile Include="Models\RPositionrole.cs" />
-    <Compile Include="Models\RRolefunction.cs" />
-    <Compile Include="Models\RUserposition.cs" />
-    <Compile Include="Models\SchoolCard.cs" />
     <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\TAcsparam.cs" />
-    <Compile Include="Models\TBook.cs" />
-    <Compile Include="Models\TBookbatch.cs" />
-    <Compile Include="Models\TBookpackage.cs" />
-    <Compile Include="Models\TDictionary.cs" />
-    <Compile Include="Models\TDictionarytype.cs" />
-    <Compile Include="Models\TFunction.cs" />
-    <Compile Include="Models\TMachine.cs" />
-    <Compile Include="Models\TMachineparam.cs" />
-    <Compile Include="Models\TMachinestatus.cs" />
-    <Compile Include="Models\TMessage.cs" />
-    <Compile Include="Models\TPosition.cs" />
-    <Compile Include="Models\TRole.cs" />
-    <Compile Include="Models\TSupplier.cs" />
-    <Compile Include="Models\TTag.cs" />
-    <Compile Include="Models\TTagbatch.cs" />
-    <Compile Include="Models\TUser.cs" />
-    <Compile Include="Models\TUserlibraryinfo.cs" />
-    <Compile Include="Models\TWaitcheckbook.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\BaseTool.cs" />
@@ -140,14 +114,16 @@
     <Compile Include="Util\Loger.cs" />
     <Compile Include="Util\OrmTool.cs" />
     <Compile Include="Util\RegexTool.cs" />
-    <Compile Include="ViewModels\CirculationView.cs" />
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Item\FrmAddItem.resx">
       <DependentUpon>FrmAddItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Item\FrmUpdateItem.resx">
+    <EmbeddedResource Include="Views\User\FrmUpdateItem.resx">
       <DependentUpon>FrmUpdateItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\FrmUpdateUser.resx">

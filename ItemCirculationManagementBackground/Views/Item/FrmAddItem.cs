@@ -1,57 +1,49 @@
 ﻿using System;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
+using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
-using LibraryManagementBackground.Models;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
     public partial class FrmAddItem : Form
     {
-        public delegate void SuccessHandler(string address);
-        public event SuccessHandler Success;
         public FrmAddItem()
         {
             InitializeComponent();
         }
-        private void FrmAddInstrument_Load(object sender, EventArgs e)
+        private void FrmAddItem_Load(object sender, EventArgs e)
         {
             txtTagCode.Focus();
         }
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            var message = LibraryManagementBackground.Models.Message.SuccecssMessage;
+            var message = Resources.SuccecssMessage;
             try
             {
-                var entity = new TBook
+                var entity = new Models.Item
                 {
-                    Tid = txtTagCode.Text,
-                    Name = txtName.Text,
-                    Author = txtType.Text,
-                    Createdate = DateTime.Now,
-                    Updatedate = DateTime.Now,
-                    Barcode = "默认",
-                    Callcode = "默认",
-                    Status = "默认",
-                    Createby = 0,
-                    Updateby = 0
+                    Uid = txtTagCode.Text,
+                    ItemName = txtName.Text,
+                    ItemType = txtType.Text,
+                    CreateTime = DateTime.Now,
+                    ItemStateCode = 1001
                 };
                 using (var db = new MySqlDbContext())
                 {
-                    db.Book.Add(entity);
+                    db.Item.Add(entity);
                     db.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
-                message = LibraryManagementBackground.Models.Message.FailMessage;
 #if DEBUG
                 throw;
 #else
+                message = Resources.FailMessage;
                 Loger.Error(ex);
 #endif
             }
-            Success?.Invoke(Name);
             MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Close();
         }

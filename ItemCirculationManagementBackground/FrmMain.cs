@@ -3,18 +3,18 @@ using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
-using ItemCirculationManagementBackground.Forms;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using ItemCirculationManagementBackground.ViewModels;
 using ItemCirculationManagementBackground.Views.Item;
+using ItemCirculationManagementBackground.Models;
 using ItemCirculationManagementBackground.Views.User;
-using LibraryManagementBackground.Models;
 
 namespace ItemCirculationManagementBackground
 {
@@ -50,73 +50,69 @@ namespace ItemCirculationManagementBackground
             cboUserQueryOrder.SelectedIndex = 3;
             dtpLendTimeStart.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
             dtpLendTimeEnd.Value = DateTime.Now;
-            try
+            MakingCardInIt();
+
+        }
+        /// <summary>
+        /// 开卡办证初始化
+        /// </summary>
+        private void MakingCardInIt()
+        {
+            cmbGradeName.Items.Clear();
+            cmbGradeName.Items.Add("ALL");
+            cmbGradeName.SelectedIndex = 0;
+            cmbClassName.Items.Clear();
+            cmbClassName.Items.Add("ALL");
+            cmbClassName.SelectedIndex = 0;
+            using (var db = new MySqlDbContext())
             {
-                MessageBox.Show(Resources.FrmMain_Init_FailMessage);
-                QueryCirculation();
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                throw;
-#else
-                Loger.Error(ex);
-#endif
+                var query = db.Student.GroupBy(x => x.GradeName).OrderBy(x => x.Key);
+                if (query.Any())
+                {
+                    foreach (var variable in query)
+                    {
+                        cmbGradeName.Items.Add(variable.Key);
+                    }
+                }
+                var query1 = db.Student.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
+                if (query1.Any())
+                {
+                    foreach (var variable in query1)
+                    {
+                        cmbClassName.Items.Add(variable.Key);
+                    }
+                }
             }
         }
-        void Success(string address)
+        private void Success(string address)
         {
             switch (address)
             {
-                case "FrmAddInstrument":
+                case "FrmAddItem":
                     {
                         LabelSwitchingQuery();
                     }
                     break;
-                case "FrmUpdateInstrument":
+                case "FrmUpdateItem1":
                     {
                         LabelSwitchingQuery();
                     }
                     break;
                 case "FrmAddUser":
                     {
-                        UserQuery();
+                        MakingCardInIt();
+                        StudentQuery();
                     }
                     break;
                 case "FrmUpdateUser":
                     {
-                        UserQuery();
+                        MakingCardInIt();
+                        StudentQuery();
                     }
                     break;
             }
         }
-        private void tabMain_Selected(object sender, TabControlEventArgs e)
-        {
-            try
-            {
-                if (e.TabPage == pageQueryStatistics)
-                {
-                    QueryCirculation();
-                }
-                else if (e.TabPage == pageLabelSwitching)
-                {
 
-                    LabelSwitchingQuery();
-                }
-                else if (e.TabPage == pageMakingCard)
-                {
-                    UserQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                throw;
-#else
-                Loger.Error(ex);
-#endif
-            }
-        }
         #region 查询统计
 
         /// <summary>
@@ -138,70 +134,58 @@ namespace ItemCirculationManagementBackground
             {
                 using (var db = new MySqlDbContext())
                 {
-                    const string sql = "SELECT e.ID AS 'Id',MIN (e.BookBarcode) AS 'BookBarcode',MIN (e.PatronCode) AS 'LendPatronCode',MIN (e.CirculationDate) AS 'LendTime',MIN (e.Name) AS 'LendUserName',MIN (f.PatronCode) AS 'ReturnPatronCode',MIN (f.CirculationDate) AS 'ReturnTime',MIN (f.Name) AS 'ReturnUserName',MIN (g.Name) AS 'BookName',MIN (g.Author) AS 'Author' FROM(SELECT a.ID,a.BookBarcode,a.PatronCode,a.CirculationDate,b.Name FROM L_Circulation AS a LEFT JOIN T_User AS b ON a.PatronCode = b.PatronCode WHERE a.CirculationType = '1001') AS e LEFT JOIN (SELECT c.BookBarcode,c.PatronCode,c.CirculationDate,d.Name FROM L_Circulation AS c LEFT JOIN T_User AS d ON c.PatronCode = d.PatronCode WHERE c.CirculationType = '1002') AS f ON e.BookBarcode = f.BookBarcode AND e.CirculationDate < f.CirculationDate LEFT JOIN T_Book AS g ON e.BookBarcode = g.Barcode GROUP BY e.ID";
-                    var query = db.Database.SqlQuery<CirculationView>(sql).Where(x => x.LendTime >= DateTime.Parse(dtpLendTimeStart.Value.ToString("yyyy-MM-dd 00:00:00")) && x.LendTime < DateTime.Parse(dtpLendTimeEnd.Value.AddDays(1).ToString("yyyy-MM-dd 00:00:00")));
-                    var bookName = txtInstrumentNameGet.Text;
-                    var author = txtInstrumentTypeGet.Text;
-                    var lendUserName = txtLendUserNameGet.Text;
-                    var lendPatronCode = txtLendUserStudentGet.Text;
-                    if (!string.IsNullOrEmpty(bookName))
+                    const string sql = "SELECT a.id AS Id,a.loan_time AS 'LoanTime',a.return_time AS 'ReturnTime',b.item_name AS 'ItemName',b.item_type AS 'ItemType',c.student_code AS 'LoanStudentCode',c.student_name AS 'LoanStudentName',d.student_code AS 'ReturnStudentCode',d.student_name AS 'ReturnStudentName' FROM circulation a LEFT JOIN item b ON a.item_id = b.id LEFT JOIN student c ON a.loan_student_id = c.id LEFT JOIN student d ON a.return_student_id = d.id";
+                    var query = db.Database.SqlQuery<CirculationView>(sql).Where(x => x.LoanTime >= DateTime.Parse(dtpLendTimeStart.Value.ToString("yyyy-MM-dd 00:00:00")) && x.LoanTime < DateTime.Parse(dtpLendTimeEnd.Value.AddDays(1).ToString("yyyy-MM-dd 00:00:00")));
+                    var itemName = txtInstrumentNameGet.Text;
+                    var itemType = txtInstrumentTypeGet.Text;
+                    var loanStudentCode = txtLendUserStudentGet.Text;
+                    var loanStudentName = txtLendUserNameGet.Text;
+                    if (!string.IsNullOrEmpty(itemName))
                     {
-                        query = query.Where(x => x.BookName.Contains(bookName));
+                        query = query.Where(x => x.ItemName.Contains(itemName));
                     }
-                    if (!string.IsNullOrEmpty(author))
+                    if (!string.IsNullOrEmpty(itemType))
                     {
-                        query = query.Where(x => x.Author.Contains(author));
+                        query = query.Where(x => x.ItemType.Contains(itemType));
                     }
-                    if (!string.IsNullOrEmpty(lendUserName))
+                    if (!string.IsNullOrEmpty(loanStudentCode))
                     {
-                        query = query.Where(x => x.LendUserName.Contains(lendUserName));
+                        query = query.Where(x => x.LoanStudentCode.Contains(loanStudentCode));
                     }
-                    if (!string.IsNullOrEmpty(lendPatronCode))
+                    if (!string.IsNullOrEmpty(loanStudentName))
                     {
-                        query = query.Where(x => x.LendPatronCode.Contains(lendPatronCode));
+                        query = query.Where(x => x.LoanStudentName.Contains(loanStudentName));
                     }
                     switch (cboCirculationOrder.SelectedIndex)
                     {
                         case 0:
                             {
-                                query = rdoCirculationOrderAsc.Checked
-                                    ? query.OrderBy(x => x.BookName)
-                                    : query.OrderByDescending(x => x.BookName);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ItemName) : query.OrderByDescending(x => x.ItemName);
                             }
                             break;
                         case 1:
                             {
-                                query = rdoCirculationOrderAsc.Checked
-                                    ? query.OrderBy(x => x.Author)
-                                    : query.OrderByDescending(x => x.Author);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ItemType) : query.OrderByDescending(x => x.ItemType);
                             }
                             break;
                         case 2:
                             {
-                                query = rdoCirculationOrderAsc.Checked
-                                    ? query.OrderBy(x => x.LendUserName)
-                                    : query.OrderByDescending(x => x.LendUserName);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.LoanStudentName) : query.OrderByDescending(x => x.LoanStudentName);
                             }
                             break;
                         case 3:
                             {
-                                query = rdoCirculationOrderAsc.Checked
-                                    ? query.OrderBy(x => x.LendPatronCode)
-                                    : query.OrderByDescending(x => x.LendPatronCode);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.LoanStudentCode) : query.OrderByDescending(x => x.LoanStudentCode);
                             }
                             break;
                         case 4:
                             {
-                                query = rdoCirculationOrderAsc.Checked
-                                    ? query.OrderBy(x => x.LendTime)
-                                    : query.OrderByDescending(x => x.LendTime);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.LoanTime) : query.OrderByDescending(x => x.LoanTime);
                             }
                             break;
                         case 5:
                             {
-                                query = rdoCirculationOrderAsc.Checked
-                                    ? query.OrderBy(x => x.ReturnTime)
-                                    : query.OrderByDescending(x => x.ReturnTime);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ReturnTime) : query.OrderByDescending(x => x.ReturnTime);
                             }
                             break;
                     }
@@ -214,11 +198,13 @@ namespace ItemCirculationManagementBackground
                             Tag = entity.Id,
                             Text = (i + 1).ToString()
                         };
-                        item.SubItems.Add(entity.LendUserName);
-                        item.SubItems.Add(entity.LendPatronCode);
-                        item.SubItems.Add(entity.BookName);
-                        item.SubItems.Add(entity.Author);
-                        item.SubItems.Add(entity.LendTime.ToString());
+                        item.SubItems.Add(entity.LoanStudentName);
+                        item.SubItems.Add(entity.LoanStudentCode);
+                        item.SubItems.Add(entity.ReturnStudentName);
+                        item.SubItems.Add(entity.ReturnStudentCode);
+                        item.SubItems.Add(entity.ItemType);
+                        item.SubItems.Add(entity.ItemType);
+                        item.SubItems.Add(entity.LoanTime.ToString());
                         item.SubItems.Add(entity.ReturnTime.ToString());
                         lvwCirculation.Items.Add(item);
                     }
@@ -226,11 +212,11 @@ namespace ItemCirculationManagementBackground
             }
             catch (Exception ex)
             {
-                MessageBox.Show(LibraryManagementBackground.Models.Message.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
                 Loger.Error(ex);
+                MessageBox.Show(Resources.FrmMain_Init_FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
             }
         }
@@ -248,8 +234,6 @@ namespace ItemCirculationManagementBackground
         /// <summary>
         /// 标签转换-查询
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void LabelSwitchingQuery()
         {
             lvwBook.Items.Clear();
@@ -257,37 +241,37 @@ namespace ItemCirculationManagementBackground
             {
                 using (var db = new MySqlDbContext())
                 {
-                    var instrumentName = txtInstrumentName.Text;
-                    var instrumentType = txtInstrumentType.Text;
-                    IQueryable<TBook> query = db.Book;
-                    if (!string.IsNullOrEmpty(instrumentName))
+                    var itemName = txtInstrumentName.Text;
+                    var itemType = txtInstrumentType.Text;
+                    IQueryable<Item> query = db.Item;
+                    if (!string.IsNullOrEmpty(itemName))
                     {
-                        query = query.Where(x => x.Name.Contains(instrumentName));
+                        query = query.Where(x => x.ItemName.Contains(itemName));
                     }
-                    if (!string.IsNullOrEmpty(instrumentType))
+                    if (!string.IsNullOrEmpty(itemType))
                     {
-                        query = query.Where(x => x.Author.Contains(instrumentType));
+                        query = query.Where(x => x.ItemType.Contains(itemType));
                     }
                     switch (cboLabelSwitchingQueryOrder.SelectedIndex)
                     {
                         case 0:
                             {
-                                query = rdoLabelSwitchingQueryOrderAsc.Checked ? query.OrderBy(x => x.Name) : query.OrderByDescending(x => x.Name);
+                                query = rdoLabelSwitchingQueryOrderAsc.Checked ? query.OrderBy(x => x.ItemName) : query.OrderByDescending(x => x.ItemName);
                             }
                             break;
                         case 1:
                             {
-                                query = rdoLabelSwitchingQueryOrderAsc.Checked ? query.OrderBy(x => x.Author) : query.OrderByDescending(x => x.Author);
+                                query = rdoLabelSwitchingQueryOrderAsc.Checked ? query.OrderBy(x => x.ItemType) : query.OrderByDescending(x => x.ItemType);
                             }
                             break;
                         case 2:
                             {
-                                query = rdoLabelSwitchingQueryOrderAsc.Checked ? query.OrderBy(x => x.Createdate) : query.OrderByDescending(x => x.Createdate);
+                                query = rdoLabelSwitchingQueryOrderAsc.Checked ? query.OrderBy(x => x.CreateTime) : query.OrderByDescending(x => x.CreateTime);
                             }
                             break;
                         case 3:
                             {
-                                query = rdoLabelSwitchingQueryOrderAsc.Checked ? query.OrderBy(x => x.Updatedate) : query.OrderByDescending(x => x.Updatedate);
+                                query = rdoLabelSwitchingQueryOrderAsc.Checked ? query.OrderBy(x => x.UpdateTime) : query.OrderByDescending(x => x.UpdateTime);
                             }
                             break;
                     }
@@ -300,18 +284,18 @@ namespace ItemCirculationManagementBackground
                             Tag = entity.Id,
                             Text = (i + 1).ToString()
                         };
-                        item.SubItems.Add(entity.Tid);
-                        item.SubItems.Add(entity.Name);
-                        item.SubItems.Add(entity.Author);
-                        item.SubItems.Add(entity.Createdate.ToString());
-                        item.SubItems.Add(entity.Updatedate.ToString());
+                        item.SubItems.Add(entity.Uid);
+                        item.SubItems.Add(entity.ItemName);
+                        item.SubItems.Add(entity.ItemType);
+                        item.SubItems.Add(entity.CreateTime is null ? string.Empty : Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(entity.UpdateTime is null ? string.Empty : Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         lvwBook.Items.Add(item);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(LibraryManagementBackground.Models.Message.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
@@ -330,8 +314,8 @@ namespace ItemCirculationManagementBackground
             {
                 StartPosition = FormStartPosition.CenterParent,
             };
-            form.Success += Success;
             form.ShowDialog();
+            LabelSwitchingQuery();
         }
         /// <summary>
         /// 标签转换-表格导入
@@ -375,7 +359,7 @@ namespace ItemCirculationManagementBackground
             }
             catch (OleDbException odex) when (odex.Message == "外部表不是预期的格式。")
             {
-                MessageBox.Show($@"{LibraryManagementBackground.Models.Message.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($@"{Resources.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
@@ -384,7 +368,7 @@ namespace ItemCirculationManagementBackground
             }
             catch (Exception ex)
             {
-                MessageBox.Show(LibraryManagementBackground.Models.Message.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
@@ -417,18 +401,12 @@ namespace ItemCirculationManagementBackground
                     {
                         foreach (DataRow dr in dt.Rows)
                         {
-                            var entity = new TBook
+                            var entity = new Item
                             {
-                                Tid = Convert.ToString(dr[0]),
-                                Name = Convert.ToString(dr[1]),
-                                Author = Convert.ToString(dr[2]),
-                                Createdate = DateTime.Now,
-                                Updatedate = DateTime.Now,
-                                Barcode = "默认",
-                                Callcode = "默认",
-                                Status = "默认",
-                                Createby = 0,
-                                Updateby = 0
+                                Uid = Convert.ToString(dr[0]),
+                                ItemName = Convert.ToString(dr[1]),
+                                ItemType = Convert.ToString(dr[2]),
+                                UpdateTime = DateTime.Now,
                             };
                             var item = ItemDetailBatch.BatchAdd(entity);
                             db.Database.ExecuteSqlCommand(item.Key, item.Value.ToArray<object>());
@@ -490,7 +468,7 @@ namespace ItemCirculationManagementBackground
             }
             catch (Exception ex)
             {
-                var message = $"{LibraryManagementBackground.Models.Message.FailMessage}执行回滚操作！";
+                var message = $"{Resources.FailMessage}执行回滚操作！";
                 MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
@@ -510,34 +488,44 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnLabelSwitchingUpdate_Click(object sender, EventArgs e)
         {
-            try
+            if (lvwBook.SelectedIndices.Count > 0)
             {
-                if (lvwBook.SelectedIndices.Count > 0)
+                //var items = lvwBook.FocusedItem.SubItems;
+                var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
+                row.BackColor = Color.Gray;
+                try
                 {
-                    var items = lvwBook.FocusedItem.SubItems;
-                    var entity = new TBook
+                    var entity = new Item
                     {
-                        Id = Convert.ToInt32(lvwBook.Items[lvwBook.SelectedIndices[0]].Tag),
-                        Tid = items[1].Text,
-                        Name = items[2].Text,
-                        Author = items[3].Text
+                        Id = Convert.ToInt32(row.Tag),
+                        Uid = row.SubItems[1].Text,
+                        ItemName = row.SubItems[2].Text,
+                        ItemType = row.SubItems[3].Text
                     };
                     var form = new FrmUpdateItem(entity)
                     {
                         StartPosition = FormStartPosition.CenterParent,
                     };
-                    form.Success += Success;
                     form.ShowDialog();
+                    LabelSwitchingQuery();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(LibraryManagementBackground.Models.Message.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
-                throw;
+                    throw;
 #else
                 Loger.Error(ex);
 #endif
+                }
+                finally
+                {
+                    row.BackColor = SystemColors.InactiveBorder;
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"未选中任何数据！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>
@@ -547,32 +535,44 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnLabelSwitchingDelete_Click(object sender, EventArgs e)
         {
-            var message = LibraryManagementBackground.Models.Message.SuccecssMessage;
-            try
+            if (MessageBox.Show(@"当前操作存在风险，是否继续？", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 if (lvwBook.SelectedIndices.Count > 0)
                 {
-                    var items = lvwBook.FocusedItem.SubItems;
-                    using (var db = new MySqlDbContext())
+                    var message = Resources.SuccecssMessage;
+                    var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
+                    row.BackColor = Color.Gray;
+                    try
                     {
-                        var id = Convert.ToInt32(items[0].Text);
-                        var entity = db.Book.Single(x => x.Id == id);
-                        db.Book.Remove(entity);
-                        db.SaveChanges();
+                        using (var db = new MySqlDbContext())
+                        {
+                            var id = Convert.ToInt32(row.Tag);
+                            var entity = db.Item.Single(x => x.Id == id);
+                            db.Item.Remove(entity);
+                            db.SaveChanges();
+                        }
+                        LabelSwitchingQuery();
                     }
-                    btnLabelSwitchingQuery_Click(null, null);
-                }
-            }
-            catch (Exception ex)
-            {
-                message = LibraryManagementBackground.Models.Message.FailMessage;
+                    catch (Exception ex)
+                    {
+                        message = Resources.FailMessage;
 #if DEBUG
-                throw;
+                        throw;
 #else
                 Loger.Error(ex);
 #endif
+                    }
+                    finally
+                    {
+                        MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        row.BackColor = SystemColors.InactiveBorder;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(@"未选中任何数据！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion 标签转换
         #region 开证办卡
@@ -632,7 +632,7 @@ namespace ItemCirculationManagementBackground
             }
             catch (OleDbException odex) when (odex.Message == "外部表不是预期的格式。")
             {
-                MessageBox.Show($@"{LibraryManagementBackground.Models.Message.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($@"{Resources.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
@@ -641,7 +641,7 @@ namespace ItemCirculationManagementBackground
             }
             catch (Exception ex)
             {
-                MessageBox.Show(LibraryManagementBackground.Models.Message.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
@@ -674,15 +674,12 @@ namespace ItemCirculationManagementBackground
                     {
                         foreach (DataRow dr in dt.Rows)
                         {
-                            var entity = new TUser
+                            var entity = new Student
                             {
-                                Cardcode = Convert.ToString(dr[0]),
-                                Patroncode = Convert.ToString(dr[1]),
-                                Name = Convert.ToString(dr[2]),
-                                Createdate = DateTime.Now,
-                                Updatedate = DateTime.Now,
-                                Createby = 0,
-                                Updateby = 0
+                                CardMacCode = Convert.ToString(dr[0]),
+                                StudentCode = Convert.ToString(dr[1]),
+                                StudentName = Convert.ToString(dr[2]),
+                                CreateTime = DateTime.Now,
                             };
                             var item = ItemDetailBatch.BatchAdd(entity);
                             db.Database.ExecuteSqlCommand(item.Key, item.Value.ToArray<object>());
@@ -744,7 +741,7 @@ namespace ItemCirculationManagementBackground
             }
             catch (Exception ex)
             {
-                var message = $"{LibraryManagementBackground.Models.Message.FailMessage}执行回滚操作！";
+                var message = $"{Resources.FailMessage}执行回滚操作！";
                 MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
@@ -764,17 +761,18 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnUserUpdate_Click(object sender, EventArgs e)
         {
-            try
+            if (lvwUser.SelectedIndices.Count > 0)
             {
-                if (lvwUser.SelectedIndices.Count > 0)
+                var row = lvwUser.Items[lvwUser.SelectedIndices[0]];
+                row.BackColor = Color.Gray;
+                try
                 {
-                    var items = lvwUser.FocusedItem.SubItems;
-                    var entity = new TUser
+                    var entity = new Student
                     {
-                        Id = Convert.ToInt32(lvwUser.Items[lvwUser.SelectedIndices[0]].Tag),
-                        Cardcode = items[1].Text,
-                        Patroncode = items[2].Text,
-                        Name = items[3].Text
+                        Id = Convert.ToInt32(row.Tag),
+                        CardMacCode = row.SubItems[1].Text,
+                        StudentCode = row.SubItems[2].Text,
+                        StudentName = row.SubItems[3].Text
                     };
                     var form = new FrmUpdateUser(entity)
                     {
@@ -783,15 +781,23 @@ namespace ItemCirculationManagementBackground
                     form.Success += Success;
                     form.ShowDialog();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(LibraryManagementBackground.Models.Message.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
-                throw;
+                    throw;
 #else
                 Loger.Error(ex);
 #endif
+                }
+                finally
+                {
+                    row.BackColor = SystemColors.InactiveBorder;
+                }
+            }
+            else
+            {
+                MessageBox.Show(@"未选中任何数据！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>
@@ -801,32 +807,36 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnUserDelete_Click(object sender, EventArgs e)
         {
-            var message = LibraryManagementBackground.Models.Message.SuccecssMessage;
-            try
+            if (MessageBox.Show(@"当前操作存在风险，是否继续？", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
-                if (lvwUser.SelectedIndices.Count > 0)
+                var message = Resources.SuccecssMessage;
+                try
                 {
-                    var items = lvwUser.FocusedItem.SubItems;
-                    using (var db = new MySqlDbContext())
+                    if (lvwUser.SelectedIndices.Count > 0)
                     {
-                        var id = Convert.ToInt32(items[0].Text);
-                        var entity = db.User.Single(x => x.Id == id);
-                        db.User.Remove(entity);
-                        db.SaveChanges();
+                        var items = lvwUser.FocusedItem.SubItems;
+                        using (var db = new MySqlDbContext())
+                        {
+                            var id = Convert.ToInt32(items[0].Text);
+                            var entity = db.Student.Single(x => x.Id == id);
+                            db.Student.Remove(entity);
+                            db.SaveChanges();
+                        }
+                        MakingCardInIt();
+                        btnUserQuery_Click(null, null);
                     }
-                    btnUserQuery_Click(null, null);
                 }
-            }
-            catch (Exception ex)
-            {
-                message = LibraryManagementBackground.Models.Message.FailMessage;
+                catch (Exception ex)
+                {
+                    message = Resources.FailMessage;
 #if DEBUG
-                throw;
+                    throw;
 #else
                 Loger.Error(ex);
 #endif
+                }
+                MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show(message, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         /// <summary>
         /// 开证办卡-查询
@@ -835,61 +845,80 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnUserQuery_Click(object sender, EventArgs e)
         {
-            UserQuery();
+            StudentQuery();
         }
+
         /// <summary>
-        /// 开证办卡-查询
+        /// 学生查询
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UserQuery()
+        private void StudentQuery()
         {
             lvwUser.Items.Clear();
             try
             {
                 using (var db = new MySqlDbContext())
                 {
-                    var userName = txtUserName.Text;
-                    var userCardCode = txtUserCardCode.Text;
-                    var userStudentCode = txtUserStudentCode.Text;
-                    IQueryable<TUser> query = db.User;
-                    if (!string.IsNullOrEmpty(userName))
+                    var studentName = txtUserName.Text;
+                    var cardMacCode = txtUserCardCode.Text;
+                    var studentCode = txtUserStudentCode.Text;
+                    var gradeName = cmbGradeName.Text;
+                    var className = cmbClassName.Text;
+                    IQueryable<Student> query = db.Student;
+                    if (!string.IsNullOrEmpty(studentName))
                     {
-                        query = query.Where(x => x.Name.Contains(userName));
+                        query = query.Where(x => x.StudentName.Contains(studentName));
                     }
-                    if (!string.IsNullOrEmpty(userCardCode))
+                    if (!string.IsNullOrEmpty(cardMacCode))
                     {
-                        query = query.Where(x => x.Cardcode.Contains(userCardCode));
+                        query = query.Where(x => x.CardMacCode.Contains(cardMacCode));
                     }
-                    if (!string.IsNullOrEmpty(userStudentCode))
+                    if (!string.IsNullOrEmpty(studentCode))
                     {
-                        query = query.Where(x => x.Patroncode.Contains(userStudentCode));
+                        query = query.Where(x => x.StudentCode.Contains(studentCode));
+                    }
+                    if (gradeName != "ALL")
+                    {
+                        query = query.Where(x => x.GradeName.Equals(gradeName));
+                    }
+                    if (className != "ALL")
+                    {
+                        query = query.Where(x => x.ClassName.Equals(className));
                     }
                     switch (cboUserQueryOrder.SelectedIndex)
                     {
                         case 0:
                             {
-                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.Name) : query.OrderByDescending(x => x.Name);
+                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.StudentName) : query.OrderByDescending(x => x.StudentName);
                             }
                             break;
                         case 1:
                             {
-                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.Cardcode) : query.OrderByDescending(x => x.Cardcode);
+                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.CardMacCode) : query.OrderByDescending(x => x.CardMacCode);
                             }
                             break;
                         case 2:
                             {
-                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.Patroncode) : query.OrderByDescending(x => x.Patroncode);
+                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.StudentCode) : query.OrderByDescending(x => x.StudentCode);
                             }
                             break;
                         case 3:
                             {
-                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.Createdate) : query.OrderByDescending(x => x.Createdate);
+                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.GradeName) : query.OrderByDescending(x => x.GradeName);
                             }
                             break;
                         case 4:
                             {
-                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.Updatedate) : query.OrderByDescending(x => x.Updatedate);
+                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.ClassName) : query.OrderByDescending(x => x.ClassName);
+                            }
+                            break;
+                        case 5:
+                            {
+                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.CreateTime) : query.OrderByDescending(x => x.CreateTime);
+                            }
+                            break;
+                        case 6:
+                            {
+                                query = rdoUserQueryOrderAsc.Checked ? query.OrderBy(x => x.UpdateTime) : query.OrderByDescending(x => x.UpdateTime);
                             }
                             break;
                     }
@@ -902,18 +931,18 @@ namespace ItemCirculationManagementBackground
                             Tag = entity.Id,
                             Text = (i + 1).ToString()
                         };
-                        item.SubItems.Add(entity.Cardcode);
-                        item.SubItems.Add(entity.Patroncode);
-                        item.SubItems.Add(entity.Name);
-                        item.SubItems.Add(entity.Createdate.ToString());
-                        item.SubItems.Add(entity.Updatedate.ToString());
+                        item.SubItems.Add(entity.CardMacCode);
+                        item.SubItems.Add(entity.StudentCode);
+                        item.SubItems.Add(entity.StudentName);
+                        item.SubItems.Add(entity.CreateTime is null ? string.Empty : Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(entity.UpdateTime is null ? string.Empty : Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         lvwUser.Items.Add(item);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(LibraryManagementBackground.Models.Message.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
@@ -1021,12 +1050,37 @@ namespace ItemCirculationManagementBackground
             }
             catch (Exception ex)
             {
-                MessageBox.Show(LibraryManagementBackground.Models.Message.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #if DEBUG
                 throw;
 #else
                 Loger.Error(ex);
 #endif
+            }
+        }
+
+        private void cmbGradeName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            cmbClassName.Items.Clear();
+            cmbClassName.Items.Add("ALL");
+            cmbClassName.SelectedIndex = 0;
+            using (var db = new MySqlDbContext())
+            {
+                var gradeName = cmbGradeName.Text;
+                IQueryable<Student> query = db.Student;
+                if (gradeName != "ALL")
+                {
+                    query = db.Student.Where(x => x.GradeName == gradeName);
+                }
+                var groupQuery = query.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
+                if (groupQuery.Any())
+                {
+                    foreach (var variable in groupQuery)
+                    {
+                        cmbClassName.Items.Add(variable.Key);
+                    }
+                }
             }
         }
     }

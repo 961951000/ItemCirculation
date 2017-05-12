@@ -92,11 +92,18 @@ namespace ItemCirculationManagementBackground.Views.User
                     entity.GradeName = cmbGradeName.Text;
                     entity.ClassName = cmbClassName.Text;
                     entity.UpdateTime = DateTime.Now;
-                    db.SaveChanges();
+                    if (entity.CardMacCode != _entity.CardMacCode && db.Student.Any(x => x.CardMacCode == entity.CardMacCode))
+                    {
+                        MessageBox.Show(@"卡号已经存在，不能重复添加", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        db.SaveChanges();
+                        MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                        Success?.Invoke(Name);
+                    }
                 }
-                MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-                Success?.Invoke(Name);
             }
             catch (Exception ex)
             {

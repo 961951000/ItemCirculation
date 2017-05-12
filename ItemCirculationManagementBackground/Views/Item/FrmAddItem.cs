@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
@@ -22,22 +23,29 @@ namespace ItemCirculationManagementBackground.Views.Item
         {
             try
             {
-                var entity = new Models.Item
-                {
-                    Uid = txtTagCode.Text,
-                    ItemName = txtName.Text,
-                    ItemType = txtType.Text,
-                    CreateTime = DateTime.Now,
-                    ItemStateCode = 1001
-                };
                 using (var db = new MySqlDbContext())
                 {
-                    db.Item.Add(entity);
-                    db.SaveChanges();
+                    var entity = new Models.Item
+                    {
+                        Uid = txtTagCode.Text,
+                        ItemName = txtName.Text,
+                        ItemType = txtType.Text,
+                        CreateTime = DateTime.Now,
+                        ItemStateCode = 1001
+                    };
+                    if (db.Item.Any(x => x.Uid == entity.Uid))
+                    {
+                        MessageBox.Show(@"电子标签已经存在，不能重复添加", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        db.Item.Add(entity);
+                        db.SaveChanges();
+                        MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                        Success?.Invoke(Name);
+                    }
                 }
-                MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-                Success?.Invoke(Name);
             }
             catch (Exception ex)
             {

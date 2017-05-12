@@ -41,11 +41,18 @@ namespace ItemCirculationManagementBackground.Views.Item
                     entity.ItemName = txtName.Text;
                     entity.ItemType = txtType.Text;
                     entity.UpdateTime = DateTime.Now;
-                    db.SaveChanges();
+                    if (entity.Uid != _entity.Uid && db.Item.Any(x => x.Uid == entity.Uid))
+                    {
+                        MessageBox.Show(@"电子标签已经存在，不能重复添加", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        db.SaveChanges();
+                        MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                        Success?.Invoke(Name);
+                    }
                 }
-                MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-                Success?.Invoke(Name);
             }
             catch (Exception ex)
             {

@@ -203,7 +203,7 @@ namespace ItemCirculationManagementBackground
                         item.SubItems.Add(entity.LoanStudentCode);
                         item.SubItems.Add(entity.ReturnStudentName);
                         item.SubItems.Add(entity.ReturnStudentCode);
-                        item.SubItems.Add(entity.ItemType);
+                        item.SubItems.Add(entity.ItemName);
                         item.SubItems.Add(entity.ItemType);
                         item.SubItems.Add(entity.LoanTime.ToString());
                         item.SubItems.Add(entity.ReturnTime.ToString());
@@ -754,7 +754,7 @@ namespace ItemCirculationManagementBackground
                 }
             }
             catch (Exception ex)
-            {               
+            {
 #if DEBUG
                 throw;
 #else
@@ -786,7 +786,9 @@ namespace ItemCirculationManagementBackground
                         Id = Convert.ToInt32(row.Tag),
                         CardMacCode = row.SubItems[1].Text,
                         StudentCode = row.SubItems[2].Text,
-                        StudentName = row.SubItems[3].Text
+                        StudentName = row.SubItems[3].Text,
+                        GradeName = row.SubItems[4].Text,
+                        ClassName = row.SubItems[5].Text
                     };
                     var form = new FrmUpdateUser(entity)
                     {
@@ -962,7 +964,7 @@ namespace ItemCirculationManagementBackground
                 }
             }
             catch (Exception ex)
-            {               
+            {
 #if DEBUG
                 throw;
 #else
@@ -1070,7 +1072,7 @@ namespace ItemCirculationManagementBackground
                 ExportExcel.OutToExcelFromDataListView(ConfigurationManager.AppSettings["ExcelImport"], lvwCirculation, true);
             }
             catch (Exception ex)
-            {               
+            {
 #if DEBUG
                 throw;
 #else

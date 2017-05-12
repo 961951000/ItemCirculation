@@ -64,12 +64,19 @@ namespace ItemCirculationManagementBackground.Views.User
                 };
                 using (var db = new MySqlDbContext())
                 {
-                    db.Student.Add(entity);
-                    db.SaveChanges();
+                    if (db.Student.Any(x => x.CardMacCode == entity.CardMacCode))
+                    {
+                        MessageBox.Show(@"卡号已经存在，不能重复添加", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        db.Student.Add(entity);
+                        db.SaveChanges();
+                        MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Close();
+                        Success?.Invoke(Name);
+                    }
                 }
-                MessageBox.Show(Resources.SuccecssMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
-                Success?.Invoke(Name);
             }
             catch (Exception ex)
             {

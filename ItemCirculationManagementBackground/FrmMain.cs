@@ -435,7 +435,7 @@ namespace ItemCirculationManagementBackground
                                 ItemName = Convert.ToString(dr[1]),
                                 ItemType = Convert.ToString(dr[2]),
                                 ItemStateCode = 1001,
-                                UpdateTime = DateTime.Now,
+                                CreateTime = DateTime.Now,
                             };
                             var item = ItemDetailBatch.BatchAdd(entity);
                             try

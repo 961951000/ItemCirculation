@@ -125,9 +125,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\CirculationService.cs" />
-    <Compile Include="Event\ListenEvent.cs" />
     <Compile Include="Service\ItemService.cs" />
-    <Compile Include="Event\RfidReadEventMonitor.cs" />
     <Compile Include="Service\StudentService.cs" />
     <Compile Include="Util\FormStyle.cs" />
     <Compile Include="Util\Loger.cs" />

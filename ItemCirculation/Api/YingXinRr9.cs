@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItemCirculation.Util;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Text;
@@ -100,7 +101,7 @@ namespace ItemCirculation.Api
             }
             else
             {
-                Console.WriteLine(GetReturnCodeMessage(ret));
+                Loger.Error(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -121,7 +122,7 @@ namespace ItemCirculation.Api
             }
             else
             {
-                Console.WriteLine(GetReturnCodeMessage(ret));
+                Loger.Error(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -138,7 +139,7 @@ namespace ItemCirculation.Api
             }
             else
             {
-                Console.WriteLine(GetReturnCodeMessage(ret));
+                Loger.Error(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -159,7 +160,7 @@ namespace ItemCirculation.Api
             }
             else
             {
-                Console.WriteLine(GetReturnCodeMessage(ret));
+                Loger.Error(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -195,7 +196,7 @@ namespace ItemCirculation.Api
                     break;
                 default:
                     {
-                        Console.WriteLine(GetReturnCodeMessage(ret));
+                        Loger.Error(GetReturnCodeMessage(ret));
                     }
                     break;
             }

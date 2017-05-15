@@ -527,11 +527,11 @@ namespace ItemCirculationManagementBackground
         {
             if (lvwBook.SelectedIndices.Count > 0)
             {
+                var row = lvwUser.Items[lvwUser.SelectedIndices[0]];
+                row.BackColor = Color.Gray;
                 //var items = lvwBook.FocusedItem.SubItems;
                 try
                 {
-                    var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
-                    row.BackColor = Color.Gray;
                     var entity = new Item
                     {
                         Id = Convert.ToInt32(row.Tag),
@@ -554,6 +554,10 @@ namespace ItemCirculationManagementBackground
                     Loger.Error(ex);
                     MessageBox.Show(Resources.OtherErrorMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
 #endif
+                }
+                finally
+                {
+                    row.BackColor = SystemColors.InactiveBorder;
                 }
             }
             else
@@ -853,17 +857,17 @@ namespace ItemCirculationManagementBackground
         /// <param name="e"></param>
         private void btnUserDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show(Resources.RiskOperationConfimMessage, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            if (lvwUser.SelectedIndices.Count > 0)
             {
-
-                if (lvwUser.SelectedIndices.Count > 0)
+                var row = lvwUser.Items[lvwUser.SelectedIndices[0]];
+                row.BackColor = Color.Gray;
+                if (MessageBox.Show(Resources.RiskOperationConfimMessage, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    var items = lvwUser.FocusedItem.SubItems;
                     try
                     {
                         using (var db = new MySqlDbContext())
                         {
-                            var id = Convert.ToInt32(items[0].Text);
+                            var id = Convert.ToInt32(row.Tag);
                             var entity = db.Student.Single(x => x.Id == id);
                             db.Student.Remove(entity);
                             db.SaveChanges();
@@ -884,9 +888,12 @@ namespace ItemCirculationManagementBackground
                 }
                 else
                 {
-                    MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    row.BackColor = SystemColors.InactiveBorder;
                 }
-
+            }
+            else
+            {
+                MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         /// <summary>

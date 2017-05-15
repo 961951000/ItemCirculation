@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
@@ -34,6 +35,11 @@ namespace ItemCirculationManagementBackground.Views.Item
         {
             try
             {
+                if (!Regex.IsMatch(txtTagCode1.Text, "^[0-9A-Fa-f]{16}$"))
+                {
+                    MessageBox.Show(@"非法电子标签！");
+                    return;
+                }
                 using (var db = new MySqlDbContext())
                 {
                     var entity = db.Item.Single(x => x.Id == _entity.Id);
@@ -43,7 +49,7 @@ namespace ItemCirculationManagementBackground.Views.Item
                     entity.UpdateTime = DateTime.Now;
                     if (entity.Uid != _entity.Uid && db.Item.Any(x => x.Uid == entity.Uid))
                     {
-                        MessageBox.Show(@"电子标签已经存在，不能重复添加", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(@"电子标签重复", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {

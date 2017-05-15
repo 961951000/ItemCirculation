@@ -25,19 +25,13 @@ namespace ItemCirculationManagementBackground.Util
         public static string ConvertUid(string str)
         {
             str = str.ToUpper();
-            if (Resources.IsConvertUid == "1")
+            if (Resources.IsConvertUid != "1") { return str; }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < str.Length / 2; i++)
             {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < str.Length / 2; i++)
-                {
-                    sb.Insert(0, str.Substring(i * 2, 2));
-                }
-                return sb.ToString();
+                sb.Insert(0, str.Substring(i * 2, 2));
             }
-            else
-            {
-                return str;
-            }
+            return sb.ToString();
         }
         /// <summary>
         /// 字符串转字节数组

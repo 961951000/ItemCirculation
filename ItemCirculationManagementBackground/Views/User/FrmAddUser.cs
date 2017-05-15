@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
@@ -61,7 +62,12 @@ namespace ItemCirculationManagementBackground.Views.User
         {
             try
             {
-                var entity = new Models.Student
+                if (Resources.IsConvertTid == "1" ? !Regex.IsMatch(txtCardCode10.Text, "^[0-9]{10}$") : !Regex.IsMatch(txtCardCode10.Text, "^[0-9A-Fa-f]{8}$"))
+                {
+                    MessageBox.Show(@"非法卡号！");
+                    return;
+                }
+                var entity = new Student
                 {
                     CardMacCode = txtCardCode16.Text,
                     StudentCode = txtStudentCode.Text,
@@ -70,11 +76,15 @@ namespace ItemCirculationManagementBackground.Views.User
                     ClassName = cmbClassName.Text,
                     CreateTime = DateTime.Now
                 };
+                if (string.IsNullOrEmpty(entity.CardMacCode))
+                {
+                    throw new ArgumentException("非法卡号！");
+                }
                 using (var db = new MySqlDbContext())
                 {
                     if (db.Student.Any(x => x.CardMacCode == entity.CardMacCode))
                     {
-                        MessageBox.Show(@"卡号已经存在，不能重复添加", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(@"卡号重复", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {

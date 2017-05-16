@@ -389,21 +389,18 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.DisplayIndex = 4;
             this.columnHeader4.Text = "归还人姓名";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 150;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.DisplayIndex = 5;
             this.columnHeader5.Text = "归还人学籍号";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 150;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.DisplayIndex = 3;
             this.columnHeader6.Text = "仪器名称";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 150;

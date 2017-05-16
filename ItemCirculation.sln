@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemCirculation", "ItemCirc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemCirculationManagementBackground", "ItemCirculationManagementBackground\ItemCirculationManagementBackground.csproj", "{58241F6B-CCCC-406F-827F-AE14C9C95424}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{74EDC468-1E46-4179-94E9-B80D3C26EA1A}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,12 +43,18 @@ Global
 		{58241F6B-CCCC-406F-827F-AE14C9C95424}.Release|x64.Build.0 = Release|Any CPU
 		{58241F6B-CCCC-406F-827F-AE14C9C95424}.Release|x86.ActiveCfg = Release|Any CPU
 		{58241F6B-CCCC-406F-827F-AE14C9C95424}.Release|x86.Build.0 = Release|Any CPU
-		{74EDC468-1E46-4179-94E9-B80D3C26EA1A}.Debug|Any CPU.ActiveCfg = Debug
-		{74EDC468-1E46-4179-94E9-B80D3C26EA1A}.Debug|x64.ActiveCfg = Debug
-		{74EDC468-1E46-4179-94E9-B80D3C26EA1A}.Debug|x86.ActiveCfg = Debug
-		{74EDC468-1E46-4179-94E9-B80D3C26EA1A}.Release|Any CPU.ActiveCfg = Release
-		{74EDC468-1E46-4179-94E9-B80D3C26EA1A}.Release|x64.ActiveCfg = Release
-		{74EDC468-1E46-4179-94E9-B80D3C26EA1A}.Release|x86.ActiveCfg = Release
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Debug|Any CPU.ActiveCfg = Debug
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Debug|Any CPU.Build.0 = Debug
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Debug|x64.ActiveCfg = Debug
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Debug|x64.Build.0 = Debug
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Debug|x86.ActiveCfg = Debug
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Debug|x86.Build.0 = Debug
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Release|Any CPU.ActiveCfg = Release
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Release|Any CPU.Build.0 = Release
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Release|x64.ActiveCfg = Release
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Release|x64.Build.0 = Release
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Release|x86.ActiveCfg = Release
+		{D34A6D6B-14D0-490F-BCC8-D926ABE0FA69}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

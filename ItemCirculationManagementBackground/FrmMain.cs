@@ -38,7 +38,7 @@ namespace ItemCirculationManagementBackground
             listView1.Columns["ProductName"].Width = -1;//根据内容设置宽度
             listView1.Columns["SN"].Width = -2;//根据标题设置宽度*/
             #endregion
-            Init();        
+            Init();
         }
 
         private void Init()
@@ -527,7 +527,7 @@ namespace ItemCirculationManagementBackground
         {
             if (lvwBook.SelectedIndices.Count > 0)
             {
-                var row = lvwUser.Items[lvwUser.SelectedIndices[0]];
+                var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
                 row.BackColor = Color.Gray;
                 //var items = lvwBook.FocusedItem.SubItems;
                 try
@@ -576,6 +576,7 @@ namespace ItemCirculationManagementBackground
             if (lvwBook.SelectedIndices.Count > 0)
             {
                 var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
+                var selectedBackColor = row.BackColor;
                 row.BackColor = Color.Gray;
                 if (MessageBox.Show(Resources.RiskOperationConfimMessage, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
@@ -603,7 +604,7 @@ namespace ItemCirculationManagementBackground
                 }
                 else
                 {
-                    row.BackColor = SystemColors.InactiveBorder;
+                    row.BackColor = selectedBackColor;
                 }
             }
             else
@@ -860,6 +861,7 @@ namespace ItemCirculationManagementBackground
             if (lvwUser.SelectedIndices.Count > 0)
             {
                 var row = lvwUser.Items[lvwUser.SelectedIndices[0]];
+                var selectedBackColor = row.BackColor;
                 row.BackColor = Color.Gray;
                 if (MessageBox.Show(Resources.RiskOperationConfimMessage, "", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
@@ -888,7 +890,7 @@ namespace ItemCirculationManagementBackground
                 }
                 else
                 {
-                    row.BackColor = SystemColors.InactiveBorder;
+                    row.BackColor = selectedBackColor;
                 }
             }
             else
@@ -1178,7 +1180,7 @@ namespace ItemCirculationManagementBackground
         /// </summary>
         private void tabMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            if (e.TabPage != pageHelp){ return;}
+            if (e.TabPage != pageHelp) { return; }
             e.Cancel = true;
             try
             {

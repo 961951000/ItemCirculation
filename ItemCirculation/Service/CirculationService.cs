@@ -45,6 +45,7 @@ namespace ItemCirculation.Service
             var list = new List<CirculationView>();
             using (var db = new MySqlDbContext())
             {
+                var currentTime = DateTime.Now;
                 if (circulationTtype)
                 {
                     foreach (var item in items)
@@ -67,7 +68,7 @@ namespace ItemCirculation.Service
                             {
                                 ItemId = item1.Id,
                                 LoanStudentId = student.Id,
-                                LoanTime = DateTime.Now,
+                                LoanTime = currentTime,
                                 IsReturn = false
                             };
                             db.Circulation.Add(circulation);
@@ -99,7 +100,7 @@ namespace ItemCirculation.Service
                             {
                                 var circulation = query1.First();
                                 circulation.ReturnStudentId = student.Id;
-                                circulation.ReturnTime = DateTime.Now;
+                                circulation.ReturnTime = currentTime;
                                 circulation.IsReturn = true;
                                 db.SaveChanges();
                                 entity.ExecuteResult = true;

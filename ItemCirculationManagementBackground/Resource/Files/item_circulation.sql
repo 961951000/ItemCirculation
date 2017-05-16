@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50718
 File Encoding         : 65001
 
-Date: 2017-05-15 18:27:12
+Date: 2017-05-16 18:22:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,7 +49,7 @@ CREATE TABLE `item` (
   `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `update_time` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `uid` (`uid`) USING BTREE,
+  UNIQUE KEY `uid` (`uid`),
   UNIQUE KEY `uid_2` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='物品信息表';
 
@@ -66,11 +66,13 @@ CREATE TABLE `item_state` (
   `code` int(11) DEFAULT NULL COMMENT '物品状态码',
   `state` varchar(255) DEFAULT NULL COMMENT '物品状态',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='物品状态表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='物品状态表';
 
 -- ----------------------------
 -- Records of item_state
 -- ----------------------------
+INSERT INTO `item_state` VALUES ('1', '1001', '在馆');
+INSERT INTO `item_state` VALUES ('2', '1002', '借出');
 
 -- ----------------------------
 -- Table structure for student

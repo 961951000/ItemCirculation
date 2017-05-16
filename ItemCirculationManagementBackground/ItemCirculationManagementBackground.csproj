@@ -158,8 +158,6 @@
     <None Include="Resource\Files\上海市实验学校仪器设备管理系统使用说明.chm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resource\Files\ExcelImport\上海市实验学校仪器设备管理系统使用说明.docx" />
-    <None Include="Resource\Files\ExcelImport\上海市实验学校仪器设备管理系统安装说明.docx" />
     <None Include="Resource\Files\ExcelImport\学生信息导入表格.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -171,15 +169,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resource\Tool\AccessDatabaseEngine.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resource\Tool\AccessDatabaseEngine_X64.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resource\Tool\item_circulation.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Resource\Files\item_circulation.sql" />
     <Content Include="Title.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

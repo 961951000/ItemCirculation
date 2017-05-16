@@ -123,6 +123,7 @@
             this.colClassName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnUserCreateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnUserUpdateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pageHelp = new System.Windows.Forms.TabPage();
             this.tabMain.SuspendLayout();
             this.pageQueryStatistics.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -139,11 +140,13 @@
             this.tabMain.Controls.Add(this.pageQueryStatistics);
             this.tabMain.Controls.Add(this.pageLabelSwitching);
             this.tabMain.Controls.Add(this.pageMakingCard);
+            this.tabMain.Controls.Add(this.pageHelp);
             this.tabMain.Location = new System.Drawing.Point(2, 1);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(1392, 727);
             this.tabMain.TabIndex = 0;
+            this.tabMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabMain_Selecting);
             // 
             // pageQueryStatistics
             // 
@@ -1043,6 +1046,15 @@
             this.cnUserUpdateTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnUserUpdateTime.Width = 150;
             // 
+            // pageHelp
+            // 
+            this.pageHelp.Location = new System.Drawing.Point(4, 22);
+            this.pageHelp.Name = "pageHelp";
+            this.pageHelp.Size = new System.Drawing.Size(1384, 701);
+            this.pageHelp.TabIndex = 3;
+            this.pageHelp.Text = "帮助文档";
+            this.pageHelp.UseVisualStyleBackColor = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1167,6 +1179,7 @@
         private System.Windows.Forms.ComboBox cmbClassName;
         private System.Windows.Forms.ComboBox cmbGradeName;
         private System.Windows.Forms.Label lblGradeName;
+        private System.Windows.Forms.TabPage pageHelp;
     }
 }
 

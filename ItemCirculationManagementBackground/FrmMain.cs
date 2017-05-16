@@ -28,6 +28,7 @@ namespace ItemCirculationManagementBackground
         }
         private void FrmMain_Load(object sender, EventArgs e)
         {
+
             #region listView初始化
             /*listView1.GridLines = true;//表格是否显示网格线
             listView1.FullRowSelect = true;//是否选中整行
@@ -37,8 +38,7 @@ namespace ItemCirculationManagementBackground
             listView1.Columns["ProductName"].Width = -1;//根据内容设置宽度
             listView1.Columns["SN"].Width = -2;//根据标题设置宽度*/
             #endregion
-
-            Init();
+            Init();        
         }
 
         private void Init()
@@ -1170,6 +1170,27 @@ namespace ItemCirculationManagementBackground
 #else               
                 Loger.Error(ex);
                 MessageBox.Show(@"设备异常！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
+            }
+        }
+        /// <summary>
+        /// 选项卡切换事件
+        /// </summary>
+        private void tabMain_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (e.TabPage != pageHelp){ return;}
+            e.Cancel = true;
+            try
+            {
+                var helpfile = Path.GetFullPath(@"Resource/Files/上海市实验学校仪器设备管理系统使用说明.chm");
+                Help.ShowHelp(this, helpfile);
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(ex);
 #endif
             }
         }

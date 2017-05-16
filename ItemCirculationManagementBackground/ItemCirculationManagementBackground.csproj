@@ -155,6 +155,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resource\Files\上海市实验学校仪器设备管理系统使用说明.chm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resource\Files\ExcelImport\上海市实验学校仪器设备管理系统使用说明.docx" />
     <None Include="Resource\Files\ExcelImport\上海市实验学校仪器设备管理系统安装说明.docx" />
     <None Include="Resource\Files\ExcelImport\学生信息导入表格.xlsx">

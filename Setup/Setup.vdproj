@@ -21,18 +21,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_164DCB0878704C89BBF0C55D6D934A8D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1C7FCBEF02784A92A36F9DF0D2AE7031"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_1CBF35992192DCE74B531719FE47F353"
         "OwnerKey" = "8:_D3F94CC320594824B654E111707CFA83"
         "MsmSig" = "8:_UNDEFINED"
@@ -135,25 +123,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C67BE23967004DD89A96EBF839640ACC"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CBBF58FB9FEC4D7BA0B638182F3503C4"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_D3F94CC320594824B654E111707CFA83"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D859C16D35A94141A64231BFD26F5825"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -292,46 +262,6 @@
             "TargetName" = "8:log4net.config"
             "Tag" = "8:"
             "Folder" = "8:_20FEB2BDAD6147149EE0861F030B44E4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_164DCB0878704C89BBF0C55D6D934A8D"
-            {
-            "SourcePath" = "8:..\\ItemCirculationManagementBackground\\Resource\\Tool\\AccessDatabaseEngine_X64.exe"
-            "TargetName" = "8:AccessDatabaseEngine_X64.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_6E47B10959D44F9FB522FCDCA5F3B752"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1C7FCBEF02784A92A36F9DF0D2AE7031"
-            {
-            "SourcePath" = "8:..\\ItemCirculationManagementBackground\\Resource\\Files\\ExcelImport\\上海市实验学校仪器设备管理系统使用说明.docx"
-            "TargetName" = "8:上海市实验学校仪器设备管理系统使用说明.docx"
-            "Tag" = "8:"
-            "Folder" = "8:_0BAD60371EF0407CA124D693A150436F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -561,66 +491,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C67BE23967004DD89A96EBF839640ACC"
-            {
-            "SourcePath" = "8:..\\ItemCirculationManagementBackground\\Resource\\Files\\ExcelImport\\上海市实验学校仪器设备管理系统安装说明.docx"
-            "TargetName" = "8:上海市实验学校仪器设备管理系统安装说明.docx"
-            "Tag" = "8:"
-            "Folder" = "8:_0BAD60371EF0407CA124D693A150436F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CBBF58FB9FEC4D7BA0B638182F3503C4"
-            {
-            "SourcePath" = "8:..\\ItemCirculationManagementBackground\\Resource\\Tool\\AccessDatabaseEngine.exe"
-            "TargetName" = "8:AccessDatabaseEngine.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_6E47B10959D44F9FB522FCDCA5F3B752"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D859C16D35A94141A64231BFD26F5825"
-            {
-            "SourcePath" = "8:..\\ItemCirculationManagementBackground\\Resource\\Tool\\item_circulation.sql"
-            "TargetName" = "8:item_circulation.sql"
-            "Tag" = "8:"
-            "Folder" = "8:_6E47B10959D44F9FB522FCDCA5F3B752"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DE31C63FDFC93B97F764E27827CFAF5C"
             {
             "AssemblyRegister" = "3:1"
@@ -697,17 +567,6 @@
                     "Property" = "8:_B047E773A2704119B871701DE3BB54EA"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_6E47B10959D44F9FB522FCDCA5F3B752"
-                            {
-                            "Name" = "8:Tool"
-                            "AlwaysCreate" = "11:FALSE"
-                            "Condition" = "8:"
-                            "Transitive" = "11:FALSE"
-                            "Property" = "8:_47A332C5EC3041CBABA273106292C0BE"
-                                "Folders"
-                                {
-                                }
-                            }
                             "{9EF0B969-E518-4E46-987F-47570745A589}:_A6D56A27B17C4B7AB4D465C46445FA65"
                             {
                             "Name" = "8:Files"
@@ -773,7 +632,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:仪器设备管理系统 "
         "ProductCode" = "8:{55DA3CAD-A150-437D-A6FA-ECF265652801}"
-        "PackageCode" = "8:{01A6416D-4B6D-4F3E-840A-62F842E3361D}"
+        "PackageCode" = "8:{F16ADE66-1F7E-4CED-ADAA-8CB9914C2D90}"
         "UpgradeCode" = "8:{D3CA1BF6-F455-4437-9A3F-DD421F65BD7A}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

@@ -95,7 +95,7 @@ namespace ItemCirculation.Service
                         if (item1.ItemStateCode == 1002)
                         {
                             item1.ItemStateCode = 1001;
-                            var query1 = db.Circulation.Where(x => x.ItemId == item1.Id&&x.IsReturn==false);
+                            var query1 = db.Circulation.Where(x => x.ItemId == item1.Id && x.IsReturn == false);
                             if (query1.Any())
                             {
                                 var circulation = query1.First();
@@ -105,13 +105,30 @@ namespace ItemCirculation.Service
                                 db.SaveChanges();
                                 entity.ExecuteResult = true;
                             }
-
                         }
                         list.Add(entity);
                     }
                 }
                 return list;
+
             }
         }
+        /*using (TransactionScope scope = new TransactionScope())
+           {
+               //Do something with context1  
+               //Do something with context2  
+
+               //Save Changes but don't discard yet  
+               context1.SaveChanges(false);
+
+               //Save Changes but don't discard yet  
+               context2.SaveChanges(false);
+
+               //if we get here things are looking good.  
+               scope.Complete();
+               context1.AcceptAllChanges();
+               context2.AcceptAllChanges();
+
+           }*/
     }
 }

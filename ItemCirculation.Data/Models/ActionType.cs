@@ -22,6 +22,16 @@ namespace ItemCirculation.Data.Models
 		}
 
 		/// <summary>
+		/// 操作类型代码
+		/// </summary>
+		[Column("action_type_code")]
+		public string ActionTypeCode
+		{
+			set;
+			get;
+		}
+
+		/// <summary>
 		/// 操作类型名称
 		/// </summary>
 		[Column("action_type_name")]
@@ -33,7 +43,7 @@ namespace ItemCirculation.Data.Models
 
 		public override string ToString()
 		{
-			return "Id=" + Id + ",ActionTypeName=" + ActionTypeName;
+			return "Id=" + Id + ",ActionTypeCode=" + ActionTypeCode + ",ActionTypeName=" + ActionTypeName;
 		}
 		#endregion Model
 	}

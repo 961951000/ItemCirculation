@@ -62,7 +62,7 @@ namespace ItemCirculation.Data.Models
 		}
 
 		/// <summary>
-		/// 物品状态码
+		/// 物品状态代码
 		/// </summary>
 		[Column("item_state_code")]
 		public int? ItemStateCode

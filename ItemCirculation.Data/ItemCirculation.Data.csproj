@@ -56,8 +56,9 @@
     <Compile Include="DatabaseContext\IItemDetails.cs" />
     <Compile Include="DatabaseContext\ItemDetailBatch.cs" />
     <Compile Include="DatabaseContext\MySqlDbContext.cs" />
+    <Compile Include="Enum\Action.cs" />
     <Compile Include="Enum\ActionType.cs" />
-    <Compile Include="Enum\ItemState.cs" />
+    <Compile Include="Enum\ItemStateEnum.cs" />
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Circulation.cs" />

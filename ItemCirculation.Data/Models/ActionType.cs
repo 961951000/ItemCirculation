@@ -25,7 +25,7 @@ namespace ItemCirculation.Data.Models
 		/// 操作类型代码
 		/// </summary>
 		[Column("action_type_code")]
-		public string ActionTypeCode
+		public int? ActionTypeCode
 		{
 			set;
 			get;

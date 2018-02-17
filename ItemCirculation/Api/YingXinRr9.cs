@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using StaticClassReaderA = ItemCirculation.Api.ReaderA.StaticClassReaderA;
@@ -27,7 +28,7 @@ namespace ItemCirculation.Api
         /// 轮训委托
         /// </summary>
         /// <param name="uidList">RFID电子标签监听事件处理程序</param>
-        public delegate void UidListenEventHandler(List<string> uidList);
+        public delegate void UidListenEventHandler(IEnumerable<string> uidList);
         /// <summary>
         /// FID电子标签监听线程
         /// </summary>
@@ -56,6 +57,7 @@ namespace ItemCirculation.Api
         /// 与读写器连接端口对应的句柄，应用程序通过该句柄可以操作连接在相应端口的读写器。如果打开不成功，返回的句柄值为－1。
         /// </summary>
         private int _portIndex = -1;
+
         /// <summary>
         /// 打开串口
         /// </summary>
@@ -109,6 +111,7 @@ namespace ItemCirculation.Api
         {
             StaticClassReaderA.CloseSpecComPort(_portIndex);
         }
+
         /// <summary>
         /// 设置读写器为ISO15693模式。
         /// </summary>
@@ -126,6 +129,7 @@ namespace ItemCirculation.Api
                 return false;
             }
         }
+
         /// <summary>
         /// 设置读写器为ISO14443A模式。
         /// </summary>
@@ -143,6 +147,7 @@ namespace ItemCirculation.Api
                 return false;
             }
         }
+
         /// <summary>
         /// 读取有效范围内14443A卡的序列号。
         /// </summary>
@@ -164,11 +169,12 @@ namespace ItemCirculation.Api
                 return false;
             }
         }
+
         /// <summary>
         /// 检查有效范围内是否有符合协议的电子标签存在。
         /// </summary>
         /// <param name="uidList">符合协议的电子标签序列号集合</param>
-        public bool GetUidList(ref List<string> uidList)
+        public bool GetUidList(out IEnumerable<string> uidList)
         {
             int ret = 0x30;
             byte state = 6; //默认不带AFI的InventoryScan
@@ -186,10 +192,7 @@ namespace ItemCirculation.Api
                         string str = ByteArrayToHexString(dsfidAndUid);
                         if (ret == 0x0E || ret == 0x0B)
                         {
-                            for (int i = 0; i < cardNumber; i++)
-                            {
-                                uidList.Add(str.Substring(18 * i, 18).Substring(2, 16));
-                            }
+                            uidList = Enumerable.Range(0, cardNumber).Select(i => str.Substring(18 * i, 18).Substring(2, 16));
                             return true;
                         }
                     }
@@ -200,8 +203,11 @@ namespace ItemCirculation.Api
                     }
                     break;
             }
+
+            uidList = Enumerable.Empty<string>();
             return false;
         }
+
         /// <summary>
         /// 开始14443A卡监听
         /// </summary>
@@ -225,6 +231,7 @@ namespace ItemCirculation.Api
             });
             _hidListen.Start();
         }
+
         /// <summary>
         /// 停止14443A卡监听
         /// </summary>       
@@ -232,6 +239,7 @@ namespace ItemCirculation.Api
         {
             _hidListenIsRun = false;
         }
+
         /// <summary>
         /// 关闭14443A卡监听
         /// </summary>       
@@ -247,6 +255,7 @@ namespace ItemCirculation.Api
                 }
             }
         }
+
         /// <summary>
         /// 开始RFID电子标签监听
         /// </summary>
@@ -259,8 +268,7 @@ namespace ItemCirculation.Api
             {
                 while (_uidListenIsRun)
                 {
-                    var list = new List<string>();
-                    if (GetUidList(ref list))
+                    if (GetUidList(out IEnumerable<string> list))
                     {
                         handler(list);
                     }
@@ -269,6 +277,7 @@ namespace ItemCirculation.Api
             });
             _uidListen.Start();
         }
+
         /// <summary>
         /// 停止RFID电子标签监听。
         /// </summary>
@@ -276,6 +285,7 @@ namespace ItemCirculation.Api
         {
             _uidListenIsRun = false;
         }
+
         /// <summary>
         /// 关闭RFID电子标签监听。
         /// </summary>
@@ -291,6 +301,7 @@ namespace ItemCirculation.Api
                 }
             }
         }
+
         /// <summary>
         /// 字节数组转十六进制字符串
         /// </summary>
@@ -298,13 +309,9 @@ namespace ItemCirculation.Api
         /// <returns>十六进制字符串</returns>
         private static string ByteArrayToHexString(byte[] data)
         {
-            /*StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < data.Length; i++)
-            {
-                sb.Append(Convert.ToString(i, 16).PadLeft(2, '0'));
-            }*/
             return BitConverter.ToString(data).Replace("-", "");
         }
+
         /// <summary>
         /// ID卡前10位
         /// </summary>
@@ -314,6 +321,7 @@ namespace ItemCirculation.Api
         {
             return BitConverter.ToUInt32(data, 0).ToString();
         }
+
         /// <summary>  
         /// 把int32类型的数据转存到4个字节的byte数组中  
         /// </summary>  
@@ -330,6 +338,7 @@ namespace ItemCirculation.Api
             };
             return array;
         }
+
         private static string GetReturnCodeMessage(int cmdRet)
         {
             switch (cmdRet)

@@ -22,20 +22,20 @@ namespace ItemCirculation.Data.Models
 		}
 
 		/// <summary>
-		/// 物品编号
+		/// 物品RFID标识识别号
 		/// </summary>
-		[Column("item_id")]
-		public int? ItemId
+		[Column("item_uid")]
+		public string ItemUid
 		{
 			set;
 			get;
 		}
 
 		/// <summary>
-		/// 学生编号
+		/// 学生证物理卡号
 		/// </summary>
-		[Column("student_id")]
-		public int? StudentId
+		[Column("student_card_mac_code")]
+		public string StudentCardMacCode
 		{
 			set;
 			get;
@@ -45,7 +45,7 @@ namespace ItemCirculation.Data.Models
 		/// 操作编号
 		/// </summary>
 		[Column("action_id")]
-		public string ActionId
+		public int? ActionId
 		{
 			set;
 			get;
@@ -73,7 +73,7 @@ namespace ItemCirculation.Data.Models
 
 		public override string ToString()
 		{
-			return "Id=" + Id + ",ItemId=" + ItemId + ",StudentId=" + StudentId + ",ActionId=" + ActionId + ",ActionTime=" + ActionTime + ",Comment=" + Comment;
+			return "Id=" + Id + ",ItemUid=" + ItemUid + ",StudentCardMacCode=" + StudentCardMacCode + ",ActionId=" + ActionId + ",ActionTime=" + ActionTime + ",Comment=" + Comment;
 		}
 		#endregion Model
 	}

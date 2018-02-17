@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Windows.Forms;
+using ItemCirculation.Data.Models;
 using ItemCirculation.Event;
-using ItemCirculation.Models;
 using ItemCirculation.Util;
 using ItemCirculation.ViewModels;
 
@@ -15,16 +15,19 @@ namespace ItemCirculation.Views.Return
         private readonly Student _student;
         private readonly List<CirculationView> _girdView;
         public int SuccessCount { get; set; }
+
         public FrmReturnEnd()
         {
             InitializeComponent();
         }
+
         public FrmReturnEnd(Student student, List<CirculationView> girdView)
         {
             _student = student;
             _girdView = girdView;
             InitializeComponent();
         }
+
         private void FrmReturnEnd_Load(object sender, EventArgs e)
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
@@ -32,13 +35,14 @@ namespace ItemCirculation.Views.Return
 
             Init();
         }
+
         /// <summary>
         /// 初始化
         /// </summary>
         private void Init()
         {
-            label3.Text = _student.StudentName;
-            label5.Text = _student.StudentCode;
+            label3.Text = _student?.StudentName;
+            label5.Text = _student?.StudentCode;
             label7.Text = SuccessCount.ToString();
             foreach (var variable in _girdView)
             {
@@ -47,6 +51,7 @@ namespace ItemCirculation.Views.Return
             }
             TimingBegin();
         }
+
         /// <summary>
         /// 窗体关闭事件
         /// </summary>
@@ -65,6 +70,7 @@ namespace ItemCirculation.Views.Return
             label1.Text = timeout;
             timer1.Start();
         }
+
         /// <summary>
         /// 计时结束
         /// </summary>
@@ -73,6 +79,7 @@ namespace ItemCirculation.Views.Return
             label1.Text = string.Empty;
             timer1.Stop();
         }
+
         /// <summary>
         /// 返回按钮
         /// </summary>
@@ -106,6 +113,7 @@ namespace ItemCirculation.Views.Return
                 Close();
             }
         }
+
         /// <summary>
         /// gird显示行号
         /// </summary>
@@ -113,6 +121,7 @@ namespace ItemCirculation.Views.Return
         {
             FormStyle.DataGridViewShowLineNumber(sender, e, Font);
         }
+
         /// <summary>
         /// 提交后处理程序
         /// </summary>

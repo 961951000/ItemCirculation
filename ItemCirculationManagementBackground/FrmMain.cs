@@ -170,7 +170,7 @@ namespace ItemCirculationManagementBackground
             {
                 using (var db = new MySqlDbContext())
                 {
-                    const string sql = "SELECT a.id AS Id, a.action_time AS 'ActionTime', b.student_name AS 'StudentName', b.student_code AS 'StudentCode', c.item_name AS 'ItemName', c.item_type AS 'ItemType', c.item_location AS 'ItemLocation', d.action_type AS 'ActionType' FROM circulation_record AS a LEFT JOIN student AS b ON a.student_card_mac_code = b.card_mac_code LEFT JOIN item AS c ON a.item_uid = c.uid LEFT JOIN (SELECT x.action_name + y.action_type_name AS action_type FROM action AS x LEFT JOIN action_type AS y ON x.action_type_id = y.id ) d ON a.action_id = c.id";
+                    const string sql = "SELECT a.id AS Id, a.action_time AS 'ActionTime', b.student_name AS 'StudentName', b.student_code AS 'StudentCode', c.item_name AS 'ItemName', c.item_type AS 'ItemType', c.item_location AS 'ItemLocation', d.action_type AS 'ActionType' FROM circulation_record AS a LEFT JOIN student AS b ON a.student_card_mac_code = b.card_mac_code LEFT JOIN item AS c ON a.item_uid = c.uid LEFT JOIN ( SELECT x.id, IFNULL( CONCAT( x.action_name, '-', y.action_type_name ), x.action_name ) AS action_type FROM action AS x LEFT JOIN action_type AS y ON x.action_type_id = y.id ) d ON a.action_id = d.id";
                     var query = db.Database.SqlQuery<CirculationRecordView>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionTime.Value.ToString("yyyy-MM-dd 00:00:00")));
                     var itemName = txtInstrumentNameGet.Text;
                     var itemType = txtInstrumentTypeGet.Text;

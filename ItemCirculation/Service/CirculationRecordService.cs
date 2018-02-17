@@ -37,7 +37,7 @@ namespace ItemCirculation.Service
 
                     if (item == null)
                     {
-                        circulationRecord.ActionId = db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).Single(x => x.ActionCode == Data.Enum.Action.异常借出.GetHashCode() && x.ActionTypeCode == Data.Enum.ActionType.未知设备.GetHashCode()).Id;
+                        circulationRecord.ActionId = db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).ToList().Single(x => x.ActionCode == Data.Enum.Action.异常借出.GetHashCode() && x.ActionTypeCode == Data.Enum.ActionType.未知设备.GetHashCode()).Id;
                     }
                     else
                     {
@@ -47,7 +47,7 @@ namespace ItemCirculation.Service
                         entity.ItemStateCode = item.ItemStateCode;
                         entity.ExecuteResult = item.ItemStateCode == ItemStateEnum.在馆.GetHashCode();
 
-                        circulationRecord.ActionId = entity.ExecuteResult ? db.Action.Single(x => x.ActionCode == Data.Enum.Action.正常借出.GetHashCode()).Id : db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).Single(x => x.ActionCode == Data.Enum.Action.异常借出.GetHashCode() && x.ActionTypeCode == Data.Enum.ActionType.重复借出.GetHashCode()).Id;
+                        circulationRecord.ActionId = entity.ExecuteResult ? db.Action.ToList().Single(x => x.ActionCode == Data.Enum.Action.正常借出.GetHashCode()).Id : db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).ToList().Single(x => x.ActionCode == Data.Enum.Action.异常借出.GetHashCode() && x.ActionTypeCode == Data.Enum.ActionType.重复借出.GetHashCode()).Id;
                         item.ItemStateCode = ItemStateEnum.外借.GetHashCode();
                     }
                     db.CirculationRecord.Add(circulationRecord);
@@ -86,7 +86,7 @@ namespace ItemCirculation.Service
 
                     if (item == null)
                     {
-                        circulationRecordEntity.ActionId = db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).Single(x => x.ActionCode == Data.Enum.Action.异常归还.GetHashCode() && x.ActionTypeCode == Data.Enum.ActionType.未知设备.GetHashCode()).Id;
+                        circulationRecordEntity.ActionId = db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).ToList().Single(x => x.ActionCode == Data.Enum.Action.异常归还.GetHashCode() && x.ActionTypeCode == Data.Enum.ActionType.未知设备.GetHashCode()).Id;
                     }
                     else
                     {
@@ -96,7 +96,7 @@ namespace ItemCirculation.Service
                         entity.ItemStateCode = item.ItemStateCode;
 
                         entity.ExecuteResult = item.ItemStateCode == ItemStateEnum.外借.GetHashCode();
-                        circulationRecordEntity.ActionId = entity.ExecuteResult ? db.Action.Single(x => x.ActionCode == Data.Enum.Action.正常归还.GetHashCode()).Id : db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).Single(x => x.ActionCode == Data.Enum.Action.异常归还.GetHashCode() && x.ActionTypeCode == Data.Enum.ActionType.重复归还.GetHashCode()).Id;
+                        circulationRecordEntity.ActionId = entity.ExecuteResult ? db.Action.ToList().Single(x => x.ActionCode == Data.Enum.Action.正常归还.GetHashCode()).Id : db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).ToList().Single(x => x.ActionCode == Data.Enum.Action.异常归还.GetHashCode() && x.ActionTypeCode == Data.Enum.ActionType.重复归还.GetHashCode()).Id;
                         item.ItemStateCode = ItemStateEnum.在馆.GetHashCode();
                     }
                     db.CirculationRecord.Add(circulationRecordEntity);

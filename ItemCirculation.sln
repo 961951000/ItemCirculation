@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemCirculationManagementBa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemCirculation.Data", "ItemCirculation.Data\ItemCirculation.Data.csproj", "{94DBA16A-3AE0-4F4B-89BB-DAB601494713}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemCirculationTests", "ItemCirculationTests\ItemCirculationTests.csproj", "{05057019-B8EB-41EE-855B-AD9FEE2DD112}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{94DBA16A-3AE0-4F4B-89BB-DAB601494713}.Release|x64.Build.0 = Release|Any CPU
 		{94DBA16A-3AE0-4F4B-89BB-DAB601494713}.Release|x86.ActiveCfg = Release|Any CPU
 		{94DBA16A-3AE0-4F4B-89BB-DAB601494713}.Release|x86.Build.0 = Release|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Debug|x64.Build.0 = Debug|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Debug|x86.Build.0 = Debug|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Release|x64.ActiveCfg = Release|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Release|x64.Build.0 = Release|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Release|x86.ActiveCfg = Release|Any CPU
+		{05057019-B8EB-41EE-855B-AD9FEE2DD112}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

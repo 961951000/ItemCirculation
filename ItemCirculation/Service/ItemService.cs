@@ -16,7 +16,7 @@ namespace ItemCirculation.Service
         {
             using (var db = new MySqlDbContext())
             {
-                return uidList.Select(uid => db.Item.FirstOrDefault() ?? new Item { Uid = uid });
+                return uidList.Select(uid => db.Item.FirstOrDefault(x => x.Uid == uid) ?? new Item { Uid = uid }).ToList();
             }
         }
     }

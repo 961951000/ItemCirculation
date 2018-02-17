@@ -630,7 +630,7 @@
             this.lvwBook.GridLines = true;
             this.lvwBook.Location = new System.Drawing.Point(211, 252);
             this.lvwBook.Name = "lvwBook";
-            this.lvwBook.Size = new System.Drawing.Size(946, 301);
+            this.lvwBook.Size = new System.Drawing.Size(958, 301);
             this.lvwBook.TabIndex = 0;
             this.lvwBook.UseCompatibleStateImageBehavior = false;
             this.lvwBook.View = System.Windows.Forms.View.Details;
@@ -965,7 +965,7 @@
             this.lvwUser.GridLines = true;
             this.lvwUser.Location = new System.Drawing.Point(156, 249);
             this.lvwUser.Name = "lvwUser";
-            this.lvwUser.Size = new System.Drawing.Size(1103, 301);
+            this.lvwUser.Size = new System.Drawing.Size(1111, 301);
             this.lvwUser.TabIndex = 7;
             this.lvwUser.UseCompatibleStateImageBehavior = false;
             this.lvwUser.View = System.Windows.Forms.View.Details;

@@ -4,17 +4,16 @@ using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
-using ItemCirculationManagementBackground.DatabaseContext;
+using ItemCirculation.Data.DatabaseContext;
+using ItemCirculation.Data.Models;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using ItemCirculationManagementBackground.ViewModels;
 using ItemCirculationManagementBackground.Views.Item;
-using ItemCirculationManagementBackground.Models;
 using ItemCirculationManagementBackground.Views.User;
 using MySql.Data.MySqlClient;
 
@@ -26,6 +25,7 @@ namespace ItemCirculationManagementBackground
         {
             InitializeComponent();
         }
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
 
@@ -50,10 +50,10 @@ namespace ItemCirculationManagementBackground
             cboCirculationOrder.SelectedIndex = 4;
             cboLabelSwitchingQueryOrder.SelectedIndex = 2;
             cboUserQueryOrder.SelectedIndex = 3;
-            dtpLendTimeStart.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
-            dtpLendTimeEnd.Value = DateTime.Now;
+            dtpActionTime.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
             MakingCardInIt();
         }
+
         /// <summary>
         /// 开卡办证初始化
         /// </summary>
@@ -112,6 +112,7 @@ namespace ItemCirculationManagementBackground
 #endif
             }
         }
+
         private void Success(string address)
         {
             switch (address)
@@ -152,6 +153,7 @@ namespace ItemCirculationManagementBackground
         {
             QueryCirculation();
         }
+
         /// <summary>
         /// 查询统计 - 查询
         /// </summary>
@@ -162,12 +164,12 @@ namespace ItemCirculationManagementBackground
             {
                 using (var db = new MySqlDbContext())
                 {
-                    const string sql = "SELECT a.id AS Id,a.loan_time AS 'LoanTime',a.return_time AS 'ReturnTime',b.item_name AS 'ItemName',b.item_type AS 'ItemType',c.student_code AS 'LoanStudentCode',c.student_name AS 'LoanStudentName',d.student_code AS 'ReturnStudentCode',d.student_name AS 'ReturnStudentName' FROM circulation a LEFT JOIN item b ON a.item_id = b.id LEFT JOIN student c ON a.loan_student_id = c.id LEFT JOIN student d ON a.return_student_id = d.id";
-                    var query = db.Database.SqlQuery<CirculationView>(sql).Where(x => x.LoanTime >= DateTime.Parse(dtpLendTimeStart.Value.ToString("yyyy-MM-dd 00:00:00")) && x.LoanTime < DateTime.Parse(dtpLendTimeEnd.Value.AddDays(1).ToString("yyyy-MM-dd 00:00:00")));
+                    const string sql = "SELECT a.id AS Id, a.action_time AS 'ActionTime', b.student_name AS 'StudentName', b.student_code AS 'StudentCode', c.item_name AS 'ItemName', c.item_type AS 'ItemType', c.item_location AS 'ItemLocation', d.action_type AS 'ActionType' FROM circulation_record AS a LEFT JOIN student AS b ON a.student_card_mac_code = b.card_mac_code LEFT JOIN item AS c ON a.item_uid = c.uid LEFT JOIN (SELECT x.action_name + y.action_type_name AS action_type FROM action AS x LEFT JOIN action_type AS y ON x.action_type_id = y.id ) d ON a.action_id = c.id";
+                    var query = db.Database.SqlQuery<CirculationRecordView>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionTime.Value.ToString("yyyy-MM-dd 00:00:00")));
                     var itemName = txtInstrumentNameGet.Text;
                     var itemType = txtInstrumentTypeGet.Text;
-                    var loanStudentCode = txtLendUserStudentGet.Text;
-                    var loanStudentName = txtLendUserNameGet.Text;
+                    var studentCode = txtLendUserStudentGet.Text;
+                    var studentName = txtLendUserNameGet.Text;
                     if (!string.IsNullOrEmpty(itemName))
                     {
                         query = query.Where(x => x.ItemName.Contains(itemName));
@@ -176,13 +178,13 @@ namespace ItemCirculationManagementBackground
                     {
                         query = query.Where(x => x.ItemType.Contains(itemType));
                     }
-                    if (!string.IsNullOrEmpty(loanStudentCode))
+                    if (!string.IsNullOrEmpty(studentCode))
                     {
-                        query = query.Where(x => x.LoanStudentCode.Contains(loanStudentCode));
+                        query = query.Where(x => x.StudentCode.Contains(studentCode));
                     }
-                    if (!string.IsNullOrEmpty(loanStudentName))
+                    if (!string.IsNullOrEmpty(studentName))
                     {
-                        query = query.Where(x => x.LoanStudentName.Contains(loanStudentName));
+                        query = query.Where(x => x.StudentName.Contains(studentName));
                     }
                     switch (cboCirculationOrder.SelectedIndex)
                     {
@@ -198,22 +200,17 @@ namespace ItemCirculationManagementBackground
                             break;
                         case 2:
                             {
-                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.LoanStudentName) : query.OrderByDescending(x => x.LoanStudentName);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.StudentName) : query.OrderByDescending(x => x.StudentName);
                             }
                             break;
                         case 3:
                             {
-                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.LoanStudentCode) : query.OrderByDescending(x => x.LoanStudentCode);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.StudentCode) : query.OrderByDescending(x => x.StudentCode);
                             }
                             break;
                         case 4:
                             {
-                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.LoanTime) : query.OrderByDescending(x => x.LoanTime);
-                            }
-                            break;
-                        case 5:
-                            {
-                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ReturnTime) : query.OrderByDescending(x => x.ReturnTime);
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ActionTime) : query.OrderByDescending(x => x.ActionTime);
                             }
                             break;
                     }
@@ -226,14 +223,13 @@ namespace ItemCirculationManagementBackground
                             Tag = entity.Id,
                             Text = (i + 1).ToString()
                         };
-                        item.SubItems.Add(entity.LoanStudentName);
-                        item.SubItems.Add(entity.LoanStudentCode);
-                        item.SubItems.Add(entity.ReturnStudentName);
-                        item.SubItems.Add(entity.ReturnStudentCode);
+                        item.SubItems.Add(entity.StudentName);
+                        item.SubItems.Add(entity.StudentCode);
                         item.SubItems.Add(entity.ItemName);
                         item.SubItems.Add(entity.ItemType);
-                        item.SubItems.Add(entity.LoanTime is null ? string.Empty : Convert.ToDateTime(entity.LoanTime).ToString("yyyy-MM-dd HH:mm:ss"));
-                        item.SubItems.Add(entity.ReturnTime is null ? string.Empty : Convert.ToDateTime(entity.ReturnTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(entity.ItemLocation);
+                        item.SubItems.Add(Convert.ToDateTime(entity.ActionTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(entity.ActionType);
                         lvwCirculation.Items.Add(item);
                     }
                 }
@@ -248,7 +244,9 @@ namespace ItemCirculationManagementBackground
 #endif
             }
         }
+
         #endregion 查询统计
+
         #region 标签转换
         /// <summary>
         /// 标签转换-查询
@@ -259,6 +257,7 @@ namespace ItemCirculationManagementBackground
         {
             LabelSwitchingQuery();
         }
+
         /// <summary>
         /// 标签转换-查询
         /// </summary>
@@ -315,8 +314,8 @@ namespace ItemCirculationManagementBackground
                         item.SubItems.Add(entity.Uid);
                         item.SubItems.Add(entity.ItemName);
                         item.SubItems.Add(entity.ItemType);
-                        item.SubItems.Add(entity.CreateTime is null ? string.Empty : Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
-                        item.SubItems.Add(entity.UpdateTime is null ? string.Empty : Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         lvwBook.Items.Add(item);
                     }
                 }
@@ -331,6 +330,7 @@ namespace ItemCirculationManagementBackground
 #endif
             }
         }
+
         /// <summary>
         /// 标签转换-新增
         /// </summary>
@@ -345,6 +345,7 @@ namespace ItemCirculationManagementBackground
             form.Success += Success;
             form.ShowDialog();
         }
+
         /// <summary>
         /// 标签转换-表格导入
         /// </summary>
@@ -410,6 +411,7 @@ namespace ItemCirculationManagementBackground
                 Cursor = Cursors.Default;
             }
         }
+
         /// <summary>
         /// 标签转换-表格导入
         /// </summary>
@@ -468,6 +470,7 @@ namespace ItemCirculationManagementBackground
                 label.Text = string.Empty;
             }
         }
+
         /// <summary>
         ///  标签转换-下载表格模板
         /// </summary>
@@ -518,6 +521,7 @@ namespace ItemCirculationManagementBackground
                 btnLabelSwitchingDownload.Enabled = true;
             }
         }
+
         /// <summary>
         /// 标签转换-修改
         /// </summary>
@@ -565,6 +569,7 @@ namespace ItemCirculationManagementBackground
                 MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         /// <summary>
         /// 标签转换-删除
         /// </summary>
@@ -612,7 +617,9 @@ namespace ItemCirculationManagementBackground
                 MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         #endregion 标签转换
+
         #region 开证办卡
         /// <summary>
         /// 开证办卡-新增
@@ -628,6 +635,7 @@ namespace ItemCirculationManagementBackground
             form.Success += Success;
             form.ShowDialog();
         }
+
         /// <summary>
         /// 开证办卡-表格导入
         /// </summary>
@@ -694,6 +702,7 @@ namespace ItemCirculationManagementBackground
                 Cursor = Cursors.Default;
             }
         }
+
         /// <summary>
         /// 开证办卡-表格导入
         /// </summary>
@@ -753,6 +762,7 @@ namespace ItemCirculationManagementBackground
                 label.Text = string.Empty;
             }
         }
+
         /// <summary>
         /// 开证办卡-下载表格模板
         /// </summary>
@@ -803,6 +813,7 @@ namespace ItemCirculationManagementBackground
                 btnUserDownload.Enabled = true;
             }
         }
+
         /// <summary>
         /// 开证办卡-修改
         /// </summary>
@@ -851,6 +862,7 @@ namespace ItemCirculationManagementBackground
                 MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         /// <summary>
         /// 开证办卡-删除
         /// </summary>
@@ -898,6 +910,7 @@ namespace ItemCirculationManagementBackground
                 MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         /// <summary>
         /// 开证办卡-查询
         /// </summary>
@@ -996,8 +1009,8 @@ namespace ItemCirculationManagementBackground
                         item.SubItems.Add(entity.StudentName);
                         item.SubItems.Add(entity.GradeName);
                         item.SubItems.Add(entity.ClassName);
-                        item.SubItems.Add(entity.CreateTime is null ? string.Empty : Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
-                        item.SubItems.Add(entity.UpdateTime is null ? string.Empty : Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        item.SubItems.Add(Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         lvwUser.Items.Add(item);
                     }
                 }
@@ -1012,7 +1025,9 @@ namespace ItemCirculationManagementBackground
 #endif
             }
         }
+
         #endregion 开证办卡
+
         /// <summary>
         /// 加载Excel
         /// </summary>
@@ -1036,6 +1051,7 @@ namespace ItemCirculationManagementBackground
             }
             return ds.Tables[tableName];
         }
+
         /// <summary>        
         /// 下载文件        
         /// </summary>        
@@ -1095,6 +1111,7 @@ namespace ItemCirculationManagementBackground
                 label.Text = string.Empty;
             }
         }
+
         public bool PreFilterMessage(ref System.Windows.Forms.Message m)
         {
             if (m.Msg >= 513 && m.Msg <= 515)
@@ -1175,6 +1192,7 @@ namespace ItemCirculationManagementBackground
 #endif
             }
         }
+
         /// <summary>
         /// 选项卡切换事件
         /// </summary>

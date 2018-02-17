@@ -2,9 +2,10 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
+using ItemCirculation.Data.Models;
+using ItemCirculation.Data.DatabaseContext;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
@@ -12,12 +13,12 @@ namespace ItemCirculationManagementBackground.Views.Item
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
-        private readonly Models.Item _entity;
+        private readonly ItemCirculation.Data.Models.Item _entity;
         public FrmUpdateItem()
         {
             InitializeComponent();
         }
-        public FrmUpdateItem(Models.Item entity)
+        public FrmUpdateItem(ItemCirculation.Data.Models.Item entity)
         {
             InitializeComponent();
             _entity = entity;

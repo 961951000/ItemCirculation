@@ -2,8 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ItemCirculationManagementBackground.DatabaseContext;
-using ItemCirculationManagementBackground.Models;
+using ItemCirculation.Data.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using MySql.Data.MySqlClient;
@@ -14,12 +13,12 @@ namespace ItemCirculationManagementBackground.Views.User
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
-        private readonly Models.Student _entity;
+        private readonly ItemCirculation.Data.Models.Student _entity;
         public FrmUpdateUser()
         {
             InitializeComponent();
         }
-        public FrmUpdateUser(Models.Student entity)
+        public FrmUpdateUser(ItemCirculation.Data.Models.Student entity)
         {
             InitializeComponent();
             _entity = entity;

@@ -2,7 +2,7 @@
 
 namespace ItemCirculationManagementBackground.ViewModels
 {
-    public class CirculationView
+    public class CirculationRecordView
     {
         /// <summary>
         /// 编号
@@ -11,7 +11,26 @@ namespace ItemCirculationManagementBackground.ViewModels
         {
             set;
             get;
-        }     
+        }
+
+        /// <summary>
+        /// 学生姓名
+        /// </summary>
+        public string StudentName
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// 学籍号
+        /// </summary>
+        public string StudentCode
+        {
+            set;
+            get;
+        }
+
         /// <summary>
         /// 物品名称
         /// </summary>
@@ -31,54 +50,27 @@ namespace ItemCirculationManagementBackground.ViewModels
         }
 
         /// <summary>
-        /// 借出人学籍号
+        /// 物品存放地址
         /// </summary>
-        public string LoanStudentCode
+        public string ItemLocation
         {
             set;
             get;
         }
 
         /// <summary>
-        /// 借出人姓名
+        /// 操作时间
         /// </summary>
-        public string LoanStudentName
+        public DateTime? ActionTime
         {
             set;
             get;
         }
 
         /// <summary>
-        /// 归还人学籍号
+        /// 操作类型
         /// </summary>
-        public string ReturnStudentCode
-        {
-            set;
-            get;
-        }
-
-        /// <summary>
-        /// 归还人姓名
-        /// </summary>
-        public string ReturnStudentName
-        {
-            set;
-            get;
-        }
-
-        /// <summary>
-        /// 借出时间
-        /// </summary>
-        public DateTime? LoanTime
-        {
-            set;
-            get;
-        }
-
-        /// <summary>
-        /// 归还时间
-        /// </summary>
-        public DateTime? ReturnTime
+        public string ActionType
         {
             set;
             get;

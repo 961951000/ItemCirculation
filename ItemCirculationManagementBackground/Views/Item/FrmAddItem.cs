@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using System.Text.RegularExpressions;
+using ItemCirculation.Data.DatabaseContext;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
@@ -31,7 +31,7 @@ namespace ItemCirculationManagementBackground.Views.Item
                 }
                 using (var db = new MySqlDbContext())
                 {
-                    var entity = new Models.Item
+                    var entity = new ItemCirculation.Data.Models.Item
                     {
                         Uid = txtTagCode1.Text,
                         ItemName = txtName.Text,

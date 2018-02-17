@@ -42,11 +42,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtInstrumentTypeGet = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpLendTimeEnd = new System.Windows.Forms.DateTimePicker();
             this.txtLendUserNameGet = new System.Windows.Forms.TextBox();
-            this.dtpLendTimeStart = new System.Windows.Forms.DateTimePicker();
+            this.dtpActionTime = new System.Windows.Forms.DateTimePicker();
             this.txtLendUserStudentGet = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lvwCirculation = new System.Windows.Forms.ListView();
@@ -58,7 +56,6 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageLabelSwitching = new System.Windows.Forms.TabPage();
             this.lblLabelSwitchingProgress1 = new System.Windows.Forms.Label();
             this.prgLabelSwitching1 = new System.Windows.Forms.ProgressBar();
@@ -173,11 +170,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtInstrumentTypeGet);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dtpLendTimeEnd);
             this.groupBox1.Controls.Add(this.txtLendUserNameGet);
-            this.groupBox1.Controls.Add(this.dtpLendTimeStart);
+            this.groupBox1.Controls.Add(this.dtpActionTime);
             this.groupBox1.Controls.Add(this.txtLendUserStudentGet);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(60, 50);
@@ -293,15 +288,6 @@
             this.label2.TabIndex = 31;
             this.label2.Text = "借出人姓名：";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(743, 61);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 12);
-            this.label4.TabIndex = 38;
-            this.label4.Text = " - ";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -311,13 +297,6 @@
             this.label1.TabIndex = 32;
             this.label1.Text = "借出人学籍号：";
             // 
-            // dtpLendTimeEnd
-            // 
-            this.dtpLendTimeEnd.Location = new System.Drawing.Point(772, 58);
-            this.dtpLendTimeEnd.Name = "dtpLendTimeEnd";
-            this.dtpLendTimeEnd.Size = new System.Drawing.Size(200, 21);
-            this.dtpLendTimeEnd.TabIndex = 37;
-            // 
             // txtLendUserNameGet
             // 
             this.txtLendUserNameGet.Location = new System.Drawing.Point(316, 58);
@@ -325,12 +304,12 @@
             this.txtLendUserNameGet.Size = new System.Drawing.Size(100, 21);
             this.txtLendUserNameGet.TabIndex = 33;
             // 
-            // dtpLendTimeStart
+            // dtpActionTime
             // 
-            this.dtpLendTimeStart.Location = new System.Drawing.Point(537, 58);
-            this.dtpLendTimeStart.Name = "dtpLendTimeStart";
-            this.dtpLendTimeStart.Size = new System.Drawing.Size(200, 21);
-            this.dtpLendTimeStart.TabIndex = 36;
+            this.dtpActionTime.Location = new System.Drawing.Point(552, 58);
+            this.dtpActionTime.Name = "dtpActionTime";
+            this.dtpActionTime.Size = new System.Drawing.Size(200, 21);
+            this.dtpActionTime.TabIndex = 36;
             // 
             // txtLendUserStudentGet
             // 
@@ -346,7 +325,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 35;
-            this.label3.Text = "借出时间：";
+            this.label3.Text = "操作时间：";
             // 
             // lvwCirculation
             // 
@@ -359,8 +338,7 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7,
-            this.columnHeader8,
-            this.columnHeader9});
+            this.columnHeader8});
             this.lvwCirculation.FullRowSelect = true;
             this.lvwCirculation.GridLines = true;
             this.lvwCirculation.Location = new System.Drawing.Point(60, 257);
@@ -389,39 +367,33 @@
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "归还人姓名";
+            this.columnHeader4.Text = "仪器名称";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 150;
             // 
             // columnHeader5
             // 
-            this.columnHeader5.Text = "归还人学籍号";
+            this.columnHeader5.Text = "仪器型号";
             this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader5.Width = 150;
             // 
             // columnHeader6
             // 
-            this.columnHeader6.Text = "仪器名称";
+            this.columnHeader6.Text = "存放地点";
             this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader6.Width = 150;
             // 
             // columnHeader7
             // 
-            this.columnHeader7.Text = "仪器型号";
+            this.columnHeader7.Text = "操作时间";
             this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader7.Width = 150;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.Text = "借出时间";
+            this.columnHeader8.Text = "操作类型";
             this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader8.Width = 150;
-            // 
-            // columnHeader9
-            // 
-            this.columnHeader9.Text = "归还时间";
-            this.columnHeader9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader9.Width = 150;
             // 
             // pageLabelSwitching
             // 
@@ -1141,9 +1113,7 @@
         private System.Windows.Forms.ComboBox cboLabelSwitchingQueryOrder;
         private System.Windows.Forms.TextBox txtUserStudentCode;
         private System.Windows.Forms.Label lblUserStudentCode;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dtpLendTimeEnd;
-        private System.Windows.Forms.DateTimePicker dtpLendTimeStart;
+        private System.Windows.Forms.DateTimePicker dtpActionTime;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtLendUserStudentGet;
         private System.Windows.Forms.TextBox txtLendUserNameGet;
@@ -1165,7 +1135,6 @@
         private System.Windows.Forms.Button btnLabelSwitchingImport;
         private System.Windows.Forms.Button btnLabelSwitchingAdd;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.Button btnImportCirculation;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;

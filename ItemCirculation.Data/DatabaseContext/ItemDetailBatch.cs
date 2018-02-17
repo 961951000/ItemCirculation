@@ -10,7 +10,7 @@ namespace ItemCirculation.Data.DatabaseContext
 {
     public class ItemDetailBatch
     {
-        public static KeyValuePair<string, IEnumerable<DbParameter>> BatchAdd(IItemDetails entity)
+        public static KeyValuePair<string, IEnumerable<DbParameter>> BatchAdd<T>(T entity)
         {
             var type = entity.GetType();
             var finfos = type.GetProperties();

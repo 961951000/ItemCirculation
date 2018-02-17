@@ -62,6 +62,16 @@ namespace ItemCirculation.Data.Models
 		}
 
 		/// <summary>
+		/// 物品存放地址
+		/// </summary>
+		[Column("item_location")]
+		public string ItemLocation
+		{
+			set;
+			get;
+		}
+
+		/// <summary>
 		/// 物品状态代码
 		/// </summary>
 		[Column("item_state_code")]
@@ -93,7 +103,7 @@ namespace ItemCirculation.Data.Models
 
 		public override string ToString()
 		{
-			return "Id=" + Id + ",Uid=" + Uid + ",ItemNumber=" + ItemNumber + ",ItemName=" + ItemName + ",ItemType=" + ItemType + ",ItemStateCode=" + ItemStateCode + ",CreateTime=" + CreateTime + ",UpdateTime=" + UpdateTime;
+			return "Id=" + Id + ",Uid=" + Uid + ",ItemNumber=" + ItemNumber + ",ItemName=" + ItemName + ",ItemType=" + ItemType + ",ItemLocation=" + ItemLocation + ",ItemStateCode=" + ItemStateCode + ",CreateTime=" + CreateTime + ",UpdateTime=" + UpdateTime;
 		}
 		#endregion Model
 	}

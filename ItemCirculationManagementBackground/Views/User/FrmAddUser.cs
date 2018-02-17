@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ItemCirculationManagementBackground.DatabaseContext;
+using ItemCirculation.Data.DatabaseContext;
+using ItemCirculation.Data.Models;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
-using ItemCirculationManagementBackground.Models;
 using MySql.Data.MySqlClient;
 
 namespace ItemCirculationManagementBackground.Views.User

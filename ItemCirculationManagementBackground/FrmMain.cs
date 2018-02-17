@@ -314,6 +314,7 @@ namespace ItemCirculationManagementBackground
                         item.SubItems.Add(entity.Uid);
                         item.SubItems.Add(entity.ItemName);
                         item.SubItems.Add(entity.ItemType);
+                        item.SubItems.Add(entity.ItemLocation);
                         item.SubItems.Add(Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         item.SubItems.Add(Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
                         lvwBook.Items.Add(item);

@@ -82,8 +82,8 @@
             this.cnTagCode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cnLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnCreateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cnUpdateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageMakingCard = new System.Windows.Forms.TabPage();
             this.lblUserProgress1 = new System.Windows.Forms.Label();
             this.prgUser1 = new System.Windows.Forms.ProgressBar();
@@ -121,6 +121,7 @@
             this.cnUserCreateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnUserUpdateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageHelp = new System.Windows.Forms.TabPage();
+            this.cnUpdateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabMain.SuspendLayout();
             this.pageQueryStatistics.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -622,13 +623,14 @@
             this.cnTagCode,
             this.chName,
             this.chType,
+            this.cnLocation,
             this.cnCreateDate,
             this.cnUpdateDate});
             this.lvwBook.FullRowSelect = true;
             this.lvwBook.GridLines = true;
-            this.lvwBook.Location = new System.Drawing.Point(247, 253);
+            this.lvwBook.Location = new System.Drawing.Point(211, 252);
             this.lvwBook.Name = "lvwBook";
-            this.lvwBook.Size = new System.Drawing.Size(804, 301);
+            this.lvwBook.Size = new System.Drawing.Size(946, 301);
             this.lvwBook.TabIndex = 0;
             this.lvwBook.UseCompatibleStateImageBehavior = false;
             this.lvwBook.View = System.Windows.Forms.View.Details;
@@ -656,17 +658,17 @@
             this.chType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.chType.Width = 150;
             // 
+            // cnLocation
+            // 
+            this.cnLocation.Text = "存放地点";
+            this.cnLocation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cnLocation.Width = 150;
+            // 
             // cnCreateDate
             // 
             this.cnCreateDate.Text = "入库时间";
             this.cnCreateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnCreateDate.Width = 150;
-            // 
-            // cnUpdateDate
-            // 
-            this.cnUpdateDate.Text = "修改时间";
-            this.cnUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUpdateDate.Width = 150;
             // 
             // pageMakingCard
             // 
@@ -1024,6 +1026,12 @@
             this.pageHelp.Text = "帮助文档";
             this.pageHelp.UseVisualStyleBackColor = true;
             // 
+            // cnUpdateDate
+            // 
+            this.cnUpdateDate.Text = "修改时间";
+            this.cnUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cnUpdateDate.Width = 150;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1061,8 +1069,8 @@
         private System.Windows.Forms.ColumnHeader cnIndex;
         private System.Windows.Forms.ColumnHeader chName;
         private System.Windows.Forms.ColumnHeader chType;
+        private System.Windows.Forms.ColumnHeader cnLocation;
         private System.Windows.Forms.ColumnHeader cnCreateDate;
-        private System.Windows.Forms.ColumnHeader cnUpdateDate;
         private System.Windows.Forms.GroupBox grpLabelSwitchingGet;
         private System.Windows.Forms.Button btnLabelSwitchingQuery;
         private System.Windows.Forms.TextBox txtInstrumentType;
@@ -1146,6 +1154,7 @@
         private System.Windows.Forms.ComboBox cmbGradeName;
         private System.Windows.Forms.Label lblGradeName;
         private System.Windows.Forms.TabPage pageHelp;
+        private System.Windows.Forms.ColumnHeader cnUpdateDate;
     }
 }
 

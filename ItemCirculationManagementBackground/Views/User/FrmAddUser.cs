@@ -14,10 +14,12 @@ namespace ItemCirculationManagementBackground.Views.User
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
+
         public FrmAddUser()
         {
             InitializeComponent();
         }
+
         private void FrmAddUser_Load(object sender, EventArgs e)
         {
             txtCardCode10.Focus();
@@ -58,6 +60,7 @@ namespace ItemCirculationManagementBackground.Views.User
 #endif
             }
         }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try

@@ -84,6 +84,7 @@
             this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnCreateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cnUpdateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageMakingCard = new System.Windows.Forms.TabPage();
             this.lblUserProgress1 = new System.Windows.Forms.Label();
             this.prgUser1 = new System.Windows.Forms.ProgressBar();
@@ -121,7 +122,10 @@
             this.cnUserCreateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnUserUpdateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageHelp = new System.Windows.Forms.TabPage();
-            this.cnUpdateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pageMoreFeatures = new System.Windows.Forms.TabPage();
+            this.btnImportBookATMCirculationRecord = new System.Windows.Forms.Button();
+            this.btnExportCirculationRecord = new System.Windows.Forms.Button();
+            this.btnAppendCirculationRecord = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.pageQueryStatistics.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -131,6 +135,7 @@
             this.pageMakingCard.SuspendLayout();
             this.grpUserGet.SuspendLayout();
             this.grpUserSet.SuspendLayout();
+            this.pageMoreFeatures.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabMain
@@ -139,6 +144,7 @@
             this.tabMain.Controls.Add(this.pageLabelSwitching);
             this.tabMain.Controls.Add(this.pageMakingCard);
             this.tabMain.Controls.Add(this.pageHelp);
+            this.tabMain.Controls.Add(this.pageMoreFeatures);
             this.tabMain.Location = new System.Drawing.Point(2, 1);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
@@ -670,6 +676,12 @@
             this.cnCreateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnCreateDate.Width = 150;
             // 
+            // cnUpdateDate
+            // 
+            this.cnUpdateDate.Text = "修改时间";
+            this.cnUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cnUpdateDate.Width = 150;
+            // 
             // pageMakingCard
             // 
             this.pageMakingCard.Controls.Add(this.lblUserProgress1);
@@ -1026,11 +1038,48 @@
             this.pageHelp.Text = "帮助文档";
             this.pageHelp.UseVisualStyleBackColor = true;
             // 
-            // cnUpdateDate
+            // pageMoreFeatures
             // 
-            this.cnUpdateDate.Text = "修改时间";
-            this.cnUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUpdateDate.Width = 150;
+            this.pageMoreFeatures.Controls.Add(this.btnAppendCirculationRecord);
+            this.pageMoreFeatures.Controls.Add(this.btnImportBookATMCirculationRecord);
+            this.pageMoreFeatures.Controls.Add(this.btnExportCirculationRecord);
+            this.pageMoreFeatures.Location = new System.Drawing.Point(4, 22);
+            this.pageMoreFeatures.Name = "pageMoreFeatures";
+            this.pageMoreFeatures.Padding = new System.Windows.Forms.Padding(3);
+            this.pageMoreFeatures.Size = new System.Drawing.Size(1384, 701);
+            this.pageMoreFeatures.TabIndex = 4;
+            this.pageMoreFeatures.Text = "更多功能";
+            this.pageMoreFeatures.UseVisualStyleBackColor = true;
+            // 
+            // btnImportBookATMCirculationRecord
+            // 
+            this.btnImportBookATMCirculationRecord.Location = new System.Drawing.Point(64, 180);
+            this.btnImportBookATMCirculationRecord.Name = "btnImportBookATMCirculationRecord";
+            this.btnImportBookATMCirculationRecord.Size = new System.Drawing.Size(150, 50);
+            this.btnImportBookATMCirculationRecord.TabIndex = 1;
+            this.btnImportBookATMCirculationRecord.Text = "图书ATM数据导入";
+            this.btnImportBookATMCirculationRecord.UseVisualStyleBackColor = true;
+            this.btnImportBookATMCirculationRecord.Click += new System.EventHandler(this.btnImportBookATMCirculationRecord_Click);
+            // 
+            // btnExportCirculationRecord
+            // 
+            this.btnExportCirculationRecord.Location = new System.Drawing.Point(64, 68);
+            this.btnExportCirculationRecord.Name = "btnExportCirculationRecord";
+            this.btnExportCirculationRecord.Size = new System.Drawing.Size(150, 50);
+            this.btnExportCirculationRecord.TabIndex = 0;
+            this.btnExportCirculationRecord.Text = "导出借还记录";
+            this.btnExportCirculationRecord.UseVisualStyleBackColor = true;
+            this.btnExportCirculationRecord.Click += new System.EventHandler(this.btnExportCirculationRecord_Click);
+            // 
+            // btnAppendCirculationRecord
+            // 
+            this.btnAppendCirculationRecord.Location = new System.Drawing.Point(64, 124);
+            this.btnAppendCirculationRecord.Name = "btnAppendCirculationRecord";
+            this.btnAppendCirculationRecord.Size = new System.Drawing.Size(150, 50);
+            this.btnAppendCirculationRecord.TabIndex = 2;
+            this.btnAppendCirculationRecord.Text = "追加借还记录";
+            this.btnAppendCirculationRecord.UseVisualStyleBackColor = true;
+            this.btnAppendCirculationRecord.Click += new System.EventHandler(this.btnAppendCirculationRecord_Click);
             // 
             // FrmMain
             // 
@@ -1055,6 +1104,7 @@
             this.grpUserGet.ResumeLayout(false);
             this.grpUserGet.PerformLayout();
             this.grpUserSet.ResumeLayout(false);
+            this.pageMoreFeatures.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1155,6 +1205,10 @@
         private System.Windows.Forms.Label lblGradeName;
         private System.Windows.Forms.TabPage pageHelp;
         private System.Windows.Forms.ColumnHeader cnUpdateDate;
+        private System.Windows.Forms.TabPage pageMoreFeatures;
+        private System.Windows.Forms.Button btnImportBookATMCirculationRecord;
+        private System.Windows.Forms.Button btnExportCirculationRecord;
+        private System.Windows.Forms.Button btnAppendCirculationRecord;
     }
 }
 

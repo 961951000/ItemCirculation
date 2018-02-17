@@ -80,6 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Util\EPPlusHelper.cs" />
+    <Compile Include="Util\Extensions\DataTableExtensions.cs" />
     <Compile Include="ViewModels\CirculationRecordView.cs" />
     <Compile Include="Views\Item\FrmAddItem.cs">
       <SubType>Form</SubType>

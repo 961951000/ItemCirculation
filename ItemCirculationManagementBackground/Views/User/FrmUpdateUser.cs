@@ -14,10 +14,12 @@ namespace ItemCirculationManagementBackground.Views.User
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
         private readonly ItemCirculation.Data.Models.Student _entity;
+
         public FrmUpdateUser()
         {
             InitializeComponent();
         }
+
         public FrmUpdateUser(ItemCirculation.Data.Models.Student entity)
         {
             InitializeComponent();

@@ -15,6 +15,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[a-zA-Z]\w{5,15}$");//正确格式："[A-Z][a-z]_[0-9]"组成,并且第一个字必须为字母6~16位
         }
+
         /// <summary>
         /// 验证电话号码
         /// </summary>
@@ -24,6 +25,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^(\d{3.4}-)\d{7,8}$");//正确格式：xxx/xxxx-xxxxxxx/xxxxxxxx；
         }
+
         /// <summary>
         /// 验证座机号码
         /// </summary>
@@ -33,6 +35,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^(\d{3,4}-)?\d{6,8}$");//正确格式：xxx/xxxx-xxxxxx/xxxxxxxx；
         }
+
         /// <summary>
         /// 验证身份证号
         /// </summary>
@@ -42,6 +45,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^\d{15}|\d{18}$");//15位或18位数字
         }
+
         /// <summary>
         /// 验证Email地址
         /// </summary>
@@ -51,6 +55,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^\w + ([-+.]\w +) *@\w + ([-.]\w +)*\.\w + ([-.]\w +)*$");
         }
+
         /// <summary>
         /// 只能输入由数字和26个英文字母组成的字符串
         /// </summary>
@@ -60,6 +65,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[A-Za-z0-9]+$");
         }
+
         /// <summary>
         /// 整数或者小数
         /// </summary>
@@ -84,6 +90,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[0 - 9] * $");
         }
+
         /// <summary>
         /// 只能输入n位的数字
         /// </summary>
@@ -94,6 +101,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, $@"^\d{{{n}}}$");
         }
+
         /// <summary>
         /// 只能输入至少n位的数字
         /// </summary>
@@ -104,6 +112,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, $@"^\d{{{n},}}$");
         }
+
         /// <summary>
         /// 只能输入m~n位的数字
         /// </summary>
@@ -115,6 +124,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, $@"^\d{{{m},{n}}}$");
         }
+
         /// <summary>
         /// 只能输入零和非零开头的数字
         /// </summary>
@@ -124,6 +134,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^(0|[1-9][0-9]*)$");
         }
+
         /// <summary>
         /// 只能输入有两位小数的正实数
         /// </summary>
@@ -133,6 +144,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[0-9]+(.[0-9]{2})?$");
         }
+
         /// <summary>
         /// 只能输入有1~3位小数的正实数
         /// </summary>
@@ -142,6 +154,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[0-9]+(.[0-9]{1,3})?$");
         }
+
         /// <summary>
         /// 只能输入非零的正整数
         /// </summary>
@@ -151,6 +164,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^\+?[1-9][0-9]*$");
         }
+
         /// <summary>
         /// 只能输入非零的负整数
         /// </summary>
@@ -160,6 +174,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^\-[1-9][0-9]*$");
         }
+
         /// <summary>
         /// 只能输入长度为n的字符
         /// </summary>
@@ -170,6 +185,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, $@"^.{{{n}}}$");
         }
+
         /// <summary>
         /// 只能输入由26个英文字母组成的字符串
         /// </summary>
@@ -179,6 +195,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[A-Za-z]+$");
         }
+
         /// <summary>
         /// 只能输入由26个大写英文字母组成的字符串
         /// </summary>
@@ -188,6 +205,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[A-Z]+$");
         }
+
         /// <summary>
         /// 只能输入由26个小写英文字母组成的字符串
         /// </summary>
@@ -197,6 +215,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[a-z]+$");
         }
+
         /// <summary>
         /// 验证是否含有^%&',;=?$\"等字符
         /// </summary>
@@ -206,6 +225,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"[^%&',;=?$\x22]+");
         }
+
         /// <summary>
         /// 只能输入汉字
         /// </summary>
@@ -215,6 +235,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^[\u4e00-\u9fa5]{0,}$");
         }
+
         /// <summary>
         /// 验证URL
         /// </summary>
@@ -224,6 +245,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^http://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$");
         }
+
         /// <summary>
         /// 验证一年的12个月
         /// </summary>
@@ -233,6 +255,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^(0?[1-9]|1[0-2])$");//正确格式为："01"～"09"和"1"～"12"
         }
+
         /// <summary>
         /// 验证一个月的31天
         /// </summary>
@@ -242,6 +265,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Regex.IsMatch(str, @"^((0?[1-9])|((1|2)[0-9])|30|31)$");//正确格式为；"01"～"09"和"1"～"31"
         }
+
         /// <summary>
         /// 判断文件目录是否合法
         /// </summary>

@@ -25,6 +25,7 @@ namespace ItemCirculation.Util
                 Log.Fatal(message);
             }
         }
+
         /// <summary>
         /// 错误日志
         /// </summary>
@@ -37,6 +38,7 @@ namespace ItemCirculation.Util
                 Log.Fatal(message, exception);
             }
         }
+
         /// <summary>
         /// 异常日志
         /// </summary>
@@ -48,6 +50,7 @@ namespace ItemCirculation.Util
                 Log.Error(message);
             }
         }
+
         /// <summary>
         /// 异常日志
         /// </summary>
@@ -60,6 +63,7 @@ namespace ItemCirculation.Util
                 Log.Error(message, exception);
             }
         }
+
         /// <summary>
         /// 警告日志
         /// </summary>
@@ -71,6 +75,7 @@ namespace ItemCirculation.Util
                 Log.Warn(message);
             }
         }
+
         /// <summary>
         /// 警告日志
         /// </summary>
@@ -83,6 +88,7 @@ namespace ItemCirculation.Util
                 Log.Warn(message, exception);
             }
         }
+
         /// <summary>
         /// 消息日志
         /// </summary>
@@ -94,6 +100,7 @@ namespace ItemCirculation.Util
                 Log.Info(message);
             }
         }
+
         /// <summary>
         /// 消息日志
         /// </summary>
@@ -106,6 +113,7 @@ namespace ItemCirculation.Util
                 Log.Info(message, exception);
             }
         }
+
         /// <summary>
         /// 调试日志
         /// </summary>
@@ -117,6 +125,7 @@ namespace ItemCirculation.Util
                 Log.Debug($"{new StackTrace().GetFrame(1).GetMethod()} : {message}");
             }
         }
+
         /// <summary>
         /// 调试日志
         /// </summary>

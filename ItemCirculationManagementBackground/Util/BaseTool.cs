@@ -22,6 +22,7 @@ namespace ItemCirculationManagementBackground.Util
         {
             return Resources.IsConvertTid == "1" ? uint.TryParse(str, out uint result) ? BitConverter.ToString(BitConverter.GetBytes(result)).Replace("-", "") : string.Empty : str;
         }
+
         public static string ConvertUid(string str)
         {
             str = str.ToUpper();
@@ -33,6 +34,7 @@ namespace ItemCirculationManagementBackground.Util
             }
             return sb.ToString();
         }
+
         /// <summary>
         /// 字符串转字节数组
         /// </summary>
@@ -47,6 +49,7 @@ namespace ItemCirculationManagementBackground.Util
             }
             return arr;
         }
+
         /// <summary>
         /// 从参数化查询获取完整SQL
         /// </summary>
@@ -60,6 +63,7 @@ namespace ItemCirculationManagementBackground.Util
             }
             return cmd.CommandText;
         }
+
         /// <summary>
         /// 加载Excel
         /// </summary>
@@ -97,11 +101,13 @@ namespace ItemCirculationManagementBackground.Util
             }
             return ds.Tables[tableName];
         }
+
         /// <summary>
         /// 提取数据库连接字符串
         /// </summary>
         /// <param name="text">数据库连接字符串</param>
         public static string ExtractConnectionString(string text) => Regex.Match(text, @"database=([^;]+)").Groups[1].Value;
+
         /// <summary>
         /// 判断文件目录是否合法
         /// </summary>
@@ -113,6 +119,7 @@ namespace ItemCirculationManagementBackground.Util
             var mt = Regex.Match(path, pattern);
             return mt.Success;
         }
+
         /// <summary>
         /// 程序是否处于管理员身份运行下
         /// </summary>
@@ -136,6 +143,7 @@ namespace ItemCirculationManagementBackground.Util
             adapter.Fill(ds);
             return ds.Tables[0];
         }
+
         /// <summary>
         /// 提取sql参数
         /// </summary>

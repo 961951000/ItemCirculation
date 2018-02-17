@@ -12,6 +12,7 @@ using ItemCirculation.Data.DatabaseContext;
 using ItemCirculation.Data.Models;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
+using ItemCirculationManagementBackground.Util.Extensions;
 using ItemCirculationManagementBackground.ViewModels;
 using ItemCirculationManagementBackground.Views.Item;
 using ItemCirculationManagementBackground.Views.User;
@@ -31,7 +32,7 @@ namespace ItemCirculationManagementBackground
 
             #region listView初始化
             var db = new MySqlDbContext();
-            foreach(var str in db.Student)
+            foreach (var str in db.Student)
             {
                 str.StudentCode = Guid.NewGuid().ToString();
             }
@@ -1222,5 +1223,166 @@ namespace ItemCirculationManagementBackground
 #endif
             }
         }
+
+        #region 更多功能
+
+        /// <summary>
+        /// 更多功能-导出借还记录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExportCirculationRecord_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var title = ConfigurationManager.AppSettings["ExcelImportForCirculationRecord"];
+                Application.AddMessageFilter(this); //鼠标锁定
+                Cursor = Cursors.WaitCursor;
+                btnExportCirculationRecord.Enabled = false;
+                var sfd = new SaveFileDialog
+                {
+                    Filter = @"(*.xlsx)|*.xlsx",
+                    FileName = title + DateTime.Now.ToString("yyyyMMddhhmmss")
+                };
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    var fileName = sfd.FileName;
+                    using (var db = new MySqlDbContext())
+                    {
+                        var data = db.CirculationRecord;
+                        EPPlusHelper.ExportByCollection(data, fileName);
+                    }
+                    MessageBox.Show(@"数据导入完成！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Loger.Error(ex);
+#endif
+            }
+            finally
+            {
+                Application.RemoveMessageFilter(this);
+                Cursor = Cursors.Default;
+                btnExportCirculationRecord.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// 更多功能-追加借还记录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAppendCirculationRecord_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var title = ConfigurationManager.AppSettings["ExcelImportForCirculationRecord"];
+                Application.AddMessageFilter(this); //鼠标锁定
+                Cursor = Cursors.WaitCursor;
+                btnAppendCirculationRecord.Enabled = false;
+                var fileDialog = new OpenFileDialog
+                {
+                    Multiselect = true,
+                    Title = @"请选择文件",
+                    Filter = @"(*.xlsx)|*.xlsx"
+                };
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var fileName = fileDialog.FileName;
+                    var data = EPPlusHelper.GetDataTableFromExcel(fileName).ConvertDataTable<CirculationRecord>();
+                    using (var db = new MySqlDbContext())
+                    {
+                        var lastActionTime = db.CirculationRecord.Max(x => x.ActionTime);
+                        var newData = data.Where(x => x.ActionTime > lastActionTime);
+                        db.CirculationRecord.AddRange(newData);
+                        db.SaveChanges();
+                    }
+                    MessageBox.Show(@"追加借还记录完成！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (OleDbException odex) when (odex.Message == "外部表不是预期的格式。")
+            {
+#if DEBUG
+                throw;
+#else
+                Loger.Error(odex);
+                MessageBox.Show($@"{Resources.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Loger.Error(ex);
+#endif
+            }
+            finally
+            {
+                Application.RemoveMessageFilter(this);
+                Cursor = Cursors.Default;
+                btnAppendCirculationRecord.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// 图书ATM数据导入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnImportBookATMCirculationRecord_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Application.AddMessageFilter(this); //鼠标锁定
+                Cursor = Cursors.WaitCursor;
+                btnImportBookATMCirculationRecord.Enabled = false;
+                var fileDialog = new OpenFileDialog
+                {
+                    Multiselect = true,
+                    Title = @"请选择文件",
+                    Filter = @"Excel文件(*.xls;*.xlsx)|*.xls;*.xlsx"
+                };
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    var file = fileDialog.FileName;
+                    var dt = GetExcel(file);
+                    MessageBox.Show(@"数据加载完成！写入功能尚未实现...", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(@"数据导入完成！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (OleDbException odex) when (odex.Message == "外部表不是预期的格式。")
+            {
+#if DEBUG
+                throw;
+#else
+                Loger.Error(odex);
+                MessageBox.Show($@"{Resources.FailMessage}{odex.Message}", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Loger.Error(ex);
+#endif
+            }
+            finally
+            {
+                btnImportBookATMCirculationRecord.Enabled = true;
+                Application.RemoveMessageFilter(this);
+                Cursor = Cursors.Default;
+            }
+        }
+
+        #endregion 更多功能
     }
 }

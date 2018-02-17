@@ -119,6 +119,7 @@ namespace ItemCirculation.Data.DatabaseContext
                 param = new MySqlParameter(dataName, MySqlDbType.VarChar, 255);
             }
             param.Value = dataValue;
+
             return param;
         }
     }

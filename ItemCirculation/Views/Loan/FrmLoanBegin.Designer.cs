@@ -61,9 +61,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(611, 418);
+            this.button1.Location = new System.Drawing.Point(450, 400);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(240, 100);
             this.button1.TabIndex = 2;
             this.button1.Text = "返回";
             this.button1.UseVisualStyleBackColor = true;

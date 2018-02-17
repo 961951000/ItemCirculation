@@ -12,14 +12,17 @@ namespace ItemCirculationManagementBackground.Views.Item
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
+
         public FrmAddItem()
         {
             InitializeComponent();
         }
+
         private void FrmAddItem_Load(object sender, EventArgs e)
         {
             txtTagCode.Focus();
         }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -36,6 +39,7 @@ namespace ItemCirculationManagementBackground.Views.Item
                         Uid = txtTagCode1.Text,
                         ItemName = txtName.Text,
                         ItemType = txtType.Text,
+                        ItemLocation = txtLocation.Text,
                         CreateTime = DateTime.Now,
                         ItemStateCode = 1001
                     };

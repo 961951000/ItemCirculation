@@ -37,6 +37,8 @@
             this.lblType = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblTagCode = new System.Windows.Forms.Label();
+            this.txtLocation = new System.Windows.Forms.TextBox();
+            this.lblLocation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtTagCode1
@@ -49,7 +51,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(171, 185);
+            this.btnCancel.Location = new System.Drawing.Point(171, 198);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 16;
@@ -59,7 +61,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(42, 186);
+            this.btnSubmit.Location = new System.Drawing.Point(42, 199);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 15;
@@ -116,11 +118,29 @@
             this.lblTagCode.TabIndex = 9;
             this.lblTagCode.Text = "电子标签：";
             // 
+            // txtLocation
+            // 
+            this.txtLocation.Location = new System.Drawing.Point(105, 159);
+            this.txtLocation.Name = "txtLocation";
+            this.txtLocation.Size = new System.Drawing.Size(100, 21);
+            this.txtLocation.TabIndex = 19;
+            // 
+            // lblLocation
+            // 
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(39, 162);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(65, 12);
+            this.lblLocation.TabIndex = 18;
+            this.lblLocation.Text = "存放地点：";
+            // 
             // FrmUpdateItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.txtLocation);
+            this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.txtTagCode1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
@@ -149,5 +169,7 @@
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblTagCode;
+        private System.Windows.Forms.TextBox txtLocation;
+        private System.Windows.Forms.Label lblLocation;
     }
 }

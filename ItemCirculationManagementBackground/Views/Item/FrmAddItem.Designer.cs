@@ -37,6 +37,8 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.txtTagCode1 = new System.Windows.Forms.TextBox();
+            this.txtLocation = new System.Windows.Forms.TextBox();
+            this.lblLocation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTagCode
@@ -51,7 +53,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(39, 87);
+            this.lblName.Location = new System.Drawing.Point(40, 87);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(65, 12);
             this.lblName.TabIndex = 1;
@@ -60,7 +62,7 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(40, 120);
+            this.lblType.Location = new System.Drawing.Point(40, 114);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(65, 12);
             this.lblType.TabIndex = 2;
@@ -90,7 +92,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(42, 165);
+            this.btnSubmit.Location = new System.Drawing.Point(41, 184);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 6;
@@ -100,7 +102,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(171, 164);
+            this.btnCancel.Location = new System.Drawing.Point(165, 184);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -116,11 +118,29 @@
             this.txtTagCode1.Size = new System.Drawing.Size(100, 21);
             this.txtTagCode1.TabIndex = 8;
             // 
+            // txtLocation
+            // 
+            this.txtLocation.Location = new System.Drawing.Point(105, 138);
+            this.txtLocation.Name = "txtLocation";
+            this.txtLocation.Size = new System.Drawing.Size(100, 21);
+            this.txtLocation.TabIndex = 10;
+            // 
+            // lblLocation
+            // 
+            this.lblLocation.AutoSize = true;
+            this.lblLocation.Location = new System.Drawing.Point(39, 141);
+            this.lblLocation.Name = "lblLocation";
+            this.lblLocation.Size = new System.Drawing.Size(65, 12);
+            this.lblLocation.TabIndex = 9;
+            this.lblLocation.Text = "存放地点：";
+            // 
             // FrmAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.txtLocation);
+            this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.txtTagCode1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
@@ -149,5 +169,7 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox txtTagCode1;
+        private System.Windows.Forms.TextBox txtLocation;
+        private System.Windows.Forms.Label lblLocation;
     }
 }

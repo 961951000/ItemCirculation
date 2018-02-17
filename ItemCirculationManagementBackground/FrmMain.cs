@@ -541,7 +541,8 @@ namespace ItemCirculationManagementBackground
                         Id = Convert.ToInt32(row.Tag),
                         Uid = row.SubItems[1].Text,
                         ItemName = row.SubItems[2].Text,
-                        ItemType = row.SubItems[3].Text
+                        ItemType = row.SubItems[3].Text,
+                        ItemLocation = row.SubItems[4].Text
                     };
                     var form = new FrmUpdateItem(entity)
                     {

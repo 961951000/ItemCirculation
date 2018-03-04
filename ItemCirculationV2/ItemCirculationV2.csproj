@@ -7,7 +7,7 @@
     <ProjectGuid>{2C01C753-2AE0-42D2-A12F-4A4FE7F5C598}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ItemCirculationV2</RootNamespace>
-    <AssemblyName>ItemCirculationV2</AssemblyName>
+    <AssemblyName>上海市实验学校仪器设备管理系统 - 自助借还平台</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -52,6 +52,7 @@
     <Reference Include="System.Runtime" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />

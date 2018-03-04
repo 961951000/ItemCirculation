@@ -362,13 +362,13 @@
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "借出人姓名";
+            this.columnHeader2.Text = "操作人姓名";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "借出人学籍号";
+            this.columnHeader3.Text = "操作人学籍号";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader3.Width = 150;
             // 

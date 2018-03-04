@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Threading;
 using ItemCirculation.Core.Api.ReaderA;
@@ -43,7 +42,7 @@ namespace ItemCirculation.Core.Api
         /// <summary>
         /// 是否自动打开串口
         /// </summary>
-        private bool _autoOpenComPort;
+        private bool _isAutoOpenComPort = true;
         /// <summary>
         /// COM1—COM12与读写器连接的串口号。
         /// </summary>
@@ -57,6 +56,14 @@ namespace ItemCirculation.Core.Api
         /// </summary>
         private int _portIndex = -1;
 
+        public YingXinRr9() { }
+
+        public YingXinRr9(int comPort)
+        {
+            _comPort = comPort;
+            _isAutoOpenComPort = false;
+        }
+
         /// <summary>
         /// 打开串口
         /// </summary>
@@ -64,14 +71,12 @@ namespace ItemCirculation.Core.Api
         {
             int ret = 0x30;
             byte fbaud = 0; //用该值设置或更改串口通讯控件的波特率
-            _autoOpenComPort = Convert.ToBoolean(ConfigurationManager.AppSettings["AutoOpenComPort"]);
-            if (_autoOpenComPort)
+            if (_isAutoOpenComPort)
             {
                 ret = StaticClassReaderA.AutoOpenComPort(ref _comPort, ref _readerAddr, fbaud, ref _portIndex); //自动连接串口
             }
             else
             {
-                _comPort = Convert.ToInt32(ConfigurationManager.AppSettings["ComPort"]);
                 for (int i = 0; i <= 3; i++)
                 {
                     fbaud = Convert.ToByte(i);
@@ -83,7 +88,7 @@ namespace ItemCirculation.Core.Api
             {
                 CloseComPort();
                 ret = 0x30;
-                if (_autoOpenComPort)
+                if (_isAutoOpenComPort)
                 {
                     ret = StaticClassReaderA.AutoOpenComPort(ref _comPort, ref _readerAddr, fbaud, ref _portIndex); //自动连接串口
                 }
@@ -102,7 +107,7 @@ namespace ItemCirculation.Core.Api
             }
             else
             {
-                Loger.Error(GetReturnCodeMessage(ret));
+                Logger.Error(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -124,7 +129,7 @@ namespace ItemCirculation.Core.Api
             }
             else
             {
-                Loger.Error(GetReturnCodeMessage(ret));
+                Logger.Error(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -142,7 +147,7 @@ namespace ItemCirculation.Core.Api
             }
             else
             {
-                Loger.Error(GetReturnCodeMessage(ret));
+                Logger.Error(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -164,7 +169,7 @@ namespace ItemCirculation.Core.Api
             }
             else
             {
-                Loger.Error(GetReturnCodeMessage(ret));
+                Logger.Error(GetReturnCodeMessage(ret));
                 return false;
             }
         }
@@ -198,7 +203,7 @@ namespace ItemCirculation.Core.Api
                     break;
                 default:
                     {
-                        Loger.Error(GetReturnCodeMessage(ret));
+                        Logger.Error(GetReturnCodeMessage(ret));
                     }
                     break;
             }

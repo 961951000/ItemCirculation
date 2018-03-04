@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvAction = new System.Windows.Forms.DataGridView();
             this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,6 +39,8 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.rdoIn = new System.Windows.Forms.RadioButton();
             this.rdoOut = new System.Windows.Forms.RadioButton();
+            this.tmrTimeOut = new System.Windows.Forms.Timer(this.components);
+            this.lblTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,6 +86,7 @@
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "开始";
             this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnEnd
             // 
@@ -92,6 +96,7 @@
             this.btnEnd.TabIndex = 2;
             this.btnEnd.Text = "结束";
             this.btnEnd.UseVisualStyleBackColor = true;
+            this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
             // btnSubmit
             // 
@@ -101,10 +106,12 @@
             this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "确认";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // rdoIn
             // 
             this.rdoIn.AutoSize = true;
+            this.rdoIn.Checked = true;
             this.rdoIn.Location = new System.Drawing.Point(253, 436);
             this.rdoIn.Name = "rdoIn";
             this.rdoIn.Size = new System.Drawing.Size(47, 16);
@@ -124,11 +131,26 @@
             this.rdoOut.Text = "归还";
             this.rdoOut.UseVisualStyleBackColor = true;
             // 
+            // tmrTimeOut
+            // 
+            this.tmrTimeOut.Interval = 1000;
+            this.tmrTimeOut.Tick += new System.EventHandler(this.tmrTimeOut_Tick);
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(947, 46);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(17, 12);
+            this.lblTime.TabIndex = 6;
+            this.lblTime.Text = "60";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1089, 558);
+            this.Controls.Add(this.lblTime);
             this.Controls.Add(this.rdoOut);
             this.Controls.Add(this.rdoIn);
             this.Controls.Add(this.btnSubmit);
@@ -156,6 +178,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colActionResult;
         private System.Windows.Forms.RadioButton rdoIn;
         private System.Windows.Forms.RadioButton rdoOut;
+        private System.Windows.Forms.Timer tmrTimeOut;
+        private System.Windows.Forms.Label lblTime;
     }
 }
 

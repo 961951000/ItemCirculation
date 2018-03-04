@@ -9,7 +9,7 @@ namespace ItemCirculation.Core.Shared
     /// <summary>
     /// 日志类
     /// </summary>
-    public class Loger
+    public class Logger
     {
         #region MyRegion   
         private static ILog Log => LogManager.GetLogger(new StackTrace().GetFrame(2).GetMethod().ReflectedType);

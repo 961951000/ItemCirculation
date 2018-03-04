@@ -78,3 +78,9 @@ CREATE TABLE `circulation_record`  (
   `comment` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '流通记录表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for item
+-- ----------------------------
+ALTER TABLE `item`
+ADD COLUMN `item_location`  varchar(255) NULL COMMENT '物品存放地址' AFTER `update_time`;

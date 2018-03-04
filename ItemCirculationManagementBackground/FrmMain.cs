@@ -449,6 +449,7 @@ namespace ItemCirculationManagementBackground
                                 Uid = BaseTool.ConvertUid(Convert.ToString(dr[0])),
                                 ItemName = Convert.ToString(dr[1]),
                                 ItemType = Convert.ToString(dr[2]),
+                                ItemLocation = Convert.ToString(dr[3]),
                                 ItemStateCode = 1001,
                                 CreateTime = DateTime.Now,
                             };

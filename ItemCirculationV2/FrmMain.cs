@@ -26,8 +26,6 @@ namespace ItemCirculationV2
 
         private Student _student;
 
-        private readonly AutoSizeFormClass _autoSizeForm;
-
         public FrmMain()
         {
             _timeout = ConfigurationManager.AppSettings["Timeout"];
@@ -35,14 +33,12 @@ namespace ItemCirculationV2
             _studentService = new StudentService();
             _itemService = new ItemService();
             _circulationRecordService = new CirculationRecordService();
-            _autoSizeForm = new AutoSizeFormClass();
 
             InitializeComponent();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            _autoSizeForm.controllInitializeSize(this);
             FormStyle.InitDataGridView(dgvAction);
             btnEnd.Enabled = false;
             btnSubmit.Enabled = false;
@@ -146,10 +142,26 @@ namespace ItemCirculationV2
 
                 var girdview = rdoIn.Checked ? _circulationRecordService.LoanItem(uidList, _student) : _circulationRecordService.ReturnItem(uidList, _student);
 
-                foreach (var item in girdview)
+                if (dgvAction.Rows.Count == girdview.Count)
                 {
-                    var index = dgvAction.Rows.Add(item.ItemName, item.ItemType, item.Uid, item.ExecuteResult ? "操作成功" : "操作失败");
-                    dgvAction.Rows[index].Tag = item.ItemId;
+                    for (int i = 0; i < girdview.Count; i++)
+                    {
+                        var item = girdview[i];
+                        dgvAction.Rows[i].Cells[0].Value = item.ItemName;
+                        dgvAction.Rows[i].Cells[1].Value = item.ItemType;
+                        dgvAction.Rows[i].Cells[2].Value = item.Uid;
+                        dgvAction.Rows[i].Cells[3].Value = item.ExecuteResult ? "操作成功" : "操作失败";
+                        dgvAction.Rows[i].Tag = item.ItemId;
+                    }
+                }
+                else
+                {
+                    dgvAction.Rows.Clear();
+                    foreach (var item in girdview)
+                    {
+                        var index = dgvAction.Rows.Add(item.ItemName, item.ItemType, item.Uid, item.ExecuteResult ? "操作成功" : "操作失败");
+                        dgvAction.Rows[index].Tag = item.ItemId;
+                    }
                 }
                 TimingEnd();
                 btnStart.Enabled = true;
@@ -200,6 +212,10 @@ namespace ItemCirculationV2
                 ResetAction();
             }
         }
+        private void dgvAction_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            FormStyle.DataGridViewShowLineNumber(sender, e, Font);
+        }
 
         private void ResetAction()
         {
@@ -210,11 +226,6 @@ namespace ItemCirculationV2
             btnEnd.Enabled = false;
             btnSubmit.Enabled = false;
             TimingEnd();
-        }
-
-        private void FrmMain_Layout(object sender, LayoutEventArgs e)
-        {
-            _autoSizeForm.controlAutoSize(this);
         }
     }
 }

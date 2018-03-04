@@ -123,9 +123,9 @@
             this.cnUserUpdateTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageHelp = new System.Windows.Forms.TabPage();
             this.pageMoreFeatures = new System.Windows.Forms.TabPage();
+            this.btnAppendCirculationRecord = new System.Windows.Forms.Button();
             this.btnImportBookATMCirculationRecord = new System.Windows.Forms.Button();
             this.btnExportCirculationRecord = new System.Windows.Forms.Button();
-            this.btnAppendCirculationRecord = new System.Windows.Forms.Button();
             this.tabMain.SuspendLayout();
             this.pageQueryStatistics.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -251,10 +251,10 @@
             this.cboCirculationOrder.Items.AddRange(new object[] {
             "仪器名称",
             "仪器型号",
-            "借出人姓名",
-            "借出人学籍号",
-            "借出时间",
-            "归还时间"});
+            "操作人姓名",
+            "操作人学籍号",
+            "存放地点",
+            "操作时间"});
             this.cboCirculationOrder.Location = new System.Drawing.Point(552, 113);
             this.cboCirculationOrder.Name = "cboCirculationOrder";
             this.cboCirculationOrder.Size = new System.Drawing.Size(121, 20);
@@ -293,7 +293,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 12);
             this.label2.TabIndex = 31;
-            this.label2.Text = "借出人姓名：";
+            this.label2.Text = "操作人姓名：";
             // 
             // label1
             // 
@@ -302,7 +302,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 32;
-            this.label1.Text = "借出人学籍号：";
+            this.label1.Text = "操作人学籍号：";
             // 
             // txtLendUserNameGet
             // 
@@ -1051,6 +1051,16 @@
             this.pageMoreFeatures.Text = "更多功能";
             this.pageMoreFeatures.UseVisualStyleBackColor = true;
             // 
+            // btnAppendCirculationRecord
+            // 
+            this.btnAppendCirculationRecord.Location = new System.Drawing.Point(64, 124);
+            this.btnAppendCirculationRecord.Name = "btnAppendCirculationRecord";
+            this.btnAppendCirculationRecord.Size = new System.Drawing.Size(150, 50);
+            this.btnAppendCirculationRecord.TabIndex = 2;
+            this.btnAppendCirculationRecord.Text = "追加借还记录";
+            this.btnAppendCirculationRecord.UseVisualStyleBackColor = true;
+            this.btnAppendCirculationRecord.Click += new System.EventHandler(this.btnAppendCirculationRecord_Click);
+            // 
             // btnImportBookATMCirculationRecord
             // 
             this.btnImportBookATMCirculationRecord.Location = new System.Drawing.Point(64, 180);
@@ -1070,16 +1080,6 @@
             this.btnExportCirculationRecord.Text = "导出借还记录";
             this.btnExportCirculationRecord.UseVisualStyleBackColor = true;
             this.btnExportCirculationRecord.Click += new System.EventHandler(this.btnExportCirculationRecord_Click);
-            // 
-            // btnAppendCirculationRecord
-            // 
-            this.btnAppendCirculationRecord.Location = new System.Drawing.Point(64, 124);
-            this.btnAppendCirculationRecord.Name = "btnAppendCirculationRecord";
-            this.btnAppendCirculationRecord.Size = new System.Drawing.Size(150, 50);
-            this.btnAppendCirculationRecord.TabIndex = 2;
-            this.btnAppendCirculationRecord.Text = "追加借还记录";
-            this.btnAppendCirculationRecord.UseVisualStyleBackColor = true;
-            this.btnAppendCirculationRecord.Click += new System.EventHandler(this.btnAppendCirculationRecord_Click);
             // 
             // FrmMain
             // 

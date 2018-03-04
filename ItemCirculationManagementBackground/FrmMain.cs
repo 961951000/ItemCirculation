@@ -54,7 +54,7 @@ namespace ItemCirculationManagementBackground
             lblLabelSwitchingProgress2.Text = string.Empty;
             lblUserProgress1.Text = string.Empty;
             lblUserProgress2.Text = string.Empty;
-            cboCirculationOrder.SelectedIndex = 4;
+            cboCirculationOrder.SelectedIndex = 5;
             cboLabelSwitchingQueryOrder.SelectedIndex = 2;
             cboUserQueryOrder.SelectedIndex = 3;
             dtpActionTime.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
@@ -216,6 +216,11 @@ namespace ItemCirculationManagementBackground
                             }
                             break;
                         case 4:
+                            {
+                                query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ItemLocation) : query.OrderByDescending(x => x.ItemLocation);
+                            }
+                            break;
+                        case 5:
                             {
                                 query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ActionTime) : query.OrderByDescending(x => x.ActionTime);
                             }

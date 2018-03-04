@@ -3,6 +3,7 @@ using ItemCirculation.Data.Models;
 
 namespace ItemCirculation.Data.DatabaseContext
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
     public class MySqlDbContext : DbContext
     {
         public MySqlDbContext() : base("name=DefaultConnection") { }

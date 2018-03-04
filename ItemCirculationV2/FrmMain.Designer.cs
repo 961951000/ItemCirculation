@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAction = new System.Windows.Forms.DataGridView();
-            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRfid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colActionResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
             this.rdoIn = new System.Windows.Forms.RadioButton();
@@ -41,6 +37,10 @@
             this.tmrTimeOut = new System.Windows.Forms.Timer(this.components);
             this.lblTime = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRfid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActionResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,32 +55,9 @@
             this.dgvAction.Location = new System.Drawing.Point(60, 127);
             this.dgvAction.Name = "dgvAction";
             this.dgvAction.RowTemplate.Height = 23;
-            this.dgvAction.Size = new System.Drawing.Size(345, 286);
+            this.dgvAction.Size = new System.Drawing.Size(1042, 286);
             this.dgvAction.TabIndex = 0;
-            // 
-            // colItemName
-            // 
-            this.colItemName.HeaderText = "物品名称";
-            this.colItemName.Name = "colItemName";
-            this.colItemName.Width = 78;
-            // 
-            // colItemType
-            // 
-            this.colItemType.HeaderText = "物品型号";
-            this.colItemType.Name = "colItemType";
-            this.colItemType.Width = 78;
-            // 
-            // colRfid
-            // 
-            this.colRfid.HeaderText = "标识码";
-            this.colRfid.Name = "colRfid";
-            this.colRfid.Width = 66;
-            // 
-            // colActionResult
-            // 
-            this.colActionResult.HeaderText = "操作结果";
-            this.colActionResult.Name = "colActionResult";
-            this.colActionResult.Width = 78;
+            this.dgvAction.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvAction_RowPostPaint);
             // 
             // btnStart
             // 
@@ -109,7 +86,7 @@
             this.rdoIn.AutoSize = true;
             this.rdoIn.Checked = true;
             this.rdoIn.Font = new System.Drawing.Font("SimSun", 18F);
-            this.rdoIn.Location = new System.Drawing.Point(590, 239);
+            this.rdoIn.Location = new System.Drawing.Point(466, 473);
             this.rdoIn.Name = "rdoIn";
             this.rdoIn.Size = new System.Drawing.Size(76, 28);
             this.rdoIn.TabIndex = 4;
@@ -121,7 +98,7 @@
             // 
             this.rdoOut.AutoSize = true;
             this.rdoOut.Font = new System.Drawing.Font("SimSun", 18F);
-            this.rdoOut.Location = new System.Drawing.Point(814, 239);
+            this.rdoOut.Location = new System.Drawing.Point(633, 473);
             this.rdoOut.Name = "rdoOut";
             this.rdoOut.Size = new System.Drawing.Size(76, 28);
             this.rdoOut.TabIndex = 5;
@@ -138,7 +115,7 @@
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("SimSun", 18F);
-            this.lblTime.Location = new System.Drawing.Point(731, 46);
+            this.lblTime.Location = new System.Drawing.Point(1159, 46);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(34, 24);
             this.lblTime.TabIndex = 6;
@@ -147,12 +124,37 @@
             // btnSubmit
             // 
             this.btnSubmit.Font = new System.Drawing.Font("SimSun", 18F);
-            this.btnSubmit.Location = new System.Drawing.Point(590, 321);
+            this.btnSubmit.Location = new System.Drawing.Point(802, 441);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(300, 92);
             this.btnSubmit.TabIndex = 7;
             this.btnSubmit.Text = "确认";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            // 
+            // colItemName
+            // 
+            this.colItemName.HeaderText = "物品名称";
+            this.colItemName.Name = "colItemName";
+            this.colItemName.Width = 250;
+            // 
+            // colItemType
+            // 
+            this.colItemType.HeaderText = "物品型号";
+            this.colItemType.Name = "colItemType";
+            this.colItemType.Width = 250;
+            // 
+            // colRfid
+            // 
+            this.colRfid.HeaderText = "标识码";
+            this.colRfid.Name = "colRfid";
+            this.colRfid.Width = 250;
+            // 
+            // colActionResult
+            // 
+            this.colActionResult.HeaderText = "操作结果";
+            this.colActionResult.Name = "colActionResult";
+            this.colActionResult.Width = 250;
             // 
             // FrmMain
             // 
@@ -169,7 +171,6 @@
             this.Name = "FrmMain";
             this.Text = "自助借还平台";
             this.Load += new System.EventHandler(this.FrmMain_Load);
-            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.FrmMain_Layout);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -185,11 +186,11 @@
         private System.Windows.Forms.RadioButton rdoOut;
         private System.Windows.Forms.Timer tmrTimeOut;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRfid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colActionResult;
-        private System.Windows.Forms.Button btnSubmit;
     }
 }
 

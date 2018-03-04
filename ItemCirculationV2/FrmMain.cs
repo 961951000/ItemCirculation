@@ -42,7 +42,7 @@ namespace ItemCirculationV2
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            //_autoSizeForm.controllInitializeSize(this);
+            _autoSizeForm.controllInitializeSize(this);
             FormStyle.InitDataGridView(dgvAction);
             btnEnd.Enabled = false;
             btnSubmit.Enabled = false;
@@ -64,8 +64,7 @@ namespace ItemCirculationV2
                 else
                 {
                     MessageBox.Show(@"设备异常！");
-                    _rr9.CloseComPort();
-                    btnStart.Enabled = true;
+                    ResetAction();
                 }
             }
             catch (Exception ex)
@@ -206,6 +205,7 @@ namespace ItemCirculationV2
         {
             _rr9.StopHidListen();
             _rr9.StopUidListen();
+            _rr9.CloseComPort();
             btnStart.Enabled = true;
             btnEnd.Enabled = false;
             btnSubmit.Enabled = false;

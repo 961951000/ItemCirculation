@@ -138,7 +138,7 @@
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("SimSun", 18F);
-            this.lblTime.Location = new System.Drawing.Point(1122, 57);
+            this.lblTime.Location = new System.Drawing.Point(731, 46);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(34, 24);
             this.lblTime.TabIndex = 6;

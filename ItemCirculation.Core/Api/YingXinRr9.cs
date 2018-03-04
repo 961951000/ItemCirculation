@@ -81,7 +81,6 @@ namespace ItemCirculation.Core.Api
                 {
                     fbaud = Convert.ToByte(i);
                     ret = StaticClassReaderA.OpenComPort(_comPort, ref _readerAddr, fbaud, ref _portIndex);
-
                 }
             }
             if (ret == 0x30 || ret == 0x35)//端口已经打开
@@ -98,6 +97,10 @@ namespace ItemCirculation.Core.Api
                     {
                         fbaud = Convert.ToByte(i);
                         ret = StaticClassReaderA.OpenComPort(_comPort, ref _readerAddr, fbaud, ref _portIndex);
+                        if (ret == 0)
+                        {
+                            break;
+                        }
                     }
                 }
             }
@@ -113,7 +116,14 @@ namespace ItemCirculation.Core.Api
         }
         public void CloseComPort()
         {
-            StaticClassReaderA.CloseSpecComPort(_portIndex);
+            if (_isAutoOpenComPort)
+            {
+                StaticClassReaderA.CloseComPort();
+            }
+            else
+            {
+                StaticClassReaderA.CloseSpecComPort(_portIndex);
+            }
         }
 
         /// <summary>

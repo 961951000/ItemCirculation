@@ -1,18 +1,14 @@
-﻿using ItemCirculation.Core.Api;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using System.Windows.Forms;
+using ItemCirculation.Core.Api;
 using ItemCirculation.Core.Shared;
 using ItemCirculation.Data.Models;
 using ItemCirculationV2.Helper;
 using ItemCirculationV2.Service;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace ItemCirculationV2
 {
@@ -30,18 +26,23 @@ namespace ItemCirculationV2
 
         private Student _student;
 
+        private readonly AutoSizeFormClass _autoSizeForm;
+
         public FrmMain()
         {
-            InitializeComponent();
             _timeout = ConfigurationManager.AppSettings["Timeout"];
             _rr9 = int.TryParse(ConfigurationManager.AppSettings["ComPort"], out int comPort) ? new YingXinRr9(comPort) : new YingXinRr9();
             _studentService = new StudentService();
             _itemService = new ItemService();
             _circulationRecordService = new CirculationRecordService();
+            _autoSizeForm = new AutoSizeFormClass();
+
+            InitializeComponent();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
+            //_autoSizeForm.controllInitializeSize(this);
             FormStyle.InitDataGridView(dgvAction);
             btnEnd.Enabled = false;
             btnSubmit.Enabled = false;
@@ -209,6 +210,11 @@ namespace ItemCirculationV2
             btnEnd.Enabled = false;
             btnSubmit.Enabled = false;
             TimingEnd();
+        }
+
+        private void FrmMain_Layout(object sender, LayoutEventArgs e)
+        {
+            _autoSizeForm.controlAutoSize(this);
         }
     }
 }

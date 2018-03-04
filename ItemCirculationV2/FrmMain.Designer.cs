@@ -36,11 +36,11 @@
             this.colActionResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
             this.rdoIn = new System.Windows.Forms.RadioButton();
             this.rdoOut = new System.Windows.Forms.RadioButton();
             this.tmrTimeOut = new System.Windows.Forms.Timer(this.components);
             this.lblTime = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,37 +52,42 @@
             this.colItemType,
             this.colRfid,
             this.colActionResult});
-            this.dgvAction.Location = new System.Drawing.Point(118, 202);
+            this.dgvAction.Location = new System.Drawing.Point(60, 127);
             this.dgvAction.Name = "dgvAction";
             this.dgvAction.RowTemplate.Height = 23;
-            this.dgvAction.Size = new System.Drawing.Size(442, 150);
+            this.dgvAction.Size = new System.Drawing.Size(345, 286);
             this.dgvAction.TabIndex = 0;
             // 
             // colItemName
             // 
             this.colItemName.HeaderText = "物品名称";
             this.colItemName.Name = "colItemName";
+            this.colItemName.Width = 78;
             // 
             // colItemType
             // 
             this.colItemType.HeaderText = "物品型号";
             this.colItemType.Name = "colItemType";
+            this.colItemType.Width = 78;
             // 
             // colRfid
             // 
             this.colRfid.HeaderText = "标识码";
             this.colRfid.Name = "colRfid";
+            this.colRfid.Width = 66;
             // 
             // colActionResult
             // 
             this.colActionResult.HeaderText = "操作结果";
             this.colActionResult.Name = "colActionResult";
+            this.colActionResult.Width = 78;
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(118, 47);
+            this.btnStart.Font = new System.Drawing.Font("SimSun", 18F);
+            this.btnStart.Location = new System.Drawing.Point(60, 46);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(150, 46);
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "开始";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -90,31 +95,23 @@
             // 
             // btnEnd
             // 
-            this.btnEnd.Location = new System.Drawing.Point(299, 46);
+            this.btnEnd.Font = new System.Drawing.Font("SimSun", 18F);
+            this.btnEnd.Location = new System.Drawing.Point(255, 46);
             this.btnEnd.Name = "btnEnd";
-            this.btnEnd.Size = new System.Drawing.Size(75, 23);
+            this.btnEnd.Size = new System.Drawing.Size(150, 46);
             this.btnEnd.TabIndex = 2;
             this.btnEnd.Text = "结束";
             this.btnEnd.UseVisualStyleBackColor = true;
             this.btnEnd.Click += new System.EventHandler(this.btnEnd_Click);
             // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(566, 379);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(138, 65);
-            this.btnSubmit.TabIndex = 3;
-            this.btnSubmit.Text = "确认";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
             // rdoIn
             // 
             this.rdoIn.AutoSize = true;
             this.rdoIn.Checked = true;
-            this.rdoIn.Location = new System.Drawing.Point(253, 436);
+            this.rdoIn.Font = new System.Drawing.Font("SimSun", 18F);
+            this.rdoIn.Location = new System.Drawing.Point(590, 239);
             this.rdoIn.Name = "rdoIn";
-            this.rdoIn.Size = new System.Drawing.Size(47, 16);
+            this.rdoIn.Size = new System.Drawing.Size(76, 28);
             this.rdoIn.TabIndex = 4;
             this.rdoIn.TabStop = true;
             this.rdoIn.Text = "借出";
@@ -123,9 +120,10 @@
             // rdoOut
             // 
             this.rdoOut.AutoSize = true;
-            this.rdoOut.Location = new System.Drawing.Point(382, 436);
+            this.rdoOut.Font = new System.Drawing.Font("SimSun", 18F);
+            this.rdoOut.Location = new System.Drawing.Point(814, 239);
             this.rdoOut.Name = "rdoOut";
-            this.rdoOut.Size = new System.Drawing.Size(47, 16);
+            this.rdoOut.Size = new System.Drawing.Size(76, 28);
             this.rdoOut.TabIndex = 5;
             this.rdoOut.TabStop = true;
             this.rdoOut.Text = "归还";
@@ -139,27 +137,39 @@
             // lblTime
             // 
             this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(947, 46);
+            this.lblTime.Font = new System.Drawing.Font("SimSun", 18F);
+            this.lblTime.Location = new System.Drawing.Point(1122, 57);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(17, 12);
+            this.lblTime.Size = new System.Drawing.Size(34, 24);
             this.lblTime.TabIndex = 6;
             this.lblTime.Text = "60";
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Font = new System.Drawing.Font("SimSun", 18F);
+            this.btnSubmit.Location = new System.Drawing.Point(590, 321);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(300, 92);
+            this.btnSubmit.TabIndex = 7;
+            this.btnSubmit.Text = "确认";
+            this.btnSubmit.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 558);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.rdoOut);
             this.Controls.Add(this.rdoIn);
-            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnEnd);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.dgvAction);
             this.Name = "FrmMain";
             this.Text = "自助借还平台";
             this.Load += new System.EventHandler(this.FrmMain_Load);
+            this.Layout += new System.Windows.Forms.LayoutEventHandler(this.FrmMain_Layout);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -171,15 +181,15 @@
         private System.Windows.Forms.DataGridView dgvAction;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnEnd;
-        private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colItemType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colRfid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colActionResult;
         private System.Windows.Forms.RadioButton rdoIn;
         private System.Windows.Forms.RadioButton rdoOut;
         private System.Windows.Forms.Timer tmrTimeOut;
         private System.Windows.Forms.Label lblTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colItemType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRfid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colActionResult;
+        private System.Windows.Forms.Button btnSubmit;
     }
 }
 

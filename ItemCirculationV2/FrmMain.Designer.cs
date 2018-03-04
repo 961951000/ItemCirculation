@@ -36,6 +36,8 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.rdoIn = new System.Windows.Forms.RadioButton();
+            this.rdoOut = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,26 +95,52 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(673, 407);
+            this.btnSubmit.Location = new System.Drawing.Point(566, 379);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(138, 65);
             this.btnSubmit.TabIndex = 3;
             this.btnSubmit.Text = "确认";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            // 
+            // rdoIn
+            // 
+            this.rdoIn.AutoSize = true;
+            this.rdoIn.Location = new System.Drawing.Point(253, 436);
+            this.rdoIn.Name = "rdoIn";
+            this.rdoIn.Size = new System.Drawing.Size(47, 16);
+            this.rdoIn.TabIndex = 4;
+            this.rdoIn.TabStop = true;
+            this.rdoIn.Text = "借出";
+            this.rdoIn.UseVisualStyleBackColor = true;
+            // 
+            // rdoOut
+            // 
+            this.rdoOut.AutoSize = true;
+            this.rdoOut.Location = new System.Drawing.Point(382, 436);
+            this.rdoOut.Name = "rdoOut";
+            this.rdoOut.Size = new System.Drawing.Size(47, 16);
+            this.rdoOut.TabIndex = 5;
+            this.rdoOut.TabStop = true;
+            this.rdoOut.Text = "归还";
+            this.rdoOut.UseVisualStyleBackColor = true;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1089, 558);
+            this.Controls.Add(this.rdoOut);
+            this.Controls.Add(this.rdoIn);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnEnd);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.dgvAction);
             this.Name = "FrmMain";
             this.Text = "自助借还平台";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -126,6 +154,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRfid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colActionResult;
+        private System.Windows.Forms.RadioButton rdoIn;
+        private System.Windows.Forms.RadioButton rdoOut;
     }
 }
 

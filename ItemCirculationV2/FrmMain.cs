@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ItemCirculationV2.Helper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace ItemCirculationV2
         public FrmMain()
         {
             InitializeComponent();
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            FormStyle.InitDataGridView(dgvAction);
         }
     }
 }

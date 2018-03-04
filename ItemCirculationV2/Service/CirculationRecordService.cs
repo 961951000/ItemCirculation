@@ -96,7 +96,16 @@ namespace ItemCirculationV2.Service
                         entity.ItemStateCode = item.ItemStateCode;
 
                         entity.ExecuteResult = item.ItemStateCode == ItemStateEnum.外借.GetHashCode();
-                        circulationRecordEntity.ActionId = entity.ExecuteResult ? db.Action.ToList().Single(x => x.ActionCode == ItemCirculation.Data.Enum.Action.正常归还.GetHashCode()).Id : db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).ToList().Single(x => x.ActionCode == ItemCirculation.Data.Enum.Action.异常归还.GetHashCode() && x.ActionTypeCode == ItemCirculation.Data.Enum.ActionType.重复归还.GetHashCode()).Id;
+                        if (entity.ExecuteResult)
+                        {
+                            var lastCirculationRecord = db.CirculationRecord.Where(x => x.ItemUid == uid).OrderByDescending(x => x.ActionTime).FirstOrDefault();
+                            entity.ExecuteResult = lastCirculationRecord == null || lastCirculationRecord.StudentCardMacCode == student.CardMacCode;
+                            circulationRecordEntity.ActionId = entity.ExecuteResult ? db.Action.ToList().Single(x => x.ActionCode == ItemCirculation.Data.Enum.Action.正常归还.GetHashCode()).Id : db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).ToList().Single(x => x.ActionCode == ItemCirculation.Data.Enum.Action.异常归还.GetHashCode() && x.ActionTypeCode == ItemCirculation.Data.Enum.ActionType.第三人归还.GetHashCode()).Id;
+                        }
+                        else
+                        {
+                            circulationRecordEntity.ActionId = db.Action.Join(db.ActionType, x => x.ActionTypeId, y => y.Id, (x, y) => new { x.Id, x.ActionCode, y.ActionTypeCode }).ToList().Single(x => x.ActionCode == ItemCirculation.Data.Enum.Action.异常归还.GetHashCode() && x.ActionTypeCode == ItemCirculation.Data.Enum.ActionType.重复归还.GetHashCode()).Id;
+                        }
                         item.ItemStateCode = ItemStateEnum.在馆.GetHashCode();
                     }
                     db.CirculationRecord.Add(circulationRecordEntity);

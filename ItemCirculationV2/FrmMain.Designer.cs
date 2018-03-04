@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgvAction = new System.Windows.Forms.DataGridView();
+            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRfid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colActionResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnEnd = new System.Windows.Forms.Button();
             this.rdoIn = new System.Windows.Forms.RadioButton();
@@ -37,10 +41,6 @@
             this.tmrTimeOut = new System.Windows.Forms.Timer(this.components);
             this.lblTime = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.colItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRfid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colActionResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +57,32 @@
             this.dgvAction.RowTemplate.Height = 23;
             this.dgvAction.Size = new System.Drawing.Size(1042, 286);
             this.dgvAction.TabIndex = 0;
+            this.dgvAction.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvAction_CellPainting);
             this.dgvAction.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dgvAction_RowPostPaint);
+            // 
+            // colItemName
+            // 
+            this.colItemName.HeaderText = "物品名称";
+            this.colItemName.Name = "colItemName";
+            this.colItemName.Width = 250;
+            // 
+            // colItemType
+            // 
+            this.colItemType.HeaderText = "物品型号";
+            this.colItemType.Name = "colItemType";
+            this.colItemType.Width = 250;
+            // 
+            // colRfid
+            // 
+            this.colRfid.HeaderText = "标识码";
+            this.colRfid.Name = "colRfid";
+            this.colRfid.Width = 250;
+            // 
+            // colActionResult
+            // 
+            this.colActionResult.HeaderText = "操作结果";
+            this.colActionResult.Name = "colActionResult";
+            this.colActionResult.Width = 250;
             // 
             // btnStart
             // 
@@ -131,30 +156,6 @@
             this.btnSubmit.Text = "确认";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
-            // 
-            // colItemName
-            // 
-            this.colItemName.HeaderText = "物品名称";
-            this.colItemName.Name = "colItemName";
-            this.colItemName.Width = 250;
-            // 
-            // colItemType
-            // 
-            this.colItemType.HeaderText = "物品型号";
-            this.colItemType.Name = "colItemType";
-            this.colItemType.Width = 250;
-            // 
-            // colRfid
-            // 
-            this.colRfid.HeaderText = "标识码";
-            this.colRfid.Name = "colRfid";
-            this.colRfid.Width = 250;
-            // 
-            // colActionResult
-            // 
-            this.colActionResult.HeaderText = "操作结果";
-            this.colActionResult.Name = "colActionResult";
-            this.colActionResult.Width = 250;
             // 
             // FrmMain
             // 

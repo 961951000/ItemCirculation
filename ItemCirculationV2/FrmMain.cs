@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using ItemCirculation.Core.Api;
@@ -50,6 +51,10 @@ namespace ItemCirculationV2
             btnStart.Enabled = false;
             try
             {
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    dgvAction.Rows.Clear();
+                }));
                 if (_rr9.OpenComPort())
                 {
                     _rr9.Change14443();
@@ -87,6 +92,7 @@ namespace ItemCirculationV2
                 else
                 {
                     MessageBox.Show(@"用户验证失败！");
+                    ResetAction();
                 }
             }
             catch (Exception ex)
@@ -217,14 +223,43 @@ namespace ItemCirculationV2
             FormStyle.DataGridViewShowLineNumber(sender, e, Font);
         }
 
+        private void dgvAction_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow dgr = dgvAction.Rows[e.RowIndex];
+                if (e.ColumnIndex == 3)
+                {
+                    if (Convert.ToString(dgr.Cells[e.ColumnIndex].Value) == "操作成功")
+                    {
+
+                        e.CellStyle.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        e.CellStyle.ForeColor = Color.Red;
+                    }
+                }
+            }
+        }
+
         private void ResetAction()
         {
             _rr9.StopHidListen();
             _rr9.StopUidListen();
             _rr9.CloseComPort();
-            btnStart.Enabled = true;
-            btnEnd.Enabled = false;
-            btnSubmit.Enabled = false;
+            BeginInvoke(new MethodInvoker(() =>
+            {
+                btnStart.Enabled = true;
+            }));
+            BeginInvoke(new MethodInvoker(() =>
+            {
+                btnEnd.Enabled = false;
+            }));
+            BeginInvoke(new MethodInvoker(() =>
+            {
+                btnSubmit.Enabled = false;
+            }));
             TimingEnd();
         }
     }

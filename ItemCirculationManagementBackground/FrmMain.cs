@@ -31,12 +31,6 @@ namespace ItemCirculationManagementBackground
         {
 
             #region listView初始化
-            var db = new MySqlDbContext();
-            foreach (var str in db.Student)
-            {
-                str.StudentCode = Guid.NewGuid().ToString();
-            }
-            db.SaveChanges();
             /*listView1.GridLines = true;//表格是否显示网格线
             listView1.FullRowSelect = true;//是否选中整行
             listView1.View = View.Details;//设置显示方式

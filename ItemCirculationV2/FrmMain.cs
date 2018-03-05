@@ -64,8 +64,8 @@ namespace ItemCirculationV2
                 }
                 else
                 {
-                    MessageBox.Show(@"设备异常！");
                     ResetAction();
+                    MessageBox.Show(@"设备异常！");
                 }
             }
             catch (Exception ex)
@@ -85,14 +85,20 @@ namespace ItemCirculationV2
                 _student = _studentService.IdentityVerification(hid);
                 if (_student.Id != null)
                 {
+                    BeginInvoke(new MethodInvoker(() =>
+                    {
+                        this.lblName.Text = _student.StudentName;
+                        this.lblGrade.Text = _student.GradeName;
+                        this.lblClass.Text = _student.ClassName;
+                    }));
                     _rr9.Change15693();
                     _rr9.StartUidListen(YingXinRr9_UidListen);
                     TimingBegin();
                 }
                 else
                 {
-                    MessageBox.Show(@"用户验证失败！");
                     ResetAction();
+                    MessageBox.Show(@"用户验证失败！");
                 }
             }
             catch (Exception ex)
@@ -214,8 +220,8 @@ namespace ItemCirculationV2
             }
             else
             {
-                MessageBox.Show("请求超时！");
                 ResetAction();
+                MessageBox.Show("请求超时！");
             }
         }
         private void dgvAction_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

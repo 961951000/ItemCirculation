@@ -30,7 +30,7 @@ namespace ItemCirculationManagementBackground.Views.User
         {
             try
             {
-                txtCardCode10.Text = Resources.IsConvertTid == "1" ? BitConverter.ToUInt32(BaseTool.StringToByteArray(_entity.CardMacCode), 0).ToString() : _entity.CardMacCode;
+                txtCardCode10.Text = Resources.IsConvertTid == "1" ? BitConverter.ToUInt32(BaseTool.StringToByteArray(_entity.CardMacCode), 0).ToString().PadLeft(10, '0') : _entity.CardMacCode;
             }
             catch (Exception)
             {

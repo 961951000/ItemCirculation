@@ -41,6 +41,12 @@
             this.tmrTimeOut = new System.Windows.Forms.Timer(this.components);
             this.lblTime = new System.Windows.Forms.Label();
             this.btnSubmit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblGrade = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblClass = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,11 +163,74 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("SimSun", 18F);
+            this.label1.Location = new System.Drawing.Point(466, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 24);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "姓名：";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("SimSun", 18F);
+            this.lblName.Location = new System.Drawing.Point(533, 57);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(0, 24);
+            this.lblName.TabIndex = 9;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("SimSun", 18F);
+            this.label3.Location = new System.Drawing.Point(721, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 24);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "年级：";
+            // 
+            // lblGrade
+            // 
+            this.lblGrade.AutoSize = true;
+            this.lblGrade.Font = new System.Drawing.Font("SimSun", 18F);
+            this.lblGrade.Location = new System.Drawing.Point(809, 57);
+            this.lblGrade.Name = "lblGrade";
+            this.lblGrade.Size = new System.Drawing.Size(0, 24);
+            this.lblGrade.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("SimSun", 18F);
+            this.label5.Location = new System.Drawing.Point(932, 57);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 24);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "班级：";
+            // 
+            // lblClass
+            // 
+            this.lblClass.AutoSize = true;
+            this.lblClass.Font = new System.Drawing.Font("SimSun", 18F);
+            this.lblClass.Location = new System.Drawing.Point(1020, 57);
+            this.lblClass.Name = "lblClass";
+            this.lblClass.Size = new System.Drawing.Size(0, 24);
+            this.lblClass.TabIndex = 13;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.lblClass);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblGrade);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.rdoOut);
@@ -192,6 +261,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colItemType;
         private System.Windows.Forms.DataGridViewTextBoxColumn colRfid;
         private System.Windows.Forms.DataGridViewTextBoxColumn colActionResult;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblGrade;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblClass;
     }
 }
 

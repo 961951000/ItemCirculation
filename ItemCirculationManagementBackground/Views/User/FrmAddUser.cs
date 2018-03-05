@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using ItemCirculationManagementBackground.DatabaseContext;
+using ItemCirculation.Data.DatabaseContext;
+using ItemCirculation.Data.Models;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
-using ItemCirculationManagementBackground.Models;
 using MySql.Data.MySqlClient;
 
 namespace ItemCirculationManagementBackground.Views.User
@@ -14,10 +14,12 @@ namespace ItemCirculationManagementBackground.Views.User
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
+
         public FrmAddUser()
         {
             InitializeComponent();
         }
+
         private void FrmAddUser_Load(object sender, EventArgs e)
         {
             txtCardCode10.Focus();
@@ -58,6 +60,7 @@ namespace ItemCirculationManagementBackground.Views.User
 #endif
             }
         }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try

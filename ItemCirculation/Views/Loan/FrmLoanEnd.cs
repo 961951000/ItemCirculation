@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Windows.Forms;
+using ItemCirculation.Data.Models;
 using ItemCirculation.Event;
-using ItemCirculation.Models;
 using ItemCirculation.Util;
 using ItemCirculation.ViewModels;
 
@@ -15,16 +15,19 @@ namespace ItemCirculation.Views.Loan
         private readonly Student _student;
         private readonly List<CirculationView> _girdView;
         public int SuccessCount { get; set; }
+
         public FrmLoanEnd()
         {
             InitializeComponent();
         }
+
         public FrmLoanEnd(Student student, List<CirculationView> girdView)
         {
             _student = student;
             _girdView = girdView;
             InitializeComponent();
         }
+
         private void FrmLoanEnd_Load(object sender, EventArgs e)
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
@@ -32,21 +35,23 @@ namespace ItemCirculation.Views.Loan
 
             Init();
         }
+
         /// <summary>
         /// 初始化
         /// </summary>
         private void Init()
         {
-            label3.Text = _student.StudentName;
-            label5.Text = _student.StudentCode;
+            label3.Text = _student?.StudentName;
+            label5.Text = _student?.StudentCode;
             label7.Text = SuccessCount.ToString();
             foreach (var variable in _girdView)
             {
-                var index = dataGridView1.Rows.Add(variable.ItemName, variable.ItemType, variable.Uid,variable.ExecuteResult?"操作成功":"操作失败");
+                var index = dataGridView1.Rows.Add(variable.ItemName, variable.ItemType, variable.Uid, variable.ExecuteResult ? "操作成功" : "操作失败");
                 dataGridView1.Rows[index].Tag = variable.ItemId;
             }
             TimingBegin();
         }
+
         /// <summary>
         /// 窗体关闭事件
         /// </summary>
@@ -65,6 +70,7 @@ namespace ItemCirculation.Views.Loan
             label1.Text = timeout;
             timer1.Start();
         }
+
         /// <summary>
         /// 计时结束
         /// </summary>
@@ -73,6 +79,7 @@ namespace ItemCirculation.Views.Loan
             label1.Text = string.Empty;
             timer1.Stop();
         }
+
         /// <summary>
         /// 返回按钮
         /// </summary>
@@ -106,6 +113,7 @@ namespace ItemCirculation.Views.Loan
                 Close();
             }
         }
+
         /// <summary>
         /// gird显示行号
         /// </summary>
@@ -113,6 +121,7 @@ namespace ItemCirculation.Views.Loan
         {
             FormStyle.DataGridViewShowLineNumber(sender, e, Font);
         }
+
         /// <summary>
         /// 提交后处理程序
         /// </summary>

@@ -58,6 +58,7 @@ namespace ItemCirculation.Util
             dgv.DefaultCellStyle = dataGridViewCellStyle1;
             SetGridAlternatingRows(dgv);
         }
+
         /// <summary>
         /// 设置grid交替行颜色
         /// </summary>
@@ -67,6 +68,7 @@ namespace ItemCirculation.Util
             dgv.RowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
             dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.Wheat;
         }
+
         /// <summary>
         /// grid显示行号
         /// </summary>

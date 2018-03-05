@@ -98,9 +98,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(595, 454);
+            this.button1.Location = new System.Drawing.Point(450, 400);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(240, 100);
             this.button1.TabIndex = 7;
             this.button1.Text = "返回";
             this.button1.UseVisualStyleBackColor = true;
@@ -108,9 +108,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(514, 454);
+            this.button2.Location = new System.Drawing.Point(98, 400);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(240, 100);
             this.button2.TabIndex = 8;
             this.button2.Text = "确认";
             this.button2.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(116, 388);
+            this.label8.Location = new System.Drawing.Point(119, 364);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 12);
             this.label8.TabIndex = 19;

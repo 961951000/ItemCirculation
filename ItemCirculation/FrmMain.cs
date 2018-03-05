@@ -24,6 +24,7 @@ namespace ItemCirculation
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
         }
+
         /// <summary>
         /// 借书
         /// </summary>
@@ -33,6 +34,7 @@ namespace ItemCirculation
             Hide();
             son.Show();
         }
+
         /// <summary>
         /// 还书
         /// </summary>

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ItemCirculation.DatabaseContext;
-using ItemCirculation.Models;
+﻿using System.Linq;
+using ItemCirculation.Data.DatabaseContext;
+using ItemCirculation.Data.Models;
 
 namespace ItemCirculation.Service
 {
@@ -19,8 +15,7 @@ namespace ItemCirculation.Service
         {
             using (var db = new MySqlDbContext())
             {
-                var query = db.Student.Where(x => x.CardMacCode == cardMacCode);
-                return query.Any() ? query.First() : null;
+                return db.Student.FirstOrDefault(x => x.CardMacCode == cardMacCode) ?? new Student { CardMacCode = cardMacCode };
             }
         }
     }

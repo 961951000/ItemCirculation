@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Forms;
-using ItemCirculationManagementBackground.DatabaseContext;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using System.Text.RegularExpressions;
+using ItemCirculation.Data.DatabaseContext;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
@@ -12,14 +12,17 @@ namespace ItemCirculationManagementBackground.Views.Item
     {
         public delegate void SuccessHandler(string address);
         public event SuccessHandler Success;
+
         public FrmAddItem()
         {
             InitializeComponent();
         }
+
         private void FrmAddItem_Load(object sender, EventArgs e)
         {
             txtTagCode.Focus();
         }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -31,11 +34,12 @@ namespace ItemCirculationManagementBackground.Views.Item
                 }
                 using (var db = new MySqlDbContext())
                 {
-                    var entity = new Models.Item
+                    var entity = new ItemCirculation.Data.Models.Item
                     {
                         Uid = txtTagCode1.Text,
                         ItemName = txtName.Text,
                         ItemType = txtType.Text,
+                        ItemLocation = txtLocation.Text,
                         CreateTime = DateTime.Now,
                         ItemStateCode = 1001
                     };

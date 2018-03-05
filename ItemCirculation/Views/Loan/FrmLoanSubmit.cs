@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 using ItemCirculation.Api;
-using ItemCirculation.DatabaseContext;
 using ItemCirculation.Event;
-using ItemCirculation.Models;
 using ItemCirculation.Service;
 using ItemCirculation.Util;
-using System.Threading;
+using ItemCirculation.Data.Models;
 
 namespace ItemCirculation.Views.Loan
 {
@@ -18,14 +15,16 @@ namespace ItemCirculation.Views.Loan
     {
         private FrmLoanEnd _son;
         private readonly ItemService _itemService = new ItemService();
-        private readonly CirculationService _circulationService = new CirculationService();
+        private readonly CirculationRecordService _circulationRecordService = new CirculationRecordService();
         private readonly Student _student;
         private readonly YingXinRr9 _rr9;
         public SubmitPostBackEventHandler SubmitPostBack { get; set; }
+
         public FrmLoanSubmit()
         {
             InitializeComponent();
         }
+
         public FrmLoanSubmit(Student student, YingXinRr9 rr9)
         {
             _student = student;
@@ -38,27 +37,25 @@ namespace ItemCirculation.Views.Loan
             FormStyle.InitDataGridView(dataGridView1);
             Init();
         }
+
         /// <summary>
         /// 初始化
         /// </summary>
         private void Init()
         {
-            if (_student != null)
-            {
-                label3.Text = _student.StudentName;
-                label5.Text = _student.StudentCode;
-            }
+            label3.Text = _student?.StudentName;
+            label5.Text = _student?.StudentCode;
             _rr9.Change15693();
             _rr9.StartUidListen(YingXinRr9_UidListen);
             TimingBegin();
         }
 
-        private void YingXinRr9_UidListen(List<string> uidList)
+        private void YingXinRr9_UidListen(IEnumerable<string> uidList)
         {
-            var list = _itemService.QueryList(uidList);
+            var list = _itemService.QueryList(uidList).ToList();
             BeginInvoke(new MethodInvoker(() =>
             {
-                button2.Enabled = list.Count != 0;
+                button2.Enabled = list.Any();
                 label8.Text = $@"共{list.Count}个";
                 if (dataGridView1.Rows.Count == list.Count)
                 {
@@ -82,6 +79,7 @@ namespace ItemCirculation.Views.Loan
                 }
             }));
         }
+
         /// <summary>
         /// 窗体关闭事件
         /// </summary>
@@ -103,6 +101,7 @@ namespace ItemCirculation.Views.Loan
                 timer1.Start();
             }));
         }
+
         /// <summary>
         /// 计时结束
         /// </summary>
@@ -129,14 +128,10 @@ namespace ItemCirculation.Views.Loan
         private void button2_Click(object sender, EventArgs e)
         {
             _rr9.StopUidListen();
-            var list = (from DataGridViewRow row in dataGridView1.Rows select new Item
-                {
-                    Id = Convert.ToInt32(row.Tag),
-                    ItemName = Convert.ToString(row.Cells[0].Value),
-                    ItemType = Convert.ToString(row.Cells[1].Value),
-                    Uid = Convert.ToString(row.Cells[2].Value),
-                }).ToList();
-            var girdview = _circulationService.LoanItem(list, _student);
+            var uidList = from DataGridViewRow row in dataGridView1.Rows
+                          select Convert.ToString(row.Cells[2].Value);
+
+            var girdview = _circulationRecordService.LoanItem(uidList, _student);
             var successCount = girdview.Count(x => x.ExecuteResult);
             if (_son == null)
             {

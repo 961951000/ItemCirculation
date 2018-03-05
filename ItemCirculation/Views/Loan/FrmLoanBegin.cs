@@ -2,7 +2,6 @@
 using System.Configuration;
 using System.Windows.Forms;
 using ItemCirculation.Api;
-using ItemCirculation.Event;
 using ItemCirculation.Service;
 
 namespace ItemCirculation.Views.Loan
@@ -21,6 +20,7 @@ namespace ItemCirculation.Views.Loan
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.UserPaint, true); //减弱闪烁效果
             Init();
         }
+
         /// <summary>
         /// 初始化
         /// </summary>
@@ -49,7 +49,7 @@ namespace ItemCirculation.Views.Loan
             _rr9.StopHidListen();
             TimingEnd();
             var student = _loginService.IdentityVerification(hid);
-            if (student == null)
+            if (student.Id == null)
             {
                 MessageBox.Show(@"用户验证失败！");
                 BeginInvoke(new MethodInvoker(Close));
@@ -67,6 +67,7 @@ namespace ItemCirculation.Views.Loan
                 }));
             }
         }
+
         /// <summary>
         /// 窗体关闭事件
         /// </summary>
@@ -77,6 +78,7 @@ namespace ItemCirculation.Views.Loan
             _rr9.CloseComPort();
             Owner.Show();
         }
+
         /// <summary>
         /// 计时开始
         /// </summary>
@@ -89,6 +91,7 @@ namespace ItemCirculation.Views.Loan
                 timer1.Start();
             }));
         }
+
         /// <summary>
         /// 计时结束
         /// </summary>
@@ -100,6 +103,7 @@ namespace ItemCirculation.Views.Loan
                 timer1.Stop();
             }));
         }
+
         /// <summary>
         /// 返回按钮
         /// </summary>

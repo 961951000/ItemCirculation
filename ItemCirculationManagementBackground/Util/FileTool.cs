@@ -35,6 +35,7 @@ namespace ItemCirculationManagementBackground.Util
             }
             Console.ReadLine();
         }
+
         /// <summary>
         /// 搜索文件夹中的文件
         /// </summary>
@@ -52,6 +53,7 @@ namespace ItemCirculationManagementBackground.Util
             }
             return files;
         }
+
         /// <summary>
         /// 隐藏文件过滤
         /// </summary>

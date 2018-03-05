@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ItemCirculation.Models;
+using ItemCirculation.Data.Models;
 using ItemCirculation.ViewModels;
 
 namespace ItemCirculation.Event

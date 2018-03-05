@@ -268,5 +268,12 @@ namespace ItemCirculationV2
             }));
             TimingEnd();
         }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _rr9?.StopHidListen();
+            _rr9?.StopUidListen();
+            _rr9?.CloseComPort();
+        }
     }
 }

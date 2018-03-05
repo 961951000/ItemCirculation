@@ -240,6 +240,7 @@
             this.Controls.Add(this.dgvAction);
             this.Name = "FrmMain";
             this.Text = "自助借还平台";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAction)).EndInit();
             this.ResumeLayout(false);

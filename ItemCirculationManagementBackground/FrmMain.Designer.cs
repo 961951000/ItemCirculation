@@ -44,7 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLendUserNameGet = new System.Windows.Forms.TextBox();
-            this.dtpActionTime = new System.Windows.Forms.DateTimePicker();
+            this.dtpActionStartTime = new System.Windows.Forms.DateTimePicker();
             this.txtLendUserStudentGet = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.lvwCirculation = new System.Windows.Forms.ListView();
@@ -126,6 +126,10 @@
             this.btnAppendCirculationRecord = new System.Windows.Forms.Button();
             this.btnImportBookATMCirculationRecord = new System.Windows.Forms.Button();
             this.btnExportCirculationRecord = new System.Windows.Forms.Button();
+            this.lblUid = new System.Windows.Forms.Label();
+            this.txtUid = new System.Windows.Forms.TextBox();
+            this.dtpActionEndTime = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.pageQueryStatistics.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -166,6 +170,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtpActionEndTime);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnImportCirculation);
             this.groupBox1.Controls.Add(this.txtInstrumentNameGet);
             this.groupBox1.Controls.Add(this.rdoCirculationOrderDesc);
@@ -179,7 +185,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtLendUserNameGet);
-            this.groupBox1.Controls.Add(this.dtpActionTime);
+            this.groupBox1.Controls.Add(this.dtpActionStartTime);
             this.groupBox1.Controls.Add(this.txtLendUserStudentGet);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(60, 50);
@@ -311,12 +317,12 @@
             this.txtLendUserNameGet.Size = new System.Drawing.Size(100, 21);
             this.txtLendUserNameGet.TabIndex = 33;
             // 
-            // dtpActionTime
+            // dtpActionStartTime
             // 
-            this.dtpActionTime.Location = new System.Drawing.Point(552, 58);
-            this.dtpActionTime.Name = "dtpActionTime";
-            this.dtpActionTime.Size = new System.Drawing.Size(200, 21);
-            this.dtpActionTime.TabIndex = 36;
+            this.dtpActionStartTime.Location = new System.Drawing.Point(552, 58);
+            this.dtpActionStartTime.Name = "dtpActionStartTime";
+            this.dtpActionStartTime.Size = new System.Drawing.Size(200, 21);
+            this.dtpActionStartTime.TabIndex = 36;
             // 
             // txtLendUserStudentGet
             // 
@@ -332,7 +338,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 12);
             this.label3.TabIndex = 35;
-            this.label3.Text = "操作时间：";
+            this.label3.Text = "起始时间：";
             // 
             // lvwCirculation
             // 
@@ -455,6 +461,8 @@
             // 
             // grpLabelSwitchingGet
             // 
+            this.grpLabelSwitchingGet.Controls.Add(this.txtUid);
+            this.grpLabelSwitchingGet.Controls.Add(this.lblUid);
             this.grpLabelSwitchingGet.Controls.Add(this.rdoLabelSwitchingQueryOrderDesc);
             this.grpLabelSwitchingGet.Controls.Add(this.rdoLabelSwitchingQueryOrderAsc);
             this.grpLabelSwitchingGet.Controls.Add(this.lblLabelSwitchingQueryOrder);
@@ -475,7 +483,7 @@
             // 
             this.rdoLabelSwitchingQueryOrderDesc.AutoSize = true;
             this.rdoLabelSwitchingQueryOrderDesc.Checked = true;
-            this.rdoLabelSwitchingQueryOrderDesc.Location = new System.Drawing.Point(367, 87);
+            this.rdoLabelSwitchingQueryOrderDesc.Location = new System.Drawing.Point(343, 81);
             this.rdoLabelSwitchingQueryOrderDesc.Name = "rdoLabelSwitchingQueryOrderDesc";
             this.rdoLabelSwitchingQueryOrderDesc.Size = new System.Drawing.Size(47, 16);
             this.rdoLabelSwitchingQueryOrderDesc.TabIndex = 8;
@@ -486,7 +494,7 @@
             // rdoLabelSwitchingQueryOrderAsc
             // 
             this.rdoLabelSwitchingQueryOrderAsc.AutoSize = true;
-            this.rdoLabelSwitchingQueryOrderAsc.Location = new System.Drawing.Point(287, 87);
+            this.rdoLabelSwitchingQueryOrderAsc.Location = new System.Drawing.Point(290, 81);
             this.rdoLabelSwitchingQueryOrderAsc.Name = "rdoLabelSwitchingQueryOrderAsc";
             this.rdoLabelSwitchingQueryOrderAsc.Size = new System.Drawing.Size(47, 16);
             this.rdoLabelSwitchingQueryOrderAsc.TabIndex = 7;
@@ -496,7 +504,7 @@
             // lblLabelSwitchingQueryOrder
             // 
             this.lblLabelSwitchingQueryOrder.AutoSize = true;
-            this.lblLabelSwitchingQueryOrder.Location = new System.Drawing.Point(61, 91);
+            this.lblLabelSwitchingQueryOrder.Location = new System.Drawing.Point(64, 113);
             this.lblLabelSwitchingQueryOrder.Name = "lblLabelSwitchingQueryOrder";
             this.lblLabelSwitchingQueryOrder.Size = new System.Drawing.Size(65, 12);
             this.lblLabelSwitchingQueryOrder.TabIndex = 6;
@@ -510,14 +518,14 @@
             "仪器型号",
             "入库时间",
             "修改时间"});
-            this.cboLabelSwitchingQueryOrder.Location = new System.Drawing.Point(132, 86);
+            this.cboLabelSwitchingQueryOrder.Location = new System.Drawing.Point(135, 110);
             this.cboLabelSwitchingQueryOrder.Name = "cboLabelSwitchingQueryOrder";
             this.cboLabelSwitchingQueryOrder.Size = new System.Drawing.Size(121, 20);
             this.cboLabelSwitchingQueryOrder.TabIndex = 5;
             // 
             // btnLabelSwitchingQuery
             // 
-            this.btnLabelSwitchingQuery.Location = new System.Drawing.Point(287, 121);
+            this.btnLabelSwitchingQuery.Location = new System.Drawing.Point(290, 108);
             this.btnLabelSwitchingQuery.Name = "btnLabelSwitchingQuery";
             this.btnLabelSwitchingQuery.Size = new System.Drawing.Size(75, 23);
             this.btnLabelSwitchingQuery.TabIndex = 4;
@@ -527,14 +535,14 @@
             // 
             // txtInstrumentType
             // 
-            this.txtInstrumentType.Location = new System.Drawing.Point(132, 58);
+            this.txtInstrumentType.Location = new System.Drawing.Point(135, 83);
             this.txtInstrumentType.Name = "txtInstrumentType";
             this.txtInstrumentType.Size = new System.Drawing.Size(100, 21);
             this.txtInstrumentType.TabIndex = 3;
             // 
             // txtInstrumentName
             // 
-            this.txtInstrumentName.Location = new System.Drawing.Point(132, 26);
+            this.txtInstrumentName.Location = new System.Drawing.Point(135, 56);
             this.txtInstrumentName.Name = "txtInstrumentName";
             this.txtInstrumentName.Size = new System.Drawing.Size(100, 21);
             this.txtInstrumentName.TabIndex = 2;
@@ -542,7 +550,7 @@
             // lblInstrumentType
             // 
             this.lblInstrumentType.AutoSize = true;
-            this.lblInstrumentType.Location = new System.Drawing.Point(61, 61);
+            this.lblInstrumentType.Location = new System.Drawing.Point(64, 86);
             this.lblInstrumentType.Name = "lblInstrumentType";
             this.lblInstrumentType.Size = new System.Drawing.Size(65, 12);
             this.lblInstrumentType.TabIndex = 1;
@@ -551,7 +559,7 @@
             // lblInstrumentName
             // 
             this.lblInstrumentName.AutoSize = true;
-            this.lblInstrumentName.Location = new System.Drawing.Point(61, 29);
+            this.lblInstrumentName.Location = new System.Drawing.Point(64, 59);
             this.lblInstrumentName.Name = "lblInstrumentName";
             this.lblInstrumentName.Size = new System.Drawing.Size(65, 12);
             this.lblInstrumentName.TabIndex = 0;
@@ -1081,6 +1089,38 @@
             this.btnExportCirculationRecord.UseVisualStyleBackColor = true;
             this.btnExportCirculationRecord.Click += new System.EventHandler(this.btnExportCirculationRecord_Click);
             // 
+            // lblUid
+            // 
+            this.lblUid.AutoSize = true;
+            this.lblUid.Location = new System.Drawing.Point(64, 32);
+            this.lblUid.Name = "lblUid";
+            this.lblUid.Size = new System.Drawing.Size(65, 12);
+            this.lblUid.TabIndex = 9;
+            this.lblUid.Text = "电子标签：";
+            // 
+            // txtUid
+            // 
+            this.txtUid.Location = new System.Drawing.Point(135, 29);
+            this.txtUid.Name = "txtUid";
+            this.txtUid.Size = new System.Drawing.Size(100, 21);
+            this.txtUid.TabIndex = 10;
+            // 
+            // dtpActionEndTime
+            // 
+            this.dtpActionEndTime.Location = new System.Drawing.Point(864, 58);
+            this.dtpActionEndTime.Name = "dtpActionEndTime";
+            this.dtpActionEndTime.Size = new System.Drawing.Size(200, 21);
+            this.dtpActionEndTime.TabIndex = 41;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(778, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "截至时间：";
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1171,7 +1211,7 @@
         private System.Windows.Forms.ComboBox cboLabelSwitchingQueryOrder;
         private System.Windows.Forms.TextBox txtUserStudentCode;
         private System.Windows.Forms.Label lblUserStudentCode;
-        private System.Windows.Forms.DateTimePicker dtpActionTime;
+        private System.Windows.Forms.DateTimePicker dtpActionStartTime;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtLendUserStudentGet;
         private System.Windows.Forms.TextBox txtLendUserNameGet;
@@ -1209,6 +1249,10 @@
         private System.Windows.Forms.Button btnImportBookATMCirculationRecord;
         private System.Windows.Forms.Button btnExportCirculationRecord;
         private System.Windows.Forms.Button btnAppendCirculationRecord;
+        private System.Windows.Forms.TextBox txtUid;
+        private System.Windows.Forms.Label lblUid;
+        private System.Windows.Forms.DateTimePicker dtpActionEndTime;
+        private System.Windows.Forms.Label label4;
     }
 }
 

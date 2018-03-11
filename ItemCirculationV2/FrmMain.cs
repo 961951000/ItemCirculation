@@ -46,6 +46,11 @@ namespace ItemCirculationV2
             lblTime.Text = string.Empty;
         }
 
+        private void FrmMain_Shown(object sender, EventArgs e)
+        {
+            btnStart.Focus();
+        }
+
         private void btnStart_Click(object sender, EventArgs e)
         {
             btnStart.Enabled = false;
@@ -60,12 +65,17 @@ namespace ItemCirculationV2
                     _rr9.Change14443();
                     _rr9.StartHidListen(YingXinRr9_HidListen);
                     btnEnd.Enabled = true;
+                    btnEnd.Focus();
                     TimingBegin();
                 }
                 else
                 {
                     ResetAction();
                     MessageBox.Show(@"设备异常！");
+                    BeginInvoke(new MethodInvoker(() =>
+                    {
+                        btnStart.Focus();
+                    }));
                 }
             }
             catch (Exception ex)
@@ -99,6 +109,10 @@ namespace ItemCirculationV2
                 {
                     ResetAction();
                     MessageBox.Show(@"用户验证失败！");
+                    BeginInvoke(new MethodInvoker(() =>
+                    {
+                        btnStart.Focus();
+                    }));
                 }
             }
             catch (Exception ex)
@@ -142,6 +156,7 @@ namespace ItemCirculationV2
             btnEnd.Enabled = false;
             _rr9.StopUidListen();
             btnSubmit.Enabled = true;
+            btnSubmit.Focus();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -177,6 +192,7 @@ namespace ItemCirculationV2
                 }
                 TimingEnd();
                 btnStart.Enabled = true;
+                btnStart.Focus();
             }
             catch (Exception ex)
             {
@@ -222,6 +238,10 @@ namespace ItemCirculationV2
             {
                 ResetAction();
                 MessageBox.Show("请求超时！");
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    btnStart.Focus();
+                }));
             }
         }
         private void dgvAction_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)

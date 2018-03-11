@@ -44,6 +44,10 @@ namespace ItemCirculationV2
             btnEnd.Enabled = false;
             btnSubmit.Enabled = false;
             lblTime.Text = string.Empty;
+        }
+
+        private void FrmMain_Shown(object sender, EventArgs e)
+        {
             btnStart.Focus();
         }
 
@@ -68,6 +72,10 @@ namespace ItemCirculationV2
                 {
                     ResetAction();
                     MessageBox.Show(@"设备异常！");
+                    BeginInvoke(new MethodInvoker(() =>
+                    {
+                        btnStart.Focus();
+                    }));
                 }
             }
             catch (Exception ex)
@@ -101,6 +109,10 @@ namespace ItemCirculationV2
                 {
                     ResetAction();
                     MessageBox.Show(@"用户验证失败！");
+                    BeginInvoke(new MethodInvoker(() =>
+                    {
+                        btnStart.Focus();
+                    }));
                 }
             }
             catch (Exception ex)
@@ -226,6 +238,10 @@ namespace ItemCirculationV2
             {
                 ResetAction();
                 MessageBox.Show("请求超时！");
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    btnStart.Focus();
+                }));
             }
         }
         private void dgvAction_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -261,7 +277,6 @@ namespace ItemCirculationV2
             BeginInvoke(new MethodInvoker(() =>
             {
                 btnStart.Enabled = true;
-                btnStart.Focus();
             }));
             BeginInvoke(new MethodInvoker(() =>
             {

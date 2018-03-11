@@ -51,7 +51,8 @@ namespace ItemCirculationManagementBackground
             cboCirculationOrder.SelectedIndex = 5;
             cboLabelSwitchingQueryOrder.SelectedIndex = 2;
             cboUserQueryOrder.SelectedIndex = 3;
-            dtpActionTime.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
+            dtpActionStartTime.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
+            dtpActionEndTime.Value = DateTime.Parse(DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"));
             MakingCardInIt();
         }
 
@@ -166,7 +167,7 @@ namespace ItemCirculationManagementBackground
                 using (var db = new MySqlDbContext())
                 {
                     const string sql = "SELECT a.id AS Id, a.action_time AS 'ActionTime', b.student_name AS 'StudentName', b.student_code AS 'StudentCode', c.item_name AS 'ItemName', c.item_type AS 'ItemType', c.item_location AS 'ItemLocation', d.action_type AS 'ActionType' FROM circulation_record AS a LEFT JOIN student AS b ON a.student_card_mac_code = b.card_mac_code LEFT JOIN item AS c ON a.item_uid = c.uid LEFT JOIN ( SELECT x.id, IFNULL( CONCAT( x.action_name, '-', y.action_type_name ), x.action_name ) AS action_type FROM action AS x LEFT JOIN action_type AS y ON x.action_type_id = y.id ) d ON a.action_id = d.id";
-                    var query = db.Database.SqlQuery<CirculationRecordView>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionTime.Value.ToString("yyyy-MM-dd 00:00:00")));
+                    var query = db.Database.SqlQuery<CirculationRecordView>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionStartTime.Value.ToString("yyyy-MM-dd")) && x.ActionTime <= DateTime.Parse(dtpActionEndTime.Value.ToString("yyyy-MM-dd")));
                     var itemName = txtInstrumentNameGet.Text;
                     var itemType = txtInstrumentTypeGet.Text;
                     var studentCode = txtLendUserStudentGet.Text;
@@ -274,9 +275,14 @@ namespace ItemCirculationManagementBackground
             {
                 using (var db = new MySqlDbContext())
                 {
+                    var uid = txtUid.Text;
                     var itemName = txtInstrumentName.Text;
                     var itemType = txtInstrumentType.Text;
                     IQueryable<Item> query = db.Item;
+                    if (!string.IsNullOrEmpty(uid))
+                    {
+                        query = query.Where(x => x.Uid.Contains(uid));
+                    }
                     if (!string.IsNullOrEmpty(itemName))
                     {
                         query = query.Where(x => x.ItemName.Contains(itemName));

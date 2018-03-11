@@ -44,6 +44,7 @@ namespace ItemCirculationV2
             btnEnd.Enabled = false;
             btnSubmit.Enabled = false;
             lblTime.Text = string.Empty;
+            btnStart.Focus();
         }
 
         private void btnStart_Click(object sender, EventArgs e)
@@ -60,6 +61,7 @@ namespace ItemCirculationV2
                     _rr9.Change14443();
                     _rr9.StartHidListen(YingXinRr9_HidListen);
                     btnEnd.Enabled = true;
+                    btnEnd.Focus();
                     TimingBegin();
                 }
                 else
@@ -142,6 +144,7 @@ namespace ItemCirculationV2
             btnEnd.Enabled = false;
             _rr9.StopUidListen();
             btnSubmit.Enabled = true;
+            btnSubmit.Focus();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -177,6 +180,7 @@ namespace ItemCirculationV2
                 }
                 TimingEnd();
                 btnStart.Enabled = true;
+                btnStart.Focus();
             }
             catch (Exception ex)
             {
@@ -257,6 +261,7 @@ namespace ItemCirculationV2
             BeginInvoke(new MethodInvoker(() =>
             {
                 btnStart.Enabled = true;
+                btnStart.Focus();
             }));
             BeginInvoke(new MethodInvoker(() =>
             {

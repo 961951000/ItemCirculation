@@ -30,6 +30,7 @@ namespace ItemCirculationManagementBackground
             {
                 HandleRunningInstance(instance);
             }
+            AutoMapperConfiguration.Configure();
         }
         /// <summary>
         /// 获取当前正在运行的进程实例

@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
+using AutoMapper;
 using ItemCirculation.Data.DatabaseContext;
 using ItemCirculation.Data.Models;
 using ItemCirculationManagementBackground.Properties;
@@ -340,26 +341,9 @@ namespace ItemCirculationManagementBackground
                                 }
                                 break;
                         }
-                        var list = query.ToList();
-                        for (var i = 0; i < list.Count; i++)
-                        {
-                            var entity = list[i];
-                            var item = new ListViewItem
-                            {
-                                Tag = entity.Id,
-                                Text = (i + 1).ToString()
-                            };
-                            item.SubItems.Add(entity.StudentName);
-                            item.SubItems.Add(entity.StudentCode);
-                            item.SubItems.Add(entity.ItemName);
-                            item.SubItems.Add(entity.ItemType);
-                            item.SubItems.Add(entity.ItemLocation);
-                            item.SubItems.Add(Convert.ToDateTime(entity.ActionTime).ToString("yyyy-MM-dd HH:mm:ss"));
-                            item.SubItems.Add(entity.ActionType);
-                            lvwCirculation.Items.Add(item);
-                        }
-                        var data = db.CirculationRecord;
-                        EPPlusHelper.ExportByCollection(data, fileName);
+                        var list = query.Select(Mapper.Map<CirculationRecordView, CirculationRecord>);
+
+                        EPPlusHelper.ExportByCollection(list, fileName);
                         MessageBox.Show(@"数据导入完成！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

@@ -16,6 +16,7 @@ namespace ItemCirculationManagementBackground
         [STAThread]
         static void Main()
         {
+            AutoMapperConfiguration.Configure();
             /*Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmMain());*/
@@ -30,7 +31,6 @@ namespace ItemCirculationManagementBackground
             {
                 HandleRunningInstance(instance);
             }
-            AutoMapperConfiguration.Configure();
         }
         /// <summary>
         /// 获取当前正在运行的进程实例

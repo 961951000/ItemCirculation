@@ -344,7 +344,7 @@ namespace ItemCirculationManagementBackground
                         var list = query.Select(Mapper.Map<CirculationRecordView, CirculationRecord>);
 
                         EPPlusHelper.ExportByCollection(list, fileName);
-                        MessageBox.Show(@"数据导入完成！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(@"操作成功！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -388,7 +388,7 @@ namespace ItemCirculationManagementBackground
             {
                 using (var db = new MySqlDbContext())
                 {
-                    var uid = BaseTool.ConvertUid(txtItemUid.Text);
+                    var uid = BaseTool.ConvertUid(txtUid.Text);
                     var itemName = txtInstrumentName.Text;
                     var itemType = txtInstrumentType.Text;
                     IQueryable<Item> query = db.Item;
@@ -1370,7 +1370,7 @@ namespace ItemCirculationManagementBackground
                     var data = EPPlusHelper.GetDataTableFromExcel(fileName).ConvertDataTable<CirculationRecord>();
                     using (var db = new MySqlDbContext())
                     {
-                        var lastActionTime = db.CirculationRecord.Max(x => x.ActionTime);
+                        var lastActionTime = db.CirculationRecord.Max(x => x.ActionTime) ?? DateTime.MinValue;
                         var newData = data.Where(x => x.ActionTime > lastActionTime);
                         db.CirculationRecord.AddRange(newData);
                         db.SaveChanges();

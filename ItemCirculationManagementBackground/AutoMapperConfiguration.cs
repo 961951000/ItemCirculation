@@ -15,13 +15,7 @@ namespace ItemCirculationManagementBackground
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<CirculationRecordView, CirculationRecord>()
-                    .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                    .ForMember(dest => dest.ItemUid, opt => opt.MapFrom(src => src.ItemUid))
-                    .ForMember(dest => dest.StudentCardMacCode, opt => opt.MapFrom(src => src.CardMacCode))
-                    .ForMember(dest => dest.ActionId, opt => opt.MapFrom(src => src.ActionId))
-                    .ForMember(dest => dest.ActionTime, opt => opt.MapFrom(src => src.ActionTime))
-                    .ForMember(dest => dest.Comment, opt => opt.MapFrom(src => src.Comment));
+                cfg.CreateMap<CirculationRecordView, CirculationRecord>();
             });
         }
     }

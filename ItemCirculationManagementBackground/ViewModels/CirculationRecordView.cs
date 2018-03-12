@@ -16,7 +16,7 @@ namespace ItemCirculationManagementBackground.ViewModels
         /// <summary>
         /// 学生物理卡号
         /// </summary>
-        public string CardMacCode
+        public string StudentCardMacCode
         {
             set;
             get;

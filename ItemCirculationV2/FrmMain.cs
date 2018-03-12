@@ -81,6 +81,10 @@ namespace ItemCirculationV2
             catch (Exception ex)
             {
                 ResetAction();
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    btnStart.Focus();
+                }));
                 Logger.Error(ex);
                 throw ex;
             }
@@ -118,6 +122,10 @@ namespace ItemCirculationV2
             catch (Exception ex)
             {
                 ResetAction();
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    btnStart.Focus();
+                }));
                 Logger.Error(ex);
                 throw ex;
             }
@@ -197,6 +205,10 @@ namespace ItemCirculationV2
             catch (Exception ex)
             {
                 ResetAction();
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    btnStart.Focus();
+                }));
                 Logger.Error(ex);
                 throw ex;
             }

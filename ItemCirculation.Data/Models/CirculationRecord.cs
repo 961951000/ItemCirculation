@@ -71,7 +71,7 @@ namespace ItemCirculation.Data.Models
 			get;
 		}
 
-		public override string ToString()
+        public override string ToString()
 		{
 			return "Id=" + Id + ",ItemUid=" + ItemUid + ",StudentCardMacCode=" + StudentCardMacCode + ",ActionId=" + ActionId + ",ActionTime=" + ActionTime + ",Comment=" + Comment;
 		}

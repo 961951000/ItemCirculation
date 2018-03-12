@@ -14,6 +14,15 @@ namespace ItemCirculationManagementBackground.ViewModels
         }
 
         /// <summary>
+        /// 学生物理卡号
+        /// </summary>
+        public string CardMacCode
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
         /// 学生姓名
         /// </summary>
         public string StudentName
@@ -26,6 +35,15 @@ namespace ItemCirculationManagementBackground.ViewModels
         /// 学籍号
         /// </summary>
         public string StudentCode
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// 物品RFID标识识别号
+        /// </summary>
+        public string ItemUid
         {
             set;
             get;
@@ -57,6 +75,15 @@ namespace ItemCirculationManagementBackground.ViewModels
             set;
             get;
         }
+       
+        /// <summary>
+        /// 操作编号
+        /// </summary>
+        public string ActionId
+        {
+            set;
+            get;
+        }
 
         /// <summary>
         /// 操作时间
@@ -71,6 +98,15 @@ namespace ItemCirculationManagementBackground.ViewModels
         /// 操作类型
         /// </summary>
         public string ActionType
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Comment
         {
             set;
             get;

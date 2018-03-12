@@ -168,10 +168,15 @@ namespace ItemCirculationManagementBackground
                 {
                     const string sql = "SELECT a.id AS Id, a.action_time AS 'ActionTime', b.student_name AS 'StudentName', b.student_code AS 'StudentCode', c.item_name AS 'ItemName', c.item_type AS 'ItemType', c.item_location AS 'ItemLocation', d.action_type AS 'ActionType' FROM circulation_record AS a LEFT JOIN student AS b ON a.student_card_mac_code = b.card_mac_code LEFT JOIN item AS c ON a.item_uid = c.uid LEFT JOIN ( SELECT x.id, IFNULL( CONCAT( x.action_name, '-', y.action_type_name ), x.action_name ) AS action_type FROM action AS x LEFT JOIN action_type AS y ON x.action_type_id = y.id ) d ON a.action_id = d.id";
                     var query = db.Database.SqlQuery<CirculationRecordView>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionStartTime.Value.ToString("yyyy-MM-dd")) && x.ActionTime <= DateTime.Parse(dtpActionEndTime.Value.ToString("yyyy-MM-dd")));
+                    var uid = BaseTool.ConvertUid(txtItemUid.Text);
                     var itemName = txtInstrumentNameGet.Text;
                     var itemType = txtInstrumentTypeGet.Text;
                     var studentCode = txtLendUserStudentGet.Text;
                     var studentName = txtLendUserNameGet.Text;
+                    if (!string.IsNullOrEmpty(uid))
+                    {
+                        query = query.Where(x => x.ItemUid.Contains(uid));
+                    }
                     if (!string.IsNullOrEmpty(itemName))
                     {
                         query = query.Where(x => x.ItemName.Contains(itemName));
@@ -252,6 +257,130 @@ namespace ItemCirculationManagementBackground
             }
         }
 
+        /// <summary>
+        /// 更多功能-导出借还记录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExportData_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var title = ConfigurationManager.AppSettings["ExcelImportForCirculationRecord"];
+                Application.AddMessageFilter(this); //鼠标锁定
+                Cursor = Cursors.WaitCursor;
+                btnExportData.Enabled = false;
+                var sfd = new SaveFileDialog
+                {
+                    Filter = @"(*.xlsx)|*.xlsx",
+                    FileName = title + DateTime.Now.ToString("yyyyMMddhhmmss")
+                };
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    var fileName = sfd.FileName;
+                    using (var db = new MySqlDbContext())
+                    {
+                        const string sql = "SELECT a.id AS Id, a.item_uid as ItemUid, a.student_card_mac_code as StudentCardMacCode, a.action_id as ActionId, a.action_time AS 'ActionTime', a.comment as Comment, b.student_name AS 'StudentName', b.student_code AS 'StudentCode', c.item_name AS 'ItemName', c.item_type AS 'ItemType', c.item_location AS 'ItemLocation', d.action_type AS 'ActionType' FROM circulation_record AS a LEFT JOIN student AS b ON a.student_card_mac_code = b.card_mac_code LEFT JOIN item AS c ON a.item_uid = c.uid LEFT JOIN ( SELECT x.id, IFNULL( CONCAT( x.action_name, '-', y.action_type_name ), x.action_name ) AS action_type FROM action AS x LEFT JOIN action_type AS y ON x.action_type_id = y.id ) d ON a.action_id = d.id";
+                        var query = db.Database.SqlQuery<CirculationRecordView>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionStartTime.Value.ToString("yyyy-MM-dd")) && x.ActionTime <= DateTime.Parse(dtpActionEndTime.Value.ToString("yyyy-MM-dd")));
+                        var uid = BaseTool.ConvertUid(txtItemUid.Text);
+                        var itemName = txtInstrumentNameGet.Text;
+                        var itemType = txtInstrumentTypeGet.Text;
+                        var studentCode = txtLendUserStudentGet.Text;
+                        var studentName = txtLendUserNameGet.Text;
+                        if (!string.IsNullOrEmpty(uid))
+                        {
+                            query = query.Where(x => x.ItemUid.Contains(uid));
+                        }
+                        if (!string.IsNullOrEmpty(itemName))
+                        {
+                            query = query.Where(x => x.ItemName.Contains(itemName));
+                        }
+                        if (!string.IsNullOrEmpty(itemType))
+                        {
+                            query = query.Where(x => x.ItemType.Contains(itemType));
+                        }
+                        if (!string.IsNullOrEmpty(studentCode))
+                        {
+                            query = query.Where(x => x.StudentCode.Contains(studentCode));
+                        }
+                        if (!string.IsNullOrEmpty(studentName))
+                        {
+                            query = query.Where(x => x.StudentName.Contains(studentName));
+                        }
+                        switch (cboCirculationOrder.SelectedIndex)
+                        {
+                            case 0:
+                                {
+                                    query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ItemName) : query.OrderByDescending(x => x.ItemName);
+                                }
+                                break;
+                            case 1:
+                                {
+                                    query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ItemType) : query.OrderByDescending(x => x.ItemType);
+                                }
+                                break;
+                            case 2:
+                                {
+                                    query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.StudentName) : query.OrderByDescending(x => x.StudentName);
+                                }
+                                break;
+                            case 3:
+                                {
+                                    query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.StudentCode) : query.OrderByDescending(x => x.StudentCode);
+                                }
+                                break;
+                            case 4:
+                                {
+                                    query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ItemLocation) : query.OrderByDescending(x => x.ItemLocation);
+                                }
+                                break;
+                            case 5:
+                                {
+                                    query = rdoCirculationOrderAsc.Checked ? query.OrderBy(x => x.ActionTime) : query.OrderByDescending(x => x.ActionTime);
+                                }
+                                break;
+                        }
+                        var list = query.ToList();
+                        for (var i = 0; i < list.Count; i++)
+                        {
+                            var entity = list[i];
+                            var item = new ListViewItem
+                            {
+                                Tag = entity.Id,
+                                Text = (i + 1).ToString()
+                            };
+                            item.SubItems.Add(entity.StudentName);
+                            item.SubItems.Add(entity.StudentCode);
+                            item.SubItems.Add(entity.ItemName);
+                            item.SubItems.Add(entity.ItemType);
+                            item.SubItems.Add(entity.ItemLocation);
+                            item.SubItems.Add(Convert.ToDateTime(entity.ActionTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                            item.SubItems.Add(entity.ActionType);
+                            lvwCirculation.Items.Add(item);
+                        }
+                        var data = db.CirculationRecord;
+                        EPPlusHelper.ExportByCollection(data, fileName);
+                        MessageBox.Show(@"数据导入完成！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Loger.Error(ex);
+#endif
+            }
+            finally
+            {
+                Application.RemoveMessageFilter(this);
+                Cursor = Cursors.Default;
+                btnExportData.Enabled = true;
+            }
+        }
+
         #endregion 查询统计
 
         #region 标签转换
@@ -275,7 +404,7 @@ namespace ItemCirculationManagementBackground
             {
                 using (var db = new MySqlDbContext())
                 {
-                    var uid = txtUid.Text;
+                    var uid = BaseTool.ConvertUid(txtItemUid.Text);
                     var itemName = txtInstrumentName.Text;
                     var itemType = txtInstrumentType.Text;
                     IQueryable<Item> query = db.Item;
@@ -1231,52 +1360,6 @@ namespace ItemCirculationManagementBackground
         }
 
         #region 更多功能
-
-        /// <summary>
-        /// 更多功能-导出借还记录
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnExportCirculationRecord_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var title = ConfigurationManager.AppSettings["ExcelImportForCirculationRecord"];
-                Application.AddMessageFilter(this); //鼠标锁定
-                Cursor = Cursors.WaitCursor;
-                btnExportCirculationRecord.Enabled = false;
-                var sfd = new SaveFileDialog
-                {
-                    Filter = @"(*.xlsx)|*.xlsx",
-                    FileName = title + DateTime.Now.ToString("yyyyMMddhhmmss")
-                };
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    var fileName = sfd.FileName;
-                    using (var db = new MySqlDbContext())
-                    {
-                        var data = db.CirculationRecord;
-                        EPPlusHelper.ExportByCollection(data, fileName);
-                    }
-                    MessageBox.Show(@"数据导入完成！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-#if DEBUG
-                throw;
-#else
-                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Loger.Error(ex);
-#endif
-            }
-            finally
-            {
-                Application.RemoveMessageFilter(this);
-                Cursor = Cursors.Default;
-                btnExportCirculationRecord.Enabled = true;
-            }
-        }
 
         /// <summary>
         /// 更多功能-追加借还记录

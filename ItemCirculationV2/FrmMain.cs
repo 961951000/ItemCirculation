@@ -295,5 +295,25 @@ namespace ItemCirculationV2
             _rr9?.StopUidListen();
             _rr9?.CloseComPort();
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Left:
+                    {
+                        rdoIn.Checked = true;
+                        return true;
+                    }
+
+                case Keys.Right:
+                    {
+                        rdoOut.Checked = true;
+                        return true;
+                    }
+            }
+
+            return false;
+        }
     }
 }

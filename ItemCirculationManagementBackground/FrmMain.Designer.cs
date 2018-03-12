@@ -31,6 +31,9 @@
             this.tabMain = new System.Windows.Forms.TabControl();
             this.pageQueryStatistics = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExportData = new System.Windows.Forms.Button();
+            this.dtpActionEndTime = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnImportCirculation = new System.Windows.Forms.Button();
             this.txtInstrumentNameGet = new System.Windows.Forms.TextBox();
             this.rdoCirculationOrderDesc = new System.Windows.Forms.RadioButton();
@@ -62,6 +65,8 @@
             this.lblLabelSwitchingProgress2 = new System.Windows.Forms.Label();
             this.prgLabelSwitching2 = new System.Windows.Forms.ProgressBar();
             this.grpLabelSwitchingGet = new System.Windows.Forms.GroupBox();
+            this.txtUid = new System.Windows.Forms.TextBox();
+            this.lblUid = new System.Windows.Forms.Label();
             this.rdoLabelSwitchingQueryOrderDesc = new System.Windows.Forms.RadioButton();
             this.rdoLabelSwitchingQueryOrderAsc = new System.Windows.Forms.RadioButton();
             this.lblLabelSwitchingQueryOrder = new System.Windows.Forms.Label();
@@ -125,11 +130,8 @@
             this.pageMoreFeatures = new System.Windows.Forms.TabPage();
             this.btnAppendCirculationRecord = new System.Windows.Forms.Button();
             this.btnImportBookATMCirculationRecord = new System.Windows.Forms.Button();
-            this.btnExportCirculationRecord = new System.Windows.Forms.Button();
-            this.lblUid = new System.Windows.Forms.Label();
-            this.txtUid = new System.Windows.Forms.TextBox();
-            this.dtpActionEndTime = new System.Windows.Forms.DateTimePicker();
-            this.label4 = new System.Windows.Forms.Label();
+            this.txtItemUid = new System.Windows.Forms.TextBox();
+            this.lblItemUid = new System.Windows.Forms.Label();
             this.tabMain.SuspendLayout();
             this.pageQueryStatistics.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -170,6 +172,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtItemUid);
+            this.groupBox1.Controls.Add(this.lblItemUid);
+            this.groupBox1.Controls.Add(this.btnExportData);
             this.groupBox1.Controls.Add(this.dtpActionEndTime);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.btnImportCirculation);
@@ -194,13 +199,39 @@
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
+            // btnExportData
+            // 
+            this.btnExportData.Location = new System.Drawing.Point(1104, 150);
+            this.btnExportData.Name = "btnExportData";
+            this.btnExportData.Size = new System.Drawing.Size(98, 34);
+            this.btnExportData.TabIndex = 42;
+            this.btnExportData.Text = "Export Data";
+            this.btnExportData.UseVisualStyleBackColor = true;
+            this.btnExportData.Click += new System.EventHandler(this.btnExportData_Click);
+            // 
+            // dtpActionEndTime
+            // 
+            this.dtpActionEndTime.Location = new System.Drawing.Point(864, 58);
+            this.dtpActionEndTime.Name = "dtpActionEndTime";
+            this.dtpActionEndTime.Size = new System.Drawing.Size(200, 21);
+            this.dtpActionEndTime.TabIndex = 41;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(778, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "截至时间：";
+            // 
             // btnImportCirculation
             // 
-            this.btnImportCirculation.Location = new System.Drawing.Point(864, 138);
+            this.btnImportCirculation.Location = new System.Drawing.Point(1104, 106);
             this.btnImportCirculation.Name = "btnImportCirculation";
-            this.btnImportCirculation.Size = new System.Drawing.Size(75, 23);
+            this.btnImportCirculation.Size = new System.Drawing.Size(98, 32);
             this.btnImportCirculation.TabIndex = 39;
-            this.btnImportCirculation.Text = "导出表格";
+            this.btnImportCirculation.Text = "导出报表";
             this.btnImportCirculation.UseVisualStyleBackColor = true;
             this.btnImportCirculation.Click += new System.EventHandler(this.btnImportCirculation_Click);
             // 
@@ -268,9 +299,9 @@
             // 
             // btnQueryCirculation
             // 
-            this.btnQueryCirculation.Location = new System.Drawing.Point(864, 108);
+            this.btnQueryCirculation.Location = new System.Drawing.Point(864, 102);
             this.btnQueryCirculation.Name = "btnQueryCirculation";
-            this.btnQueryCirculation.Size = new System.Drawing.Size(75, 23);
+            this.btnQueryCirculation.Size = new System.Drawing.Size(159, 56);
             this.btnQueryCirculation.TabIndex = 26;
             this.btnQueryCirculation.Text = "开始查询";
             this.btnQueryCirculation.UseVisualStyleBackColor = true;
@@ -478,6 +509,22 @@
             this.grpLabelSwitchingGet.TabIndex = 2;
             this.grpLabelSwitchingGet.TabStop = false;
             this.grpLabelSwitchingGet.Text = "查询";
+            // 
+            // txtUid
+            // 
+            this.txtUid.Location = new System.Drawing.Point(135, 29);
+            this.txtUid.Name = "txtUid";
+            this.txtUid.Size = new System.Drawing.Size(100, 21);
+            this.txtUid.TabIndex = 10;
+            // 
+            // lblUid
+            // 
+            this.lblUid.AutoSize = true;
+            this.lblUid.Location = new System.Drawing.Point(64, 32);
+            this.lblUid.Name = "lblUid";
+            this.lblUid.Size = new System.Drawing.Size(65, 12);
+            this.lblUid.TabIndex = 9;
+            this.lblUid.Text = "电子标签：";
             // 
             // rdoLabelSwitchingQueryOrderDesc
             // 
@@ -1050,7 +1097,6 @@
             // 
             this.pageMoreFeatures.Controls.Add(this.btnAppendCirculationRecord);
             this.pageMoreFeatures.Controls.Add(this.btnImportBookATMCirculationRecord);
-            this.pageMoreFeatures.Controls.Add(this.btnExportCirculationRecord);
             this.pageMoreFeatures.Location = new System.Drawing.Point(4, 22);
             this.pageMoreFeatures.Name = "pageMoreFeatures";
             this.pageMoreFeatures.Padding = new System.Windows.Forms.Padding(3);
@@ -1061,7 +1107,7 @@
             // 
             // btnAppendCirculationRecord
             // 
-            this.btnAppendCirculationRecord.Location = new System.Drawing.Point(64, 124);
+            this.btnAppendCirculationRecord.Location = new System.Drawing.Point(64, 28);
             this.btnAppendCirculationRecord.Name = "btnAppendCirculationRecord";
             this.btnAppendCirculationRecord.Size = new System.Drawing.Size(150, 50);
             this.btnAppendCirculationRecord.TabIndex = 2;
@@ -1071,7 +1117,7 @@
             // 
             // btnImportBookATMCirculationRecord
             // 
-            this.btnImportBookATMCirculationRecord.Location = new System.Drawing.Point(64, 180);
+            this.btnImportBookATMCirculationRecord.Location = new System.Drawing.Point(64, 96);
             this.btnImportBookATMCirculationRecord.Name = "btnImportBookATMCirculationRecord";
             this.btnImportBookATMCirculationRecord.Size = new System.Drawing.Size(150, 50);
             this.btnImportBookATMCirculationRecord.TabIndex = 1;
@@ -1079,47 +1125,21 @@
             this.btnImportBookATMCirculationRecord.UseVisualStyleBackColor = true;
             this.btnImportBookATMCirculationRecord.Click += new System.EventHandler(this.btnImportBookATMCirculationRecord_Click);
             // 
-            // btnExportCirculationRecord
+            // txtItemUid
             // 
-            this.btnExportCirculationRecord.Location = new System.Drawing.Point(64, 68);
-            this.btnExportCirculationRecord.Name = "btnExportCirculationRecord";
-            this.btnExportCirculationRecord.Size = new System.Drawing.Size(150, 50);
-            this.btnExportCirculationRecord.TabIndex = 0;
-            this.btnExportCirculationRecord.Text = "导出借还记录";
-            this.btnExportCirculationRecord.UseVisualStyleBackColor = true;
-            this.btnExportCirculationRecord.Click += new System.EventHandler(this.btnExportCirculationRecord_Click);
+            this.txtItemUid.Location = new System.Drawing.Point(104, 158);
+            this.txtItemUid.Name = "txtItemUid";
+            this.txtItemUid.Size = new System.Drawing.Size(100, 21);
+            this.txtItemUid.TabIndex = 44;
             // 
-            // lblUid
+            // lblItemUid
             // 
-            this.lblUid.AutoSize = true;
-            this.lblUid.Location = new System.Drawing.Point(64, 32);
-            this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(65, 12);
-            this.lblUid.TabIndex = 9;
-            this.lblUid.Text = "电子标签：";
-            // 
-            // txtUid
-            // 
-            this.txtUid.Location = new System.Drawing.Point(135, 29);
-            this.txtUid.Name = "txtUid";
-            this.txtUid.Size = new System.Drawing.Size(100, 21);
-            this.txtUid.TabIndex = 10;
-            // 
-            // dtpActionEndTime
-            // 
-            this.dtpActionEndTime.Location = new System.Drawing.Point(864, 58);
-            this.dtpActionEndTime.Name = "dtpActionEndTime";
-            this.dtpActionEndTime.Size = new System.Drawing.Size(200, 21);
-            this.dtpActionEndTime.TabIndex = 41;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(778, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "截至时间：";
+            this.lblItemUid.AutoSize = true;
+            this.lblItemUid.Location = new System.Drawing.Point(33, 161);
+            this.lblItemUid.Name = "lblItemUid";
+            this.lblItemUid.Size = new System.Drawing.Size(65, 12);
+            this.lblItemUid.TabIndex = 43;
+            this.lblItemUid.Text = "电子标签：";
             // 
             // FrmMain
             // 
@@ -1247,12 +1267,14 @@
         private System.Windows.Forms.ColumnHeader cnUpdateDate;
         private System.Windows.Forms.TabPage pageMoreFeatures;
         private System.Windows.Forms.Button btnImportBookATMCirculationRecord;
-        private System.Windows.Forms.Button btnExportCirculationRecord;
         private System.Windows.Forms.Button btnAppendCirculationRecord;
         private System.Windows.Forms.TextBox txtUid;
         private System.Windows.Forms.Label lblUid;
         private System.Windows.Forms.DateTimePicker dtpActionEndTime;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnExportData;
+        private System.Windows.Forms.TextBox txtItemUid;
+        private System.Windows.Forms.Label lblItemUid;
     }
 }
 

@@ -283,8 +283,8 @@ namespace ItemCirculationV2
 
         private void ResetAction()
         {
-            _rr9.StopHidListen();
-            _rr9.StopUidListen();
+            _rr9.CloseHidListen();
+            _rr9.CloseUidListen();
             _rr9.CloseComPort();
             BeginInvoke(new MethodInvoker(() =>
             {

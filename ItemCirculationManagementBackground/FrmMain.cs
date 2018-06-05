@@ -31,16 +31,16 @@ namespace ItemCirculationManagementBackground
         private void FrmMain_Load(object sender, EventArgs e)
         {
 
-            #region listView初始化
-            /*listView1.GridLines = true;//表格是否显示网格线
-            listView1.FullRowSelect = true;//是否选中整行
-            listView1.View = View.Details;//设置显示方式
-            listView1.Scrollable = true;//是否自动显示滚动条
-            listView1.MultiSelect = false;//是否可以选择多行
-            listView1.Columns["ProductName"].Width = -1;//根据内容设置宽度
-            listView1.Columns["SN"].Width = -2;//根据标题设置宽度*/
-            #endregion
-            Init();
+            //#region listView初始化
+            ///*listView1.GridLines = true;//表格是否显示网格线
+            //listView1.FullRowSelect = true;//是否选中整行
+            //listView1.View = View.Details;//设置显示方式
+            //listView1.Scrollable = true;//是否自动显示滚动条
+            //listView1.MultiSelect = false;//是否可以选择多行
+            //listView1.Columns["ProductName"].Width = -1;//根据内容设置宽度
+            //listView1.Columns["SN"].Width = -2;//根据标题设置宽度*/
+            //#endregion
+            //Init();
         }
 
         private void Init()

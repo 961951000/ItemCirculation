@@ -2,7 +2,7 @@
 
 namespace ItemCirculationManagementBackground.ViewModels
 {
-    public class CirculationRecordView
+    public class CirculationRecordViewModel
     {
         /// <summary>
         /// 编号

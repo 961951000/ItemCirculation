@@ -15,7 +15,7 @@ namespace ItemCirculationManagementBackground
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<CirculationRecordView, CirculationRecord>();
+                cfg.CreateMap<CirculationRecordViewModel, CirculationRecord>();
             });
         }
     }

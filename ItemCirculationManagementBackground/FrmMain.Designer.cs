@@ -30,29 +30,30 @@
         {
             this.tabMain = new System.Windows.Forms.TabControl();
             this.pageIndex = new System.Windows.Forms.TabPage();
+            this.lblGoodMachinePercentage = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label50 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
+            this.lblServiceTime = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
+            this.lblLoanPersonCount = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
+            this.lblServiceCount = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
+            this.lblMachine4ReturnCount = new System.Windows.Forms.Label();
+            this.lblMachine3ReturnCount = new System.Windows.Forms.Label();
+            this.lblMachine2ReturnCount = new System.Windows.Forms.Label();
+            this.lblMachine1ReturnCount = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
+            this.lblMachine4LoanCount = new System.Windows.Forms.Label();
+            this.lblMachine3LoanCount = new System.Windows.Forms.Label();
+            this.lblMachine2LoanCount = new System.Windows.Forms.Label();
+            this.lblMachine1LoanCount = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -64,10 +65,10 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.lblMachine4Count = new System.Windows.Forms.Label();
+            this.lblMachine3Count = new System.Windows.Forms.Label();
+            this.lblMachine2Count = new System.Windows.Forms.Label();
+            this.lblMachine1Count = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -128,7 +129,7 @@
             this.lblInstrumentType = new System.Windows.Forms.Label();
             this.lblInstrumentName = new System.Windows.Forms.Label();
             this.grpLabelSwitchingSet = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMachineTypeAdd = new System.Windows.Forms.Button();
             this.btnLabelSwitchingDownload = new System.Windows.Forms.Button();
             this.btnLabelSwitchingDelete = new System.Windows.Forms.Button();
             this.btnLabelSwitchingUpdate = new System.Windows.Forms.Button();
@@ -215,29 +216,30 @@
             // pageIndex
             // 
             this.pageIndex.BackColor = System.Drawing.Color.Thistle;
+            this.pageIndex.Controls.Add(this.lblGoodMachinePercentage);
             this.pageIndex.Controls.Add(this.pictureBox2);
             this.pageIndex.Controls.Add(this.pictureBox1);
             this.pageIndex.Controls.Add(this.label50);
-            this.pageIndex.Controls.Add(this.label49);
+            this.pageIndex.Controls.Add(this.lblServiceTime);
             this.pageIndex.Controls.Add(this.label48);
-            this.pageIndex.Controls.Add(this.label47);
+            this.pageIndex.Controls.Add(this.lblLoanPersonCount);
             this.pageIndex.Controls.Add(this.label46);
-            this.pageIndex.Controls.Add(this.label45);
+            this.pageIndex.Controls.Add(this.lblServiceCount);
             this.pageIndex.Controls.Add(this.label44);
-            this.pageIndex.Controls.Add(this.label34);
-            this.pageIndex.Controls.Add(this.label35);
-            this.pageIndex.Controls.Add(this.label36);
-            this.pageIndex.Controls.Add(this.label37);
+            this.pageIndex.Controls.Add(this.lblMachine4ReturnCount);
+            this.pageIndex.Controls.Add(this.lblMachine3ReturnCount);
+            this.pageIndex.Controls.Add(this.lblMachine2ReturnCount);
+            this.pageIndex.Controls.Add(this.lblMachine1ReturnCount);
             this.pageIndex.Controls.Add(this.label38);
             this.pageIndex.Controls.Add(this.label39);
             this.pageIndex.Controls.Add(this.label40);
             this.pageIndex.Controls.Add(this.label41);
             this.pageIndex.Controls.Add(this.label42);
             this.pageIndex.Controls.Add(this.label43);
-            this.pageIndex.Controls.Add(this.label26);
-            this.pageIndex.Controls.Add(this.label27);
-            this.pageIndex.Controls.Add(this.label28);
-            this.pageIndex.Controls.Add(this.label29);
+            this.pageIndex.Controls.Add(this.lblMachine4LoanCount);
+            this.pageIndex.Controls.Add(this.lblMachine3LoanCount);
+            this.pageIndex.Controls.Add(this.lblMachine2LoanCount);
+            this.pageIndex.Controls.Add(this.lblMachine1LoanCount);
             this.pageIndex.Controls.Add(this.label30);
             this.pageIndex.Controls.Add(this.label31);
             this.pageIndex.Controls.Add(this.label32);
@@ -249,10 +251,10 @@
             this.pageIndex.Controls.Add(this.label21);
             this.pageIndex.Controls.Add(this.label20);
             this.pageIndex.Controls.Add(this.label19);
-            this.pageIndex.Controls.Add(this.label18);
-            this.pageIndex.Controls.Add(this.label17);
-            this.pageIndex.Controls.Add(this.label16);
-            this.pageIndex.Controls.Add(this.label15);
+            this.pageIndex.Controls.Add(this.lblMachine4Count);
+            this.pageIndex.Controls.Add(this.lblMachine3Count);
+            this.pageIndex.Controls.Add(this.lblMachine2Count);
+            this.pageIndex.Controls.Add(this.lblMachine1Count);
             this.pageIndex.Controls.Add(this.label14);
             this.pageIndex.Controls.Add(this.label13);
             this.pageIndex.Controls.Add(this.label12);
@@ -269,6 +271,16 @@
             this.pageIndex.Size = new System.Drawing.Size(1384, 701);
             this.pageIndex.TabIndex = 5;
             this.pageIndex.Text = "数据总览";
+            // 
+            // lblGoodMachinePercentage
+            // 
+            this.lblGoodMachinePercentage.AutoSize = true;
+            this.lblGoodMachinePercentage.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblGoodMachinePercentage.Location = new System.Drawing.Point(413, 497);
+            this.lblGoodMachinePercentage.Name = "lblGoodMachinePercentage";
+            this.lblGoodMachinePercentage.Size = new System.Drawing.Size(58, 29);
+            this.lblGoodMachinePercentage.TabIndex = 49;
+            this.lblGoodMachinePercentage.Text = "99%";
             // 
             // pictureBox2
             // 
@@ -295,279 +307,310 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(248, 507);
+            this.label50.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label50.Location = new System.Drawing.Point(225, 497);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(203, 12);
+            this.label50.Size = new System.Drawing.Size(187, 29);
             this.label50.TabIndex = 46;
-            this.label50.Text = "设备良好率：自定义配置文件默认99%";
+            this.label50.Text = "设备良好率：";
             // 
-            // label49
+            // lblServiceTime
             // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(318, 477);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(299, 12);
-            this.label49.TabIndex = 45;
-            this.label49.Text = "第一条记录的生成时间-最后一天记录的生成时间（天）";
+            this.lblServiceTime.AutoSize = true;
+            this.lblServiceTime.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblServiceTime.Location = new System.Drawing.Point(413, 463);
+            this.lblServiceTime.Name = "lblServiceTime";
+            this.lblServiceTime.Size = new System.Drawing.Size(115, 29);
+            this.lblServiceTime.TabIndex = 45;
+            this.lblServiceTime.Text = "0（天）";
             // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(248, 477);
+            this.label48.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label48.Location = new System.Drawing.Point(225, 463);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(77, 12);
+            this.label48.Size = new System.Drawing.Size(187, 29);
             this.label48.TabIndex = 44;
             this.label48.Text = "服务总时长：";
             // 
-            // label47
+            // lblLoanPersonCount
             // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(312, 442);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(53, 12);
-            this.label47.TabIndex = 43;
-            this.label47.Text = "借的人数";
+            this.lblLoanPersonCount.AutoSize = true;
+            this.lblLoanPersonCount.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblLoanPersonCount.Location = new System.Drawing.Point(379, 426);
+            this.lblLoanPersonCount.Name = "lblLoanPersonCount";
+            this.lblLoanPersonCount.Size = new System.Drawing.Size(28, 29);
+            this.lblLoanPersonCount.TabIndex = 43;
+            this.lblLoanPersonCount.Text = "0";
             // 
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(246, 443);
+            this.label46.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label46.Location = new System.Drawing.Point(225, 428);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(65, 12);
+            this.label46.Size = new System.Drawing.Size(158, 29);
             this.label46.TabIndex = 42;
             this.label46.Text = "使用人次：";
             // 
-            // label45
+            // lblServiceCount
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(310, 407);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(89, 12);
-            this.label45.TabIndex = 41;
-            this.label45.Text = "等于借出次数10";
+            this.lblServiceCount.AutoSize = true;
+            this.lblServiceCount.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblServiceCount.Location = new System.Drawing.Point(379, 397);
+            this.lblServiceCount.Name = "lblServiceCount";
+            this.lblServiceCount.Size = new System.Drawing.Size(28, 29);
+            this.lblServiceCount.TabIndex = 41;
+            this.lblServiceCount.Text = "0";
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(244, 408);
+            this.label44.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label44.Location = new System.Drawing.Point(225, 397);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(59, 12);
+            this.label44.Size = new System.Drawing.Size(158, 29);
             this.label44.TabIndex = 40;
-            this.label44.Text = "服务次数;";
+            this.label44.Text = "服务次数：";
             // 
-            // label34
+            // lblMachine4ReturnCount
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(756, 333);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(11, 12);
-            this.label34.TabIndex = 39;
-            this.label34.Text = "6";
+            this.lblMachine4ReturnCount.AutoSize = true;
+            this.lblMachine4ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine4ReturnCount.Location = new System.Drawing.Point(982, 322);
+            this.lblMachine4ReturnCount.Name = "lblMachine4ReturnCount";
+            this.lblMachine4ReturnCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine4ReturnCount.TabIndex = 39;
+            this.lblMachine4ReturnCount.Text = "0";
             // 
-            // label35
+            // lblMachine3ReturnCount
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(663, 333);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(11, 12);
-            this.label35.TabIndex = 38;
-            this.label35.Text = "7";
+            this.lblMachine3ReturnCount.AutoSize = true;
+            this.lblMachine3ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine3ReturnCount.Location = new System.Drawing.Point(823, 322);
+            this.lblMachine3ReturnCount.Name = "lblMachine3ReturnCount";
+            this.lblMachine3ReturnCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine3ReturnCount.TabIndex = 38;
+            this.lblMachine3ReturnCount.Text = "0";
             // 
-            // label36
+            // lblMachine2ReturnCount
             // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(572, 335);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(11, 12);
-            this.label36.TabIndex = 37;
-            this.label36.Text = "5";
+            this.lblMachine2ReturnCount.AutoSize = true;
+            this.lblMachine2ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine2ReturnCount.Location = new System.Drawing.Point(660, 322);
+            this.lblMachine2ReturnCount.Name = "lblMachine2ReturnCount";
+            this.lblMachine2ReturnCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine2ReturnCount.TabIndex = 37;
+            this.lblMachine2ReturnCount.Text = "0";
             // 
-            // label37
+            // lblMachine1ReturnCount
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(472, 334);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(11, 12);
-            this.label37.TabIndex = 36;
-            this.label37.Text = "3";
+            this.lblMachine1ReturnCount.AutoSize = true;
+            this.lblMachine1ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine1ReturnCount.Location = new System.Drawing.Point(507, 322);
+            this.lblMachine1ReturnCount.Name = "lblMachine1ReturnCount";
+            this.lblMachine1ReturnCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine1ReturnCount.TabIndex = 36;
+            this.lblMachine1ReturnCount.Text = "0";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(598, 334);
+            this.label38.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label38.Location = new System.Drawing.Point(733, 322);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(47, 12);
+            this.label38.Size = new System.Drawing.Size(84, 21);
             this.label38.TabIndex = 35;
             this.label38.Text = "种类3：";
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(505, 335);
+            this.label39.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label39.Location = new System.Drawing.Point(570, 322);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(47, 12);
+            this.label39.Size = new System.Drawing.Size(84, 21);
             this.label39.TabIndex = 34;
             this.label39.Text = "种类2：";
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(405, 335);
+            this.label40.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label40.Location = new System.Drawing.Point(417, 322);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(47, 12);
+            this.label40.Size = new System.Drawing.Size(84, 21);
             this.label40.TabIndex = 33;
             this.label40.Text = "种类1：";
             // 
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(689, 334);
+            this.label41.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label41.Location = new System.Drawing.Point(892, 322);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(47, 12);
+            this.label41.Size = new System.Drawing.Size(84, 21);
             this.label41.TabIndex = 32;
             this.label41.Text = "种类4：";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(794, 335);
+            this.label42.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label42.Location = new System.Drawing.Point(1009, 322);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(17, 12);
+            this.label42.Size = new System.Drawing.Size(31, 21);
             this.label42.TabIndex = 31;
             this.label42.Text = "）";
             // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(382, 335);
+            this.label43.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label43.Location = new System.Drawing.Point(380, 325);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(17, 12);
+            this.label43.Size = new System.Drawing.Size(31, 21);
             this.label43.TabIndex = 30;
             this.label43.Text = "（";
             // 
-            // label26
+            // lblMachine4LoanCount
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(756, 298);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(11, 12);
-            this.label26.TabIndex = 29;
-            this.label26.Text = "6";
+            this.lblMachine4LoanCount.AutoSize = true;
+            this.lblMachine4LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine4LoanCount.Location = new System.Drawing.Point(982, 268);
+            this.lblMachine4LoanCount.Name = "lblMachine4LoanCount";
+            this.lblMachine4LoanCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine4LoanCount.TabIndex = 29;
+            this.lblMachine4LoanCount.Text = "0";
             // 
-            // label27
+            // lblMachine3LoanCount
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(663, 298);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(11, 12);
-            this.label27.TabIndex = 28;
-            this.label27.Text = "7";
+            this.lblMachine3LoanCount.AutoSize = true;
+            this.lblMachine3LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine3LoanCount.Location = new System.Drawing.Point(823, 268);
+            this.lblMachine3LoanCount.Name = "lblMachine3LoanCount";
+            this.lblMachine3LoanCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine3LoanCount.TabIndex = 28;
+            this.lblMachine3LoanCount.Text = "0";
             // 
-            // label28
+            // lblMachine2LoanCount
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(572, 300);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(11, 12);
-            this.label28.TabIndex = 27;
-            this.label28.Text = "5";
+            this.lblMachine2LoanCount.AutoSize = true;
+            this.lblMachine2LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine2LoanCount.Location = new System.Drawing.Point(660, 268);
+            this.lblMachine2LoanCount.Name = "lblMachine2LoanCount";
+            this.lblMachine2LoanCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine2LoanCount.TabIndex = 27;
+            this.lblMachine2LoanCount.Text = "0";
             // 
-            // label29
+            // lblMachine1LoanCount
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(472, 299);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(11, 12);
-            this.label29.TabIndex = 26;
-            this.label29.Text = "3";
+            this.lblMachine1LoanCount.AutoSize = true;
+            this.lblMachine1LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine1LoanCount.Location = new System.Drawing.Point(507, 268);
+            this.lblMachine1LoanCount.Name = "lblMachine1LoanCount";
+            this.lblMachine1LoanCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine1LoanCount.TabIndex = 26;
+            this.lblMachine1LoanCount.Text = "0";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(598, 299);
+            this.label30.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label30.Location = new System.Drawing.Point(733, 268);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(47, 12);
+            this.label30.Size = new System.Drawing.Size(84, 21);
             this.label30.TabIndex = 25;
             this.label30.Text = "种类3：";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(505, 300);
+            this.label31.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label31.Location = new System.Drawing.Point(570, 268);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(47, 12);
+            this.label31.Size = new System.Drawing.Size(84, 21);
             this.label31.TabIndex = 24;
             this.label31.Text = "种类2：";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(405, 300);
+            this.label32.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label32.Location = new System.Drawing.Point(417, 268);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(47, 12);
+            this.label32.Size = new System.Drawing.Size(84, 21);
             this.label32.TabIndex = 23;
             this.label32.Text = "种类1：";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(689, 299);
+            this.label33.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label33.Location = new System.Drawing.Point(892, 268);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(47, 12);
+            this.label33.Size = new System.Drawing.Size(84, 21);
             this.label33.TabIndex = 22;
             this.label33.Text = "种类4：";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(794, 300);
+            this.label25.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label25.Location = new System.Drawing.Point(1009, 268);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(17, 12);
+            this.label25.Size = new System.Drawing.Size(31, 21);
             this.label25.TabIndex = 21;
             this.label25.Text = "）";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(382, 300);
+            this.label24.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label24.Location = new System.Drawing.Point(380, 268);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(17, 12);
+            this.label24.Size = new System.Drawing.Size(31, 21);
             this.label24.TabIndex = 20;
             this.label24.Text = "（";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(304, 344);
+            this.label23.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label23.Location = new System.Drawing.Point(331, 318);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(17, 12);
+            this.label23.Size = new System.Drawing.Size(43, 29);
             this.label23.TabIndex = 19;
             this.label23.Text = "11";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(302, 300);
+            this.label22.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label22.Location = new System.Drawing.Point(331, 261);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(17, 12);
+            this.label22.Size = new System.Drawing.Size(43, 29);
             this.label22.TabIndex = 18;
             this.label22.Text = "10";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(242, 345);
+            this.label21.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label21.Location = new System.Drawing.Point(225, 318);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(41, 12);
+            this.label21.Size = new System.Drawing.Size(100, 29);
             this.label21.TabIndex = 17;
             this.label21.Text = "归还：";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(242, 300);
+            this.label20.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label20.Location = new System.Drawing.Point(225, 261);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(41, 12);
+            this.label20.Size = new System.Drawing.Size(100, 29);
             this.label20.TabIndex = 16;
             this.label20.Text = "借出：";
             // 
@@ -581,75 +624,83 @@
             this.label19.TabIndex = 15;
             this.label19.Text = "设备总数：";
             // 
-            // label18
+            // lblMachine4Count
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(1151, 208);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(11, 12);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "6";
+            this.lblMachine4Count.AutoSize = true;
+            this.lblMachine4Count.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine4Count.Location = new System.Drawing.Point(1205, 188);
+            this.lblMachine4Count.Name = "lblMachine4Count";
+            this.lblMachine4Count.Size = new System.Drawing.Size(28, 29);
+            this.lblMachine4Count.TabIndex = 14;
+            this.lblMachine4Count.Text = "0";
             // 
-            // label17
+            // lblMachine3Count
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(1151, 152);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(11, 12);
-            this.label17.TabIndex = 13;
-            this.label17.Text = "7";
+            this.lblMachine3Count.AutoSize = true;
+            this.lblMachine3Count.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine3Count.Location = new System.Drawing.Point(1205, 148);
+            this.lblMachine3Count.Name = "lblMachine3Count";
+            this.lblMachine3Count.Size = new System.Drawing.Size(28, 29);
+            this.lblMachine3Count.TabIndex = 13;
+            this.lblMachine3Count.Text = "0";
             // 
-            // label16
+            // lblMachine2Count
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(1151, 111);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(11, 12);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "5";
+            this.lblMachine2Count.AutoSize = true;
+            this.lblMachine2Count.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine2Count.Location = new System.Drawing.Point(1205, 101);
+            this.lblMachine2Count.Name = "lblMachine2Count";
+            this.lblMachine2Count.Size = new System.Drawing.Size(28, 29);
+            this.lblMachine2Count.TabIndex = 12;
+            this.lblMachine2Count.Text = "0";
             // 
-            // label15
+            // lblMachine1Count
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(1149, 69);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(11, 12);
-            this.label15.TabIndex = 11;
-            this.label15.Text = "3";
+            this.lblMachine1Count.AutoSize = true;
+            this.lblMachine1Count.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine1Count.Location = new System.Drawing.Point(1205, 57);
+            this.lblMachine1Count.Name = "lblMachine1Count";
+            this.lblMachine1Count.Size = new System.Drawing.Size(28, 29);
+            this.lblMachine1Count.TabIndex = 11;
+            this.lblMachine1Count.Text = "0";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(947, 90);
+            this.label14.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(899, 128);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 12);
+            this.label14.Size = new System.Drawing.Size(190, 35);
             this.label14.TabIndex = 10;
-            this.label14.Text = "设备种类： ";
+            this.label14.Text = "设备种类：";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1086, 153);
+            this.label13.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(1084, 148);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(47, 12);
+            this.label13.Size = new System.Drawing.Size(115, 29);
             this.label13.TabIndex = 9;
             this.label13.Text = "种类3：";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(1084, 111);
+            this.label12.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.Location = new System.Drawing.Point(1084, 101);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 12);
+            this.label12.Size = new System.Drawing.Size(115, 29);
             this.label12.TabIndex = 8;
             this.label12.Text = "种类2：";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(1082, 70);
+            this.label11.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.Location = new System.Drawing.Point(1084, 57);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 12);
+            this.label11.Size = new System.Drawing.Size(115, 29);
             this.label11.TabIndex = 7;
             this.label11.Text = "种类1：";
             // 
@@ -664,9 +715,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1084, 209);
+            this.label7.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(1084, 188);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 12);
+            this.label7.Size = new System.Drawing.Size(115, 29);
             this.label7.TabIndex = 5;
             this.label7.Text = "种类4：";
             // 
@@ -698,7 +750,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(214, 279);
+            this.groupBox2.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox2.Location = new System.Drawing.Point(214, 239);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1060, 2);
             this.groupBox2.TabIndex = 0;
@@ -1176,7 +1229,7 @@
             // 
             // grpLabelSwitchingSet
             // 
-            this.grpLabelSwitchingSet.Controls.Add(this.button1);
+            this.grpLabelSwitchingSet.Controls.Add(this.btnMachineTypeAdd);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingDownload);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingDelete);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingUpdate);
@@ -1189,14 +1242,15 @@
             this.grpLabelSwitchingSet.TabStop = false;
             this.grpLabelSwitchingSet.Text = "设置";
             // 
-            // button1
+            // btnMachineTypeAdd
             // 
-            this.button1.Location = new System.Drawing.Point(242, 85);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "设备种类";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMachineTypeAdd.Location = new System.Drawing.Point(242, 85);
+            this.btnMachineTypeAdd.Name = "btnMachineTypeAdd";
+            this.btnMachineTypeAdd.Size = new System.Drawing.Size(99, 23);
+            this.btnMachineTypeAdd.TabIndex = 5;
+            this.btnMachineTypeAdd.Text = "设备种类";
+            this.btnMachineTypeAdd.UseVisualStyleBackColor = true;
+            this.btnMachineTypeAdd.Click += new System.EventHandler(this.btnMachineTypeAdd_Click);
             // 
             // btnLabelSwitchingDownload
             // 
@@ -1840,7 +1894,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMachineTypeAdd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -1848,44 +1902,45 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label lblMachine4Count;
+        private System.Windows.Forms.Label lblMachine3Count;
+        private System.Windows.Forms.Label lblMachine2Count;
+        private System.Windows.Forms.Label lblMachine1Count;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label lblMachine4ReturnCount;
+        private System.Windows.Forms.Label lblMachine3ReturnCount;
+        private System.Windows.Forms.Label lblMachine2ReturnCount;
+        private System.Windows.Forms.Label lblMachine1ReturnCount;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label lblMachine4LoanCount;
+        private System.Windows.Forms.Label lblMachine3LoanCount;
+        private System.Windows.Forms.Label lblMachine2LoanCount;
+        private System.Windows.Forms.Label lblMachine1LoanCount;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label lblServiceCount;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label lblLoanPersonCount;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label lblServiceTime;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lblGoodMachinePercentage;
     }
 }
 

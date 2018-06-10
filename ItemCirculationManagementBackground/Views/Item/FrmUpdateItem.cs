@@ -6,6 +6,7 @@ using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using ItemCirculation.Data.Models;
 using ItemCirculation.Data.DatabaseContext;
+using ItemCirculationManagementBackground.Extensions;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
@@ -33,6 +34,34 @@ namespace ItemCirculationManagementBackground.Views.Item
             txtName.Text = _entity.ItemName;
             txtType.Text = _entity.ItemType;
             txtLocation.Text = _entity.ItemLocation;
+            try
+            {
+                using (var db = new MySqlDbContext())
+                {
+                    var list = db.MachineType.ToList();
+                    var datatable = list.ToDataTable();
+                    cboMachineName.DisplayMember = "MachineType";
+                    cboMachineName.ValueMember = "Id";
+                    cboMachineName.DataSource = datatable;
+                    for (var i = 0; i < list.Count; i++)
+                    {
+                        if (list.ElementAt(i).Id == _entity.Id)
+                        {
+                            cboMachineName.SelectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -52,6 +81,7 @@ namespace ItemCirculationManagementBackground.Views.Item
                     entity.ItemType = txtType.Text;
                     entity.ItemLocation = txtLocation.Text;
                     entity.UpdateTime = DateTime.Now;
+                    entity.MachineId = Convert.ToInt32(cboMachineName.SelectedValue);
                     if (entity.Uid != _entity.Uid && db.Item.Any(x => x.Uid == entity.Uid))
                     {
                         MessageBox.Show(@"电子标签重复", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -113,14 +113,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="Extensions\ConvertExtension.cs" />
     <Compile Include="Util\EPPlusHelper.cs" />
     <Compile Include="Util\Extensions\DataTableExtensions.cs" />
-    <Compile Include="ViewModels\CirculationRecordView.cs" />
+    <Compile Include="ViewModels\CirculationRecordViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="Views\Item\FrmAddItem.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\Item\FrmAddItem.Designer.cs">
       <DependentUpon>FrmAddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Item\FrmAddMachineType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Item\FrmAddMachineType.Designer.cs">
+      <DependentUpon>FrmAddMachineType.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\User\FrmAddUser.cs">
       <SubType>Form</SubType>
@@ -159,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Item\FrmAddItem.resx">
       <DependentUpon>FrmAddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Item\FrmAddMachineType.resx">
+      <DependentUpon>FrmAddMachineType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>

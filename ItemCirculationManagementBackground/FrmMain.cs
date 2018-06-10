@@ -31,16 +31,16 @@ namespace ItemCirculationManagementBackground
         private void FrmMain_Load(object sender, EventArgs e)
         {
 
-            //#region listView初始化
-            ///*listView1.GridLines = true;//表格是否显示网格线
-            //listView1.FullRowSelect = true;//是否选中整行
-            //listView1.View = View.Details;//设置显示方式
-            //listView1.Scrollable = true;//是否自动显示滚动条
-            //listView1.MultiSelect = false;//是否可以选择多行
-            //listView1.Columns["ProductName"].Width = -1;//根据内容设置宽度
-            //listView1.Columns["SN"].Width = -2;//根据标题设置宽度*/
-            //#endregion
-            //Init();
+            #region listView初始化
+            /*listView1.GridLines = true;//表格是否显示网格线
+            listView1.FullRowSelect = true;//是否选中整行
+            listView1.View = View.Details;//设置显示方式
+            listView1.Scrollable = true;//是否自动显示滚动条
+            listView1.MultiSelect = false;//是否可以选择多行
+            listView1.Columns["ProductName"].Width = -1;//根据内容设置宽度
+            listView1.Columns["SN"].Width = -2;//根据标题设置宽度*/
+            #endregion
+            Init();
         }
 
         private void Init()
@@ -54,6 +54,23 @@ namespace ItemCirculationManagementBackground
             cboUserQueryOrder.SelectedIndex = 3;
             dtpActionStartTime.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
             dtpActionEndTime.Value = DateTime.Parse(DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"));
+            var report = GenerateReport();
+            lblServiceCount.Text = report.ServiceCount;
+            lblLoanPersonCount.Text = report.LoanPersonCount;
+            lblServiceTime.Text = $"{report.ServiceTime}（天）";
+            lblGoodMachinePercentage.Text = $"{report.GoodMachinePercentage}%";
+            lblMachine1Count.Text = $"{report.Machine1LoanCount + report.Machine1ReturnCount}";
+            lblMachine2Count.Text = $"{report.Machine2LoanCount + report.Machine2ReturnCount}";
+            lblMachine3Count.Text = $"{report.Machine3LoanCount + report.Machine3ReturnCount}";
+            lblMachine4Count.Text = $"{report.Machine4LoanCount + report.Machine4ReturnCount}";
+            lblMachine1LoanCount.Text = report.Machine1LoanCount.ToString();
+            lblMachine1ReturnCount.Text = report.Machine1ReturnCount.ToString();
+            lblMachine2LoanCount.Text = report.Machine2LoanCount.ToString();
+            lblMachine2ReturnCount.Text = report.Machine2ReturnCount.ToString();
+            lblMachine3LoanCount.Text = report.Machine3LoanCount.ToString();
+            lblMachine3ReturnCount.Text = report.Machine3ReturnCount.ToString();
+            lblMachine4LoanCount.Text = report.Machine4LoanCount.ToString();
+            lblMachine4ReturnCount.Text = report.Machine4ReturnCount.ToString();
             MakingCardInIt();
         }
 
@@ -168,7 +185,7 @@ namespace ItemCirculationManagementBackground
                 using (var db = new MySqlDbContext())
                 {
                     const string sql = "SELECT a.id AS Id, a.action_time AS 'ActionTime', b.student_name AS 'StudentName', b.student_code AS 'StudentCode', c.item_name AS 'ItemName', c.item_type AS 'ItemType', c.item_location AS 'ItemLocation', d.action_type AS 'ActionType' FROM circulation_record AS a LEFT JOIN student AS b ON a.student_card_mac_code = b.card_mac_code LEFT JOIN item AS c ON a.item_uid = c.uid LEFT JOIN ( SELECT x.id, IFNULL( CONCAT( x.action_name, '-', y.action_type_name ), x.action_name ) AS action_type FROM action AS x LEFT JOIN action_type AS y ON x.action_type_id = y.id ) d ON a.action_id = d.id";
-                    var query = db.Database.SqlQuery<CirculationRecordView>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionStartTime.Value.ToString("yyyy-MM-dd")) && x.ActionTime <= DateTime.Parse(dtpActionEndTime.Value.ToString("yyyy-MM-dd")));
+                    var query = db.Database.SqlQuery<CirculationRecordViewModel>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionStartTime.Value.ToString("yyyy-MM-dd")) && x.ActionTime <= DateTime.Parse(dtpActionEndTime.Value.ToString("yyyy-MM-dd")));
                     var uid = BaseTool.ConvertUid(txtItemUid.Text);
                     var itemName = txtInstrumentNameGet.Text;
                     var itemType = txtInstrumentTypeGet.Text;
@@ -282,7 +299,7 @@ namespace ItemCirculationManagementBackground
                     using (var db = new MySqlDbContext())
                     {
                         const string sql = "SELECT a.id AS Id, a.item_uid as ItemUid, a.student_card_mac_code as StudentCardMacCode, a.action_id as ActionId, a.action_time AS 'ActionTime', a.comment as Comment, b.student_name AS 'StudentName', b.student_code AS 'StudentCode', c.item_name AS 'ItemName', c.item_type AS 'ItemType', c.item_location AS 'ItemLocation', d.action_type AS 'ActionType' FROM circulation_record AS a LEFT JOIN student AS b ON a.student_card_mac_code = b.card_mac_code LEFT JOIN item AS c ON a.item_uid = c.uid LEFT JOIN ( SELECT x.id, IFNULL( CONCAT( x.action_name, '-', y.action_type_name ), x.action_name ) AS action_type FROM action AS x LEFT JOIN action_type AS y ON x.action_type_id = y.id ) d ON a.action_id = d.id";
-                        var query = db.Database.SqlQuery<CirculationRecordView>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionStartTime.Value.ToString("yyyy-MM-dd")) && x.ActionTime <= DateTime.Parse(dtpActionEndTime.Value.ToString("yyyy-MM-dd")));
+                        var query = db.Database.SqlQuery<CirculationRecordViewModel>(sql).Where(x => x.ActionTime >= DateTime.Parse(dtpActionStartTime.Value.ToString("yyyy-MM-dd")) && x.ActionTime <= DateTime.Parse(dtpActionEndTime.Value.ToString("yyyy-MM-dd")));
                         var uid = BaseTool.ConvertUid(txtItemUid.Text);
                         var itemName = txtInstrumentNameGet.Text;
                         var itemType = txtInstrumentTypeGet.Text;
@@ -341,7 +358,7 @@ namespace ItemCirculationManagementBackground
                                 }
                                 break;
                         }
-                        var list = query.Select(Mapper.Map<CirculationRecordView, CirculationRecord>);
+                        var list = query.Select(Mapper.Map<CirculationRecordViewModel, CirculationRecord>);
 
                         EPPlusHelper.ExportByCollection(list, fileName);
                         MessageBox.Show(@"操作成功！", @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -660,23 +677,19 @@ namespace ItemCirculationManagementBackground
             {
                 var row = lvwBook.Items[lvwBook.SelectedIndices[0]];
                 row.BackColor = Color.Gray;
-                //var items = lvwBook.FocusedItem.SubItems;
+
                 try
                 {
-                    var entity = new Item
+                    using (var db = new MySqlDbContext())
                     {
-                        Id = Convert.ToInt32(row.Tag),
-                        Uid = row.SubItems[1].Text,
-                        ItemName = row.SubItems[2].Text,
-                        ItemType = row.SubItems[3].Text,
-                        ItemLocation = row.SubItems[4].Text
-                    };
-                    var form = new FrmUpdateItem(entity)
-                    {
-                        StartPosition = FormStartPosition.CenterParent,
-                    };
-                    form.Success += Success;
-                    form.ShowDialog();
+                        var entity = db.Item.Single(x => x.Id == Convert.ToInt32(row.Tag));
+                        var form = new FrmUpdateItem(entity)
+                        {
+                            StartPosition = FormStartPosition.CenterParent,
+                        };
+                        form.Success += Success;
+                        form.ShowDialog();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -745,6 +758,17 @@ namespace ItemCirculationManagementBackground
                 MessageBox.Show(Resources.NoSelectedMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnMachineTypeAdd_Click(object sender, EventArgs e)
+        {
+            var form = new FrmAddMachineType
+            {
+                StartPosition = FormStartPosition.CenterParent,
+            };
+            form.Success += Success;
+            form.ShowDialog();
+        }
+
 
         #endregion 标签转换
 
@@ -1283,11 +1307,7 @@ namespace ItemCirculationManagementBackground
                 using (var db = new MySqlDbContext())
                 {
                     var gradeName = cmbGradeName.Text;
-                    IQueryable<Student> query = db.Student;
-                    if (gradeName != "ALL")
-                    {
-                        query = db.Student.Where(x => x.GradeName == gradeName);
-                    }
+                    var query = gradeName == "ALL" ? db.Student : db.Student.Where(x => x.GradeName == gradeName);
                     var groupQuery = query.GroupBy(x => x.ClassName).OrderBy(x => x.Key);
                     if (groupQuery.Any())
                     {
@@ -1457,5 +1477,83 @@ namespace ItemCirculationManagementBackground
         }
 
         #endregion 更多功能
+
+        #region Private methods
+
+        private ReportViewModel GenerateReport()
+        {
+            try
+            {
+                var report = new ReportViewModel();
+                using (var db = new MySqlDbContext())
+                {
+                    var loanActionList = db.Action.Where(x => x.ActionName.Contains("借出")).Select(x => x.Id).ToList();
+                    var returnActionList = db.Action.Where(x => x.ActionName.Contains("归还")).Select(x => x.Id).ToList();
+                    var loanList = db.CirculationRecord.Where(x => loanActionList.Contains(x.ActionId)).ToList();
+                    var returnList = db.CirculationRecord.Where(x => returnActionList.Contains(x.ActionId)).ToList();
+
+                    report.ServiceCount = loanList.LongCount().ToString();
+                    report.LoanPersonCount = loanList.GroupBy(x => x.StudentCardMacCode).LongCount().ToString();
+                    report.ServiceTime = db.CirculationRecord.Any() ? (db.CirculationRecord.Max(x => x.ActionTime) - db.CirculationRecord.Min(x => x.ActionTime)).Value.Days.ToString() : 0.ToString();
+                    report.GoodMachinePercentage = ConfigurationManager.AppSettings["GoodMachinePercentage"];
+
+                    var itemList = db.Item.Where(x => x.MachineId != null).ToList();
+                    var index = 0;
+                    foreach (var group in itemList.GroupBy(x => x.MachineId))
+                    {
+                        var itemUidList = group.Select(x => x.Uid).ToList();
+                        if (++index > 4)
+                        {
+                            break;
+                        }
+                        switch (index)
+                        {
+                            case 1:
+                                {
+                                    report.Machine1LoanCount = loanList.LongCount(x => itemUidList.Contains(x.ItemUid));
+                                    report.Machine1ReturnCount = returnList.LongCount(x => itemUidList.Contains(x.ItemUid));
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    report.Machine2LoanCount = loanList.LongCount(x => itemUidList.Contains(x.ItemUid));
+                                    report.Machine2ReturnCount = returnList.LongCount(x => itemUidList.Contains(x.ItemUid));
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    report.Machine3LoanCount = loanList.LongCount(x => itemUidList.Contains(x.ItemUid));
+                                    report.Machine3ReturnCount = returnList.LongCount(x => itemUidList.Contains(x.ItemUid));
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    report.Machine4LoanCount = loanList.LongCount(x => itemUidList.Contains(x.ItemUid));
+                                    report.Machine4ReturnCount = returnList.LongCount(x => itemUidList.Contains(x.ItemUid));
+                                    break;
+                                }
+                        }
+
+                    }
+
+                }
+
+                return report;
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else
+                Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                return null;
+#endif
+            }
+        }
+
+        #endregion
+
     }
 }

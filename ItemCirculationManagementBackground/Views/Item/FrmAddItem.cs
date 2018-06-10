@@ -5,6 +5,7 @@ using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using System.Text.RegularExpressions;
 using ItemCirculation.Data.DatabaseContext;
+using ItemCirculationManagementBackground.Extensions;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
@@ -21,6 +22,25 @@ namespace ItemCirculationManagementBackground.Views.Item
         private void FrmAddItem_Load(object sender, EventArgs e)
         {
             txtTagCode.Focus();
+            try
+            {
+                using (var db = new MySqlDbContext())
+                {
+                    var datatable = db.MachineType.ToList().ToDataTable();
+                    cboMachineName.DisplayMember = "MachineType";
+                    cboMachineName.ValueMember = "Id";
+                    cboMachineName.DataSource = datatable;
+                }
+            }
+            catch (Exception ex)
+            {
+#if DEBUG
+                throw;
+#else               
+                Loger.Error(ex);
+                MessageBox.Show(Resources.FailMessage, @"提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+#endif
+            }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -41,7 +61,8 @@ namespace ItemCirculationManagementBackground.Views.Item
                         ItemType = txtType.Text,
                         ItemLocation = txtLocation.Text,
                         CreateTime = DateTime.Now,
-                        ItemStateCode = 1001
+                        ItemStateCode = 1001,
+                        MachineId = Convert.ToInt32(cboMachineName.SelectedValue)
                     };
                     if (db.Item.Any(x => x.Uid == entity.Uid))
                     {

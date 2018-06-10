@@ -42,5 +42,11 @@ namespace ItemCirculation.Data.DatabaseContext
         /// 学生信息表
         /// </summary>
         public DbSet<Student> Student { get; set; }
+
+        /// <summary>
+        /// 设备类型表
+        /// </summary>
+        public DbSet<MachineType> MachineType { get; set; }
+
     }
 }

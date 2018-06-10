@@ -81,10 +81,20 @@ namespace ItemCirculation.Data.Models
 			get;
 		}
 
-		/// <summary>
-		/// 创建时间
+        /// <summary>
+		/// 设备编号
 		/// </summary>
-		[Column("create_time")]
+		[Column("Machine_Id")]
+        public int? MachineId
+        {
+            set;
+            get;
+        }
+
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        [Column("create_time")]
 		public DateTime? CreateTime
 		{
 			set;

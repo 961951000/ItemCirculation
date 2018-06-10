@@ -39,6 +39,8 @@
             this.txtTagCode1 = new System.Windows.Forms.TextBox();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.lblLocation = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboMachineName = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblTagCode
@@ -92,7 +94,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(41, 184);
+            this.btnSubmit.Location = new System.Drawing.Point(41, 200);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 6;
@@ -102,7 +104,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(165, 184);
+            this.btnCancel.Location = new System.Drawing.Point(165, 200);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -134,11 +136,30 @@
             this.lblLocation.TabIndex = 9;
             this.lblLocation.Text = "存放地点：";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 168);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "设备名称：";
+            // 
+            // cboMachineName
+            // 
+            this.cboMachineName.FormattingEnabled = true;
+            this.cboMachineName.Location = new System.Drawing.Point(105, 165);
+            this.cboMachineName.Name = "cboMachineName";
+            this.cboMachineName.Size = new System.Drawing.Size(121, 20);
+            this.cboMachineName.TabIndex = 13;
+            // 
             // FrmAddItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.cboMachineName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtLocation);
             this.Controls.Add(this.lblLocation);
             this.Controls.Add(this.txtTagCode1);
@@ -171,5 +192,7 @@
         private System.Windows.Forms.TextBox txtTagCode1;
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.Label lblLocation;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboMachineName;
     }
 }

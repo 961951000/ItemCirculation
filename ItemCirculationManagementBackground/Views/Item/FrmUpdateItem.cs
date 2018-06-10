@@ -4,9 +4,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
-using ItemCirculation.Data.Models;
 using ItemCirculation.Data.DatabaseContext;
-using ItemCirculationManagementBackground.Extensions;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
@@ -39,10 +37,9 @@ namespace ItemCirculationManagementBackground.Views.Item
                 using (var db = new MySqlDbContext())
                 {
                     var list = db.MachineType.ToList();
-                    var datatable = list.ToDataTable();
-                    cboMachineName.DisplayMember = "MachineType";
+                    cboMachineName.DataSource = list;
+                    cboMachineName.DisplayMember = "TypeName";
                     cboMachineName.ValueMember = "Id";
-                    cboMachineName.DataSource = datatable;
                     for (var i = 0; i < list.Count; i++)
                     {
                         if (list.ElementAt(i).Id == _entity.Id)

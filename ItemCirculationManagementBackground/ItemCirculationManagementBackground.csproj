@@ -113,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoMapperConfiguration.cs" />
-    <Compile Include="Extensions\ConvertExtension.cs" />
     <Compile Include="Util\EPPlusHelper.cs" />
     <Compile Include="Util\Extensions\DataTableExtensions.cs" />
     <Compile Include="ViewModels\CirculationRecordViewModel.cs" />

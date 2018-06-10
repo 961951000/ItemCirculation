@@ -5,7 +5,6 @@ using ItemCirculationManagementBackground.Properties;
 using ItemCirculationManagementBackground.Util;
 using System.Text.RegularExpressions;
 using ItemCirculation.Data.DatabaseContext;
-using ItemCirculationManagementBackground.Extensions;
 
 namespace ItemCirculationManagementBackground.Views.Item
 {
@@ -26,10 +25,10 @@ namespace ItemCirculationManagementBackground.Views.Item
             {
                 using (var db = new MySqlDbContext())
                 {
-                    var datatable = db.MachineType.ToList().ToDataTable();
-                    cboMachineName.DisplayMember = "MachineType";
+                    var list = db.MachineType.ToList();
+                    cboMachineName.DataSource = list;
+                    cboMachineName.DisplayMember = "TypeName";
                     cboMachineName.ValueMember = "Id";
-                    cboMachineName.DataSource = datatable;
                 }
             }
             catch (Exception ex)

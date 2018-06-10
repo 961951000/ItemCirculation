@@ -54,23 +54,7 @@ namespace ItemCirculationManagementBackground
             cboUserQueryOrder.SelectedIndex = 3;
             dtpActionStartTime.Value = DateTime.Parse(DateTime.Now.ToString("yyyy-01-01"));
             dtpActionEndTime.Value = DateTime.Parse(DateTime.Now.AddDays(1).ToString("yyyy-MM-dd"));
-            var report = GenerateReport();
-            lblServiceCount.Text = report.ServiceCount;
-            lblLoanPersonCount.Text = report.LoanPersonCount;
-            lblServiceTime.Text = $"{report.ServiceTime}（天）";
-            lblGoodMachinePercentage.Text = $"{report.GoodMachinePercentage}%";
-            lblMachine1Count.Text = $"{report.Machine1LoanCount + report.Machine1ReturnCount}";
-            lblMachine2Count.Text = $"{report.Machine2LoanCount + report.Machine2ReturnCount}";
-            lblMachine3Count.Text = $"{report.Machine3LoanCount + report.Machine3ReturnCount}";
-            lblMachine4Count.Text = $"{report.Machine4LoanCount + report.Machine4ReturnCount}";
-            lblMachine1LoanCount.Text = report.Machine1LoanCount.ToString();
-            lblMachine1ReturnCount.Text = report.Machine1ReturnCount.ToString();
-            lblMachine2LoanCount.Text = report.Machine2LoanCount.ToString();
-            lblMachine2ReturnCount.Text = report.Machine2ReturnCount.ToString();
-            lblMachine3LoanCount.Text = report.Machine3LoanCount.ToString();
-            lblMachine3ReturnCount.Text = report.Machine3ReturnCount.ToString();
-            lblMachine4LoanCount.Text = report.Machine4LoanCount.ToString();
-            lblMachine4ReturnCount.Text = report.Machine4ReturnCount.ToString();
+            IndexInit();
             MakingCardInIt();
         }
 
@@ -682,7 +666,8 @@ namespace ItemCirculationManagementBackground
                 {
                     using (var db = new MySqlDbContext())
                     {
-                        var entity = db.Item.Single(x => x.Id == Convert.ToInt32(row.Tag));
+                        var id = Convert.ToInt32(row.Tag);
+                        var entity = db.Item.Single(x => x.Id == id);
                         var form = new FrmUpdateItem(entity)
                         {
                             StartPosition = FormStartPosition.CenterParent,
@@ -1346,6 +1331,10 @@ namespace ItemCirculationManagementBackground
         /// </summary>
         private void tabMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
+            if (e.TabPage == pageIndex)
+            {
+                IndexInit();
+            }
             if (e.TabPage != pageHelp) { return; }
             e.Cancel = true;
             try
@@ -1551,6 +1540,27 @@ namespace ItemCirculationManagementBackground
                 return null;
 #endif
             }
+        }
+
+        private void IndexInit()
+        {
+            var report = GenerateReport();
+            lblServiceCount.Text = report.ServiceCount;
+            lblLoanPersonCount.Text = report.LoanPersonCount;
+            lblServiceTime.Text = $"{report.ServiceTime}（天）";
+            lblGoodMachinePercentage.Text = $"{report.GoodMachinePercentage}%";
+            lblMachine1Count.Text = $"{report.Machine1LoanCount + report.Machine1ReturnCount}";
+            lblMachine2Count.Text = $"{report.Machine2LoanCount + report.Machine2ReturnCount}";
+            lblMachine3Count.Text = $"{report.Machine3LoanCount + report.Machine3ReturnCount}";
+            lblMachine4Count.Text = $"{report.Machine4LoanCount + report.Machine4ReturnCount}";
+            lblMachine1LoanCount.Text = report.Machine1LoanCount.ToString();
+            lblMachine1ReturnCount.Text = report.Machine1ReturnCount.ToString();
+            lblMachine2LoanCount.Text = report.Machine2LoanCount.ToString();
+            lblMachine2ReturnCount.Text = report.Machine2ReturnCount.ToString();
+            lblMachine3LoanCount.Text = report.Machine3LoanCount.ToString();
+            lblMachine3ReturnCount.Text = report.Machine3ReturnCount.ToString();
+            lblMachine4LoanCount.Text = report.Machine4LoanCount.ToString();
+            lblMachine4ReturnCount.Text = report.Machine4ReturnCount.ToString();
         }
 
         #endregion

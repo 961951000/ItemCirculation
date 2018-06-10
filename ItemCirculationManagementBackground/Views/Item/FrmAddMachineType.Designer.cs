@@ -48,7 +48,7 @@
             this.lblMachineType.Name = "lblMachineType";
             this.lblMachineType.Size = new System.Drawing.Size(65, 12);
             this.lblMachineType.TabIndex = 5;
-            this.lblMachineType.Text = "仪器名称：";
+            this.lblMachineType.Text = "设备名称：";
             // 
             // btnCancel
             // 

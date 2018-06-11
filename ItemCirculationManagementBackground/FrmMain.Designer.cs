@@ -183,6 +183,12 @@
             this.pageMoreFeatures = new System.Windows.Forms.TabPage();
             this.btnAppendCirculationRecord = new System.Windows.Forms.Button();
             this.btnImportBookATMCirculationRecord = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.tabMain.SuspendLayout();
             this.pageIndex.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -196,6 +202,12 @@
             this.grpUserGet.SuspendLayout();
             this.grpUserSet.SuspendLayout();
             this.pageMoreFeatures.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -216,6 +228,12 @@
             // pageIndex
             // 
             this.pageIndex.BackColor = System.Drawing.Color.Thistle;
+            this.pageIndex.Controls.Add(this.pictureBox8);
+            this.pageIndex.Controls.Add(this.pictureBox7);
+            this.pageIndex.Controls.Add(this.pictureBox6);
+            this.pageIndex.Controls.Add(this.pictureBox5);
+            this.pageIndex.Controls.Add(this.pictureBox4);
+            this.pageIndex.Controls.Add(this.pictureBox3);
             this.pageIndex.Controls.Add(this.lblGoodMachinePercentage);
             this.pageIndex.Controls.Add(this.pictureBox2);
             this.pageIndex.Controls.Add(this.pictureBox1);
@@ -276,7 +294,7 @@
             // 
             this.lblGoodMachinePercentage.AutoSize = true;
             this.lblGoodMachinePercentage.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblGoodMachinePercentage.Location = new System.Drawing.Point(413, 497);
+            this.lblGoodMachinePercentage.Location = new System.Drawing.Point(458, 559);
             this.lblGoodMachinePercentage.Name = "lblGoodMachinePercentage";
             this.lblGoodMachinePercentage.Size = new System.Drawing.Size(58, 29);
             this.lblGoodMachinePercentage.TabIndex = 49;
@@ -308,7 +326,7 @@
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label50.Location = new System.Drawing.Point(225, 497);
+            this.label50.Location = new System.Drawing.Point(270, 559);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(187, 29);
             this.label50.TabIndex = 46;
@@ -318,7 +336,7 @@
             // 
             this.lblServiceTime.AutoSize = true;
             this.lblServiceTime.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblServiceTime.Location = new System.Drawing.Point(413, 463);
+            this.lblServiceTime.Location = new System.Drawing.Point(458, 503);
             this.lblServiceTime.Name = "lblServiceTime";
             this.lblServiceTime.Size = new System.Drawing.Size(115, 29);
             this.lblServiceTime.TabIndex = 45;
@@ -328,7 +346,7 @@
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label48.Location = new System.Drawing.Point(225, 463);
+            this.label48.Location = new System.Drawing.Point(270, 503);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(187, 29);
             this.label48.TabIndex = 44;
@@ -338,7 +356,7 @@
             // 
             this.lblLoanPersonCount.AutoSize = true;
             this.lblLoanPersonCount.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblLoanPersonCount.Location = new System.Drawing.Point(379, 426);
+            this.lblLoanPersonCount.Location = new System.Drawing.Point(424, 446);
             this.lblLoanPersonCount.Name = "lblLoanPersonCount";
             this.lblLoanPersonCount.Size = new System.Drawing.Size(28, 29);
             this.lblLoanPersonCount.TabIndex = 43;
@@ -348,7 +366,7 @@
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label46.Location = new System.Drawing.Point(225, 428);
+            this.label46.Location = new System.Drawing.Point(270, 448);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(158, 29);
             this.label46.TabIndex = 42;
@@ -358,7 +376,7 @@
             // 
             this.lblServiceCount.AutoSize = true;
             this.lblServiceCount.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblServiceCount.Location = new System.Drawing.Point(379, 397);
+            this.lblServiceCount.Location = new System.Drawing.Point(424, 392);
             this.lblServiceCount.Name = "lblServiceCount";
             this.lblServiceCount.Size = new System.Drawing.Size(28, 29);
             this.lblServiceCount.TabIndex = 41;
@@ -368,7 +386,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label44.Location = new System.Drawing.Point(225, 397);
+            this.label44.Location = new System.Drawing.Point(270, 392);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(158, 29);
             this.label44.TabIndex = 40;
@@ -378,7 +396,7 @@
             // 
             this.lblMachine4ReturnCount.AutoSize = true;
             this.lblMachine4ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine4ReturnCount.Location = new System.Drawing.Point(982, 322);
+            this.lblMachine4ReturnCount.Location = new System.Drawing.Point(1027, 322);
             this.lblMachine4ReturnCount.Name = "lblMachine4ReturnCount";
             this.lblMachine4ReturnCount.Size = new System.Drawing.Size(21, 21);
             this.lblMachine4ReturnCount.TabIndex = 39;
@@ -388,7 +406,7 @@
             // 
             this.lblMachine3ReturnCount.AutoSize = true;
             this.lblMachine3ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine3ReturnCount.Location = new System.Drawing.Point(823, 322);
+            this.lblMachine3ReturnCount.Location = new System.Drawing.Point(868, 322);
             this.lblMachine3ReturnCount.Name = "lblMachine3ReturnCount";
             this.lblMachine3ReturnCount.Size = new System.Drawing.Size(21, 21);
             this.lblMachine3ReturnCount.TabIndex = 38;
@@ -398,7 +416,7 @@
             // 
             this.lblMachine2ReturnCount.AutoSize = true;
             this.lblMachine2ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine2ReturnCount.Location = new System.Drawing.Point(660, 322);
+            this.lblMachine2ReturnCount.Location = new System.Drawing.Point(705, 322);
             this.lblMachine2ReturnCount.Name = "lblMachine2ReturnCount";
             this.lblMachine2ReturnCount.Size = new System.Drawing.Size(21, 21);
             this.lblMachine2ReturnCount.TabIndex = 37;
@@ -408,7 +426,7 @@
             // 
             this.lblMachine1ReturnCount.AutoSize = true;
             this.lblMachine1ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine1ReturnCount.Location = new System.Drawing.Point(507, 322);
+            this.lblMachine1ReturnCount.Location = new System.Drawing.Point(552, 322);
             this.lblMachine1ReturnCount.Name = "lblMachine1ReturnCount";
             this.lblMachine1ReturnCount.Size = new System.Drawing.Size(21, 21);
             this.lblMachine1ReturnCount.TabIndex = 36;
@@ -418,7 +436,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label38.Location = new System.Drawing.Point(733, 322);
+            this.label38.Location = new System.Drawing.Point(778, 322);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(84, 21);
             this.label38.TabIndex = 35;
@@ -428,7 +446,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label39.Location = new System.Drawing.Point(570, 322);
+            this.label39.Location = new System.Drawing.Point(615, 322);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(84, 21);
             this.label39.TabIndex = 34;
@@ -438,7 +456,7 @@
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label40.Location = new System.Drawing.Point(417, 322);
+            this.label40.Location = new System.Drawing.Point(462, 322);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(84, 21);
             this.label40.TabIndex = 33;
@@ -448,7 +466,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label41.Location = new System.Drawing.Point(892, 322);
+            this.label41.Location = new System.Drawing.Point(937, 322);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(84, 21);
             this.label41.TabIndex = 32;
@@ -458,7 +476,7 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label42.Location = new System.Drawing.Point(1009, 322);
+            this.label42.Location = new System.Drawing.Point(1054, 322);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(31, 21);
             this.label42.TabIndex = 31;
@@ -468,7 +486,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label43.Location = new System.Drawing.Point(380, 325);
+            this.label43.Location = new System.Drawing.Point(425, 325);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(31, 21);
             this.label43.TabIndex = 30;
@@ -478,7 +496,7 @@
             // 
             this.lblMachine4LoanCount.AutoSize = true;
             this.lblMachine4LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine4LoanCount.Location = new System.Drawing.Point(982, 268);
+            this.lblMachine4LoanCount.Location = new System.Drawing.Point(1027, 268);
             this.lblMachine4LoanCount.Name = "lblMachine4LoanCount";
             this.lblMachine4LoanCount.Size = new System.Drawing.Size(21, 21);
             this.lblMachine4LoanCount.TabIndex = 29;
@@ -488,7 +506,7 @@
             // 
             this.lblMachine3LoanCount.AutoSize = true;
             this.lblMachine3LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine3LoanCount.Location = new System.Drawing.Point(823, 268);
+            this.lblMachine3LoanCount.Location = new System.Drawing.Point(868, 268);
             this.lblMachine3LoanCount.Name = "lblMachine3LoanCount";
             this.lblMachine3LoanCount.Size = new System.Drawing.Size(21, 21);
             this.lblMachine3LoanCount.TabIndex = 28;
@@ -498,7 +516,7 @@
             // 
             this.lblMachine2LoanCount.AutoSize = true;
             this.lblMachine2LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine2LoanCount.Location = new System.Drawing.Point(660, 268);
+            this.lblMachine2LoanCount.Location = new System.Drawing.Point(705, 268);
             this.lblMachine2LoanCount.Name = "lblMachine2LoanCount";
             this.lblMachine2LoanCount.Size = new System.Drawing.Size(21, 21);
             this.lblMachine2LoanCount.TabIndex = 27;
@@ -508,7 +526,7 @@
             // 
             this.lblMachine1LoanCount.AutoSize = true;
             this.lblMachine1LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine1LoanCount.Location = new System.Drawing.Point(507, 268);
+            this.lblMachine1LoanCount.Location = new System.Drawing.Point(552, 268);
             this.lblMachine1LoanCount.Name = "lblMachine1LoanCount";
             this.lblMachine1LoanCount.Size = new System.Drawing.Size(21, 21);
             this.lblMachine1LoanCount.TabIndex = 26;
@@ -518,7 +536,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label30.Location = new System.Drawing.Point(733, 268);
+            this.label30.Location = new System.Drawing.Point(778, 268);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(84, 21);
             this.label30.TabIndex = 25;
@@ -528,7 +546,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label31.Location = new System.Drawing.Point(570, 268);
+            this.label31.Location = new System.Drawing.Point(615, 268);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(84, 21);
             this.label31.TabIndex = 24;
@@ -538,7 +556,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label32.Location = new System.Drawing.Point(417, 268);
+            this.label32.Location = new System.Drawing.Point(462, 268);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(84, 21);
             this.label32.TabIndex = 23;
@@ -548,7 +566,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label33.Location = new System.Drawing.Point(892, 268);
+            this.label33.Location = new System.Drawing.Point(937, 268);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(84, 21);
             this.label33.TabIndex = 22;
@@ -558,7 +576,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.Location = new System.Drawing.Point(1009, 268);
+            this.label25.Location = new System.Drawing.Point(1054, 268);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(31, 21);
             this.label25.TabIndex = 21;
@@ -568,7 +586,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label24.Location = new System.Drawing.Point(380, 268);
+            this.label24.Location = new System.Drawing.Point(425, 268);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(31, 21);
             this.label24.TabIndex = 20;
@@ -578,7 +596,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(331, 318);
+            this.label23.Location = new System.Drawing.Point(376, 318);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(43, 29);
             this.label23.TabIndex = 19;
@@ -588,7 +606,7 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label22.Location = new System.Drawing.Point(331, 261);
+            this.label22.Location = new System.Drawing.Point(376, 261);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(43, 29);
             this.label22.TabIndex = 18;
@@ -598,7 +616,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(225, 318);
+            this.label21.Location = new System.Drawing.Point(270, 318);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(100, 29);
             this.label21.TabIndex = 17;
@@ -608,7 +626,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.Location = new System.Drawing.Point(225, 261);
+            this.label20.Location = new System.Drawing.Point(270, 261);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(100, 29);
             this.label20.TabIndex = 16;
@@ -734,7 +752,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(214, 564);
+            this.groupBox4.Location = new System.Drawing.Point(214, 613);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1060, 2);
             this.groupBox4.TabIndex = 2;
@@ -1751,6 +1769,72 @@
             this.btnImportBookATMCirculationRecord.UseVisualStyleBackColor = true;
             this.btnImportBookATMCirculationRecord.Click += new System.EventHandler(this.btnImportBookATMCirculationRecord_Click);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox3.Location = new System.Drawing.Point(214, 247);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 50;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox4.Location = new System.Drawing.Point(214, 304);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 51;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox5.Location = new System.Drawing.Point(214, 380);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 52;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox6.Location = new System.Drawing.Point(214, 436);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 53;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox7.Location = new System.Drawing.Point(214, 492);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 54;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox8.Location = new System.Drawing.Point(214, 548);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 55;
+            this.pictureBox8.TabStop = false;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1780,6 +1864,12 @@
             this.grpUserGet.PerformLayout();
             this.grpUserSet.ResumeLayout(false);
             this.pageMoreFeatures.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1941,6 +2031,12 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lblGoodMachinePercentage;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
 

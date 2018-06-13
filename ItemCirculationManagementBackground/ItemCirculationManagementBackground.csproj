@@ -163,21 +163,27 @@
     <Compile Include="Util\RegexTool.cs" />
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Item\FrmAddItem.resx">
       <DependentUpon>FrmAddItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Item\FrmAddMachineType.resx">
       <DependentUpon>FrmAddMachineType.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Item\FrmUpdateItem.resx">
       <DependentUpon>FrmUpdateItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\User\FrmUpdateUser.resx">
       <DependentUpon>FrmUpdateUser.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -204,13 +210,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resource\Files\ExcelImport\标签转换导入表格.xlsx">
+    <None Include="Resources\Files\ExcelImport\学生信息导入表格.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resource\Files\上海市实验学校仪器设备管理系统使用说明.chm">
+    <None Include="Resources\Files\ExcelImport\标签转换导入表格.xlsx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resource\Files\ExcelImport\学生信息导入表格.xlsx">
+    <None Include="Resources\Files\上海市实验学校仪器设备管理系统使用说明.chm">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -220,9 +226,6 @@
   <ItemGroup>
     <None Include="Resources\h6.png" />
     <None Include="Resources\timg.jpg" />
-    <Content Include="Resource\Files\item_circulation_new.sql" />
-    <Content Include="Resource\Files\item_circulation_update20180305.sql" />
-    <Content Include="Resource\Files\item_circulation_old.sql" />
     <Content Include="Title.ico" />
   </ItemGroup>
   <ItemGroup>

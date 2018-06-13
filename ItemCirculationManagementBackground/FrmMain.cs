@@ -616,7 +616,7 @@ namespace ItemCirculationManagementBackground
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     var foldPath = dialog.SelectedPath;
-                    var path = Path.GetFullPath(@"Resource/Files/ExcelImport/标签转换导入表格.xlsx");
+                    var path = Path.GetFullPath(@"Resources/Files/ExcelImport/标签转换导入表格.xlsx");
                     var filename = Path.Combine(foldPath, Path.GetFileName(path));
                     ProgressBar prog;
                     Label label;
@@ -917,7 +917,7 @@ namespace ItemCirculationManagementBackground
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     var foldPath = dialog.SelectedPath;
-                    var path = Path.GetFullPath(@"Resource/Files/ExcelImport/学生信息导入表格.xlsx");
+                    var path = Path.GetFullPath(@"Resources/Files/ExcelImport/学生信息导入表格.xlsx");
                     var filename = Path.Combine(foldPath, Path.GetFileName(path));
                     ProgressBar prog;
                     Label label;
@@ -1339,7 +1339,7 @@ namespace ItemCirculationManagementBackground
             e.Cancel = true;
             try
             {
-                var helpfile = Path.GetFullPath(@"Resource/Files/上海市实验学校仪器设备管理系统使用说明.chm");
+                var helpfile = Path.GetFullPath(@"Resources/Files/上海市实验学校仪器设备管理系统使用说明.chm");
                 Help.ShowHelp(this, helpfile);
             }
             catch (Exception ex)
@@ -1481,6 +1481,7 @@ namespace ItemCirculationManagementBackground
                     var loanList = db.CirculationRecord.Where(x => loanActionList.Contains(x.ActionId)).ToList();
                     var returnList = db.CirculationRecord.Where(x => returnActionList.Contains(x.ActionId)).ToList();
 
+                    report.MachineCount = db.MachineType.Count();
                     report.ServiceCount = loanList.LongCount().ToString();
                     report.LoanPersonCount = loanList.GroupBy(x => x.StudentCardMacCode).LongCount().ToString();
                     report.ServiceTime = db.CirculationRecord.Any() ? (db.CirculationRecord.Max(x => x.ActionTime) - db.CirculationRecord.Min(x => x.ActionTime)).Value.Days.ToString() : 0.ToString();
@@ -1545,6 +1546,7 @@ namespace ItemCirculationManagementBackground
         private void IndexInit()
         {
             var report = GenerateReport();
+            lblMachineCount.Text = $"{report.MachineCount}";
             lblServiceCount.Text = report.ServiceCount;
             lblLoanPersonCount.Text = report.LoanPersonCount;
             lblServiceTime.Text = $"{report.ServiceTime}（天）";
@@ -1553,6 +1555,8 @@ namespace ItemCirculationManagementBackground
             lblMachine2Count.Text = $"{report.Machine2LoanCount + report.Machine2ReturnCount}";
             lblMachine3Count.Text = $"{report.Machine3LoanCount + report.Machine3ReturnCount}";
             lblMachine4Count.Text = $"{report.Machine4LoanCount + report.Machine4ReturnCount}";
+            lblMachineLoanCount.Text = $"{report.Machine1LoanCount + report.Machine2LoanCount + report.Machine3LoanCount + report.Machine4LoanCount}";
+            lblMachineReturnCount.Text = $"{report.Machine1ReturnCount + report.Machine2ReturnCount + report.Machine3ReturnCount + report.Machine4ReturnCount}";
             lblMachine1LoanCount.Text = report.Machine1LoanCount.ToString();
             lblMachine1ReturnCount.Text = report.Machine1ReturnCount.ToString();
             lblMachine2LoanCount.Text = report.Machine2LoanCount.ToString();

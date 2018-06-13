@@ -30,6 +30,12 @@
         {
             this.tabMain = new System.Windows.Forms.TabControl();
             this.pageIndex = new System.Windows.Forms.TabPage();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblGoodMachinePercentage = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -60,8 +66,8 @@
             this.label33 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.lblMachineReturnCount = new System.Windows.Forms.Label();
+            this.lblMachineLoanCount = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -75,7 +81,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblMachineCount = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -183,14 +189,14 @@
             this.pageMoreFeatures = new System.Windows.Forms.TabPage();
             this.btnAppendCirculationRecord = new System.Windows.Forms.Button();
             this.btnImportBookATMCirculationRecord = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.tabMain.SuspendLayout();
             this.pageIndex.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pageQueryStatistics.SuspendLayout();
@@ -202,12 +208,6 @@
             this.grpUserGet.SuspendLayout();
             this.grpUserSet.SuspendLayout();
             this.pageMoreFeatures.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -264,8 +264,8 @@
             this.pageIndex.Controls.Add(this.label33);
             this.pageIndex.Controls.Add(this.label25);
             this.pageIndex.Controls.Add(this.label24);
-            this.pageIndex.Controls.Add(this.label23);
-            this.pageIndex.Controls.Add(this.label22);
+            this.pageIndex.Controls.Add(this.lblMachineReturnCount);
+            this.pageIndex.Controls.Add(this.lblMachineLoanCount);
             this.pageIndex.Controls.Add(this.label21);
             this.pageIndex.Controls.Add(this.label20);
             this.pageIndex.Controls.Add(this.label19);
@@ -279,7 +279,7 @@
             this.pageIndex.Controls.Add(this.label11);
             this.pageIndex.Controls.Add(this.label10);
             this.pageIndex.Controls.Add(this.label7);
-            this.pageIndex.Controls.Add(this.label6);
+            this.pageIndex.Controls.Add(this.lblMachineCount);
             this.pageIndex.Controls.Add(this.groupBox4);
             this.pageIndex.Controls.Add(this.groupBox3);
             this.pageIndex.Controls.Add(this.groupBox2);
@@ -289,6 +289,72 @@
             this.pageIndex.Size = new System.Drawing.Size(1384, 701);
             this.pageIndex.TabIndex = 5;
             this.pageIndex.Text = "数据总览";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox8.Location = new System.Drawing.Point(214, 548);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 55;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox7.Location = new System.Drawing.Point(214, 492);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 54;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox6.Location = new System.Drawing.Point(214, 436);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 53;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox5.Location = new System.Drawing.Point(214, 380);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 52;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox4.Location = new System.Drawing.Point(214, 304);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 51;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox3.Location = new System.Drawing.Point(214, 247);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 50;
+            this.pictureBox3.TabStop = false;
             // 
             // lblGoodMachinePercentage
             // 
@@ -592,25 +658,25 @@
             this.label24.TabIndex = 20;
             this.label24.Text = "（";
             // 
-            // label23
+            // lblMachineReturnCount
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(376, 318);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(43, 29);
-            this.label23.TabIndex = 19;
-            this.label23.Text = "11";
+            this.lblMachineReturnCount.AutoSize = true;
+            this.lblMachineReturnCount.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachineReturnCount.Location = new System.Drawing.Point(376, 318);
+            this.lblMachineReturnCount.Name = "lblMachineReturnCount";
+            this.lblMachineReturnCount.Size = new System.Drawing.Size(28, 29);
+            this.lblMachineReturnCount.TabIndex = 19;
+            this.lblMachineReturnCount.Text = "0";
             // 
-            // label22
+            // lblMachineLoanCount
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label22.Location = new System.Drawing.Point(376, 261);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(43, 29);
-            this.label22.TabIndex = 18;
-            this.label22.Text = "10";
+            this.lblMachineLoanCount.AutoSize = true;
+            this.lblMachineLoanCount.Font = new System.Drawing.Font("宋体", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachineLoanCount.Location = new System.Drawing.Point(376, 261);
+            this.lblMachineLoanCount.Name = "lblMachineLoanCount";
+            this.lblMachineLoanCount.Size = new System.Drawing.Size(28, 29);
+            this.lblMachineLoanCount.TabIndex = 18;
+            this.lblMachineLoanCount.Text = "0";
             // 
             // label21
             // 
@@ -740,15 +806,15 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "种类4：";
             // 
-            // label6
+            // lblMachineCount
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(716, 128);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 35);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "10";
+            this.lblMachineCount.AutoSize = true;
+            this.lblMachineCount.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachineCount.Location = new System.Drawing.Point(716, 128);
+            this.lblMachineCount.Name = "lblMachineCount";
+            this.lblMachineCount.Size = new System.Drawing.Size(33, 35);
+            this.lblMachineCount.TabIndex = 4;
+            this.lblMachineCount.Text = "0";
             // 
             // groupBox4
             // 
@@ -1769,72 +1835,6 @@
             this.btnImportBookATMCirculationRecord.UseVisualStyleBackColor = true;
             this.btnImportBookATMCirculationRecord.Click += new System.EventHandler(this.btnImportBookATMCirculationRecord_Click);
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox3.Location = new System.Drawing.Point(214, 247);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 50;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox4.Location = new System.Drawing.Point(214, 304);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 51;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox5.Location = new System.Drawing.Point(214, 380);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 52;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox6.Location = new System.Drawing.Point(214, 436);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 53;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox7.Location = new System.Drawing.Point(214, 492);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 54;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox8.Location = new System.Drawing.Point(214, 548);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 55;
-            this.pictureBox8.TabStop = false;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1848,6 +1848,12 @@
             this.tabMain.ResumeLayout(false);
             this.pageIndex.ResumeLayout(false);
             this.pageIndex.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pageQueryStatistics.ResumeLayout(false);
@@ -1864,12 +1870,6 @@
             this.grpUserGet.PerformLayout();
             this.grpUserSet.ResumeLayout(false);
             this.pageMoreFeatures.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1985,7 +1985,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnMachineTypeAdd;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblMachineCount;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
@@ -1999,8 +1999,8 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label lblMachineReturnCount;
+        private System.Windows.Forms.Label lblMachineLoanCount;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label lblMachine4ReturnCount;
         private System.Windows.Forms.Label lblMachine3ReturnCount;

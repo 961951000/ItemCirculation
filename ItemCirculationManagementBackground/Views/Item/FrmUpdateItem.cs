@@ -42,7 +42,7 @@ namespace ItemCirculationManagementBackground.Views.Item
                     cboMachineName.ValueMember = "Id";
                     for (var i = 0; i < list.Count; i++)
                     {
-                        if (list.ElementAt(i).Id == _entity.Id)
+                        if (list.ElementAt(i).Id == _entity.MachineId)
                         {
                             cboMachineName.SelectedIndex = i;
                             break;

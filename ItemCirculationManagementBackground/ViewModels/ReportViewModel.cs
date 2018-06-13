@@ -8,6 +8,12 @@ namespace ItemCirculationManagementBackground.ViewModels
 {
     public class ReportViewModel
     {
+        public int MachineCount
+        {
+            set;
+            get;
+        }
+
         public string ServiceCount
         {
             set;

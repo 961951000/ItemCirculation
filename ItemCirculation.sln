@@ -17,16 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemCirculation.Core", "Ite
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{48B84A86-1EB6-4936-9F71-2390C438B3F2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{4D87D064-0B1B-4437-A2B0-292D9BF35A19}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql", "sql", "{196F5208-75F8-4843-86A0-810EACD155C3}"
-	ProjectSection(SolutionItems) = preProject
-		ItemCirculationManagementBackground\Resources\Files\item_circulation.sql = ItemCirculationManagementBackground\Resources\Files\item_circulation.sql
-		ItemCirculationManagementBackground\Resources\Files\item_circulation_old.sql = ItemCirculationManagementBackground\Resources\Files\item_circulation_old.sql
-		ItemCirculationManagementBackground\Resources\Files\item_circulation_update20180305.sql = ItemCirculationManagementBackground\Resources\Files\item_circulation_update20180305.sql
-		ItemCirculationManagementBackground\Resources\Files\item_circulation_update20180613.sql = ItemCirculationManagementBackground\Resources\Files\item_circulation_update20180613.sql
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,7 +105,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{05057019-B8EB-41EE-855B-AD9FEE2DD112} = {48B84A86-1EB6-4936-9F71-2390C438B3F2}
-		{196F5208-75F8-4843-86A0-810EACD155C3} = {4D87D064-0B1B-4437-A2B0-292D9BF35A19}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ABFD189D-44CA-4F08-83B1-7DA90389695D}

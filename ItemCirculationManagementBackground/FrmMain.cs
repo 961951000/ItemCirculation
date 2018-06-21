@@ -1554,7 +1554,6 @@ namespace ItemCirculationManagementBackground
             lblMachine1Count.Text = $"{report.Machine1LoanCount + report.Machine1ReturnCount}";
             lblMachine2Count.Text = $"{report.Machine2LoanCount + report.Machine2ReturnCount}";
             lblMachine3Count.Text = $"{report.Machine3LoanCount + report.Machine3ReturnCount}";
-            lblMachine4Count.Text = $"{report.Machine4LoanCount + report.Machine4ReturnCount}";
             lblMachineLoanCount.Text = $"{report.Machine1LoanCount + report.Machine2LoanCount + report.Machine3LoanCount + report.Machine4LoanCount}";
             lblMachineReturnCount.Text = $"{report.Machine1ReturnCount + report.Machine2ReturnCount + report.Machine3ReturnCount + report.Machine4ReturnCount}";
             lblMachine1LoanCount.Text = report.Machine1LoanCount.ToString();

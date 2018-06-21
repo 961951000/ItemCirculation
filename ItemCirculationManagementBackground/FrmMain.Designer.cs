@@ -30,6 +30,7 @@
         {
             this.tabMain = new System.Windows.Forms.TabControl();
             this.pageIndex = new System.Windows.Forms.TabPage();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -187,9 +188,9 @@
             this.pageMoreFeatures = new System.Windows.Forms.TabPage();
             this.btnAppendCirculationRecord = new System.Windows.Forms.Button();
             this.btnImportBookATMCirculationRecord = new System.Windows.Forms.Button();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.tabMain.SuspendLayout();
             this.pageIndex.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -207,7 +208,6 @@
             this.grpUserGet.SuspendLayout();
             this.grpUserSet.SuspendLayout();
             this.pageMoreFeatures.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMain
@@ -227,7 +227,7 @@
             // 
             // pageIndex
             // 
-            this.pageIndex.BackColor = System.Drawing.Color.Thistle;
+            this.pageIndex.BackColor = System.Drawing.Color.RoyalBlue;
             this.pageIndex.Controls.Add(this.pictureBox9);
             this.pageIndex.Controls.Add(this.pictureBox8);
             this.pageIndex.Controls.Add(this.pictureBox7);
@@ -288,6 +288,17 @@
             this.pageIndex.Size = new System.Drawing.Size(1384, 701);
             this.pageIndex.TabIndex = 5;
             this.pageIndex.Text = "数据总览";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox9.Location = new System.Drawing.Point(703, 149);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 56;
+            this.pictureBox9.TabStop = false;
             // 
             // pictureBox8
             // 
@@ -359,6 +370,7 @@
             // 
             this.lblGoodMachinePercentage.AutoSize = true;
             this.lblGoodMachinePercentage.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblGoodMachinePercentage.ForeColor = System.Drawing.Color.White;
             this.lblGoodMachinePercentage.Location = new System.Drawing.Point(458, 559);
             this.lblGoodMachinePercentage.Name = "lblGoodMachinePercentage";
             this.lblGoodMachinePercentage.Size = new System.Drawing.Size(43, 21);
@@ -391,6 +403,7 @@
             // 
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label50.ForeColor = System.Drawing.Color.White;
             this.label50.Location = new System.Drawing.Point(270, 559);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(136, 21);
@@ -401,6 +414,7 @@
             // 
             this.lblServiceTime.AutoSize = true;
             this.lblServiceTime.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblServiceTime.ForeColor = System.Drawing.Color.White;
             this.lblServiceTime.Location = new System.Drawing.Point(458, 503);
             this.lblServiceTime.Name = "lblServiceTime";
             this.lblServiceTime.Size = new System.Drawing.Size(84, 21);
@@ -411,6 +425,7 @@
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label48.ForeColor = System.Drawing.Color.White;
             this.label48.Location = new System.Drawing.Point(270, 503);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(136, 21);
@@ -421,6 +436,7 @@
             // 
             this.lblLoanPersonCount.AutoSize = true;
             this.lblLoanPersonCount.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblLoanPersonCount.ForeColor = System.Drawing.Color.White;
             this.lblLoanPersonCount.Location = new System.Drawing.Point(424, 446);
             this.lblLoanPersonCount.Name = "lblLoanPersonCount";
             this.lblLoanPersonCount.Size = new System.Drawing.Size(21, 21);
@@ -431,6 +447,7 @@
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label46.ForeColor = System.Drawing.Color.White;
             this.label46.Location = new System.Drawing.Point(270, 448);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(115, 21);
@@ -441,6 +458,7 @@
             // 
             this.lblServiceCount.AutoSize = true;
             this.lblServiceCount.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblServiceCount.ForeColor = System.Drawing.Color.White;
             this.lblServiceCount.Location = new System.Drawing.Point(424, 392);
             this.lblServiceCount.Name = "lblServiceCount";
             this.lblServiceCount.Size = new System.Drawing.Size(21, 21);
@@ -451,6 +469,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label44.ForeColor = System.Drawing.Color.White;
             this.label44.Location = new System.Drawing.Point(270, 392);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(115, 21);
@@ -461,6 +480,7 @@
             // 
             this.lblMachine4ReturnCount.AutoSize = true;
             this.lblMachine4ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine4ReturnCount.ForeColor = System.Drawing.Color.White;
             this.lblMachine4ReturnCount.Location = new System.Drawing.Point(993, 318);
             this.lblMachine4ReturnCount.Name = "lblMachine4ReturnCount";
             this.lblMachine4ReturnCount.Size = new System.Drawing.Size(21, 21);
@@ -471,6 +491,7 @@
             // 
             this.lblMachine3ReturnCount.AutoSize = true;
             this.lblMachine3ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine3ReturnCount.ForeColor = System.Drawing.Color.White;
             this.lblMachine3ReturnCount.Location = new System.Drawing.Point(834, 318);
             this.lblMachine3ReturnCount.Name = "lblMachine3ReturnCount";
             this.lblMachine3ReturnCount.Size = new System.Drawing.Size(21, 21);
@@ -481,6 +502,7 @@
             // 
             this.lblMachine2ReturnCount.AutoSize = true;
             this.lblMachine2ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine2ReturnCount.ForeColor = System.Drawing.Color.White;
             this.lblMachine2ReturnCount.Location = new System.Drawing.Point(671, 318);
             this.lblMachine2ReturnCount.Name = "lblMachine2ReturnCount";
             this.lblMachine2ReturnCount.Size = new System.Drawing.Size(21, 21);
@@ -491,6 +513,7 @@
             // 
             this.lblMachine1ReturnCount.AutoSize = true;
             this.lblMachine1ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine1ReturnCount.ForeColor = System.Drawing.Color.White;
             this.lblMachine1ReturnCount.Location = new System.Drawing.Point(518, 318);
             this.lblMachine1ReturnCount.Name = "lblMachine1ReturnCount";
             this.lblMachine1ReturnCount.Size = new System.Drawing.Size(21, 21);
@@ -501,6 +524,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label38.ForeColor = System.Drawing.Color.White;
             this.label38.Location = new System.Drawing.Point(744, 318);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(84, 21);
@@ -511,6 +535,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label39.ForeColor = System.Drawing.Color.White;
             this.label39.Location = new System.Drawing.Point(581, 318);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(84, 21);
@@ -521,6 +546,7 @@
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label40.ForeColor = System.Drawing.Color.White;
             this.label40.Location = new System.Drawing.Point(428, 318);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(84, 21);
@@ -531,6 +557,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label41.ForeColor = System.Drawing.Color.White;
             this.label41.Location = new System.Drawing.Point(903, 318);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(84, 21);
@@ -541,6 +568,7 @@
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label42.ForeColor = System.Drawing.Color.White;
             this.label42.Location = new System.Drawing.Point(1020, 318);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(31, 21);
@@ -551,6 +579,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label43.ForeColor = System.Drawing.Color.White;
             this.label43.Location = new System.Drawing.Point(391, 321);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(31, 21);
@@ -561,6 +590,7 @@
             // 
             this.lblMachine4LoanCount.AutoSize = true;
             this.lblMachine4LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine4LoanCount.ForeColor = System.Drawing.Color.White;
             this.lblMachine4LoanCount.Location = new System.Drawing.Point(993, 261);
             this.lblMachine4LoanCount.Name = "lblMachine4LoanCount";
             this.lblMachine4LoanCount.Size = new System.Drawing.Size(21, 21);
@@ -571,6 +601,7 @@
             // 
             this.lblMachine3LoanCount.AutoSize = true;
             this.lblMachine3LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine3LoanCount.ForeColor = System.Drawing.Color.White;
             this.lblMachine3LoanCount.Location = new System.Drawing.Point(834, 261);
             this.lblMachine3LoanCount.Name = "lblMachine3LoanCount";
             this.lblMachine3LoanCount.Size = new System.Drawing.Size(21, 21);
@@ -581,6 +612,7 @@
             // 
             this.lblMachine2LoanCount.AutoSize = true;
             this.lblMachine2LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine2LoanCount.ForeColor = System.Drawing.Color.White;
             this.lblMachine2LoanCount.Location = new System.Drawing.Point(671, 261);
             this.lblMachine2LoanCount.Name = "lblMachine2LoanCount";
             this.lblMachine2LoanCount.Size = new System.Drawing.Size(21, 21);
@@ -591,6 +623,7 @@
             // 
             this.lblMachine1LoanCount.AutoSize = true;
             this.lblMachine1LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblMachine1LoanCount.ForeColor = System.Drawing.Color.White;
             this.lblMachine1LoanCount.Location = new System.Drawing.Point(518, 261);
             this.lblMachine1LoanCount.Name = "lblMachine1LoanCount";
             this.lblMachine1LoanCount.Size = new System.Drawing.Size(21, 21);
@@ -601,6 +634,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label30.ForeColor = System.Drawing.Color.White;
             this.label30.Location = new System.Drawing.Point(744, 261);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(84, 21);
@@ -611,6 +645,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label31.ForeColor = System.Drawing.Color.White;
             this.label31.Location = new System.Drawing.Point(581, 261);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(84, 21);
@@ -621,6 +656,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label32.ForeColor = System.Drawing.Color.White;
             this.label32.Location = new System.Drawing.Point(428, 261);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(84, 21);
@@ -631,6 +667,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label33.ForeColor = System.Drawing.Color.White;
             this.label33.Location = new System.Drawing.Point(903, 261);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(84, 21);
@@ -641,6 +678,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label25.ForeColor = System.Drawing.Color.White;
             this.label25.Location = new System.Drawing.Point(1020, 261);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(31, 21);
@@ -651,6 +689,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(391, 261);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(31, 21);
@@ -661,6 +700,7 @@
             // 
             this.lblMachineReturnCount.AutoSize = true;
             this.lblMachineReturnCount.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblMachineReturnCount.ForeColor = System.Drawing.Color.White;
             this.lblMachineReturnCount.Location = new System.Drawing.Point(376, 318);
             this.lblMachineReturnCount.Name = "lblMachineReturnCount";
             this.lblMachineReturnCount.Size = new System.Drawing.Size(21, 21);
@@ -671,6 +711,7 @@
             // 
             this.lblMachineLoanCount.AutoSize = true;
             this.lblMachineLoanCount.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblMachineLoanCount.ForeColor = System.Drawing.Color.White;
             this.lblMachineLoanCount.Location = new System.Drawing.Point(376, 261);
             this.lblMachineLoanCount.Name = "lblMachineLoanCount";
             this.lblMachineLoanCount.Size = new System.Drawing.Size(21, 21);
@@ -681,6 +722,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label21.ForeColor = System.Drawing.Color.White;
             this.label21.Location = new System.Drawing.Point(270, 318);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(73, 21);
@@ -691,6 +733,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.Location = new System.Drawing.Point(270, 261);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(73, 21);
@@ -701,6 +744,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label19.ForeColor = System.Drawing.Color.White;
             this.label19.Location = new System.Drawing.Point(270, 169);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(115, 21);
@@ -711,6 +755,7 @@
             // 
             this.lblMachine3Count.AutoSize = true;
             this.lblMachine3Count.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblMachine3Count.ForeColor = System.Drawing.Color.White;
             this.lblMachine3Count.Location = new System.Drawing.Point(1046, 208);
             this.lblMachine3Count.Name = "lblMachine3Count";
             this.lblMachine3Count.Size = new System.Drawing.Size(21, 21);
@@ -721,6 +766,7 @@
             // 
             this.lblMachine2Count.AutoSize = true;
             this.lblMachine2Count.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblMachine2Count.ForeColor = System.Drawing.Color.White;
             this.lblMachine2Count.Location = new System.Drawing.Point(1046, 161);
             this.lblMachine2Count.Name = "lblMachine2Count";
             this.lblMachine2Count.Size = new System.Drawing.Size(21, 21);
@@ -731,6 +777,7 @@
             // 
             this.lblMachine1Count.AutoSize = true;
             this.lblMachine1Count.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblMachine1Count.ForeColor = System.Drawing.Color.White;
             this.lblMachine1Count.Location = new System.Drawing.Point(1046, 117);
             this.lblMachine1Count.Name = "lblMachine1Count";
             this.lblMachine1Count.Size = new System.Drawing.Size(21, 21);
@@ -741,6 +788,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(759, 161);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(115, 21);
@@ -751,6 +799,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(925, 208);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 21);
@@ -761,6 +810,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label12.ForeColor = System.Drawing.Color.White;
             this.label12.Location = new System.Drawing.Point(925, 161);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 21);
@@ -771,6 +821,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(925, 117);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 21);
@@ -789,6 +840,7 @@
             // 
             this.lblMachineCount.AutoSize = true;
             this.lblMachineCount.Font = new System.Drawing.Font("宋体", 15.75F);
+            this.lblMachineCount.ForeColor = System.Drawing.Color.White;
             this.lblMachineCount.Location = new System.Drawing.Point(468, 169);
             this.lblMachineCount.Name = "lblMachineCount";
             this.lblMachineCount.Size = new System.Drawing.Size(21, 21);
@@ -1814,17 +1866,6 @@
             this.btnImportBookATMCirculationRecord.UseVisualStyleBackColor = true;
             this.btnImportBookATMCirculationRecord.Click += new System.EventHandler(this.btnImportBookATMCirculationRecord_Click);
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox9.Location = new System.Drawing.Point(703, 149);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 56;
-            this.pictureBox9.TabStop = false;
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1838,6 +1879,7 @@
             this.tabMain.ResumeLayout(false);
             this.pageIndex.ResumeLayout(false);
             this.pageIndex.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -1860,7 +1902,6 @@
             this.grpUserGet.PerformLayout();
             this.grpUserSet.ResumeLayout(false);
             this.pageMoreFeatures.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }

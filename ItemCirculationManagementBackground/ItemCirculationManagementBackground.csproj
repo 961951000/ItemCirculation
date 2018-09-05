@@ -229,6 +229,7 @@
   <ItemGroup>
     <None Include="Resources\h6.png" />
     <None Include="Resources\timg.jpg" />
+    <None Include="Resources\index.jpg" />
     <Content Include="Title.ico" />
   </ItemGroup>
   <ItemGroup>

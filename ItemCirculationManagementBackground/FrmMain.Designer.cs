@@ -215,7 +215,7 @@
             this.tabMain.Controls.Add(this.pageHelp);
             this.tabMain.Controls.Add(this.pageMoreFeatures);
             this.tabMain.Location = new System.Drawing.Point(3, 1);
-            this.tabMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabMain.Margin = new System.Windows.Forms.Padding(4);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
             this.tabMain.Size = new System.Drawing.Size(1856, 909);
@@ -276,9 +276,9 @@
             this.pageIndex.Controls.Add(this.groupBox3);
             this.pageIndex.Controls.Add(this.groupBox2);
             this.pageIndex.Location = new System.Drawing.Point(4, 25);
-            this.pageIndex.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageIndex.Margin = new System.Windows.Forms.Padding(4);
             this.pageIndex.Name = "pageIndex";
-            this.pageIndex.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageIndex.Padding = new System.Windows.Forms.Padding(4);
             this.pageIndex.Size = new System.Drawing.Size(1848, 880);
             this.pageIndex.TabIndex = 5;
             this.pageIndex.Text = "数据总览";
@@ -286,9 +286,9 @@
             // pictureBox9
             // 
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox9.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
             this.pictureBox9.Location = new System.Drawing.Point(937, 186);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(67, 62);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -298,9 +298,9 @@
             // pictureBox8
             // 
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox8.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
             this.pictureBox8.Location = new System.Drawing.Point(285, 685);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(67, 62);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -310,9 +310,9 @@
             // pictureBox7
             // 
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox7.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
             this.pictureBox7.Location = new System.Drawing.Point(285, 615);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(67, 62);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -322,9 +322,9 @@
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox6.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
             this.pictureBox6.Location = new System.Drawing.Point(285, 545);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(67, 62);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -334,9 +334,9 @@
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox5.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
             this.pictureBox5.Location = new System.Drawing.Point(285, 475);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(67, 62);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -346,9 +346,9 @@
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox4.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
             this.pictureBox4.Location = new System.Drawing.Point(285, 380);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(67, 62);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -358,9 +358,9 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox3.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
             this.pictureBox3.Location = new System.Drawing.Point(285, 309);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(67, 62);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -382,9 +382,9 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
+            this.pictureBox2.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
             this.pictureBox2.Location = new System.Drawing.Point(285, 199);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(67, 62);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -396,7 +396,7 @@
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::ItemCirculationManagementBackground.Properties.Resources.h6;
             this.pictureBox1.Location = new System.Drawing.Point(36, 20);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(721, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -847,9 +847,9 @@
             // groupBox4
             // 
             this.groupBox4.Location = new System.Drawing.Point(285, 766);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(1413, 2);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
@@ -857,9 +857,9 @@
             // groupBox3
             // 
             this.groupBox3.Location = new System.Drawing.Point(285, 450);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(1413, 2);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
@@ -868,9 +868,9 @@
             // 
             this.groupBox2.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(285, 299);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(1413, 2);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
@@ -880,9 +880,9 @@
             this.pageQueryStatistics.Controls.Add(this.groupBox1);
             this.pageQueryStatistics.Controls.Add(this.lvwCirculation);
             this.pageQueryStatistics.Location = new System.Drawing.Point(4, 25);
-            this.pageQueryStatistics.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageQueryStatistics.Margin = new System.Windows.Forms.Padding(4);
             this.pageQueryStatistics.Name = "pageQueryStatistics";
-            this.pageQueryStatistics.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageQueryStatistics.Padding = new System.Windows.Forms.Padding(4);
             this.pageQueryStatistics.Size = new System.Drawing.Size(1848, 880);
             this.pageQueryStatistics.TabIndex = 0;
             this.pageQueryStatistics.Text = "查询统计";
@@ -912,9 +912,9 @@
             this.groupBox1.Controls.Add(this.txtLendUserStudentGet);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(80, 62);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(1672, 251);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
@@ -922,7 +922,7 @@
             // txtItemUid
             // 
             this.txtItemUid.Location = new System.Drawing.Point(139, 198);
-            this.txtItemUid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtItemUid.Margin = new System.Windows.Forms.Padding(4);
             this.txtItemUid.Name = "txtItemUid";
             this.txtItemUid.Size = new System.Drawing.Size(132, 25);
             this.txtItemUid.TabIndex = 44;
@@ -940,7 +940,7 @@
             // btnExportData
             // 
             this.btnExportData.Location = new System.Drawing.Point(1472, 188);
-            this.btnExportData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExportData.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportData.Name = "btnExportData";
             this.btnExportData.Size = new System.Drawing.Size(131, 42);
             this.btnExportData.TabIndex = 42;
@@ -951,7 +951,7 @@
             // dtpActionEndTime
             // 
             this.dtpActionEndTime.Location = new System.Drawing.Point(1152, 72);
-            this.dtpActionEndTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpActionEndTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpActionEndTime.Name = "dtpActionEndTime";
             this.dtpActionEndTime.Size = new System.Drawing.Size(265, 25);
             this.dtpActionEndTime.TabIndex = 41;
@@ -969,7 +969,7 @@
             // btnImportCirculation
             // 
             this.btnImportCirculation.Location = new System.Drawing.Point(1472, 132);
-            this.btnImportCirculation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImportCirculation.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportCirculation.Name = "btnImportCirculation";
             this.btnImportCirculation.Size = new System.Drawing.Size(131, 40);
             this.btnImportCirculation.TabIndex = 39;
@@ -980,7 +980,7 @@
             // txtInstrumentNameGet
             // 
             this.txtInstrumentNameGet.Location = new System.Drawing.Point(139, 72);
-            this.txtInstrumentNameGet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInstrumentNameGet.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstrumentNameGet.Name = "txtInstrumentNameGet";
             this.txtInstrumentNameGet.Size = new System.Drawing.Size(132, 25);
             this.txtInstrumentNameGet.TabIndex = 24;
@@ -990,7 +990,7 @@
             this.rdoCirculationOrderDesc.AutoSize = true;
             this.rdoCirculationOrderDesc.Checked = true;
             this.rdoCirculationOrderDesc.Location = new System.Drawing.Point(1011, 142);
-            this.rdoCirculationOrderDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoCirculationOrderDesc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoCirculationOrderDesc.Name = "rdoCirculationOrderDesc";
             this.rdoCirculationOrderDesc.Size = new System.Drawing.Size(58, 19);
             this.rdoCirculationOrderDesc.TabIndex = 30;
@@ -1002,7 +1002,7 @@
             // 
             this.rdoCirculationOrderAsc.AutoSize = true;
             this.rdoCirculationOrderAsc.Location = new System.Drawing.Point(923, 142);
-            this.rdoCirculationOrderAsc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoCirculationOrderAsc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoCirculationOrderAsc.Name = "rdoCirculationOrderAsc";
             this.rdoCirculationOrderAsc.Size = new System.Drawing.Size(58, 19);
             this.rdoCirculationOrderAsc.TabIndex = 29;
@@ -1040,7 +1040,7 @@
             "存放地点",
             "操作时间"});
             this.cboCirculationOrder.Location = new System.Drawing.Point(736, 141);
-            this.cboCirculationOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboCirculationOrder.Margin = new System.Windows.Forms.Padding(4);
             this.cboCirculationOrder.Name = "cboCirculationOrder";
             this.cboCirculationOrder.Size = new System.Drawing.Size(160, 23);
             this.cboCirculationOrder.TabIndex = 27;
@@ -1048,7 +1048,7 @@
             // btnQueryCirculation
             // 
             this.btnQueryCirculation.Location = new System.Drawing.Point(1152, 128);
-            this.btnQueryCirculation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnQueryCirculation.Margin = new System.Windows.Forms.Padding(4);
             this.btnQueryCirculation.Name = "btnQueryCirculation";
             this.btnQueryCirculation.Size = new System.Drawing.Size(212, 70);
             this.btnQueryCirculation.TabIndex = 26;
@@ -1069,7 +1069,7 @@
             // txtInstrumentTypeGet
             // 
             this.txtInstrumentTypeGet.Location = new System.Drawing.Point(139, 138);
-            this.txtInstrumentTypeGet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInstrumentTypeGet.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstrumentTypeGet.Name = "txtInstrumentTypeGet";
             this.txtInstrumentTypeGet.Size = new System.Drawing.Size(132, 25);
             this.txtInstrumentTypeGet.TabIndex = 25;
@@ -1097,7 +1097,7 @@
             // txtLendUserNameGet
             // 
             this.txtLendUserNameGet.Location = new System.Drawing.Point(421, 72);
-            this.txtLendUserNameGet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLendUserNameGet.Margin = new System.Windows.Forms.Padding(4);
             this.txtLendUserNameGet.Name = "txtLendUserNameGet";
             this.txtLendUserNameGet.Size = new System.Drawing.Size(132, 25);
             this.txtLendUserNameGet.TabIndex = 33;
@@ -1105,7 +1105,7 @@
             // dtpActionStartTime
             // 
             this.dtpActionStartTime.Location = new System.Drawing.Point(736, 72);
-            this.dtpActionStartTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpActionStartTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpActionStartTime.Name = "dtpActionStartTime";
             this.dtpActionStartTime.Size = new System.Drawing.Size(265, 25);
             this.dtpActionStartTime.TabIndex = 36;
@@ -1113,7 +1113,7 @@
             // txtLendUserStudentGet
             // 
             this.txtLendUserStudentGet.Location = new System.Drawing.Point(421, 138);
-            this.txtLendUserStudentGet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLendUserStudentGet.Margin = new System.Windows.Forms.Padding(4);
             this.txtLendUserStudentGet.Name = "txtLendUserStudentGet";
             this.txtLendUserStudentGet.Size = new System.Drawing.Size(132, 25);
             this.txtLendUserStudentGet.TabIndex = 34;
@@ -1143,7 +1143,7 @@
             this.lvwCirculation.FullRowSelect = true;
             this.lvwCirculation.GridLines = true;
             this.lvwCirculation.Location = new System.Drawing.Point(80, 321);
-            this.lvwCirculation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvwCirculation.Margin = new System.Windows.Forms.Padding(4);
             this.lvwCirculation.Name = "lvwCirculation";
             this.lvwCirculation.Size = new System.Drawing.Size(1671, 466);
             this.lvwCirculation.TabIndex = 14;
@@ -1207,9 +1207,9 @@
             this.pageLabelSwitching.Controls.Add(this.grpLabelSwitchingSet);
             this.pageLabelSwitching.Controls.Add(this.lvwBook);
             this.pageLabelSwitching.Location = new System.Drawing.Point(4, 25);
-            this.pageLabelSwitching.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageLabelSwitching.Margin = new System.Windows.Forms.Padding(4);
             this.pageLabelSwitching.Name = "pageLabelSwitching";
-            this.pageLabelSwitching.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageLabelSwitching.Padding = new System.Windows.Forms.Padding(4);
             this.pageLabelSwitching.Size = new System.Drawing.Size(1848, 880);
             this.pageLabelSwitching.TabIndex = 1;
             this.pageLabelSwitching.Text = "标签转换";
@@ -1228,7 +1228,7 @@
             // prgLabelSwitching1
             // 
             this.prgLabelSwitching1.Location = new System.Drawing.Point(491, 710);
-            this.prgLabelSwitching1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.prgLabelSwitching1.Margin = new System.Windows.Forms.Padding(4);
             this.prgLabelSwitching1.Name = "prgLabelSwitching1";
             this.prgLabelSwitching1.Size = new System.Drawing.Size(800, 29);
             this.prgLabelSwitching1.TabIndex = 5;
@@ -1247,7 +1247,7 @@
             // prgLabelSwitching2
             // 
             this.prgLabelSwitching2.Location = new System.Drawing.Point(491, 766);
-            this.prgLabelSwitching2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.prgLabelSwitching2.Margin = new System.Windows.Forms.Padding(4);
             this.prgLabelSwitching2.Name = "prgLabelSwitching2";
             this.prgLabelSwitching2.Size = new System.Drawing.Size(800, 29);
             this.prgLabelSwitching2.TabIndex = 3;
@@ -1267,9 +1267,9 @@
             this.grpLabelSwitchingGet.Controls.Add(this.lblInstrumentType);
             this.grpLabelSwitchingGet.Controls.Add(this.lblInstrumentName);
             this.grpLabelSwitchingGet.Location = new System.Drawing.Point(1007, 98);
-            this.grpLabelSwitchingGet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpLabelSwitchingGet.Margin = new System.Windows.Forms.Padding(4);
             this.grpLabelSwitchingGet.Name = "grpLabelSwitchingGet";
-            this.grpLabelSwitchingGet.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpLabelSwitchingGet.Padding = new System.Windows.Forms.Padding(4);
             this.grpLabelSwitchingGet.Size = new System.Drawing.Size(600, 188);
             this.grpLabelSwitchingGet.TabIndex = 2;
             this.grpLabelSwitchingGet.TabStop = false;
@@ -1278,7 +1278,7 @@
             // txtUid
             // 
             this.txtUid.Location = new System.Drawing.Point(180, 36);
-            this.txtUid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUid.Margin = new System.Windows.Forms.Padding(4);
             this.txtUid.Name = "txtUid";
             this.txtUid.Size = new System.Drawing.Size(132, 25);
             this.txtUid.TabIndex = 10;
@@ -1298,7 +1298,7 @@
             this.rdoLabelSwitchingQueryOrderDesc.AutoSize = true;
             this.rdoLabelSwitchingQueryOrderDesc.Checked = true;
             this.rdoLabelSwitchingQueryOrderDesc.Location = new System.Drawing.Point(457, 101);
-            this.rdoLabelSwitchingQueryOrderDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoLabelSwitchingQueryOrderDesc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoLabelSwitchingQueryOrderDesc.Name = "rdoLabelSwitchingQueryOrderDesc";
             this.rdoLabelSwitchingQueryOrderDesc.Size = new System.Drawing.Size(58, 19);
             this.rdoLabelSwitchingQueryOrderDesc.TabIndex = 8;
@@ -1310,7 +1310,7 @@
             // 
             this.rdoLabelSwitchingQueryOrderAsc.AutoSize = true;
             this.rdoLabelSwitchingQueryOrderAsc.Location = new System.Drawing.Point(387, 101);
-            this.rdoLabelSwitchingQueryOrderAsc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoLabelSwitchingQueryOrderAsc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoLabelSwitchingQueryOrderAsc.Name = "rdoLabelSwitchingQueryOrderAsc";
             this.rdoLabelSwitchingQueryOrderAsc.Size = new System.Drawing.Size(58, 19);
             this.rdoLabelSwitchingQueryOrderAsc.TabIndex = 7;
@@ -1336,7 +1336,7 @@
             "入库时间",
             "修改时间"});
             this.cboLabelSwitchingQueryOrder.Location = new System.Drawing.Point(180, 138);
-            this.cboLabelSwitchingQueryOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboLabelSwitchingQueryOrder.Margin = new System.Windows.Forms.Padding(4);
             this.cboLabelSwitchingQueryOrder.Name = "cboLabelSwitchingQueryOrder";
             this.cboLabelSwitchingQueryOrder.Size = new System.Drawing.Size(160, 23);
             this.cboLabelSwitchingQueryOrder.TabIndex = 5;
@@ -1344,7 +1344,7 @@
             // btnLabelSwitchingQuery
             // 
             this.btnLabelSwitchingQuery.Location = new System.Drawing.Point(387, 135);
-            this.btnLabelSwitchingQuery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLabelSwitchingQuery.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingQuery.Name = "btnLabelSwitchingQuery";
             this.btnLabelSwitchingQuery.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingQuery.TabIndex = 4;
@@ -1355,7 +1355,7 @@
             // txtInstrumentType
             // 
             this.txtInstrumentType.Location = new System.Drawing.Point(180, 104);
-            this.txtInstrumentType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInstrumentType.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstrumentType.Name = "txtInstrumentType";
             this.txtInstrumentType.Size = new System.Drawing.Size(132, 25);
             this.txtInstrumentType.TabIndex = 3;
@@ -1363,7 +1363,7 @@
             // txtInstrumentName
             // 
             this.txtInstrumentName.Location = new System.Drawing.Point(180, 70);
-            this.txtInstrumentName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInstrumentName.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstrumentName.Name = "txtInstrumentName";
             this.txtInstrumentName.Size = new System.Drawing.Size(132, 25);
             this.txtInstrumentName.TabIndex = 2;
@@ -1397,9 +1397,9 @@
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingImport);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingAdd);
             this.grpLabelSwitchingSet.Location = new System.Drawing.Point(201, 98);
-            this.grpLabelSwitchingSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpLabelSwitchingSet.Margin = new System.Windows.Forms.Padding(4);
             this.grpLabelSwitchingSet.Name = "grpLabelSwitchingSet";
-            this.grpLabelSwitchingSet.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpLabelSwitchingSet.Padding = new System.Windows.Forms.Padding(4);
             this.grpLabelSwitchingSet.Size = new System.Drawing.Size(600, 188);
             this.grpLabelSwitchingSet.TabIndex = 1;
             this.grpLabelSwitchingSet.TabStop = false;
@@ -1408,7 +1408,7 @@
             // btnMachineTypeAdd
             // 
             this.btnMachineTypeAdd.Location = new System.Drawing.Point(323, 106);
-            this.btnMachineTypeAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnMachineTypeAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnMachineTypeAdd.Name = "btnMachineTypeAdd";
             this.btnMachineTypeAdd.Size = new System.Drawing.Size(132, 29);
             this.btnMachineTypeAdd.TabIndex = 5;
@@ -1419,7 +1419,7 @@
             // btnLabelSwitchingDownload
             // 
             this.btnLabelSwitchingDownload.Location = new System.Drawing.Point(321, 70);
-            this.btnLabelSwitchingDownload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLabelSwitchingDownload.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingDownload.Name = "btnLabelSwitchingDownload";
             this.btnLabelSwitchingDownload.Size = new System.Drawing.Size(133, 29);
             this.btnLabelSwitchingDownload.TabIndex = 4;
@@ -1430,7 +1430,7 @@
             // btnLabelSwitchingDelete
             // 
             this.btnLabelSwitchingDelete.Location = new System.Drawing.Point(213, 108);
-            this.btnLabelSwitchingDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLabelSwitchingDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingDelete.Name = "btnLabelSwitchingDelete";
             this.btnLabelSwitchingDelete.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingDelete.TabIndex = 3;
@@ -1441,7 +1441,7 @@
             // btnLabelSwitchingUpdate
             // 
             this.btnLabelSwitchingUpdate.Location = new System.Drawing.Point(107, 108);
-            this.btnLabelSwitchingUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLabelSwitchingUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingUpdate.Name = "btnLabelSwitchingUpdate";
             this.btnLabelSwitchingUpdate.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingUpdate.TabIndex = 2;
@@ -1452,7 +1452,7 @@
             // btnLabelSwitchingImport
             // 
             this.btnLabelSwitchingImport.Location = new System.Drawing.Point(213, 70);
-            this.btnLabelSwitchingImport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLabelSwitchingImport.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingImport.Name = "btnLabelSwitchingImport";
             this.btnLabelSwitchingImport.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingImport.TabIndex = 1;
@@ -1463,7 +1463,7 @@
             // btnLabelSwitchingAdd
             // 
             this.btnLabelSwitchingAdd.Location = new System.Drawing.Point(105, 70);
-            this.btnLabelSwitchingAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLabelSwitchingAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingAdd.Name = "btnLabelSwitchingAdd";
             this.btnLabelSwitchingAdd.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingAdd.TabIndex = 0;
@@ -1485,7 +1485,7 @@
             this.lvwBook.FullRowSelect = true;
             this.lvwBook.GridLines = true;
             this.lvwBook.Location = new System.Drawing.Point(281, 315);
-            this.lvwBook.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvwBook.Margin = new System.Windows.Forms.Padding(4);
             this.lvwBook.Name = "lvwBook";
             this.lvwBook.Size = new System.Drawing.Size(1276, 375);
             this.lvwBook.TabIndex = 0;
@@ -1543,9 +1543,9 @@
             this.pageMakingCard.Controls.Add(this.grpUserSet);
             this.pageMakingCard.Controls.Add(this.lvwUser);
             this.pageMakingCard.Location = new System.Drawing.Point(4, 25);
-            this.pageMakingCard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageMakingCard.Margin = new System.Windows.Forms.Padding(4);
             this.pageMakingCard.Name = "pageMakingCard";
-            this.pageMakingCard.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageMakingCard.Padding = new System.Windows.Forms.Padding(4);
             this.pageMakingCard.Size = new System.Drawing.Size(1848, 880);
             this.pageMakingCard.TabIndex = 2;
             this.pageMakingCard.Text = "开卡办证";
@@ -1564,7 +1564,7 @@
             // prgUser1
             // 
             this.prgUser1.Location = new System.Drawing.Point(511, 705);
-            this.prgUser1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.prgUser1.Margin = new System.Windows.Forms.Padding(4);
             this.prgUser1.Name = "prgUser1";
             this.prgUser1.Size = new System.Drawing.Size(800, 29);
             this.prgUser1.TabIndex = 12;
@@ -1583,7 +1583,7 @@
             // prgUser2
             // 
             this.prgUser2.Location = new System.Drawing.Point(511, 761);
-            this.prgUser2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.prgUser2.Margin = new System.Windows.Forms.Padding(4);
             this.prgUser2.Name = "prgUser2";
             this.prgUser2.Size = new System.Drawing.Size(800, 29);
             this.prgUser2.TabIndex = 10;
@@ -1607,9 +1607,9 @@
             this.grpUserGet.Controls.Add(this.lblUserCardCode);
             this.grpUserGet.Controls.Add(this.lblUserName);
             this.grpUserGet.Location = new System.Drawing.Point(1079, 102);
-            this.grpUserGet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpUserGet.Margin = new System.Windows.Forms.Padding(4);
             this.grpUserGet.Name = "grpUserGet";
-            this.grpUserGet.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpUserGet.Padding = new System.Windows.Forms.Padding(4);
             this.grpUserGet.Size = new System.Drawing.Size(600, 188);
             this.grpUserGet.TabIndex = 9;
             this.grpUserGet.TabStop = false;
@@ -1629,7 +1629,7 @@
             // 
             this.cmbClassName.FormattingEnabled = true;
             this.cmbClassName.Location = new System.Drawing.Point(413, 55);
-            this.cmbClassName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbClassName.Margin = new System.Windows.Forms.Padding(4);
             this.cmbClassName.Name = "cmbClassName";
             this.cmbClassName.Size = new System.Drawing.Size(160, 23);
             this.cmbClassName.TabIndex = 22;
@@ -1638,7 +1638,7 @@
             // 
             this.cmbGradeName.FormattingEnabled = true;
             this.cmbGradeName.Location = new System.Drawing.Point(413, 21);
-            this.cmbGradeName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbGradeName.Margin = new System.Windows.Forms.Padding(4);
             this.cmbGradeName.Name = "cmbGradeName";
             this.cmbGradeName.Size = new System.Drawing.Size(160, 23);
             this.cmbGradeName.TabIndex = 21;
@@ -1657,7 +1657,7 @@
             // txtUserStudentCode
             // 
             this.txtUserStudentCode.Location = new System.Drawing.Point(176, 95);
-            this.txtUserStudentCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserStudentCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserStudentCode.Name = "txtUserStudentCode";
             this.txtUserStudentCode.Size = new System.Drawing.Size(132, 25);
             this.txtUserStudentCode.TabIndex = 10;
@@ -1677,7 +1677,7 @@
             this.rdoUserQueryOrderDesc.AutoSize = true;
             this.rdoUserQueryOrderDesc.Checked = true;
             this.rdoUserQueryOrderDesc.Location = new System.Drawing.Point(489, 130);
-            this.rdoUserQueryOrderDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoUserQueryOrderDesc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoUserQueryOrderDesc.Name = "rdoUserQueryOrderDesc";
             this.rdoUserQueryOrderDesc.Size = new System.Drawing.Size(58, 19);
             this.rdoUserQueryOrderDesc.TabIndex = 8;
@@ -1689,7 +1689,7 @@
             // 
             this.rdoUserQueryOrderAsc.AutoSize = true;
             this.rdoUserQueryOrderAsc.Location = new System.Drawing.Point(383, 130);
-            this.rdoUserQueryOrderAsc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rdoUserQueryOrderAsc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoUserQueryOrderAsc.Name = "rdoUserQueryOrderAsc";
             this.rdoUserQueryOrderAsc.Size = new System.Drawing.Size(58, 19);
             this.rdoUserQueryOrderAsc.TabIndex = 7;
@@ -1718,7 +1718,7 @@
             "创建时间",
             "修改时间"});
             this.cboUserQueryOrder.Location = new System.Drawing.Point(176, 129);
-            this.cboUserQueryOrder.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboUserQueryOrder.Margin = new System.Windows.Forms.Padding(4);
             this.cboUserQueryOrder.Name = "cboUserQueryOrder";
             this.cboUserQueryOrder.Size = new System.Drawing.Size(160, 23);
             this.cboUserQueryOrder.TabIndex = 5;
@@ -1726,7 +1726,7 @@
             // btnUserQuery
             // 
             this.btnUserQuery.Location = new System.Drawing.Point(383, 151);
-            this.btnUserQuery.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUserQuery.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserQuery.Name = "btnUserQuery";
             this.btnUserQuery.Size = new System.Drawing.Size(100, 29);
             this.btnUserQuery.TabIndex = 4;
@@ -1737,7 +1737,7 @@
             // txtUserCardCode
             // 
             this.txtUserCardCode.Location = new System.Drawing.Point(176, 58);
-            this.txtUserCardCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserCardCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserCardCode.Name = "txtUserCardCode";
             this.txtUserCardCode.Size = new System.Drawing.Size(132, 25);
             this.txtUserCardCode.TabIndex = 3;
@@ -1745,7 +1745,7 @@
             // txtUserName
             // 
             this.txtUserName.Location = new System.Drawing.Point(176, 18);
-            this.txtUserName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(132, 25);
             this.txtUserName.TabIndex = 2;
@@ -1778,9 +1778,9 @@
             this.grpUserSet.Controls.Add(this.btnUserImport);
             this.grpUserSet.Controls.Add(this.btnUserAdd);
             this.grpUserSet.Location = new System.Drawing.Point(208, 102);
-            this.grpUserSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpUserSet.Margin = new System.Windows.Forms.Padding(4);
             this.grpUserSet.Name = "grpUserSet";
-            this.grpUserSet.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grpUserSet.Padding = new System.Windows.Forms.Padding(4);
             this.grpUserSet.Size = new System.Drawing.Size(600, 188);
             this.grpUserSet.TabIndex = 8;
             this.grpUserSet.TabStop = false;
@@ -1789,7 +1789,7 @@
             // btnUserDownload
             // 
             this.btnUserDownload.Location = new System.Drawing.Point(313, 74);
-            this.btnUserDownload.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUserDownload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserDownload.Name = "btnUserDownload";
             this.btnUserDownload.Size = new System.Drawing.Size(133, 29);
             this.btnUserDownload.TabIndex = 4;
@@ -1800,7 +1800,7 @@
             // btnUserDelete
             // 
             this.btnUserDelete.Location = new System.Drawing.Point(205, 111);
-            this.btnUserDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUserDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserDelete.Name = "btnUserDelete";
             this.btnUserDelete.Size = new System.Drawing.Size(100, 29);
             this.btnUserDelete.TabIndex = 3;
@@ -1811,7 +1811,7 @@
             // btnUserUpdate
             // 
             this.btnUserUpdate.Location = new System.Drawing.Point(99, 111);
-            this.btnUserUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUserUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserUpdate.Name = "btnUserUpdate";
             this.btnUserUpdate.Size = new System.Drawing.Size(100, 29);
             this.btnUserUpdate.TabIndex = 2;
@@ -1822,7 +1822,7 @@
             // btnUserImport
             // 
             this.btnUserImport.Location = new System.Drawing.Point(205, 74);
-            this.btnUserImport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUserImport.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserImport.Name = "btnUserImport";
             this.btnUserImport.Size = new System.Drawing.Size(100, 29);
             this.btnUserImport.TabIndex = 1;
@@ -1833,7 +1833,7 @@
             // btnUserAdd
             // 
             this.btnUserAdd.Location = new System.Drawing.Point(97, 74);
-            this.btnUserAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUserAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserAdd.Name = "btnUserAdd";
             this.btnUserAdd.Size = new System.Drawing.Size(100, 29);
             this.btnUserAdd.TabIndex = 0;
@@ -1856,7 +1856,7 @@
             this.lvwUser.FullRowSelect = true;
             this.lvwUser.GridLines = true;
             this.lvwUser.Location = new System.Drawing.Point(208, 311);
-            this.lvwUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvwUser.Margin = new System.Windows.Forms.Padding(4);
             this.lvwUser.Name = "lvwUser";
             this.lvwUser.Size = new System.Drawing.Size(1480, 375);
             this.lvwUser.TabIndex = 7;
@@ -1913,7 +1913,7 @@
             // pageHelp
             // 
             this.pageHelp.Location = new System.Drawing.Point(4, 25);
-            this.pageHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageHelp.Margin = new System.Windows.Forms.Padding(4);
             this.pageHelp.Name = "pageHelp";
             this.pageHelp.Size = new System.Drawing.Size(1848, 880);
             this.pageHelp.TabIndex = 3;
@@ -1925,9 +1925,9 @@
             this.pageMoreFeatures.Controls.Add(this.btnAppendCirculationRecord);
             this.pageMoreFeatures.Controls.Add(this.btnImportBookATMCirculationRecord);
             this.pageMoreFeatures.Location = new System.Drawing.Point(4, 25);
-            this.pageMoreFeatures.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageMoreFeatures.Margin = new System.Windows.Forms.Padding(4);
             this.pageMoreFeatures.Name = "pageMoreFeatures";
-            this.pageMoreFeatures.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pageMoreFeatures.Padding = new System.Windows.Forms.Padding(4);
             this.pageMoreFeatures.Size = new System.Drawing.Size(1848, 880);
             this.pageMoreFeatures.TabIndex = 4;
             this.pageMoreFeatures.Text = "更多功能";
@@ -1936,7 +1936,7 @@
             // btnAppendCirculationRecord
             // 
             this.btnAppendCirculationRecord.Location = new System.Drawing.Point(85, 35);
-            this.btnAppendCirculationRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAppendCirculationRecord.Margin = new System.Windows.Forms.Padding(4);
             this.btnAppendCirculationRecord.Name = "btnAppendCirculationRecord";
             this.btnAppendCirculationRecord.Size = new System.Drawing.Size(200, 62);
             this.btnAppendCirculationRecord.TabIndex = 2;
@@ -1947,7 +1947,7 @@
             // btnImportBookATMCirculationRecord
             // 
             this.btnImportBookATMCirculationRecord.Location = new System.Drawing.Point(85, 120);
-            this.btnImportBookATMCirculationRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImportBookATMCirculationRecord.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportBookATMCirculationRecord.Name = "btnImportBookATMCirculationRecord";
             this.btnImportBookATMCirculationRecord.Size = new System.Drawing.Size(200, 62);
             this.btnImportBookATMCirculationRecord.TabIndex = 1;
@@ -1962,7 +1962,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1859, 908);
             this.Controls.Add(this.tabMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Text = "上海市实验学校仪器设备管理系统 - 管理后台";
             this.Load += new System.EventHandler(this.FrmMain_Load);

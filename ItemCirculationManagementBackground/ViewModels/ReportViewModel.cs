@@ -38,6 +38,24 @@ namespace ItemCirculationManagementBackground.ViewModels
             get;
         }
 
+        public long Machine1Count
+        {
+            set;
+            get;
+        }
+
+        public long Machine2Count
+        {
+            set;
+            get;
+        }
+
+        public long OtherMachineCount
+        {
+            set;
+            get;
+        }
+
         public long Machine1LoanCount
         {
             set;
@@ -62,25 +80,13 @@ namespace ItemCirculationManagementBackground.ViewModels
             get;
         }
 
-        public long Machine3LoanCount
+        public long OtherLoanCount
         {
             set;
             get;
         }
 
-        public long Machine3ReturnCount
-        {
-            set;
-            get;
-        }
-
-        public long Machine4LoanCount
-        {
-            set;
-            get;
-        }
-
-        public long Machine4ReturnCount
+        public long OtherReturnCount
         {
             set;
             get;

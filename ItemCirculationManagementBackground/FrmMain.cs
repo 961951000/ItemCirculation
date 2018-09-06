@@ -442,7 +442,8 @@ namespace ItemCirculationManagementBackground
                         item.SubItems.Add(entity.ItemType);
                         item.SubItems.Add(entity.ItemLocation);
                         item.SubItems.Add(Convert.ToDateTime(entity.CreateTime).ToString("yyyy-MM-dd HH:mm:ss"));
-                        item.SubItems.Add(Convert.ToDateTime(entity.UpdateTime).ToString("yyyy-MM-dd HH:mm:ss"));
+                        var machineType = db.MachineType.FirstOrDefault(x => x.Id == entity.MachineId)?.TypeName;
+                        item.SubItems.Add(machineType);
                         lvwBook.Items.Add(item);
                     }
                 }
@@ -1489,12 +1490,12 @@ namespace ItemCirculationManagementBackground
 
                     var itemList = db.Item.Where(x => x.MachineId != null).ToList();
                     var index = 0;
-                    var groups = itemList.GroupBy(x => x.MachineId).OrderByDescending(x => x.Count()).ToList();
-                    foreach (var group in groups)
+                    var itemGroups = itemList.GroupBy(x => x.MachineId).OrderByDescending(x => x.Count()).ToList();
+                    foreach (var group in itemGroups)
                     {
                         if (++index > 2)
                         {
-                            var itemUidList = groups.Skip(2).SelectMany(x => x.Select(y => y.Uid)).ToList();
+                            var itemUidList = itemGroups.Skip(2).SelectMany(x => x.Select(y => y.Uid)).ToList();
                             report.OtherMachineCount = itemUidList.Count();
                             report.OtherLoanCount = loanList.LongCount(x => itemUidList.Contains(x.ItemUid));
                             report.OtherReturnCount = returnList.LongCount(x => itemUidList.Contains(x.ItemUid));
@@ -1503,17 +1504,22 @@ namespace ItemCirculationManagementBackground
                         else
                         {
                             var itemUidList = group.Select(x => x.Uid).ToList();
+                            var item = group.First();
+                            var machine = db.MachineType.First(x => x.Id == item.MachineId);
                             switch (index)
                             {
                                 case 1:
                                     {
+                                        report.Machine1Name = machine.TypeName;
                                         report.Machine1Count = itemUidList.Count();
                                         report.Machine1LoanCount = loanList.LongCount(x => itemUidList.Contains(x.ItemUid));
                                         report.Machine1ReturnCount = returnList.LongCount(x => itemUidList.Contains(x.ItemUid));
+
                                         break;
                                     }
                                 case 2:
                                     {
+                                        report.Machine2Name = machine.TypeName;
                                         report.Machine2Count = itemUidList.Count();
                                         report.Machine2LoanCount = loanList.LongCount(x => itemUidList.Contains(x.ItemUid));
                                         report.Machine2ReturnCount = returnList.LongCount(x => itemUidList.Contains(x.ItemUid));
@@ -1548,6 +1554,18 @@ namespace ItemCirculationManagementBackground
             lblLoanPersonCount.Text = report.LoanPersonCount;
             lblServiceTime.Text = $"{report.ServiceTime}（天）";
             lblGoodMachinePercentage.Text = $"{report.GoodMachinePercentage}%";
+            if (!string.IsNullOrWhiteSpace(report.Machine1Name))
+            {
+                label11.Text = $"{report.Machine1Name}：";
+                label32.Text = $"{report.Machine1Name}：";
+                label40.Text = $"{report.Machine1Name}：";
+            }
+            if (!string.IsNullOrWhiteSpace(report.Machine2Name))
+            {
+                label12.Text = $"{report.Machine2Name}：";
+                label31.Text = $"{report.Machine2Name}：";
+                label39.Text = $"{report.Machine2Name}：";
+            }
             lblMachine1Count.Text = $"{report.Machine1Count}";
             lblMachine2Count.Text = $"{report.Machine2Count}";
             lblMachine3Count.Text = $"{report.OtherMachineCount}";

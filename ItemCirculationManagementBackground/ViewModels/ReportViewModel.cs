@@ -14,6 +14,7 @@ namespace ItemCirculationManagementBackground.ViewModels
             get;
         }
 
+
         public string ServiceCount
         {
             set;
@@ -38,7 +39,19 @@ namespace ItemCirculationManagementBackground.ViewModels
             get;
         }
 
+        public string Machine1Name
+        {
+            set;
+            get;
+        }
+
         public long Machine1Count
+        {
+            set;
+            get;
+        }
+
+        public string Machine2Name
         {
             set;
             get;

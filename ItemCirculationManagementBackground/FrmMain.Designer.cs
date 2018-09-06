@@ -143,7 +143,7 @@
             this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnCreateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cnUpdateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cnMachineType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageMakingCard = new System.Windows.Forms.TabPage();
             this.lblUserProgress1 = new System.Windows.Forms.Label();
             this.prgUser1 = new System.Windows.Forms.ProgressBar();
@@ -408,7 +408,7 @@
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label50.ForeColor = System.Drawing.Color.White;
-            this.label50.Location = new System.Drawing.Point(360, 699);
+            this.label50.Location = new System.Drawing.Point(346, 699);
             this.label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(174, 27);
@@ -432,7 +432,7 @@
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label48.ForeColor = System.Drawing.Color.White;
-            this.label48.Location = new System.Drawing.Point(360, 629);
+            this.label48.Location = new System.Drawing.Point(346, 629);
             this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(174, 27);
@@ -456,7 +456,7 @@
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label46.ForeColor = System.Drawing.Color.White;
-            this.label46.Location = new System.Drawing.Point(360, 560);
+            this.label46.Location = new System.Drawing.Point(346, 560);
             this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(147, 27);
@@ -480,7 +480,7 @@
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label44.ForeColor = System.Drawing.Color.White;
-            this.label44.Location = new System.Drawing.Point(360, 490);
+            this.label44.Location = new System.Drawing.Point(346, 490);
             this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(147, 27);
@@ -1481,7 +1481,7 @@
             this.chType,
             this.cnLocation,
             this.cnCreateDate,
-            this.cnUpdateDate});
+            this.cnMachineType});
             this.lvwBook.FullRowSelect = true;
             this.lvwBook.GridLines = true;
             this.lvwBook.Location = new System.Drawing.Point(281, 315);
@@ -1527,11 +1527,11 @@
             this.cnCreateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnCreateDate.Width = 150;
             // 
-            // cnUpdateDate
+            // cnMachineType
             // 
-            this.cnUpdateDate.Text = "修改时间";
-            this.cnUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUpdateDate.Width = 150;
+            this.cnMachineType.Text = "设备种类";
+            this.cnMachineType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cnMachineType.Width = 150;
             // 
             // pageMakingCard
             // 
@@ -2091,7 +2091,7 @@
         private System.Windows.Forms.ComboBox cmbGradeName;
         private System.Windows.Forms.Label lblGradeName;
         private System.Windows.Forms.TabPage pageHelp;
-        private System.Windows.Forms.ColumnHeader cnUpdateDate;
+        private System.Windows.Forms.ColumnHeader cnMachineType;
         private System.Windows.Forms.TabPage pageMoreFeatures;
         private System.Windows.Forms.Button btnImportBookATMCirculationRecord;
         private System.Windows.Forms.Button btnAppendCirculationRecord;

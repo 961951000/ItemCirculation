@@ -69,6 +69,11 @@
     <Compile Include="Enum\Action.cs" />
     <Compile Include="Enum\ActionType.cs" />
     <Compile Include="Enum\ItemStateEnum.cs" />
+    <Compile Include="Migrations\201809111735220_InitialCreate.cs" />
+    <Compile Include="Migrations\201809111735220_InitialCreate.Designer.cs">
+      <DependentUpon>201809111735220_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Action.cs" />
     <Compile Include="Models\ActionType.cs" />
     <Compile Include="Models\Circulation.cs" />
@@ -87,6 +92,10 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201809111735220_InitialCreate.resx">
+      <DependentUpon>201809111735220_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

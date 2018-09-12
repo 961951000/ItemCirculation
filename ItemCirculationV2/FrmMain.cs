@@ -275,6 +275,7 @@ namespace ItemCirculationV2
                     {
 
                         e.CellStyle.ForeColor = Color.Green;
+                        e.CellStyle.Font = new Font(e.CellStyle.Font, FontStyle.Bold);
                     }
                     else
                     {

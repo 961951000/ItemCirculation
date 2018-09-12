@@ -11,6 +11,7 @@ namespace ItemCirculationV2.Helper
         /// <param name="dgv"></param>
         public static void InitDataGridView(DataGridView dgv)
         {
+            dgv.Font = new Font("宋体", 24);
             //只读属性设置 
             dgv.ReadOnly = true;
             //尾行自动追加 
@@ -23,8 +24,8 @@ namespace ItemCirculationV2.Helper
             //标头设定                 
             dgv.RowHeadersVisible = true;
             //标题行高 
-            dgv.ColumnHeadersHeight = 25;
-            dgv.RowTemplate.Height = 23;
+            dgv.ColumnHeadersHeight = 50;
+            dgv.RowTemplate.Height = 46;
             //行选择设定 
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //多行选择 
@@ -78,7 +79,7 @@ namespace ItemCirculationV2.Helper
             };
             if (grid == null) return;
             var headerBounds = new Rectangle(e.RowBounds.Left, e.RowBounds.Top, grid.RowHeadersWidth, e.RowBounds.Height);
-            e.Graphics.DrawString(rowIdx, font, SystemBrushes.ControlText, headerBounds, centerFormat);
+            e.Graphics.DrawString(rowIdx, new Font("宋体", 24), SystemBrushes.ControlText, headerBounds, centerFormat);
         }
     }
 }

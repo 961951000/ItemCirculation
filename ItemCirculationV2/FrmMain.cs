@@ -29,6 +29,9 @@ namespace ItemCirculationV2
 
         public FrmMain()
         {
+            //全屏
+            this.FormBorderStyle = FormBorderStyle.None;
+
             _timeout = ConfigurationManager.AppSettings["Timeout"];
             _rr9 = int.TryParse(ConfigurationManager.AppSettings["ComPort"], out int comPort) ? new YingXinRr9(comPort) : new YingXinRr9();
             _studentService = new StudentService();
@@ -101,9 +104,9 @@ namespace ItemCirculationV2
                 {
                     BeginInvoke(new MethodInvoker(() =>
                     {
-                        this.lblName.Text = _student.StudentName;
-                        this.lblGrade.Text = _student.GradeName;
-                        this.lblClass.Text = _student.ClassName;
+                        this.lblName.Text = $"姓名：{_student.StudentName}";
+                        this.lblGrade.Text = $"年级：{_student.GradeName}";
+                        this.lblClass.Text = $"班级：{_student.ClassName}";
                     }));
                     _rr9.Change15693();
                     _rr9.StartUidListen(YingXinRr9_UidListen);

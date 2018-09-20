@@ -36,25 +36,28 @@
             // 
             // txtMachineType
             // 
-            this.txtMachineType.Location = new System.Drawing.Point(77, 30);
+            this.txtMachineType.Location = new System.Drawing.Point(103, 38);
+            this.txtMachineType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMachineType.Name = "txtMachineType";
-            this.txtMachineType.Size = new System.Drawing.Size(100, 21);
+            this.txtMachineType.Size = new System.Drawing.Size(132, 25);
             this.txtMachineType.TabIndex = 6;
             // 
             // lblMachineType
             // 
             this.lblMachineType.AutoSize = true;
-            this.lblMachineType.Location = new System.Drawing.Point(12, 33);
+            this.lblMachineType.Location = new System.Drawing.Point(16, 41);
+            this.lblMachineType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachineType.Name = "lblMachineType";
-            this.lblMachineType.Size = new System.Drawing.Size(65, 12);
+            this.lblMachineType.Size = new System.Drawing.Size(82, 15);
             this.lblMachineType.TabIndex = 5;
-            this.lblMachineType.Text = "设备名称：";
+            this.lblMachineType.Text = "设备种类：";
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(138, 82);
+            this.btnCancel.Location = new System.Drawing.Point(184, 102);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 29);
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "取消";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -62,9 +65,10 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(14, 82);
+            this.btnSubmit.Location = new System.Drawing.Point(19, 102);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(100, 29);
             this.btnSubmit.TabIndex = 8;
             this.btnSubmit.Text = "提交";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -72,13 +76,14 @@
             // 
             // FrmAddMachineType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 161);
+            this.ClientSize = new System.Drawing.Size(379, 201);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtMachineType);
             this.Controls.Add(this.lblMachineType);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmAddMachineType";
             this.Text = "设备类型";
             this.Load += new System.EventHandler(this.FrmAddMachineType_Load);

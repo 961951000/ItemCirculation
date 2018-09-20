@@ -47,24 +47,20 @@
             this.label46 = new System.Windows.Forms.Label();
             this.lblServiceCount = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.lblMachine4ReturnCount = new System.Windows.Forms.Label();
             this.lblMachine3ReturnCount = new System.Windows.Forms.Label();
             this.lblMachine2ReturnCount = new System.Windows.Forms.Label();
             this.lblMachine1ReturnCount = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
-            this.lblMachine4LoanCount = new System.Windows.Forms.Label();
             this.lblMachine3LoanCount = new System.Windows.Forms.Label();
             this.lblMachine2LoanCount = new System.Windows.Forms.Label();
             this.lblMachine1LoanCount = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.lblMachineReturnCount = new System.Windows.Forms.Label();
@@ -147,7 +143,7 @@
             this.chType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnLocation = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cnCreateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.cnUpdateDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cnMachineType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.pageMakingCard = new System.Windows.Forms.TabPage();
             this.lblUserProgress1 = new System.Windows.Forms.Label();
             this.prgUser1 = new System.Windows.Forms.ProgressBar();
@@ -218,10 +214,11 @@
             this.tabMain.Controls.Add(this.pageMakingCard);
             this.tabMain.Controls.Add(this.pageHelp);
             this.tabMain.Controls.Add(this.pageMoreFeatures);
-            this.tabMain.Location = new System.Drawing.Point(2, 1);
+            this.tabMain.Location = new System.Drawing.Point(3, 1);
+            this.tabMain.Margin = new System.Windows.Forms.Padding(4);
             this.tabMain.Name = "tabMain";
             this.tabMain.SelectedIndex = 0;
-            this.tabMain.Size = new System.Drawing.Size(1392, 727);
+            this.tabMain.Size = new System.Drawing.Size(1856, 909);
             this.tabMain.TabIndex = 0;
             this.tabMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabMain_Selecting);
             // 
@@ -245,24 +242,20 @@
             this.pageIndex.Controls.Add(this.label46);
             this.pageIndex.Controls.Add(this.lblServiceCount);
             this.pageIndex.Controls.Add(this.label44);
-            this.pageIndex.Controls.Add(this.lblMachine4ReturnCount);
             this.pageIndex.Controls.Add(this.lblMachine3ReturnCount);
             this.pageIndex.Controls.Add(this.lblMachine2ReturnCount);
             this.pageIndex.Controls.Add(this.lblMachine1ReturnCount);
             this.pageIndex.Controls.Add(this.label38);
             this.pageIndex.Controls.Add(this.label39);
             this.pageIndex.Controls.Add(this.label40);
-            this.pageIndex.Controls.Add(this.label41);
             this.pageIndex.Controls.Add(this.label42);
             this.pageIndex.Controls.Add(this.label43);
-            this.pageIndex.Controls.Add(this.lblMachine4LoanCount);
             this.pageIndex.Controls.Add(this.lblMachine3LoanCount);
             this.pageIndex.Controls.Add(this.lblMachine2LoanCount);
             this.pageIndex.Controls.Add(this.lblMachine1LoanCount);
             this.pageIndex.Controls.Add(this.label30);
             this.pageIndex.Controls.Add(this.label31);
             this.pageIndex.Controls.Add(this.label32);
-            this.pageIndex.Controls.Add(this.label33);
             this.pageIndex.Controls.Add(this.label25);
             this.pageIndex.Controls.Add(this.label24);
             this.pageIndex.Controls.Add(this.lblMachineReturnCount);
@@ -282,20 +275,22 @@
             this.pageIndex.Controls.Add(this.groupBox4);
             this.pageIndex.Controls.Add(this.groupBox3);
             this.pageIndex.Controls.Add(this.groupBox2);
-            this.pageIndex.Location = new System.Drawing.Point(4, 22);
+            this.pageIndex.Location = new System.Drawing.Point(4, 25);
+            this.pageIndex.Margin = new System.Windows.Forms.Padding(4);
             this.pageIndex.Name = "pageIndex";
-            this.pageIndex.Padding = new System.Windows.Forms.Padding(3);
-            this.pageIndex.Size = new System.Drawing.Size(1384, 701);
+            this.pageIndex.Padding = new System.Windows.Forms.Padding(4);
+            this.pageIndex.Size = new System.Drawing.Size(1848, 880);
             this.pageIndex.TabIndex = 5;
             this.pageIndex.Text = "数据总览";
             // 
             // pictureBox9
             // 
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox9.Location = new System.Drawing.Point(703, 149);
+            this.pictureBox9.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
+            this.pictureBox9.Location = new System.Drawing.Point(949, 201);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox9.Size = new System.Drawing.Size(30, 30);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 56;
             this.pictureBox9.TabStop = false;
@@ -303,10 +298,11 @@
             // pictureBox8
             // 
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox8.Location = new System.Drawing.Point(214, 548);
+            this.pictureBox8.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
+            this.pictureBox8.Location = new System.Drawing.Point(285, 696);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox8.Size = new System.Drawing.Size(30, 30);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 55;
             this.pictureBox8.TabStop = false;
@@ -314,10 +310,11 @@
             // pictureBox7
             // 
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox7.Location = new System.Drawing.Point(214, 492);
+            this.pictureBox7.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
+            this.pictureBox7.Location = new System.Drawing.Point(285, 626);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox7.Size = new System.Drawing.Size(30, 30);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 54;
             this.pictureBox7.TabStop = false;
@@ -325,10 +322,11 @@
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox6.Location = new System.Drawing.Point(214, 436);
+            this.pictureBox6.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
+            this.pictureBox6.Location = new System.Drawing.Point(285, 560);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 53;
             this.pictureBox6.TabStop = false;
@@ -336,10 +334,11 @@
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox5.Location = new System.Drawing.Point(214, 380);
+            this.pictureBox5.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
+            this.pictureBox5.Location = new System.Drawing.Point(285, 487);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox5.Size = new System.Drawing.Size(30, 30);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 52;
             this.pictureBox5.TabStop = false;
@@ -347,10 +346,11 @@
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox4.Location = new System.Drawing.Point(214, 304);
+            this.pictureBox4.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
+            this.pictureBox4.Location = new System.Drawing.Point(285, 398);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 51;
             this.pictureBox4.TabStop = false;
@@ -358,10 +358,11 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox3.Location = new System.Drawing.Point(214, 247);
+            this.pictureBox3.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
+            this.pictureBox3.Location = new System.Drawing.Point(285, 326);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox3.Size = new System.Drawing.Size(30, 30);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 50;
             this.pictureBox3.TabStop = false;
@@ -371,19 +372,21 @@
             this.lblGoodMachinePercentage.AutoSize = true;
             this.lblGoodMachinePercentage.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblGoodMachinePercentage.ForeColor = System.Drawing.Color.White;
-            this.lblGoodMachinePercentage.Location = new System.Drawing.Point(458, 559);
+            this.lblGoodMachinePercentage.Location = new System.Drawing.Point(611, 699);
+            this.lblGoodMachinePercentage.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGoodMachinePercentage.Name = "lblGoodMachinePercentage";
-            this.lblGoodMachinePercentage.Size = new System.Drawing.Size(43, 21);
+            this.lblGoodMachinePercentage.Size = new System.Drawing.Size(54, 27);
             this.lblGoodMachinePercentage.TabIndex = 49;
             this.lblGoodMachinePercentage.Text = "99%";
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = global::ItemCirculationManagementBackground.Properties.Resources.timg;
-            this.pictureBox2.Location = new System.Drawing.Point(214, 159);
+            this.pictureBox2.Image = global::ItemCirculationManagementBackground.Properties.Resources.index;
+            this.pictureBox2.Location = new System.Drawing.Point(285, 228);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.Size = new System.Drawing.Size(30, 30);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 48;
             this.pictureBox2.TabStop = false;
@@ -392,9 +395,10 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::ItemCirculationManagementBackground.Properties.Resources.h6;
-            this.pictureBox1.Location = new System.Drawing.Point(27, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(36, 20);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(541, 86);
+            this.pictureBox1.Size = new System.Drawing.Size(721, 108);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
@@ -404,9 +408,10 @@
             this.label50.AutoSize = true;
             this.label50.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label50.ForeColor = System.Drawing.Color.White;
-            this.label50.Location = new System.Drawing.Point(270, 559);
+            this.label50.Location = new System.Drawing.Point(346, 699);
+            this.label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(136, 21);
+            this.label50.Size = new System.Drawing.Size(174, 27);
             this.label50.TabIndex = 46;
             this.label50.Text = "设备良好率：";
             // 
@@ -415,9 +420,10 @@
             this.lblServiceTime.AutoSize = true;
             this.lblServiceTime.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblServiceTime.ForeColor = System.Drawing.Color.White;
-            this.lblServiceTime.Location = new System.Drawing.Point(458, 503);
+            this.lblServiceTime.Location = new System.Drawing.Point(611, 629);
+            this.lblServiceTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServiceTime.Name = "lblServiceTime";
-            this.lblServiceTime.Size = new System.Drawing.Size(84, 21);
+            this.lblServiceTime.Size = new System.Drawing.Size(107, 27);
             this.lblServiceTime.TabIndex = 45;
             this.lblServiceTime.Text = "0（天）";
             // 
@@ -426,9 +432,10 @@
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label48.ForeColor = System.Drawing.Color.White;
-            this.label48.Location = new System.Drawing.Point(270, 503);
+            this.label48.Location = new System.Drawing.Point(346, 629);
+            this.label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(136, 21);
+            this.label48.Size = new System.Drawing.Size(174, 27);
             this.label48.TabIndex = 44;
             this.label48.Text = "服务总时长：";
             // 
@@ -437,9 +444,10 @@
             this.lblLoanPersonCount.AutoSize = true;
             this.lblLoanPersonCount.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblLoanPersonCount.ForeColor = System.Drawing.Color.White;
-            this.lblLoanPersonCount.Location = new System.Drawing.Point(424, 446);
+            this.lblLoanPersonCount.Location = new System.Drawing.Point(565, 558);
+            this.lblLoanPersonCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLoanPersonCount.Name = "lblLoanPersonCount";
-            this.lblLoanPersonCount.Size = new System.Drawing.Size(21, 21);
+            this.lblLoanPersonCount.Size = new System.Drawing.Size(26, 27);
             this.lblLoanPersonCount.TabIndex = 43;
             this.lblLoanPersonCount.Text = "0";
             // 
@@ -448,9 +456,10 @@
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label46.ForeColor = System.Drawing.Color.White;
-            this.label46.Location = new System.Drawing.Point(270, 448);
+            this.label46.Location = new System.Drawing.Point(346, 560);
+            this.label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(115, 21);
+            this.label46.Size = new System.Drawing.Size(147, 27);
             this.label46.TabIndex = 42;
             this.label46.Text = "使用人次：";
             // 
@@ -459,9 +468,10 @@
             this.lblServiceCount.AutoSize = true;
             this.lblServiceCount.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblServiceCount.ForeColor = System.Drawing.Color.White;
-            this.lblServiceCount.Location = new System.Drawing.Point(424, 392);
+            this.lblServiceCount.Location = new System.Drawing.Point(565, 490);
+            this.lblServiceCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblServiceCount.Name = "lblServiceCount";
-            this.lblServiceCount.Size = new System.Drawing.Size(21, 21);
+            this.lblServiceCount.Size = new System.Drawing.Size(26, 27);
             this.lblServiceCount.TabIndex = 41;
             this.lblServiceCount.Text = "0";
             // 
@@ -470,31 +480,22 @@
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label44.ForeColor = System.Drawing.Color.White;
-            this.label44.Location = new System.Drawing.Point(270, 392);
+            this.label44.Location = new System.Drawing.Point(346, 490);
+            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(115, 21);
+            this.label44.Size = new System.Drawing.Size(147, 27);
             this.label44.TabIndex = 40;
             this.label44.Text = "服务次数：";
-            // 
-            // lblMachine4ReturnCount
-            // 
-            this.lblMachine4ReturnCount.AutoSize = true;
-            this.lblMachine4ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine4ReturnCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachine4ReturnCount.Location = new System.Drawing.Point(993, 318);
-            this.lblMachine4ReturnCount.Name = "lblMachine4ReturnCount";
-            this.lblMachine4ReturnCount.Size = new System.Drawing.Size(21, 21);
-            this.lblMachine4ReturnCount.TabIndex = 39;
-            this.lblMachine4ReturnCount.Text = "0";
             // 
             // lblMachine3ReturnCount
             // 
             this.lblMachine3ReturnCount.AutoSize = true;
             this.lblMachine3ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblMachine3ReturnCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachine3ReturnCount.Location = new System.Drawing.Point(834, 318);
+            this.lblMachine3ReturnCount.Location = new System.Drawing.Point(1112, 398);
+            this.lblMachine3ReturnCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine3ReturnCount.Name = "lblMachine3ReturnCount";
-            this.lblMachine3ReturnCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine3ReturnCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachine3ReturnCount.TabIndex = 38;
             this.lblMachine3ReturnCount.Text = "0";
             // 
@@ -503,9 +504,10 @@
             this.lblMachine2ReturnCount.AutoSize = true;
             this.lblMachine2ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblMachine2ReturnCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachine2ReturnCount.Location = new System.Drawing.Point(671, 318);
+            this.lblMachine2ReturnCount.Location = new System.Drawing.Point(895, 398);
+            this.lblMachine2ReturnCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine2ReturnCount.Name = "lblMachine2ReturnCount";
-            this.lblMachine2ReturnCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine2ReturnCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachine2ReturnCount.TabIndex = 37;
             this.lblMachine2ReturnCount.Text = "0";
             // 
@@ -514,9 +516,10 @@
             this.lblMachine1ReturnCount.AutoSize = true;
             this.lblMachine1ReturnCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblMachine1ReturnCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachine1ReturnCount.Location = new System.Drawing.Point(518, 318);
+            this.lblMachine1ReturnCount.Location = new System.Drawing.Point(691, 398);
+            this.lblMachine1ReturnCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine1ReturnCount.Name = "lblMachine1ReturnCount";
-            this.lblMachine1ReturnCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine1ReturnCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachine1ReturnCount.TabIndex = 36;
             this.lblMachine1ReturnCount.Text = "0";
             // 
@@ -525,20 +528,22 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label38.ForeColor = System.Drawing.Color.White;
-            this.label38.Location = new System.Drawing.Point(744, 318);
+            this.label38.Location = new System.Drawing.Point(992, 398);
+            this.label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(84, 21);
+            this.label38.Size = new System.Drawing.Size(93, 27);
             this.label38.TabIndex = 35;
-            this.label38.Text = "种类3：";
+            this.label38.Text = "其它：";
             // 
             // label39
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label39.ForeColor = System.Drawing.Color.White;
-            this.label39.Location = new System.Drawing.Point(581, 318);
+            this.label39.Location = new System.Drawing.Point(775, 398);
+            this.label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(84, 21);
+            this.label39.Size = new System.Drawing.Size(107, 27);
             this.label39.TabIndex = 34;
             this.label39.Text = "种类2：";
             // 
@@ -547,31 +552,22 @@
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label40.ForeColor = System.Drawing.Color.White;
-            this.label40.Location = new System.Drawing.Point(428, 318);
+            this.label40.Location = new System.Drawing.Point(571, 398);
+            this.label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(84, 21);
+            this.label40.Size = new System.Drawing.Size(107, 27);
             this.label40.TabIndex = 33;
             this.label40.Text = "种类1：";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label41.ForeColor = System.Drawing.Color.White;
-            this.label41.Location = new System.Drawing.Point(903, 318);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(84, 21);
-            this.label41.TabIndex = 32;
-            this.label41.Text = "种类4：";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label42.ForeColor = System.Drawing.Color.White;
-            this.label42.Location = new System.Drawing.Point(1020, 318);
+            this.label42.Location = new System.Drawing.Point(1146, 401);
+            this.label42.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(31, 21);
+            this.label42.Size = new System.Drawing.Size(39, 27);
             this.label42.TabIndex = 31;
             this.label42.Text = "）";
             // 
@@ -580,31 +576,22 @@
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label43.ForeColor = System.Drawing.Color.White;
-            this.label43.Location = new System.Drawing.Point(391, 321);
+            this.label43.Location = new System.Drawing.Point(521, 401);
+            this.label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(31, 21);
+            this.label43.Size = new System.Drawing.Size(39, 27);
             this.label43.TabIndex = 30;
             this.label43.Text = "（";
-            // 
-            // lblMachine4LoanCount
-            // 
-            this.lblMachine4LoanCount.AutoSize = true;
-            this.lblMachine4LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblMachine4LoanCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachine4LoanCount.Location = new System.Drawing.Point(993, 261);
-            this.lblMachine4LoanCount.Name = "lblMachine4LoanCount";
-            this.lblMachine4LoanCount.Size = new System.Drawing.Size(21, 21);
-            this.lblMachine4LoanCount.TabIndex = 29;
-            this.lblMachine4LoanCount.Text = "0";
             // 
             // lblMachine3LoanCount
             // 
             this.lblMachine3LoanCount.AutoSize = true;
             this.lblMachine3LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblMachine3LoanCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachine3LoanCount.Location = new System.Drawing.Point(834, 261);
+            this.lblMachine3LoanCount.Location = new System.Drawing.Point(1112, 326);
+            this.lblMachine3LoanCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine3LoanCount.Name = "lblMachine3LoanCount";
-            this.lblMachine3LoanCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine3LoanCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachine3LoanCount.TabIndex = 28;
             this.lblMachine3LoanCount.Text = "0";
             // 
@@ -613,9 +600,10 @@
             this.lblMachine2LoanCount.AutoSize = true;
             this.lblMachine2LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblMachine2LoanCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachine2LoanCount.Location = new System.Drawing.Point(671, 261);
+            this.lblMachine2LoanCount.Location = new System.Drawing.Point(895, 326);
+            this.lblMachine2LoanCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine2LoanCount.Name = "lblMachine2LoanCount";
-            this.lblMachine2LoanCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine2LoanCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachine2LoanCount.TabIndex = 27;
             this.lblMachine2LoanCount.Text = "0";
             // 
@@ -624,9 +612,10 @@
             this.lblMachine1LoanCount.AutoSize = true;
             this.lblMachine1LoanCount.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblMachine1LoanCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachine1LoanCount.Location = new System.Drawing.Point(518, 261);
+            this.lblMachine1LoanCount.Location = new System.Drawing.Point(691, 326);
+            this.lblMachine1LoanCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine1LoanCount.Name = "lblMachine1LoanCount";
-            this.lblMachine1LoanCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine1LoanCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachine1LoanCount.TabIndex = 26;
             this.lblMachine1LoanCount.Text = "0";
             // 
@@ -635,20 +624,22 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label30.ForeColor = System.Drawing.Color.White;
-            this.label30.Location = new System.Drawing.Point(744, 261);
+            this.label30.Location = new System.Drawing.Point(992, 326);
+            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(84, 21);
+            this.label30.Size = new System.Drawing.Size(93, 27);
             this.label30.TabIndex = 25;
-            this.label30.Text = "种类3：";
+            this.label30.Text = "其它：";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label31.ForeColor = System.Drawing.Color.White;
-            this.label31.Location = new System.Drawing.Point(581, 261);
+            this.label31.Location = new System.Drawing.Point(775, 326);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(84, 21);
+            this.label31.Size = new System.Drawing.Size(107, 27);
             this.label31.TabIndex = 24;
             this.label31.Text = "种类2：";
             // 
@@ -657,31 +648,22 @@
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label32.ForeColor = System.Drawing.Color.White;
-            this.label32.Location = new System.Drawing.Point(428, 261);
+            this.label32.Location = new System.Drawing.Point(571, 326);
+            this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(84, 21);
+            this.label32.Size = new System.Drawing.Size(107, 27);
             this.label32.TabIndex = 23;
             this.label32.Text = "种类1：";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label33.ForeColor = System.Drawing.Color.White;
-            this.label33.Location = new System.Drawing.Point(903, 261);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(84, 21);
-            this.label33.TabIndex = 22;
-            this.label33.Text = "种类4：";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(1020, 261);
+            this.label25.Location = new System.Drawing.Point(1146, 326);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(31, 21);
+            this.label25.Size = new System.Drawing.Size(39, 27);
             this.label25.TabIndex = 21;
             this.label25.Text = "）";
             // 
@@ -690,9 +672,10 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("宋体", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label24.ForeColor = System.Drawing.Color.White;
-            this.label24.Location = new System.Drawing.Point(391, 261);
+            this.label24.Location = new System.Drawing.Point(521, 326);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(31, 21);
+            this.label24.Size = new System.Drawing.Size(39, 27);
             this.label24.TabIndex = 20;
             this.label24.Text = "（";
             // 
@@ -701,9 +684,10 @@
             this.lblMachineReturnCount.AutoSize = true;
             this.lblMachineReturnCount.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblMachineReturnCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachineReturnCount.Location = new System.Drawing.Point(376, 318);
+            this.lblMachineReturnCount.Location = new System.Drawing.Point(501, 398);
+            this.lblMachineReturnCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachineReturnCount.Name = "lblMachineReturnCount";
-            this.lblMachineReturnCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachineReturnCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachineReturnCount.TabIndex = 19;
             this.lblMachineReturnCount.Text = "0";
             // 
@@ -712,9 +696,10 @@
             this.lblMachineLoanCount.AutoSize = true;
             this.lblMachineLoanCount.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblMachineLoanCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachineLoanCount.Location = new System.Drawing.Point(376, 261);
+            this.lblMachineLoanCount.Location = new System.Drawing.Point(501, 326);
+            this.lblMachineLoanCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachineLoanCount.Name = "lblMachineLoanCount";
-            this.lblMachineLoanCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachineLoanCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachineLoanCount.TabIndex = 18;
             this.lblMachineLoanCount.Text = "0";
             // 
@@ -723,9 +708,10 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label21.ForeColor = System.Drawing.Color.White;
-            this.label21.Location = new System.Drawing.Point(270, 318);
+            this.label21.Location = new System.Drawing.Point(346, 401);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(73, 21);
+            this.label21.Size = new System.Drawing.Size(93, 27);
             this.label21.TabIndex = 17;
             this.label21.Text = "归还：";
             // 
@@ -734,9 +720,10 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(270, 261);
+            this.label20.Location = new System.Drawing.Point(346, 329);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(73, 21);
+            this.label20.Size = new System.Drawing.Size(93, 27);
             this.label20.TabIndex = 16;
             this.label20.Text = "借出：";
             // 
@@ -745,9 +732,10 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label19.ForeColor = System.Drawing.Color.White;
-            this.label19.Location = new System.Drawing.Point(270, 169);
+            this.label19.Location = new System.Drawing.Point(346, 231);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(115, 21);
+            this.label19.Size = new System.Drawing.Size(147, 27);
             this.label19.TabIndex = 15;
             this.label19.Text = "设备总数：";
             // 
@@ -756,9 +744,10 @@
             this.lblMachine3Count.AutoSize = true;
             this.lblMachine3Count.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblMachine3Count.ForeColor = System.Drawing.Color.White;
-            this.lblMachine3Count.Location = new System.Drawing.Point(1046, 208);
+            this.lblMachine3Count.Location = new System.Drawing.Point(1395, 260);
+            this.lblMachine3Count.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine3Count.Name = "lblMachine3Count";
-            this.lblMachine3Count.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine3Count.Size = new System.Drawing.Size(26, 27);
             this.lblMachine3Count.TabIndex = 13;
             this.lblMachine3Count.Text = "0";
             // 
@@ -767,9 +756,10 @@
             this.lblMachine2Count.AutoSize = true;
             this.lblMachine2Count.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblMachine2Count.ForeColor = System.Drawing.Color.White;
-            this.lblMachine2Count.Location = new System.Drawing.Point(1046, 161);
+            this.lblMachine2Count.Location = new System.Drawing.Point(1395, 201);
+            this.lblMachine2Count.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine2Count.Name = "lblMachine2Count";
-            this.lblMachine2Count.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine2Count.Size = new System.Drawing.Size(26, 27);
             this.lblMachine2Count.TabIndex = 12;
             this.lblMachine2Count.Text = "0";
             // 
@@ -778,9 +768,10 @@
             this.lblMachine1Count.AutoSize = true;
             this.lblMachine1Count.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblMachine1Count.ForeColor = System.Drawing.Color.White;
-            this.lblMachine1Count.Location = new System.Drawing.Point(1046, 117);
+            this.lblMachine1Count.Location = new System.Drawing.Point(1395, 146);
+            this.lblMachine1Count.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachine1Count.Name = "lblMachine1Count";
-            this.lblMachine1Count.Size = new System.Drawing.Size(21, 21);
+            this.lblMachine1Count.Size = new System.Drawing.Size(26, 27);
             this.lblMachine1Count.TabIndex = 11;
             this.lblMachine1Count.Text = "0";
             // 
@@ -789,9 +780,10 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(759, 161);
+            this.label14.Location = new System.Drawing.Point(1012, 201);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(115, 21);
+            this.label14.Size = new System.Drawing.Size(147, 27);
             this.label14.TabIndex = 10;
             this.label14.Text = "设备种类：";
             // 
@@ -800,9 +792,10 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(925, 208);
+            this.label13.Location = new System.Drawing.Point(1233, 260);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 21);
+            this.label13.Size = new System.Drawing.Size(107, 27);
             this.label13.TabIndex = 9;
             this.label13.Text = "其 它：";
             // 
@@ -811,9 +804,10 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(925, 161);
+            this.label12.Location = new System.Drawing.Point(1233, 201);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(84, 21);
+            this.label12.Size = new System.Drawing.Size(107, 27);
             this.label12.TabIndex = 8;
             this.label12.Text = "种类2：";
             // 
@@ -822,18 +816,20 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("宋体", 15.75F);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(925, 117);
+            this.label11.Location = new System.Drawing.Point(1233, 146);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 21);
+            this.label11.Size = new System.Drawing.Size(107, 27);
             this.label11.TabIndex = 7;
             this.label11.Text = "种类1：";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(925, 20);
+            this.label10.Location = new System.Drawing.Point(1233, 25);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 12);
+            this.label10.Size = new System.Drawing.Size(0, 15);
             this.label10.TabIndex = 6;
             // 
             // lblMachineCount
@@ -841,34 +837,41 @@
             this.lblMachineCount.AutoSize = true;
             this.lblMachineCount.Font = new System.Drawing.Font("宋体", 15.75F);
             this.lblMachineCount.ForeColor = System.Drawing.Color.White;
-            this.lblMachineCount.Location = new System.Drawing.Point(468, 169);
+            this.lblMachineCount.Location = new System.Drawing.Point(501, 231);
+            this.lblMachineCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMachineCount.Name = "lblMachineCount";
-            this.lblMachineCount.Size = new System.Drawing.Size(21, 21);
+            this.lblMachineCount.Size = new System.Drawing.Size(26, 27);
             this.lblMachineCount.TabIndex = 4;
             this.lblMachineCount.Text = "0";
             // 
             // groupBox4
             // 
-            this.groupBox4.Location = new System.Drawing.Point(214, 613);
+            this.groupBox4.Location = new System.Drawing.Point(285, 766);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1060, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Size = new System.Drawing.Size(1413, 2);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             // 
             // groupBox3
             // 
-            this.groupBox3.Location = new System.Drawing.Point(214, 360);
+            this.groupBox3.Location = new System.Drawing.Point(285, 450);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1060, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(1413, 2);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             // 
             // groupBox2
             // 
             this.groupBox2.Font = new System.Drawing.Font("宋体", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(214, 239);
+            this.groupBox2.Location = new System.Drawing.Point(285, 299);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1060, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(1413, 2);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
@@ -876,10 +879,11 @@
             // 
             this.pageQueryStatistics.Controls.Add(this.groupBox1);
             this.pageQueryStatistics.Controls.Add(this.lvwCirculation);
-            this.pageQueryStatistics.Location = new System.Drawing.Point(4, 22);
+            this.pageQueryStatistics.Location = new System.Drawing.Point(4, 25);
+            this.pageQueryStatistics.Margin = new System.Windows.Forms.Padding(4);
             this.pageQueryStatistics.Name = "pageQueryStatistics";
-            this.pageQueryStatistics.Padding = new System.Windows.Forms.Padding(3);
-            this.pageQueryStatistics.Size = new System.Drawing.Size(1384, 701);
+            this.pageQueryStatistics.Padding = new System.Windows.Forms.Padding(4);
+            this.pageQueryStatistics.Size = new System.Drawing.Size(1848, 880);
             this.pageQueryStatistics.TabIndex = 0;
             this.pageQueryStatistics.Text = "查询统计";
             this.pageQueryStatistics.UseVisualStyleBackColor = true;
@@ -907,33 +911,38 @@
             this.groupBox1.Controls.Add(this.dtpActionStartTime);
             this.groupBox1.Controls.Add(this.txtLendUserStudentGet);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(60, 50);
+            this.groupBox1.Location = new System.Drawing.Point(80, 62);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1254, 201);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(1672, 251);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
             // txtItemUid
             // 
-            this.txtItemUid.Location = new System.Drawing.Point(104, 158);
+            this.txtItemUid.Location = new System.Drawing.Point(139, 198);
+            this.txtItemUid.Margin = new System.Windows.Forms.Padding(4);
             this.txtItemUid.Name = "txtItemUid";
-            this.txtItemUid.Size = new System.Drawing.Size(100, 21);
+            this.txtItemUid.Size = new System.Drawing.Size(132, 25);
             this.txtItemUid.TabIndex = 44;
             // 
             // lblItemUid
             // 
             this.lblItemUid.AutoSize = true;
-            this.lblItemUid.Location = new System.Drawing.Point(33, 161);
+            this.lblItemUid.Location = new System.Drawing.Point(44, 201);
+            this.lblItemUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblItemUid.Name = "lblItemUid";
-            this.lblItemUid.Size = new System.Drawing.Size(65, 12);
+            this.lblItemUid.Size = new System.Drawing.Size(82, 15);
             this.lblItemUid.TabIndex = 43;
             this.lblItemUid.Text = "电子标签：";
             // 
             // btnExportData
             // 
-            this.btnExportData.Location = new System.Drawing.Point(1104, 150);
+            this.btnExportData.Location = new System.Drawing.Point(1472, 188);
+            this.btnExportData.Margin = new System.Windows.Forms.Padding(4);
             this.btnExportData.Name = "btnExportData";
-            this.btnExportData.Size = new System.Drawing.Size(98, 34);
+            this.btnExportData.Size = new System.Drawing.Size(131, 42);
             this.btnExportData.TabIndex = 42;
             this.btnExportData.Text = "Export Data";
             this.btnExportData.UseVisualStyleBackColor = true;
@@ -941,25 +950,28 @@
             // 
             // dtpActionEndTime
             // 
-            this.dtpActionEndTime.Location = new System.Drawing.Point(864, 58);
+            this.dtpActionEndTime.Location = new System.Drawing.Point(1152, 72);
+            this.dtpActionEndTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpActionEndTime.Name = "dtpActionEndTime";
-            this.dtpActionEndTime.Size = new System.Drawing.Size(200, 21);
+            this.dtpActionEndTime.Size = new System.Drawing.Size(265, 25);
             this.dtpActionEndTime.TabIndex = 41;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(778, 64);
+            this.label4.Location = new System.Drawing.Point(1037, 80);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(82, 15);
             this.label4.TabIndex = 40;
             this.label4.Text = "截至时间：";
             // 
             // btnImportCirculation
             // 
-            this.btnImportCirculation.Location = new System.Drawing.Point(1104, 106);
+            this.btnImportCirculation.Location = new System.Drawing.Point(1472, 132);
+            this.btnImportCirculation.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportCirculation.Name = "btnImportCirculation";
-            this.btnImportCirculation.Size = new System.Drawing.Size(98, 32);
+            this.btnImportCirculation.Size = new System.Drawing.Size(131, 40);
             this.btnImportCirculation.TabIndex = 39;
             this.btnImportCirculation.Text = "导出报表";
             this.btnImportCirculation.UseVisualStyleBackColor = true;
@@ -967,18 +979,20 @@
             // 
             // txtInstrumentNameGet
             // 
-            this.txtInstrumentNameGet.Location = new System.Drawing.Point(104, 58);
+            this.txtInstrumentNameGet.Location = new System.Drawing.Point(139, 72);
+            this.txtInstrumentNameGet.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstrumentNameGet.Name = "txtInstrumentNameGet";
-            this.txtInstrumentNameGet.Size = new System.Drawing.Size(100, 21);
+            this.txtInstrumentNameGet.Size = new System.Drawing.Size(132, 25);
             this.txtInstrumentNameGet.TabIndex = 24;
             // 
             // rdoCirculationOrderDesc
             // 
             this.rdoCirculationOrderDesc.AutoSize = true;
             this.rdoCirculationOrderDesc.Checked = true;
-            this.rdoCirculationOrderDesc.Location = new System.Drawing.Point(758, 114);
+            this.rdoCirculationOrderDesc.Location = new System.Drawing.Point(1011, 142);
+            this.rdoCirculationOrderDesc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoCirculationOrderDesc.Name = "rdoCirculationOrderDesc";
-            this.rdoCirculationOrderDesc.Size = new System.Drawing.Size(47, 16);
+            this.rdoCirculationOrderDesc.Size = new System.Drawing.Size(58, 19);
             this.rdoCirculationOrderDesc.TabIndex = 30;
             this.rdoCirculationOrderDesc.TabStop = true;
             this.rdoCirculationOrderDesc.Text = "倒序";
@@ -987,9 +1001,10 @@
             // rdoCirculationOrderAsc
             // 
             this.rdoCirculationOrderAsc.AutoSize = true;
-            this.rdoCirculationOrderAsc.Location = new System.Drawing.Point(692, 114);
+            this.rdoCirculationOrderAsc.Location = new System.Drawing.Point(923, 142);
+            this.rdoCirculationOrderAsc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoCirculationOrderAsc.Name = "rdoCirculationOrderAsc";
-            this.rdoCirculationOrderAsc.Size = new System.Drawing.Size(47, 16);
+            this.rdoCirculationOrderAsc.Size = new System.Drawing.Size(58, 19);
             this.rdoCirculationOrderAsc.TabIndex = 29;
             this.rdoCirculationOrderAsc.Text = "正序";
             this.rdoCirculationOrderAsc.UseVisualStyleBackColor = true;
@@ -997,18 +1012,20 @@
             // lblCirculation
             // 
             this.lblCirculation.AutoSize = true;
-            this.lblCirculation.Location = new System.Drawing.Point(468, 116);
+            this.lblCirculation.Location = new System.Drawing.Point(624, 145);
+            this.lblCirculation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCirculation.Name = "lblCirculation";
-            this.lblCirculation.Size = new System.Drawing.Size(65, 12);
+            this.lblCirculation.Size = new System.Drawing.Size(84, 15);
             this.lblCirculation.TabIndex = 28;
             this.lblCirculation.Text = "排    序：";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(33, 64);
+            this.label9.Location = new System.Drawing.Point(44, 80);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 12);
+            this.label9.Size = new System.Drawing.Size(82, 15);
             this.label9.TabIndex = 22;
             this.label9.Text = "仪器名称：";
             // 
@@ -1022,16 +1039,18 @@
             "操作人学籍号",
             "存放地点",
             "操作时间"});
-            this.cboCirculationOrder.Location = new System.Drawing.Point(552, 113);
+            this.cboCirculationOrder.Location = new System.Drawing.Point(736, 141);
+            this.cboCirculationOrder.Margin = new System.Windows.Forms.Padding(4);
             this.cboCirculationOrder.Name = "cboCirculationOrder";
-            this.cboCirculationOrder.Size = new System.Drawing.Size(121, 20);
+            this.cboCirculationOrder.Size = new System.Drawing.Size(160, 23);
             this.cboCirculationOrder.TabIndex = 27;
             // 
             // btnQueryCirculation
             // 
-            this.btnQueryCirculation.Location = new System.Drawing.Point(864, 102);
+            this.btnQueryCirculation.Location = new System.Drawing.Point(1152, 128);
+            this.btnQueryCirculation.Margin = new System.Windows.Forms.Padding(4);
             this.btnQueryCirculation.Name = "btnQueryCirculation";
-            this.btnQueryCirculation.Size = new System.Drawing.Size(159, 56);
+            this.btnQueryCirculation.Size = new System.Drawing.Size(212, 70);
             this.btnQueryCirculation.TabIndex = 26;
             this.btnQueryCirculation.Text = "开始查询";
             this.btnQueryCirculation.UseVisualStyleBackColor = true;
@@ -1040,64 +1059,72 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(33, 116);
+            this.label8.Location = new System.Drawing.Point(44, 145);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
+            this.label8.Size = new System.Drawing.Size(82, 15);
             this.label8.TabIndex = 23;
             this.label8.Text = "仪器型号：";
             // 
             // txtInstrumentTypeGet
             // 
-            this.txtInstrumentTypeGet.Location = new System.Drawing.Point(104, 110);
+            this.txtInstrumentTypeGet.Location = new System.Drawing.Point(139, 138);
+            this.txtInstrumentTypeGet.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstrumentTypeGet.Name = "txtInstrumentTypeGet";
-            this.txtInstrumentTypeGet.Size = new System.Drawing.Size(100, 21);
+            this.txtInstrumentTypeGet.Size = new System.Drawing.Size(132, 25);
             this.txtInstrumentTypeGet.TabIndex = 25;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 60);
+            this.label2.Location = new System.Drawing.Point(311, 75);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 12);
+            this.label2.Size = new System.Drawing.Size(97, 15);
             this.label2.TabIndex = 31;
             this.label2.Text = "操作人姓名：";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(221, 113);
+            this.label1.Location = new System.Drawing.Point(295, 141);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
+            this.label1.Size = new System.Drawing.Size(112, 15);
             this.label1.TabIndex = 32;
             this.label1.Text = "操作人学籍号：";
             // 
             // txtLendUserNameGet
             // 
-            this.txtLendUserNameGet.Location = new System.Drawing.Point(316, 58);
+            this.txtLendUserNameGet.Location = new System.Drawing.Point(421, 72);
+            this.txtLendUserNameGet.Margin = new System.Windows.Forms.Padding(4);
             this.txtLendUserNameGet.Name = "txtLendUserNameGet";
-            this.txtLendUserNameGet.Size = new System.Drawing.Size(100, 21);
+            this.txtLendUserNameGet.Size = new System.Drawing.Size(132, 25);
             this.txtLendUserNameGet.TabIndex = 33;
             // 
             // dtpActionStartTime
             // 
-            this.dtpActionStartTime.Location = new System.Drawing.Point(552, 58);
+            this.dtpActionStartTime.Location = new System.Drawing.Point(736, 72);
+            this.dtpActionStartTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtpActionStartTime.Name = "dtpActionStartTime";
-            this.dtpActionStartTime.Size = new System.Drawing.Size(200, 21);
+            this.dtpActionStartTime.Size = new System.Drawing.Size(265, 25);
             this.dtpActionStartTime.TabIndex = 36;
             // 
             // txtLendUserStudentGet
             // 
-            this.txtLendUserStudentGet.Location = new System.Drawing.Point(316, 110);
+            this.txtLendUserStudentGet.Location = new System.Drawing.Point(421, 138);
+            this.txtLendUserStudentGet.Margin = new System.Windows.Forms.Padding(4);
             this.txtLendUserStudentGet.Name = "txtLendUserStudentGet";
-            this.txtLendUserStudentGet.Size = new System.Drawing.Size(100, 21);
+            this.txtLendUserStudentGet.Size = new System.Drawing.Size(132, 25);
             this.txtLendUserStudentGet.TabIndex = 34;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(466, 64);
+            this.label3.Location = new System.Drawing.Point(621, 80);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.Size = new System.Drawing.Size(82, 15);
             this.label3.TabIndex = 35;
             this.label3.Text = "起始时间：";
             // 
@@ -1115,9 +1142,10 @@
             this.columnHeader8});
             this.lvwCirculation.FullRowSelect = true;
             this.lvwCirculation.GridLines = true;
-            this.lvwCirculation.Location = new System.Drawing.Point(60, 257);
+            this.lvwCirculation.Location = new System.Drawing.Point(80, 321);
+            this.lvwCirculation.Margin = new System.Windows.Forms.Padding(4);
             this.lvwCirculation.Name = "lvwCirculation";
-            this.lvwCirculation.Size = new System.Drawing.Size(1254, 374);
+            this.lvwCirculation.Size = new System.Drawing.Size(1671, 466);
             this.lvwCirculation.TabIndex = 14;
             this.lvwCirculation.UseCompatibleStateImageBehavior = false;
             this.lvwCirculation.View = System.Windows.Forms.View.Details;
@@ -1178,10 +1206,11 @@
             this.pageLabelSwitching.Controls.Add(this.grpLabelSwitchingGet);
             this.pageLabelSwitching.Controls.Add(this.grpLabelSwitchingSet);
             this.pageLabelSwitching.Controls.Add(this.lvwBook);
-            this.pageLabelSwitching.Location = new System.Drawing.Point(4, 22);
+            this.pageLabelSwitching.Location = new System.Drawing.Point(4, 25);
+            this.pageLabelSwitching.Margin = new System.Windows.Forms.Padding(4);
             this.pageLabelSwitching.Name = "pageLabelSwitching";
-            this.pageLabelSwitching.Padding = new System.Windows.Forms.Padding(3);
-            this.pageLabelSwitching.Size = new System.Drawing.Size(1384, 701);
+            this.pageLabelSwitching.Padding = new System.Windows.Forms.Padding(4);
+            this.pageLabelSwitching.Size = new System.Drawing.Size(1848, 880);
             this.pageLabelSwitching.TabIndex = 1;
             this.pageLabelSwitching.Text = "标签转换";
             this.pageLabelSwitching.UseVisualStyleBackColor = true;
@@ -1189,34 +1218,38 @@
             // lblLabelSwitchingProgress1
             // 
             this.lblLabelSwitchingProgress1.AutoSize = true;
-            this.lblLabelSwitchingProgress1.Location = new System.Drawing.Point(638, 573);
+            this.lblLabelSwitchingProgress1.Location = new System.Drawing.Point(851, 716);
+            this.lblLabelSwitchingProgress1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLabelSwitchingProgress1.Name = "lblLabelSwitchingProgress1";
-            this.lblLabelSwitchingProgress1.Size = new System.Drawing.Size(161, 12);
+            this.lblLabelSwitchingProgress1.Size = new System.Drawing.Size(215, 15);
             this.lblLabelSwitchingProgress1.TabIndex = 6;
             this.lblLabelSwitchingProgress1.Text = "lblLabelSwitchingProgress1";
             // 
             // prgLabelSwitching1
             // 
-            this.prgLabelSwitching1.Location = new System.Drawing.Point(368, 568);
+            this.prgLabelSwitching1.Location = new System.Drawing.Point(491, 710);
+            this.prgLabelSwitching1.Margin = new System.Windows.Forms.Padding(4);
             this.prgLabelSwitching1.Name = "prgLabelSwitching1";
-            this.prgLabelSwitching1.Size = new System.Drawing.Size(600, 23);
+            this.prgLabelSwitching1.Size = new System.Drawing.Size(800, 29);
             this.prgLabelSwitching1.TabIndex = 5;
             this.prgLabelSwitching1.Visible = false;
             // 
             // lblLabelSwitchingProgress2
             // 
             this.lblLabelSwitchingProgress2.AutoSize = true;
-            this.lblLabelSwitchingProgress2.Location = new System.Drawing.Point(638, 619);
+            this.lblLabelSwitchingProgress2.Location = new System.Drawing.Point(851, 774);
+            this.lblLabelSwitchingProgress2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLabelSwitchingProgress2.Name = "lblLabelSwitchingProgress2";
-            this.lblLabelSwitchingProgress2.Size = new System.Drawing.Size(161, 12);
+            this.lblLabelSwitchingProgress2.Size = new System.Drawing.Size(215, 15);
             this.lblLabelSwitchingProgress2.TabIndex = 4;
             this.lblLabelSwitchingProgress2.Text = "lblLabelSwitchingProgress2";
             // 
             // prgLabelSwitching2
             // 
-            this.prgLabelSwitching2.Location = new System.Drawing.Point(368, 613);
+            this.prgLabelSwitching2.Location = new System.Drawing.Point(491, 766);
+            this.prgLabelSwitching2.Margin = new System.Windows.Forms.Padding(4);
             this.prgLabelSwitching2.Name = "prgLabelSwitching2";
-            this.prgLabelSwitching2.Size = new System.Drawing.Size(600, 23);
+            this.prgLabelSwitching2.Size = new System.Drawing.Size(800, 29);
             this.prgLabelSwitching2.TabIndex = 3;
             this.prgLabelSwitching2.Visible = false;
             // 
@@ -1233,26 +1266,30 @@
             this.grpLabelSwitchingGet.Controls.Add(this.txtInstrumentName);
             this.grpLabelSwitchingGet.Controls.Add(this.lblInstrumentType);
             this.grpLabelSwitchingGet.Controls.Add(this.lblInstrumentName);
-            this.grpLabelSwitchingGet.Location = new System.Drawing.Point(755, 78);
+            this.grpLabelSwitchingGet.Location = new System.Drawing.Point(1007, 98);
+            this.grpLabelSwitchingGet.Margin = new System.Windows.Forms.Padding(4);
             this.grpLabelSwitchingGet.Name = "grpLabelSwitchingGet";
-            this.grpLabelSwitchingGet.Size = new System.Drawing.Size(450, 150);
+            this.grpLabelSwitchingGet.Padding = new System.Windows.Forms.Padding(4);
+            this.grpLabelSwitchingGet.Size = new System.Drawing.Size(600, 188);
             this.grpLabelSwitchingGet.TabIndex = 2;
             this.grpLabelSwitchingGet.TabStop = false;
             this.grpLabelSwitchingGet.Text = "查询";
             // 
             // txtUid
             // 
-            this.txtUid.Location = new System.Drawing.Point(135, 29);
+            this.txtUid.Location = new System.Drawing.Point(180, 36);
+            this.txtUid.Margin = new System.Windows.Forms.Padding(4);
             this.txtUid.Name = "txtUid";
-            this.txtUid.Size = new System.Drawing.Size(100, 21);
+            this.txtUid.Size = new System.Drawing.Size(132, 25);
             this.txtUid.TabIndex = 10;
             // 
             // lblUid
             // 
             this.lblUid.AutoSize = true;
-            this.lblUid.Location = new System.Drawing.Point(64, 32);
+            this.lblUid.Location = new System.Drawing.Point(85, 40);
+            this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(65, 12);
+            this.lblUid.Size = new System.Drawing.Size(82, 15);
             this.lblUid.TabIndex = 9;
             this.lblUid.Text = "电子标签：";
             // 
@@ -1260,9 +1297,10 @@
             // 
             this.rdoLabelSwitchingQueryOrderDesc.AutoSize = true;
             this.rdoLabelSwitchingQueryOrderDesc.Checked = true;
-            this.rdoLabelSwitchingQueryOrderDesc.Location = new System.Drawing.Point(343, 81);
+            this.rdoLabelSwitchingQueryOrderDesc.Location = new System.Drawing.Point(457, 101);
+            this.rdoLabelSwitchingQueryOrderDesc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoLabelSwitchingQueryOrderDesc.Name = "rdoLabelSwitchingQueryOrderDesc";
-            this.rdoLabelSwitchingQueryOrderDesc.Size = new System.Drawing.Size(47, 16);
+            this.rdoLabelSwitchingQueryOrderDesc.Size = new System.Drawing.Size(58, 19);
             this.rdoLabelSwitchingQueryOrderDesc.TabIndex = 8;
             this.rdoLabelSwitchingQueryOrderDesc.TabStop = true;
             this.rdoLabelSwitchingQueryOrderDesc.Text = "倒序";
@@ -1271,9 +1309,10 @@
             // rdoLabelSwitchingQueryOrderAsc
             // 
             this.rdoLabelSwitchingQueryOrderAsc.AutoSize = true;
-            this.rdoLabelSwitchingQueryOrderAsc.Location = new System.Drawing.Point(290, 81);
+            this.rdoLabelSwitchingQueryOrderAsc.Location = new System.Drawing.Point(387, 101);
+            this.rdoLabelSwitchingQueryOrderAsc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoLabelSwitchingQueryOrderAsc.Name = "rdoLabelSwitchingQueryOrderAsc";
-            this.rdoLabelSwitchingQueryOrderAsc.Size = new System.Drawing.Size(47, 16);
+            this.rdoLabelSwitchingQueryOrderAsc.Size = new System.Drawing.Size(58, 19);
             this.rdoLabelSwitchingQueryOrderAsc.TabIndex = 7;
             this.rdoLabelSwitchingQueryOrderAsc.Text = "正序";
             this.rdoLabelSwitchingQueryOrderAsc.UseVisualStyleBackColor = true;
@@ -1281,9 +1320,10 @@
             // lblLabelSwitchingQueryOrder
             // 
             this.lblLabelSwitchingQueryOrder.AutoSize = true;
-            this.lblLabelSwitchingQueryOrder.Location = new System.Drawing.Point(64, 113);
+            this.lblLabelSwitchingQueryOrder.Location = new System.Drawing.Point(85, 141);
+            this.lblLabelSwitchingQueryOrder.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblLabelSwitchingQueryOrder.Name = "lblLabelSwitchingQueryOrder";
-            this.lblLabelSwitchingQueryOrder.Size = new System.Drawing.Size(65, 12);
+            this.lblLabelSwitchingQueryOrder.Size = new System.Drawing.Size(84, 15);
             this.lblLabelSwitchingQueryOrder.TabIndex = 6;
             this.lblLabelSwitchingQueryOrder.Text = "排    序：";
             // 
@@ -1295,16 +1335,18 @@
             "仪器型号",
             "入库时间",
             "修改时间"});
-            this.cboLabelSwitchingQueryOrder.Location = new System.Drawing.Point(135, 110);
+            this.cboLabelSwitchingQueryOrder.Location = new System.Drawing.Point(180, 138);
+            this.cboLabelSwitchingQueryOrder.Margin = new System.Windows.Forms.Padding(4);
             this.cboLabelSwitchingQueryOrder.Name = "cboLabelSwitchingQueryOrder";
-            this.cboLabelSwitchingQueryOrder.Size = new System.Drawing.Size(121, 20);
+            this.cboLabelSwitchingQueryOrder.Size = new System.Drawing.Size(160, 23);
             this.cboLabelSwitchingQueryOrder.TabIndex = 5;
             // 
             // btnLabelSwitchingQuery
             // 
-            this.btnLabelSwitchingQuery.Location = new System.Drawing.Point(290, 108);
+            this.btnLabelSwitchingQuery.Location = new System.Drawing.Point(387, 135);
+            this.btnLabelSwitchingQuery.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingQuery.Name = "btnLabelSwitchingQuery";
-            this.btnLabelSwitchingQuery.Size = new System.Drawing.Size(75, 23);
+            this.btnLabelSwitchingQuery.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingQuery.TabIndex = 4;
             this.btnLabelSwitchingQuery.Text = "开始查询";
             this.btnLabelSwitchingQuery.UseVisualStyleBackColor = true;
@@ -1312,33 +1354,37 @@
             // 
             // txtInstrumentType
             // 
-            this.txtInstrumentType.Location = new System.Drawing.Point(135, 83);
+            this.txtInstrumentType.Location = new System.Drawing.Point(180, 104);
+            this.txtInstrumentType.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstrumentType.Name = "txtInstrumentType";
-            this.txtInstrumentType.Size = new System.Drawing.Size(100, 21);
+            this.txtInstrumentType.Size = new System.Drawing.Size(132, 25);
             this.txtInstrumentType.TabIndex = 3;
             // 
             // txtInstrumentName
             // 
-            this.txtInstrumentName.Location = new System.Drawing.Point(135, 56);
+            this.txtInstrumentName.Location = new System.Drawing.Point(180, 70);
+            this.txtInstrumentName.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstrumentName.Name = "txtInstrumentName";
-            this.txtInstrumentName.Size = new System.Drawing.Size(100, 21);
+            this.txtInstrumentName.Size = new System.Drawing.Size(132, 25);
             this.txtInstrumentName.TabIndex = 2;
             // 
             // lblInstrumentType
             // 
             this.lblInstrumentType.AutoSize = true;
-            this.lblInstrumentType.Location = new System.Drawing.Point(64, 86);
+            this.lblInstrumentType.Location = new System.Drawing.Point(85, 108);
+            this.lblInstrumentType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInstrumentType.Name = "lblInstrumentType";
-            this.lblInstrumentType.Size = new System.Drawing.Size(65, 12);
+            this.lblInstrumentType.Size = new System.Drawing.Size(82, 15);
             this.lblInstrumentType.TabIndex = 1;
             this.lblInstrumentType.Text = "仪器型号：";
             // 
             // lblInstrumentName
             // 
             this.lblInstrumentName.AutoSize = true;
-            this.lblInstrumentName.Location = new System.Drawing.Point(64, 59);
+            this.lblInstrumentName.Location = new System.Drawing.Point(85, 74);
+            this.lblInstrumentName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInstrumentName.Name = "lblInstrumentName";
-            this.lblInstrumentName.Size = new System.Drawing.Size(65, 12);
+            this.lblInstrumentName.Size = new System.Drawing.Size(82, 15);
             this.lblInstrumentName.TabIndex = 0;
             this.lblInstrumentName.Text = "仪器名称：";
             // 
@@ -1350,18 +1396,21 @@
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingUpdate);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingImport);
             this.grpLabelSwitchingSet.Controls.Add(this.btnLabelSwitchingAdd);
-            this.grpLabelSwitchingSet.Location = new System.Drawing.Point(151, 78);
+            this.grpLabelSwitchingSet.Location = new System.Drawing.Point(201, 98);
+            this.grpLabelSwitchingSet.Margin = new System.Windows.Forms.Padding(4);
             this.grpLabelSwitchingSet.Name = "grpLabelSwitchingSet";
-            this.grpLabelSwitchingSet.Size = new System.Drawing.Size(450, 150);
+            this.grpLabelSwitchingSet.Padding = new System.Windows.Forms.Padding(4);
+            this.grpLabelSwitchingSet.Size = new System.Drawing.Size(600, 188);
             this.grpLabelSwitchingSet.TabIndex = 1;
             this.grpLabelSwitchingSet.TabStop = false;
             this.grpLabelSwitchingSet.Text = "设置";
             // 
             // btnMachineTypeAdd
             // 
-            this.btnMachineTypeAdd.Location = new System.Drawing.Point(242, 85);
+            this.btnMachineTypeAdd.Location = new System.Drawing.Point(323, 106);
+            this.btnMachineTypeAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnMachineTypeAdd.Name = "btnMachineTypeAdd";
-            this.btnMachineTypeAdd.Size = new System.Drawing.Size(99, 23);
+            this.btnMachineTypeAdd.Size = new System.Drawing.Size(132, 29);
             this.btnMachineTypeAdd.TabIndex = 5;
             this.btnMachineTypeAdd.Text = "设备种类";
             this.btnMachineTypeAdd.UseVisualStyleBackColor = true;
@@ -1369,9 +1418,10 @@
             // 
             // btnLabelSwitchingDownload
             // 
-            this.btnLabelSwitchingDownload.Location = new System.Drawing.Point(241, 56);
+            this.btnLabelSwitchingDownload.Location = new System.Drawing.Point(321, 70);
+            this.btnLabelSwitchingDownload.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingDownload.Name = "btnLabelSwitchingDownload";
-            this.btnLabelSwitchingDownload.Size = new System.Drawing.Size(100, 23);
+            this.btnLabelSwitchingDownload.Size = new System.Drawing.Size(133, 29);
             this.btnLabelSwitchingDownload.TabIndex = 4;
             this.btnLabelSwitchingDownload.Text = "下载表格模板";
             this.btnLabelSwitchingDownload.UseVisualStyleBackColor = true;
@@ -1379,9 +1429,10 @@
             // 
             // btnLabelSwitchingDelete
             // 
-            this.btnLabelSwitchingDelete.Location = new System.Drawing.Point(160, 86);
+            this.btnLabelSwitchingDelete.Location = new System.Drawing.Point(213, 108);
+            this.btnLabelSwitchingDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingDelete.Name = "btnLabelSwitchingDelete";
-            this.btnLabelSwitchingDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnLabelSwitchingDelete.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingDelete.TabIndex = 3;
             this.btnLabelSwitchingDelete.Text = "删除";
             this.btnLabelSwitchingDelete.UseVisualStyleBackColor = true;
@@ -1389,9 +1440,10 @@
             // 
             // btnLabelSwitchingUpdate
             // 
-            this.btnLabelSwitchingUpdate.Location = new System.Drawing.Point(80, 86);
+            this.btnLabelSwitchingUpdate.Location = new System.Drawing.Point(107, 108);
+            this.btnLabelSwitchingUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingUpdate.Name = "btnLabelSwitchingUpdate";
-            this.btnLabelSwitchingUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnLabelSwitchingUpdate.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingUpdate.TabIndex = 2;
             this.btnLabelSwitchingUpdate.Text = "修改";
             this.btnLabelSwitchingUpdate.UseVisualStyleBackColor = true;
@@ -1399,9 +1451,10 @@
             // 
             // btnLabelSwitchingImport
             // 
-            this.btnLabelSwitchingImport.Location = new System.Drawing.Point(160, 56);
+            this.btnLabelSwitchingImport.Location = new System.Drawing.Point(213, 70);
+            this.btnLabelSwitchingImport.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingImport.Name = "btnLabelSwitchingImport";
-            this.btnLabelSwitchingImport.Size = new System.Drawing.Size(75, 23);
+            this.btnLabelSwitchingImport.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingImport.TabIndex = 1;
             this.btnLabelSwitchingImport.Text = "表格导入";
             this.btnLabelSwitchingImport.UseVisualStyleBackColor = true;
@@ -1409,9 +1462,10 @@
             // 
             // btnLabelSwitchingAdd
             // 
-            this.btnLabelSwitchingAdd.Location = new System.Drawing.Point(79, 56);
+            this.btnLabelSwitchingAdd.Location = new System.Drawing.Point(105, 70);
+            this.btnLabelSwitchingAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnLabelSwitchingAdd.Name = "btnLabelSwitchingAdd";
-            this.btnLabelSwitchingAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnLabelSwitchingAdd.Size = new System.Drawing.Size(100, 29);
             this.btnLabelSwitchingAdd.TabIndex = 0;
             this.btnLabelSwitchingAdd.Text = "新增";
             this.btnLabelSwitchingAdd.UseVisualStyleBackColor = true;
@@ -1427,12 +1481,13 @@
             this.chType,
             this.cnLocation,
             this.cnCreateDate,
-            this.cnUpdateDate});
+            this.cnMachineType});
             this.lvwBook.FullRowSelect = true;
             this.lvwBook.GridLines = true;
-            this.lvwBook.Location = new System.Drawing.Point(211, 252);
+            this.lvwBook.Location = new System.Drawing.Point(281, 315);
+            this.lvwBook.Margin = new System.Windows.Forms.Padding(4);
             this.lvwBook.Name = "lvwBook";
-            this.lvwBook.Size = new System.Drawing.Size(958, 301);
+            this.lvwBook.Size = new System.Drawing.Size(1276, 375);
             this.lvwBook.TabIndex = 0;
             this.lvwBook.UseCompatibleStateImageBehavior = false;
             this.lvwBook.View = System.Windows.Forms.View.Details;
@@ -1472,11 +1527,11 @@
             this.cnCreateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnCreateDate.Width = 150;
             // 
-            // cnUpdateDate
+            // cnMachineType
             // 
-            this.cnUpdateDate.Text = "修改时间";
-            this.cnUpdateDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.cnUpdateDate.Width = 150;
+            this.cnMachineType.Text = "设备种类";
+            this.cnMachineType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cnMachineType.Width = 150;
             // 
             // pageMakingCard
             // 
@@ -1487,10 +1542,11 @@
             this.pageMakingCard.Controls.Add(this.grpUserGet);
             this.pageMakingCard.Controls.Add(this.grpUserSet);
             this.pageMakingCard.Controls.Add(this.lvwUser);
-            this.pageMakingCard.Location = new System.Drawing.Point(4, 22);
+            this.pageMakingCard.Location = new System.Drawing.Point(4, 25);
+            this.pageMakingCard.Margin = new System.Windows.Forms.Padding(4);
             this.pageMakingCard.Name = "pageMakingCard";
-            this.pageMakingCard.Padding = new System.Windows.Forms.Padding(3);
-            this.pageMakingCard.Size = new System.Drawing.Size(1384, 701);
+            this.pageMakingCard.Padding = new System.Windows.Forms.Padding(4);
+            this.pageMakingCard.Size = new System.Drawing.Size(1848, 880);
             this.pageMakingCard.TabIndex = 2;
             this.pageMakingCard.Text = "开卡办证";
             this.pageMakingCard.UseVisualStyleBackColor = true;
@@ -1498,34 +1554,38 @@
             // lblUserProgress1
             // 
             this.lblUserProgress1.AutoSize = true;
-            this.lblUserProgress1.Location = new System.Drawing.Point(653, 569);
+            this.lblUserProgress1.Location = new System.Drawing.Point(871, 711);
+            this.lblUserProgress1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserProgress1.Name = "lblUserProgress1";
-            this.lblUserProgress1.Size = new System.Drawing.Size(101, 12);
+            this.lblUserProgress1.Size = new System.Drawing.Size(135, 15);
             this.lblUserProgress1.TabIndex = 13;
             this.lblUserProgress1.Text = "lblUserProgress1";
             // 
             // prgUser1
             // 
-            this.prgUser1.Location = new System.Drawing.Point(383, 564);
+            this.prgUser1.Location = new System.Drawing.Point(511, 705);
+            this.prgUser1.Margin = new System.Windows.Forms.Padding(4);
             this.prgUser1.Name = "prgUser1";
-            this.prgUser1.Size = new System.Drawing.Size(600, 23);
+            this.prgUser1.Size = new System.Drawing.Size(800, 29);
             this.prgUser1.TabIndex = 12;
             this.prgUser1.Visible = false;
             // 
             // lblUserProgress2
             // 
             this.lblUserProgress2.AutoSize = true;
-            this.lblUserProgress2.Location = new System.Drawing.Point(653, 615);
+            this.lblUserProgress2.Location = new System.Drawing.Point(871, 769);
+            this.lblUserProgress2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserProgress2.Name = "lblUserProgress2";
-            this.lblUserProgress2.Size = new System.Drawing.Size(101, 12);
+            this.lblUserProgress2.Size = new System.Drawing.Size(135, 15);
             this.lblUserProgress2.TabIndex = 11;
             this.lblUserProgress2.Text = "lblUserProgress2";
             // 
             // prgUser2
             // 
-            this.prgUser2.Location = new System.Drawing.Point(383, 609);
+            this.prgUser2.Location = new System.Drawing.Point(511, 761);
+            this.prgUser2.Margin = new System.Windows.Forms.Padding(4);
             this.prgUser2.Name = "prgUser2";
-            this.prgUser2.Size = new System.Drawing.Size(600, 23);
+            this.prgUser2.Size = new System.Drawing.Size(800, 29);
             this.prgUser2.TabIndex = 10;
             this.prgUser2.Visible = false;
             // 
@@ -1546,9 +1606,11 @@
             this.grpUserGet.Controls.Add(this.txtUserName);
             this.grpUserGet.Controls.Add(this.lblUserCardCode);
             this.grpUserGet.Controls.Add(this.lblUserName);
-            this.grpUserGet.Location = new System.Drawing.Point(809, 82);
+            this.grpUserGet.Location = new System.Drawing.Point(1079, 102);
+            this.grpUserGet.Margin = new System.Windows.Forms.Padding(4);
             this.grpUserGet.Name = "grpUserGet";
-            this.grpUserGet.Size = new System.Drawing.Size(450, 150);
+            this.grpUserGet.Padding = new System.Windows.Forms.Padding(4);
+            this.grpUserGet.Size = new System.Drawing.Size(600, 188);
             this.grpUserGet.TabIndex = 9;
             this.grpUserGet.TabStop = false;
             this.grpUserGet.Text = "查询";
@@ -1556,51 +1618,57 @@
             // lblClassName
             // 
             this.lblClassName.AutoSize = true;
-            this.lblClassName.Location = new System.Drawing.Point(245, 47);
+            this.lblClassName.Location = new System.Drawing.Point(327, 59);
+            this.lblClassName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClassName.Name = "lblClassName";
-            this.lblClassName.Size = new System.Drawing.Size(65, 12);
+            this.lblClassName.Size = new System.Drawing.Size(84, 15);
             this.lblClassName.TabIndex = 23;
             this.lblClassName.Text = "班    级：";
             // 
             // cmbClassName
             // 
             this.cmbClassName.FormattingEnabled = true;
-            this.cmbClassName.Location = new System.Drawing.Point(310, 44);
+            this.cmbClassName.Location = new System.Drawing.Point(413, 55);
+            this.cmbClassName.Margin = new System.Windows.Forms.Padding(4);
             this.cmbClassName.Name = "cmbClassName";
-            this.cmbClassName.Size = new System.Drawing.Size(121, 20);
+            this.cmbClassName.Size = new System.Drawing.Size(160, 23);
             this.cmbClassName.TabIndex = 22;
             // 
             // cmbGradeName
             // 
             this.cmbGradeName.FormattingEnabled = true;
-            this.cmbGradeName.Location = new System.Drawing.Point(310, 17);
+            this.cmbGradeName.Location = new System.Drawing.Point(413, 21);
+            this.cmbGradeName.Margin = new System.Windows.Forms.Padding(4);
             this.cmbGradeName.Name = "cmbGradeName";
-            this.cmbGradeName.Size = new System.Drawing.Size(121, 20);
+            this.cmbGradeName.Size = new System.Drawing.Size(160, 23);
             this.cmbGradeName.TabIndex = 21;
             this.cmbGradeName.SelectedIndexChanged += new System.EventHandler(this.cmbGradeName_SelectedIndexChanged);
             // 
             // lblGradeName
             // 
             this.lblGradeName.AutoSize = true;
-            this.lblGradeName.Location = new System.Drawing.Point(245, 20);
+            this.lblGradeName.Location = new System.Drawing.Point(327, 25);
+            this.lblGradeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGradeName.Name = "lblGradeName";
-            this.lblGradeName.Size = new System.Drawing.Size(65, 12);
+            this.lblGradeName.Size = new System.Drawing.Size(84, 15);
             this.lblGradeName.TabIndex = 20;
             this.lblGradeName.Text = "年    级：";
             // 
             // txtUserStudentCode
             // 
-            this.txtUserStudentCode.Location = new System.Drawing.Point(132, 76);
+            this.txtUserStudentCode.Location = new System.Drawing.Point(176, 95);
+            this.txtUserStudentCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserStudentCode.Name = "txtUserStudentCode";
-            this.txtUserStudentCode.Size = new System.Drawing.Size(100, 21);
+            this.txtUserStudentCode.Size = new System.Drawing.Size(132, 25);
             this.txtUserStudentCode.TabIndex = 10;
             // 
             // lblUserStudentCode
             // 
             this.lblUserStudentCode.AutoSize = true;
-            this.lblUserStudentCode.Location = new System.Drawing.Point(61, 79);
+            this.lblUserStudentCode.Location = new System.Drawing.Point(81, 99);
+            this.lblUserStudentCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserStudentCode.Name = "lblUserStudentCode";
-            this.lblUserStudentCode.Size = new System.Drawing.Size(65, 12);
+            this.lblUserStudentCode.Size = new System.Drawing.Size(83, 15);
             this.lblUserStudentCode.TabIndex = 9;
             this.lblUserStudentCode.Text = "学 籍 号：";
             // 
@@ -1608,9 +1676,10 @@
             // 
             this.rdoUserQueryOrderDesc.AutoSize = true;
             this.rdoUserQueryOrderDesc.Checked = true;
-            this.rdoUserQueryOrderDesc.Location = new System.Drawing.Point(367, 104);
+            this.rdoUserQueryOrderDesc.Location = new System.Drawing.Point(489, 130);
+            this.rdoUserQueryOrderDesc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoUserQueryOrderDesc.Name = "rdoUserQueryOrderDesc";
-            this.rdoUserQueryOrderDesc.Size = new System.Drawing.Size(47, 16);
+            this.rdoUserQueryOrderDesc.Size = new System.Drawing.Size(58, 19);
             this.rdoUserQueryOrderDesc.TabIndex = 8;
             this.rdoUserQueryOrderDesc.TabStop = true;
             this.rdoUserQueryOrderDesc.Text = "倒序";
@@ -1619,9 +1688,10 @@
             // rdoUserQueryOrderAsc
             // 
             this.rdoUserQueryOrderAsc.AutoSize = true;
-            this.rdoUserQueryOrderAsc.Location = new System.Drawing.Point(287, 104);
+            this.rdoUserQueryOrderAsc.Location = new System.Drawing.Point(383, 130);
+            this.rdoUserQueryOrderAsc.Margin = new System.Windows.Forms.Padding(4);
             this.rdoUserQueryOrderAsc.Name = "rdoUserQueryOrderAsc";
-            this.rdoUserQueryOrderAsc.Size = new System.Drawing.Size(47, 16);
+            this.rdoUserQueryOrderAsc.Size = new System.Drawing.Size(58, 19);
             this.rdoUserQueryOrderAsc.TabIndex = 7;
             this.rdoUserQueryOrderAsc.Text = "正序";
             this.rdoUserQueryOrderAsc.UseVisualStyleBackColor = true;
@@ -1629,9 +1699,10 @@
             // lblUserQueryOrde
             // 
             this.lblUserQueryOrde.AutoSize = true;
-            this.lblUserQueryOrde.Location = new System.Drawing.Point(61, 108);
+            this.lblUserQueryOrde.Location = new System.Drawing.Point(81, 135);
+            this.lblUserQueryOrde.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserQueryOrde.Name = "lblUserQueryOrde";
-            this.lblUserQueryOrde.Size = new System.Drawing.Size(65, 12);
+            this.lblUserQueryOrde.Size = new System.Drawing.Size(84, 15);
             this.lblUserQueryOrde.TabIndex = 6;
             this.lblUserQueryOrde.Text = "排    序：";
             // 
@@ -1646,16 +1717,18 @@
             "班    级",
             "创建时间",
             "修改时间"});
-            this.cboUserQueryOrder.Location = new System.Drawing.Point(132, 103);
+            this.cboUserQueryOrder.Location = new System.Drawing.Point(176, 129);
+            this.cboUserQueryOrder.Margin = new System.Windows.Forms.Padding(4);
             this.cboUserQueryOrder.Name = "cboUserQueryOrder";
-            this.cboUserQueryOrder.Size = new System.Drawing.Size(121, 20);
+            this.cboUserQueryOrder.Size = new System.Drawing.Size(160, 23);
             this.cboUserQueryOrder.TabIndex = 5;
             // 
             // btnUserQuery
             // 
-            this.btnUserQuery.Location = new System.Drawing.Point(287, 121);
+            this.btnUserQuery.Location = new System.Drawing.Point(383, 151);
+            this.btnUserQuery.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserQuery.Name = "btnUserQuery";
-            this.btnUserQuery.Size = new System.Drawing.Size(75, 23);
+            this.btnUserQuery.Size = new System.Drawing.Size(100, 29);
             this.btnUserQuery.TabIndex = 4;
             this.btnUserQuery.Text = "开始查询";
             this.btnUserQuery.UseVisualStyleBackColor = true;
@@ -1663,33 +1736,37 @@
             // 
             // txtUserCardCode
             // 
-            this.txtUserCardCode.Location = new System.Drawing.Point(132, 46);
+            this.txtUserCardCode.Location = new System.Drawing.Point(176, 58);
+            this.txtUserCardCode.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserCardCode.Name = "txtUserCardCode";
-            this.txtUserCardCode.Size = new System.Drawing.Size(100, 21);
+            this.txtUserCardCode.Size = new System.Drawing.Size(132, 25);
             this.txtUserCardCode.TabIndex = 3;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(132, 14);
+            this.txtUserName.Location = new System.Drawing.Point(176, 18);
+            this.txtUserName.Margin = new System.Windows.Forms.Padding(4);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(100, 21);
+            this.txtUserName.Size = new System.Drawing.Size(132, 25);
             this.txtUserName.TabIndex = 2;
             // 
             // lblUserCardCode
             // 
             this.lblUserCardCode.AutoSize = true;
-            this.lblUserCardCode.Location = new System.Drawing.Point(61, 49);
+            this.lblUserCardCode.Location = new System.Drawing.Point(81, 61);
+            this.lblUserCardCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserCardCode.Name = "lblUserCardCode";
-            this.lblUserCardCode.Size = new System.Drawing.Size(65, 12);
+            this.lblUserCardCode.Size = new System.Drawing.Size(84, 15);
             this.lblUserCardCode.TabIndex = 1;
             this.lblUserCardCode.Text = "卡    号：";
             // 
             // lblUserName
             // 
             this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(61, 17);
+            this.lblUserName.Location = new System.Drawing.Point(81, 21);
+            this.lblUserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(65, 12);
+            this.lblUserName.Size = new System.Drawing.Size(82, 15);
             this.lblUserName.TabIndex = 0;
             this.lblUserName.Text = "学生姓名：";
             // 
@@ -1700,18 +1777,21 @@
             this.grpUserSet.Controls.Add(this.btnUserUpdate);
             this.grpUserSet.Controls.Add(this.btnUserImport);
             this.grpUserSet.Controls.Add(this.btnUserAdd);
-            this.grpUserSet.Location = new System.Drawing.Point(156, 82);
+            this.grpUserSet.Location = new System.Drawing.Point(208, 102);
+            this.grpUserSet.Margin = new System.Windows.Forms.Padding(4);
             this.grpUserSet.Name = "grpUserSet";
-            this.grpUserSet.Size = new System.Drawing.Size(450, 150);
+            this.grpUserSet.Padding = new System.Windows.Forms.Padding(4);
+            this.grpUserSet.Size = new System.Drawing.Size(600, 188);
             this.grpUserSet.TabIndex = 8;
             this.grpUserSet.TabStop = false;
             this.grpUserSet.Text = "设置";
             // 
             // btnUserDownload
             // 
-            this.btnUserDownload.Location = new System.Drawing.Point(235, 59);
+            this.btnUserDownload.Location = new System.Drawing.Point(313, 74);
+            this.btnUserDownload.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserDownload.Name = "btnUserDownload";
-            this.btnUserDownload.Size = new System.Drawing.Size(100, 23);
+            this.btnUserDownload.Size = new System.Drawing.Size(133, 29);
             this.btnUserDownload.TabIndex = 4;
             this.btnUserDownload.Text = "下载表格模板";
             this.btnUserDownload.UseVisualStyleBackColor = true;
@@ -1719,9 +1799,10 @@
             // 
             // btnUserDelete
             // 
-            this.btnUserDelete.Location = new System.Drawing.Point(154, 89);
+            this.btnUserDelete.Location = new System.Drawing.Point(205, 111);
+            this.btnUserDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserDelete.Name = "btnUserDelete";
-            this.btnUserDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnUserDelete.Size = new System.Drawing.Size(100, 29);
             this.btnUserDelete.TabIndex = 3;
             this.btnUserDelete.Text = "删除";
             this.btnUserDelete.UseVisualStyleBackColor = true;
@@ -1729,9 +1810,10 @@
             // 
             // btnUserUpdate
             // 
-            this.btnUserUpdate.Location = new System.Drawing.Point(74, 89);
+            this.btnUserUpdate.Location = new System.Drawing.Point(99, 111);
+            this.btnUserUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserUpdate.Name = "btnUserUpdate";
-            this.btnUserUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUserUpdate.Size = new System.Drawing.Size(100, 29);
             this.btnUserUpdate.TabIndex = 2;
             this.btnUserUpdate.Text = "修改";
             this.btnUserUpdate.UseVisualStyleBackColor = true;
@@ -1739,9 +1821,10 @@
             // 
             // btnUserImport
             // 
-            this.btnUserImport.Location = new System.Drawing.Point(154, 59);
+            this.btnUserImport.Location = new System.Drawing.Point(205, 74);
+            this.btnUserImport.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserImport.Name = "btnUserImport";
-            this.btnUserImport.Size = new System.Drawing.Size(75, 23);
+            this.btnUserImport.Size = new System.Drawing.Size(100, 29);
             this.btnUserImport.TabIndex = 1;
             this.btnUserImport.Text = "表格导入";
             this.btnUserImport.UseVisualStyleBackColor = true;
@@ -1749,9 +1832,10 @@
             // 
             // btnUserAdd
             // 
-            this.btnUserAdd.Location = new System.Drawing.Point(73, 59);
+            this.btnUserAdd.Location = new System.Drawing.Point(97, 74);
+            this.btnUserAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnUserAdd.Name = "btnUserAdd";
-            this.btnUserAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnUserAdd.Size = new System.Drawing.Size(100, 29);
             this.btnUserAdd.TabIndex = 0;
             this.btnUserAdd.Text = "新增";
             this.btnUserAdd.UseVisualStyleBackColor = true;
@@ -1771,9 +1855,10 @@
             this.cnUserUpdateTime});
             this.lvwUser.FullRowSelect = true;
             this.lvwUser.GridLines = true;
-            this.lvwUser.Location = new System.Drawing.Point(156, 249);
+            this.lvwUser.Location = new System.Drawing.Point(208, 311);
+            this.lvwUser.Margin = new System.Windows.Forms.Padding(4);
             this.lvwUser.Name = "lvwUser";
-            this.lvwUser.Size = new System.Drawing.Size(1111, 301);
+            this.lvwUser.Size = new System.Drawing.Size(1480, 375);
             this.lvwUser.TabIndex = 7;
             this.lvwUser.UseCompatibleStateImageBehavior = false;
             this.lvwUser.View = System.Windows.Forms.View.Details;
@@ -1827,9 +1912,10 @@
             // 
             // pageHelp
             // 
-            this.pageHelp.Location = new System.Drawing.Point(4, 22);
+            this.pageHelp.Location = new System.Drawing.Point(4, 25);
+            this.pageHelp.Margin = new System.Windows.Forms.Padding(4);
             this.pageHelp.Name = "pageHelp";
-            this.pageHelp.Size = new System.Drawing.Size(1384, 701);
+            this.pageHelp.Size = new System.Drawing.Size(1848, 880);
             this.pageHelp.TabIndex = 3;
             this.pageHelp.Text = "帮助文档";
             this.pageHelp.UseVisualStyleBackColor = true;
@@ -1838,19 +1924,21 @@
             // 
             this.pageMoreFeatures.Controls.Add(this.btnAppendCirculationRecord);
             this.pageMoreFeatures.Controls.Add(this.btnImportBookATMCirculationRecord);
-            this.pageMoreFeatures.Location = new System.Drawing.Point(4, 22);
+            this.pageMoreFeatures.Location = new System.Drawing.Point(4, 25);
+            this.pageMoreFeatures.Margin = new System.Windows.Forms.Padding(4);
             this.pageMoreFeatures.Name = "pageMoreFeatures";
-            this.pageMoreFeatures.Padding = new System.Windows.Forms.Padding(3);
-            this.pageMoreFeatures.Size = new System.Drawing.Size(1384, 701);
+            this.pageMoreFeatures.Padding = new System.Windows.Forms.Padding(4);
+            this.pageMoreFeatures.Size = new System.Drawing.Size(1848, 880);
             this.pageMoreFeatures.TabIndex = 4;
             this.pageMoreFeatures.Text = "更多功能";
             this.pageMoreFeatures.UseVisualStyleBackColor = true;
             // 
             // btnAppendCirculationRecord
             // 
-            this.btnAppendCirculationRecord.Location = new System.Drawing.Point(64, 28);
+            this.btnAppendCirculationRecord.Location = new System.Drawing.Point(85, 35);
+            this.btnAppendCirculationRecord.Margin = new System.Windows.Forms.Padding(4);
             this.btnAppendCirculationRecord.Name = "btnAppendCirculationRecord";
-            this.btnAppendCirculationRecord.Size = new System.Drawing.Size(150, 50);
+            this.btnAppendCirculationRecord.Size = new System.Drawing.Size(200, 62);
             this.btnAppendCirculationRecord.TabIndex = 2;
             this.btnAppendCirculationRecord.Text = "追加借还记录";
             this.btnAppendCirculationRecord.UseVisualStyleBackColor = true;
@@ -1858,9 +1946,10 @@
             // 
             // btnImportBookATMCirculationRecord
             // 
-            this.btnImportBookATMCirculationRecord.Location = new System.Drawing.Point(64, 96);
+            this.btnImportBookATMCirculationRecord.Location = new System.Drawing.Point(85, 120);
+            this.btnImportBookATMCirculationRecord.Margin = new System.Windows.Forms.Padding(4);
             this.btnImportBookATMCirculationRecord.Name = "btnImportBookATMCirculationRecord";
-            this.btnImportBookATMCirculationRecord.Size = new System.Drawing.Size(150, 50);
+            this.btnImportBookATMCirculationRecord.Size = new System.Drawing.Size(200, 62);
             this.btnImportBookATMCirculationRecord.TabIndex = 1;
             this.btnImportBookATMCirculationRecord.Text = "图书ATM数据导入";
             this.btnImportBookATMCirculationRecord.UseVisualStyleBackColor = true;
@@ -1868,11 +1957,12 @@
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1394, 726);
+            this.ClientSize = new System.Drawing.Size(1859, 908);
             this.Controls.Add(this.tabMain);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.Text = "上海市实验学校仪器设备管理系统 - 管理后台";
             this.Load += new System.EventHandler(this.FrmMain_Load);
@@ -2001,7 +2091,7 @@
         private System.Windows.Forms.ComboBox cmbGradeName;
         private System.Windows.Forms.Label lblGradeName;
         private System.Windows.Forms.TabPage pageHelp;
-        private System.Windows.Forms.ColumnHeader cnUpdateDate;
+        private System.Windows.Forms.ColumnHeader cnMachineType;
         private System.Windows.Forms.TabPage pageMoreFeatures;
         private System.Windows.Forms.Button btnImportBookATMCirculationRecord;
         private System.Windows.Forms.Button btnAppendCirculationRecord;
@@ -2032,23 +2122,19 @@
         private System.Windows.Forms.Label lblMachineReturnCount;
         private System.Windows.Forms.Label lblMachineLoanCount;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label lblMachine4ReturnCount;
         private System.Windows.Forms.Label lblMachine3ReturnCount;
         private System.Windows.Forms.Label lblMachine2ReturnCount;
         private System.Windows.Forms.Label lblMachine1ReturnCount;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label lblMachine4LoanCount;
         private System.Windows.Forms.Label lblMachine3LoanCount;
         private System.Windows.Forms.Label lblMachine2LoanCount;
         private System.Windows.Forms.Label lblMachine1LoanCount;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label lblServiceCount;
         private System.Windows.Forms.Label label46;

@@ -14,6 +14,7 @@ namespace ItemCirculationManagementBackground.ViewModels
             get;
         }
 
+
         public string ServiceCount
         {
             set;
@@ -33,6 +34,36 @@ namespace ItemCirculationManagementBackground.ViewModels
         }
 
         public string GoodMachinePercentage
+        {
+            set;
+            get;
+        }
+
+        public string Machine1Name
+        {
+            set;
+            get;
+        }
+
+        public long Machine1Count
+        {
+            set;
+            get;
+        }
+
+        public string Machine2Name
+        {
+            set;
+            get;
+        }
+
+        public long Machine2Count
+        {
+            set;
+            get;
+        }
+
+        public long OtherMachineCount
         {
             set;
             get;
@@ -62,25 +93,13 @@ namespace ItemCirculationManagementBackground.ViewModels
             get;
         }
 
-        public long Machine3LoanCount
+        public long OtherLoanCount
         {
             set;
             get;
         }
 
-        public long Machine3ReturnCount
-        {
-            set;
-            get;
-        }
-
-        public long Machine4LoanCount
-        {
-            set;
-            get;
-        }
-
-        public long Machine4ReturnCount
+        public long OtherReturnCount
         {
             set;
             get;
